@@ -1,4 +1,4 @@
-package DungeonCrawler;
+package dungeoncrawler;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,18 +7,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class MainMenu extends JFrame {
+public class Hauptmenu extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	JLabel label_name;
-	ImageIcon icon_bild = new ImageIcon ("dc.PNG");
+    private String dc = "dc.png";
+	ImageIcon icon_bild = new ImageIcon(this.getClass().getResource(dc));
 	JButton button_start;
 	JButton button_ende;
 	
 	
-	public MainMenu() {
+	public Hauptmenu() {
 		// Fenstersetting zum Hauptmenü
 		setSize(500, 600);
 		setLocation(300, 50);
@@ -45,7 +46,7 @@ public class MainMenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// wird später das Spiel starten
+//				new Hauptspiel();
 				
 			}
 			
@@ -66,7 +67,7 @@ public class MainMenu extends JFrame {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new MainMenu();
+		new Hauptmenu();
 
 	}
 
