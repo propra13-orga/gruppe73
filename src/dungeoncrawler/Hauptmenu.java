@@ -13,17 +13,17 @@ public class Hauptmenu extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	JLabel label_name;
-    private String dc = "dc.png";
+    private String dc = "dc.PNG";
 	ImageIcon icon_bild = new ImageIcon(this.getClass().getResource(dc));
 	JButton button_start;
 	JButton button_ende;
 	
 	
 	public Hauptmenu() {
-		// Fenstersetting zum Hauptmenü
+		// Fenstersetting zum Hauptmenï¿½
 		setSize(500, 600);
 		setLocation(300, 50);
-		setTitle("DoofenCrawler - Hauptmenü");
+		setTitle("DoofenCrawler - Hauptmenï¿½");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setResizable(false);
@@ -37,7 +37,7 @@ public class Hauptmenu extends JFrame {
 		button_ende = new JButton("Spiel beenden");
 		button_ende.setBounds(150, 450, 200, 50);
 		
-		//Label und Buttons hinzufügen
+		//Label und Buttons hinzufï¿½gen
 		add(label_name);
 		add(button_start);
 		add(button_ende);
