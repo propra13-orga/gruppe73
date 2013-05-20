@@ -1,7 +1,7 @@
 package dungeoncrawler;
 import dungeoncrawler.LoadLevel;
 
-public class CollisionControl {
+public class BorderControl {
 
 	/**
 	 * @param args

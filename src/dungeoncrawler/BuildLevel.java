@@ -7,8 +7,10 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyAdapter;
 import dungeoncrawler.LoadLevel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 // ###################################################
 // Diese Klasse bildet ist die Mainmethode des Spiels!
@@ -20,10 +22,10 @@ public class BuildLevel extends JFrame {
 	 * 
 	 */
 	
-	public static final int			KEY_UP = KeyEvent.VK_W;
-	public static final int			KEY_DOWN = KeyEvent.VK_S;
+	public static final int			KEY_UP = KeyEvent.VK_UP;
+	public static final int			KEY_DOWN = KeyEvent.VK_DOWN;
 	public static final int			KEY_LEFT = KeyEvent.VK_LEFT;
-	public static final int			KEY_RIGHT = KeyEvent.VK_D;
+	public static final int			KEY_RIGHT = KeyEvent.VK_RIGHT;
 	public int Current_Level = 1;
 	
 	
@@ -79,16 +81,14 @@ public class BuildLevel extends JFrame {
 
 		
 		final JLabel lblPlayer = new JLabel("");
-		lblPlayer.addKeyListener(new KeyAdapter() {
+
+		
+		lblPlayer.addMouseListener(new MouseAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
-				int k = e.getKeyCode();
-				if (k == KEY_DOWN)
-				{
-					int move_value = (15+lblPlayer.getY());
-					lblPlayer.setBounds(lblPlayer.getX(), move_value, lblPlayer.getWidth(), lblPlayer.getHeight());
-					Content.repaint();
-				}
+			public void mouseClicked(MouseEvent arg0) {
+				int x = lblPlayer.getX()+15;
+				lblPlayer.setBounds(x, lblPlayer.getY(), 15, 15);
+				Content.repaint();
 			}
 		});
 		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/player.PNG")));
