@@ -8,8 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.Color;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyAdapter;
 
 public class BuildLevel extends JFrame {
 
@@ -17,9 +17,9 @@ public class BuildLevel extends JFrame {
 	 * 
 	 */
 	
-	public static final int			KEY_UP = KeyEvent.VK_KP_UP;
-	public static final int			KEY_DOWN = KeyEvent.VK_KP_DOWN;
-	public static final int			KEY_LEFT = KeyEvent.VK_KP_LEFT;
+	public static final int			KEY_UP = KeyEvent.VK_W;
+	public static final int			KEY_DOWN = KeyEvent.VK_S;
+	public static final int			KEY_LEFT = KeyEvent.VK_LEFT;
 	public static final int			KEY_RIGHT = KeyEvent.VK_D;
 	
 	
@@ -46,19 +46,6 @@ public class BuildLevel extends JFrame {
 	 * Create the frame.
 	 */
 	public BuildLevel() {
-		addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				int k = e.getKeyCode();
-				if (k == KEY_RIGHT)
-				{
-					int move_value = (lblPlayer.getX()+15);
-					lblPlayer.setLocation(move_value, lblPlayer.getY());
-					Content.repaint();
-					
-				}
-			}
-		});
 		setResizable(false);
 		
 		//create Jframe and Grid
@@ -91,6 +78,18 @@ public class BuildLevel extends JFrame {
 		Content.add(lblLebensanzeige);
 		
 		final JLabel lblPlayer = new JLabel("");
+		lblPlayer.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				int k = e.getKeyCode();
+				if (k == KEY_DOWN)
+				{
+					int move_value = (15+lblPlayer.getY());
+					lblPlayer.setBounds(lblPlayer.getX(), move_value, lblPlayer.getWidth(), lblPlayer.getHeight());
+					Content.repaint();
+				}
+			}
+		});
 		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/player.PNG")));
 		lblPlayer.setBounds(0, 15, 15, 15);
 		Content.add(lblPlayer);

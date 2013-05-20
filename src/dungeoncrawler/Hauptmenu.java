@@ -1,5 +1,6 @@
 package dungeoncrawler;
 import java.awt.event.ActionEvent;
+import dungeoncrawler.BuildLevel;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
@@ -46,6 +47,8 @@ public class Hauptmenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
+		        BuildLevel.main(null);
 //				new Hauptspiel();
 				
 			}
