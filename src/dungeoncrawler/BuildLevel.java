@@ -3,6 +3,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.GridLayout;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class BuildLevel extends JFrame {
 
@@ -36,6 +40,12 @@ public class BuildLevel extends JFrame {
 		setBounds(300, 300, 300, 225);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(15, 20, 0, 0));
+		
+		JLabel lblLebensanzeige = new JLabel("1 ");
+		lblLebensanzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/heart.PNG")));
+		lblLebensanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
+		contentPane.add(lblLebensanzeige);
 	}
 
 }
