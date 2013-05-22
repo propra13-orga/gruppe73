@@ -13,7 +13,7 @@ public class Hauptmenu extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	JLabel label_name;
-    private String dc = "dc.png";
+    private String dc = "dc.PNG";
 	ImageIcon icon_bild = new ImageIcon(this.getClass().getResource(dc));
 	JButton button_start;
 	JButton button_ende;
