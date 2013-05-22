@@ -1,4 +1,4 @@
-package dungeoncrawler;
+package Bewegungsversuche;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
