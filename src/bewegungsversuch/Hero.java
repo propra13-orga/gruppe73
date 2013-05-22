@@ -1,4 +1,4 @@
-package Bewegungsversuche;
+package bewegungsversuch;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
