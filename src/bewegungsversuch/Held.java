@@ -5,19 +5,19 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
-// Klasse fÃ¼r die Bewegung des Helden
+// Klasse für die Bewegung des Helden
 public class Held {
 
     private String held = "held.png";
 
-    //Variablen fÃ¼r Position und Bewegung
+    //Variablen für Position und Bewegung
     private int dx;
     private int dy;
     private int x;
     private int y;
     private Image image;
 
-    //fÃ¼gt dem Helden ein Bild hinzu
+    //fügt dem Helden ein Bild hinzu
     public Held() {
         ImageIcon ii = new ImageIcon(this.getClass().getResource(held));
         image = ii.getImage();
