@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import dungeoncrawler.LoadLevel;
 
 // ###################################################
-// Diese Klasse bildet ist die Mainmethode des Spiels!
+// Diese Klasse bildet die Mainmethode des Spiels!
 // ###################################################
 
 public class BuildLevel extends JFrame {
