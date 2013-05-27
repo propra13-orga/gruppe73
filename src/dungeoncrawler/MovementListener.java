@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 
 public abstract class MovementListener extends Thread implements java.awt.event.KeyListener {
     public long timeSlice = 50; // Millisekunden, wie oft soll die Bewegung abgefragt werden
-    private int left = 0;
-    private int right = 0;
-    private int up = 0;
-    private int down = 0;
+    public static int left = 0;
+    public static int right = 0;
+    public static int up = 0;
+    public static int down = 0;
     private boolean stopFlag = false;
 
     public void keyTyped(java.awt.event.KeyEvent e) {
@@ -27,6 +27,52 @@ public abstract class MovementListener extends Thread implements java.awt.event.
         if (e.getKeyCode() == KeyEvent.VK_UP) up = 0;
         if (e.getKeyCode() == KeyEvent.VK_DOWN) down = 0;
     }
+    
+    public static boolean checkLeft() {
+    	boolean left_stop = false;
+    	if (left == -15) {
+    		left_stop = true;
+    	}
+    	else {
+    		left_stop = false;
+    	}
+    	return left_stop;
+    }
+    
+    public static boolean checkRight() {
+    	boolean right_stop = false;
+    	if (right == 15) {
+    		right_stop = true;
+    	}
+    	else {
+    		right_stop = false;
+    	}
+    	return right_stop;
+    }
+    
+    public static boolean checkUp() {
+    	boolean up_stop = false;
+    	if (up == -15) {
+    		up_stop = true;
+    	}
+    	else {
+    		up_stop = false;
+    	}
+    	return up_stop;
+    }
+    
+    public static boolean checkDown() {
+    	boolean down_stop = false;
+    	if (down == 15) {
+    		down_stop = true;
+    	}
+    	else {
+    		down_stop = false;
+    	}
+    	return down_stop;
+    }
+    
+    
 
     /*
      * Ruft alle timeSlice Millisekunden die abstrakte Methode doMovement auf

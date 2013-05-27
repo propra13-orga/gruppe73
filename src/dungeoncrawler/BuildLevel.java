@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import dungeoncrawler.CollisionControl;
 import dungeoncrawler.LoadLevel;
 
 // ###################################################
@@ -22,10 +23,6 @@ public class BuildLevel extends JFrame {
 	 * 
 	 */
 	
-	public static final int			KEY_UP = KeyEvent.VK_UP;
-	public static final int			KEY_DOWN = KeyEvent.VK_DOWN;
-	public static final int			KEY_LEFT = KeyEvent.VK_LEFT;
-	public static final int			KEY_RIGHT = KeyEvent.VK_RIGHT;
 	public int Current_Level = 1;
 	
 	
@@ -33,6 +30,8 @@ public class BuildLevel extends JFrame {
 	private static JPanel Content;
 	private static javax.swing.JLabel lblPlayer;
 	private static MovementListener mListener;
+	private int newY;
+    private int newX;
 
 	/**
 	 * Main-Methode
@@ -79,9 +78,15 @@ public class BuildLevel extends JFrame {
 		mListener = new MovementListener() {
 			@Override
 			public void doMovement(int left, int right, int up, int down) {
-                java.awt.Rectangle pos = lblPlayer.getBounds();
-                final int newX = pos.x + left + right;
-                final int newY = pos.y + up + down;
+                
+				java.awt.Rectangle pos = lblPlayer.getBounds();
+                if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
+                	newX = pos.x + left + right;
+                }
+                if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
+                	newY = pos.y + up + down;
+                }
+                
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
