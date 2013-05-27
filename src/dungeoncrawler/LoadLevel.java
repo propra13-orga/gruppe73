@@ -1,6 +1,6 @@
 package dungeoncrawler;
 
-// Diese Klasse laedt die Levels aus einer Datei und gibt die ausgelesenen
+// Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
 // Informationen an die Labels der BuildLevel.java weiter.
 
 public class LoadLevel {
@@ -22,6 +22,7 @@ public class LoadLevel {
 		
 		// ############################################
 		// Hier fehlt die Datei-Import funktion! (Nils)
+		// Levelparameter einzelnd eingelesen
 		// ############################################
 		
 		

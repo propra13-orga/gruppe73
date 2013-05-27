@@ -2,21 +2,15 @@ package dungeoncrawler;
 
 
 
-import java.awt.Component;
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import dungeoncrawler.LoadLevel;
-import java.awt.event.KeyAdapter;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
 
 // ###################################################
 // Diese Klasse bildet ist die Mainmethode des Spiels!
