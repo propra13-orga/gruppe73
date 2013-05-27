@@ -1,6 +1,10 @@
 package dungeoncrawler;
 import dungeoncrawler.LoadLevel;
-
+/**
+ * Diese Klasse ist für die Kollisionsabfrage mit dem Rahmen des Fensters zuständig.
+ * Ausserdem werden mit dieser Klasse die Berührungen mit dem Gegner abgefragt.
+ * 
+ */
 public class CollisionControl {
 
 	/**
