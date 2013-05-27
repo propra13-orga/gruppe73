@@ -1,4 +1,8 @@
 package dungeoncrawler;
+
+
+
+import java.awt.Component;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,10 +11,12 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.Toolkit;
 import dungeoncrawler.LoadLevel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
 
 // ###################################################
 // Diese Klasse bildet ist die Mainmethode des Spiels!
@@ -30,27 +36,38 @@ public class BuildLevel extends JFrame {
 	
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel Content;
+	private static JPanel Content;
+	private static javax.swing.JLabel lblPlayer;
+	private static MovementListener mListener;
 
 	/**
 	 * Main-Methode
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BuildLevel frame = new BuildLevel();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		final BuildLevel m = new BuildLevel();
+		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        	public void run() {
+        		m.setVisible(true);
 			}
 		});
+		
 	}
 
 	/**
 	 * Create the frame.
 	 */
+	@Override
+    public void setVisible(boolean value) {
+        if (value == true) {
+            this.addKeyListener(mListener);
+            mListener.start();
+        } else {
+            mListener.end();
+            this.removeKeyListener(mListener);
+        }
+        super.setVisible(value);
+	}
+	
 	public BuildLevel() {
 		setResizable(false);
 		
@@ -64,6 +81,26 @@ public class BuildLevel extends JFrame {
 		Content.setBorder(null);
 		setContentPane(Content);
 		Content.setLayout(null);
+		
+		mListener = new MovementListener() {
+			@Override
+			public void doMovement(int left, int right, int up, int down) {
+                java.awt.Rectangle pos = lblPlayer.getBounds();
+                final int newX = pos.x + left + right;
+                final int newY = pos.y + up + down;
+                javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+                        
+                    }
+                });
+                Content.repaint();
+			}
+			
+		};
+		mListener.setPriority(Thread.NORM_PRIORITY);
+		
+		
 		
 		//LEBENSANZEIGE
 		
@@ -80,17 +117,7 @@ public class BuildLevel extends JFrame {
 		Content.add(lblCurrentLevel);
 
 		
-		final JLabel lblPlayer = new JLabel("");
-
-		
-		lblPlayer.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				int x = lblPlayer.getX()+15;
-				lblPlayer.setBounds(x, lblPlayer.getY(), 15, 15);
-				Content.repaint();
-			}
-		});
+		lblPlayer = new JLabel("");
 		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/player.PNG")));
 		lblPlayer.setBounds(0, 15, 15, 15);
 		Content.add(lblPlayer);
@@ -1629,8 +1656,9 @@ public class BuildLevel extends JFrame {
 		lvlO20.setBounds(285, 210, 15, 15);
 		Content.add(lvlO20);
 		}
+	
 		
-
+	
 		
 
 	}
