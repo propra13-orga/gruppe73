@@ -16,6 +16,7 @@ public class CollisionControl {
 		// TODO Auto-generated method stub
 		
 		String Current_LevelMap = LoadLevel.getCurrent_LevelMap();
+		Current_LevelMap = Current_LevelMap + "Bla";
 		
 	}
 	
@@ -57,6 +58,21 @@ public class CollisionControl {
 			permit_Ymovement = true;
 		}
 		return permit_Ymovement;
+	}
+	
+	/*
+	 *  GEGNER-Kollisions-ABFRAGE
+	 *  ==============
+	 */
+	
+	public static boolean check_enemies(int plyX, int plyY, int enmX, int enmY) {
+		boolean collision = false;
+		if (plyX == enmX) {
+			if (plyY == enmY) {
+				collision = true;
+			}
+		}
+		return collision;
 	}
 
 }

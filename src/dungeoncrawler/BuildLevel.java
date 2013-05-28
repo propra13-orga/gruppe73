@@ -3,8 +3,6 @@ package dungeoncrawler;
 
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,12 +22,17 @@ public class BuildLevel extends JFrame {
 	 */
 	
 	public int Current_Level = 1;
+	public static int Current_Points = 0;
+	public static boolean game_over = false;
 	
 	
 	private static final long serialVersionUID = 1L;
 	private static JPanel Content;
 	private static javax.swing.JLabel lblPlayer;
 	private static MovementListener mListener;
+	private static javax.swing.JLabel lblPunkteanzeige;
+	private static javax.swing.JLabel lblGegner1;
+	private static javax.swing.JLabel lblGameOver;
 	private int newY;
     private int newX;
 
@@ -84,16 +87,16 @@ public class BuildLevel extends JFrame {
                 	newX = pos.x + left + right;
                 }
                 if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
-                	newY = pos.y + up + down;
+                	newY = pos.y + up + down;               	
                 }
                 
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-                        
+                        lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());   
                     }
                 });
                 Content.repaint();
+                
 			}
 			
 		};
@@ -111,6 +114,26 @@ public class BuildLevel extends JFrame {
 		lblLebensanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
 		Content.add(lblLebensanzeige);
 		
+		//Punkteanzeige
+		
+		lblPunkteanzeige = new JLabel(Current_Points+" ");
+		lblPunkteanzeige.setForeground(Color.BLACK);
+		lblPunkteanzeige.setBackground(Color.WHITE);
+		lblPunkteanzeige.setBounds(215, 0, 50, 15);
+		lblPunkteanzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/points.PNG")));
+		lblPunkteanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
+		Content.add(lblPunkteanzeige);
+		
+		lblGameOver = new JLabel("GAME OVER");
+		lblGameOver.setForeground(Color.RED);
+		lblGameOver.setBackground(Color.BLACK);
+		lblGameOver.setBounds(90, 100, 100, 15);
+		lblGameOver.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblGameOver.setVisible(true);
+		Content.add(lblGameOver);
+		
+		//Current_Level
+		
 		JLabel lblCurrentLevel = new JLabel("Level "+Current_Level);
 		lblCurrentLevel.setBounds(3, 0, 46, 14);
 		Content.add(lblCurrentLevel);
@@ -120,6 +143,11 @@ public class BuildLevel extends JFrame {
 		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/player.PNG")));
 		lblPlayer.setBounds(0, 15, 15, 15);
 		Content.add(lblPlayer);
+		
+		lblGegner1 = new JLabel("");
+		lblGegner1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/boooo.PNG")));
+		lblGegner1.setBounds(30, 30, 15, 15);
+		Content.add(lblGegner1);
 		
 		// Einzelne Level Items
 		// Hab's leider nicht geschafft das zu automatisieren :-(
