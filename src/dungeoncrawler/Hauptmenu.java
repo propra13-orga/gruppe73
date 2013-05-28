@@ -21,10 +21,10 @@ public class Hauptmenu extends JFrame {
 	
 	
 	public Hauptmenu() {
-		// Fenstersetting zum Hauptmen�
+		// Fenstersetting zum Hauptmenue
 		setSize(500, 600);
 		setLocation(300, 50);
-		setTitle("DoofenCrawler - Hauptmen�");
+		setTitle("DoofenCrawler - Hauptmenue");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setResizable(false);
