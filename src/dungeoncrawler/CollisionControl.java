@@ -1,6 +1,5 @@
 package dungeoncrawler;
 import dungeoncrawler.LoadLevel;
-import dungeoncrawler.BuildLevel;
 import dungeoncrawler.MovementListener;
 /**
  * Diese Klasse ist für die Kollisionsabfrage mit dem Rahmen des Fensters zuständig.

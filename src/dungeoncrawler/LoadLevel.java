@@ -12,21 +12,58 @@ public class LoadLevel {
 	 * @return 
 	 * @return 
 	 */
+	public static String Current_LevelMap = null;
+	public static int PosStartX;
+	public static int PosStartY;
 	
 	public static String getCurrent_LevelMap() {
-		String Current_LevelMap = "PPPPPPPPPPWWWWWWWWWWPWWWWWWWWPWWPPPPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPPPPDPWWWWWWWWPPPPWWWWWWWPWWWWWWWWPWWPWWWWWWWPPPWWWWWWPWWPWWWWWWWWWPWWWWWWPWWPWWWWWWWWWPPPPPPPPWWPWWWWWWWWWPWWWWWWPWWPPPPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWDWWWWWWSWWSWWSWWWW";
+		
 		return Current_LevelMap;
 	}
+	
+	public static int getPlayerPosStartX(int aktuelles_level) {
+		/*
+		 * String StringPosX = null;
+		 * StringPosX = Current_LevelMap.substring(300, 3);
+		 * PosStartX = Integer.parseInt(StringPosX);
+		 */
+		if (aktuelles_level == 1) {
+			PosStartX = 30;
+		}
+		return PosStartX;	
+	}
+	
+	public static int getPlayerPosStartY(int aktuelles_level) {
+		/*
+		 * String StringPosY = null;
+		 * StringPosY = Current_LevelMap.substring(303, 3);
+		 * PosStartY = Integer.parseInt(StringPosY);
+		 */
+		if (aktuelles_level == 1) {
+			PosStartY = 225;
+		}
+		return PosStartY;	
+	}
+	
 	public static String main(int current_level, int position) {
 		String output = null;
+
 		
 		// ############################################
 		// Hier fehlt die Datei-Import funktion! (Nils)
 		// Levelparameter einzelnd eingelesen
 		// ############################################
 		
+		if (BuildLevel.Current_Level == 1) {
+			Current_LevelMap = "PPPPPPPPPPWWWWWWWWWWPWWWWWWWWPWWPPPPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPPPPDPWWWWWWWWPPPPWWWWWWWPWWWWWWWWPWWPWWWWWWWPPPWWWWWWPWWPWWWWWWWWWPWWWWWWPWWPWWWWWWWWWPPPPPPPPWWPWWWWWWWWWPWWWWWWPWWPPPPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWDWWWWWWSWWSWWSWWWW225030";
+		}
+		else if (current_level == 2) {
+			
+		}
+		else if (BuildLevel.Current_Level == 3) {
+			
+		}
 		
-		String Current_LevelMap = "PPPPPPPPPPWWWWWWWWWWPWWWWWWWWPWWPPPPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPPPPDPWWWWWWWWPPPPWWWWWWWPWWWWWWWWPWWPWWWWWWWPPPWWWWWWPWWPWWWWWWWWWPWWWWWWPWWPWWWWWWWWWPPPPPPPPWWPWWWWWWWWWPWWWWWWPWWPPPPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWDWWWWWWSWWSWWSWWWW";
 		char[] SingleChar = Current_LevelMap.toCharArray();
 		
 		String StrP = "P";
@@ -46,7 +83,7 @@ public class LoadLevel {
 		}
 		
 		else if (SingleChar[position] == ChaS[0]) {
-			output = "/dungeoncrawler/wall.PNG";			
+			output = "/dungeoncrawler/falle.PNG";			
 		}
 		
 		else if (SingleChar[position] == ChaW[0]) {

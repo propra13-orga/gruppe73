@@ -21,7 +21,7 @@ public class BuildLevel extends JFrame {
 	 * 
 	 */
 	
-	public int Current_Level = 1;
+	public static int Current_Level = 1;
 	public static int Current_Points = 0;
 	public static boolean game_over = false;
 	
@@ -32,7 +32,6 @@ public class BuildLevel extends JFrame {
 	private static MovementListener mListener;
 	private static javax.swing.JLabel lblPunkteanzeige;
 	private static javax.swing.JLabel lblGegner1;
-	private static javax.swing.JLabel lblGameOver;
 	private int newY;
     private int newX;
 
@@ -130,14 +129,6 @@ public class BuildLevel extends JFrame {
 		lblPunkteanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
 		Content.add(lblPunkteanzeige);
 		
-		lblGameOver = new JLabel("GAME OVER");
-		lblGameOver.setForeground(Color.RED);
-		lblGameOver.setBackground(Color.BLACK);
-		lblGameOver.setBounds(90, 100, 100, 15);
-		lblGameOver.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblGameOver.setVisible(true);
-		Content.add(lblGameOver);
-		
 		//Current_Level
 		
 		JLabel lblCurrentLevel = new JLabel("Level "+Current_Level);
@@ -147,7 +138,9 @@ public class BuildLevel extends JFrame {
 		
 		lblPlayer = new JLabel("");
 		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/player.PNG")));
-		lblPlayer.setBounds(0, 15, 15, 15);
+		newX = LoadLevel.getPlayerPosStartX(Current_Level);
+		newY = LoadLevel.getPlayerPosStartY(Current_Level);
+		lblPlayer.setBounds(newX, newY, 15, 15);
 		Content.add(lblPlayer);
 		
 		lblGegner1 = new JLabel("");
