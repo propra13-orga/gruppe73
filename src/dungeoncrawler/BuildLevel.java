@@ -71,7 +71,7 @@ public class BuildLevel extends JFrame {
 		
 		setTitle("Dungeon Crawler - Level "+Current_Level);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(300, 300, 306, 257);
+		setBounds(300, 300, 306, 272);
 		Content = new JPanel();
 		Content.setBackground(Color.WHITE);
 		Content.setBorder(null);
@@ -84,10 +84,16 @@ public class BuildLevel extends JFrame {
                 
 				java.awt.Rectangle pos = lblPlayer.getBounds();
                 if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
-                	newX = pos.x + left + right;
+                	if (CollisionControl.check_wall(lblPlayer.getX(), lblPlayer.getY()) == true) {
+                		newX = pos.x + left + right;
+                	}
+                	
                 }
                 if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
-                	newY = pos.y + up + down;               	
+                	if (CollisionControl.check_wall(lblPlayer.getX(), lblPlayer.getY()) == true) {
+                		newY = pos.y + up + down;   
+                	}
+                	            	
                 }
                 
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -973,714 +979,714 @@ public class BuildLevel extends JFrame {
 		
 		JLabel lvlI1 = new JLabel("");
 		lvlI1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 160))));
-		lvlI1.setBounds(0, 120, 15, 15);
+		lvlI1.setBounds(0, 135, 15, 15);
 		Content.add(lvlI1);
 		
 		JLabel lvlI2 = new JLabel("");
 		lvlI2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 161))));
-		lvlI2.setBounds(15, 120, 15, 15);
+		lvlI2.setBounds(15, 135, 15, 15);
 		Content.add(lvlI2);
 		
 		JLabel lvlI3 = new JLabel("");
 		lvlI3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 162))));
-		lvlI3.setBounds(30, 120, 15, 15);
+		lvlI3.setBounds(30, 135, 15, 15);
 		Content.add(lvlI3);
 		
 		JLabel lvlI4 = new JLabel("");
 		lvlI4.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 163))));
-		lvlI4.setBounds(45, 120, 15, 15);
+		lvlI4.setBounds(45, 135, 15, 15);
 		Content.add(lvlI4);
 		
 		JLabel lvlI5 = new JLabel("");
 		lvlI5.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 164))));
-		lvlI5.setBounds(60, 120, 15, 15);
+		lvlI5.setBounds(60, 135, 15, 15);
 		Content.add(lvlI5);
 		
 		JLabel lvlI6 = new JLabel("");
 		lvlI6.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 165))));
-		lvlI6.setBounds(75, 120, 15, 15);
+		lvlI6.setBounds(75, 135, 15, 15);
 		Content.add(lvlI6);
 		
 		JLabel lvlI7 = new JLabel("");
 		lvlI7.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 166))));
-		lvlI7.setBounds(90, 120, 15, 15);
+		lvlI7.setBounds(90, 135, 15, 15);
 		Content.add(lvlI7);
 		
 		JLabel lvlI8 = new JLabel("");
 		lvlI8.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 167))));
-		lvlI8.setBounds(105, 120, 15, 15);
+		lvlI8.setBounds(105, 135, 15, 15);
 		Content.add(lvlI8);
 		
 		JLabel lvlI9 = new JLabel("");
 		lvlI9.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 168))));
-		lvlI9.setBounds(120, 120, 15, 15);
+		lvlI9.setBounds(120, 135, 15, 15);
 		Content.add(lvlI9);
 		
 		JLabel lvlI10 = new JLabel("");
 		lvlI10.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 169))));
-		lvlI10.setBounds(135, 120, 15, 15);
+		lvlI10.setBounds(135, 135, 15, 15);
 		Content.add(lvlI10);
 		
 		JLabel lvlI11 = new JLabel("");
 		lvlI11.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 170))));
-		lvlI11.setBounds(150, 120, 15, 15);
+		lvlI11.setBounds(150, 135, 15, 15);
 		Content.add(lvlI11);
 		
 		JLabel lvlI12 = new JLabel("");
 		lvlI12.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 171))));
-		lvlI12.setBounds(165, 120, 15, 15);
+		lvlI12.setBounds(165, 135, 15, 15);
 		Content.add(lvlI12);
 		
 		JLabel lvlI13 = new JLabel("");
 		lvlI13.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 172))));
-		lvlI13.setBounds(180, 120, 15, 15);
+		lvlI13.setBounds(180, 135, 15, 15);
 		Content.add(lvlI13);
 		
 		JLabel lvlI14 = new JLabel("");
 		lvlI14.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 173))));
-		lvlI14.setBounds(195, 120, 15, 15);
+		lvlI14.setBounds(195, 135, 15, 15);
 		Content.add(lvlI14);
 		
 		JLabel lvlI15 = new JLabel("");
 		lvlI15.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 174))));
-		lvlI15.setBounds(210, 120, 15, 15);
+		lvlI15.setBounds(210, 135, 15, 15);
 		Content.add(lvlI15);
 		
 		JLabel lvlI16 = new JLabel("");
 		lvlI16.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 175))));
-		lvlI16.setBounds(225, 120, 15, 15);
+		lvlI16.setBounds(225, 135, 15, 15);
 		Content.add(lvlI16);
 		
 		JLabel lvlI17 = new JLabel("");
 		lvlI17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 176))));
-		lvlI17.setBounds(240, 120, 15, 15);
+		lvlI17.setBounds(240, 135, 15, 15);
 		Content.add(lvlI17);
 		
 		JLabel lvlI18 = new JLabel("");
 		lvlI18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 177))));
-		lvlI18.setBounds(255, 120, 15, 15);
+		lvlI18.setBounds(255, 135, 15, 15);
 		Content.add(lvlI18);
 		
 		JLabel lvlI19 = new JLabel("");
 		lvlI19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 178))));
-		lvlI19.setBounds(270, 120, 15, 15);
+		lvlI19.setBounds(270, 135, 15, 15);
 		Content.add(lvlI19);
 		
 		JLabel lvlI20 = new JLabel("");
 		lvlI20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 179))));
-		lvlI20.setBounds(285, 120, 15, 15);
+		lvlI20.setBounds(285, 135, 15, 15);
 		Content.add(lvlI20);
 		
 		// J-Reihe (id:180-199)
 		
 		JLabel lvlJ1 = new JLabel("");
 		lvlJ1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 180))));
-		lvlJ1.setBounds(0, 135, 15, 15);
+		lvlJ1.setBounds(0, 150, 15, 15);
 		Content.add(lvlJ1);
 		
 		JLabel lvlJ2 = new JLabel("");
 		lvlJ2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 181))));
-		lvlJ2.setBounds(15, 135, 15, 15);
+		lvlJ2.setBounds(15, 150, 15, 15);
 		Content.add(lvlJ2);
 		
 		JLabel lvlJ3 = new JLabel("");
 		lvlJ3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 182))));
-		lvlJ3.setBounds(30, 135, 15, 15);
+		lvlJ3.setBounds(30, 150, 15, 15);
 		Content.add(lvlJ3);
 		
 		JLabel lvlJ4 = new JLabel("");
 		lvlJ4.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 183))));
-		lvlJ4.setBounds(45, 135, 15, 15);
+		lvlJ4.setBounds(45, 150, 15, 15);
 		Content.add(lvlJ4);
 		
 		JLabel lvlJ5 = new JLabel("");
 		lvlJ5.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 184))));
-		lvlJ5.setBounds(60, 135, 15, 15);
+		lvlJ5.setBounds(60, 150, 15, 15);
 		Content.add(lvlJ5);
 		
 		JLabel lvlJ6 = new JLabel("");
 		lvlJ6.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 185))));
-		lvlJ6.setBounds(75, 135, 15, 15);
+		lvlJ6.setBounds(75, 150, 15, 15);
 		Content.add(lvlJ6);
 		
 		JLabel lvlJ7 = new JLabel("");
 		lvlJ7.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 186))));
-		lvlJ7.setBounds(90, 135, 15, 15);
+		lvlJ7.setBounds(90, 150, 15, 15);
 		Content.add(lvlJ7);
 		
 		JLabel lvlJ8 = new JLabel("");
 		lvlJ8.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 187))));
-		lvlJ8.setBounds(105, 135, 15, 15);
+		lvlJ8.setBounds(105, 150, 15, 15);
 		Content.add(lvlJ8);
 		
 		JLabel lvlJ9 = new JLabel("");
 		lvlJ9.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 188))));
-		lvlJ9.setBounds(120, 135, 15, 15);
+		lvlJ9.setBounds(120, 150, 15, 15);
 		Content.add(lvlJ9);
 		
 		JLabel lvlJ10 = new JLabel("");
 		lvlJ10.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 189))));
-		lvlJ10.setBounds(135, 135, 15, 15);
+		lvlJ10.setBounds(135, 150, 15, 15);
 		Content.add(lvlJ10);
 		
 		JLabel lvlJ11 = new JLabel("");
 		lvlJ11.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 190))));
-		lvlJ11.setBounds(150, 135, 15, 15);
+		lvlJ11.setBounds(150, 150, 15, 15);
 		Content.add(lvlJ11);
 		
 		JLabel lvlJ12 = new JLabel("");
 		lvlJ12.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 191))));
-		lvlJ12.setBounds(165, 135, 15, 15);
+		lvlJ12.setBounds(165, 150, 15, 15);
 		Content.add(lvlJ12);
 		
 		JLabel lvlJ13 = new JLabel("");
 		lvlJ13.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 192))));
-		lvlJ13.setBounds(180, 135, 15, 15);
+		lvlJ13.setBounds(180, 150, 15, 15);
 		Content.add(lvlJ13);
 		
 		JLabel lvlJ14 = new JLabel("");
 		lvlJ14.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 193))));
-		lvlJ14.setBounds(195, 135, 15, 15);
+		lvlJ14.setBounds(195, 150, 15, 15);
 		Content.add(lvlJ14);
 		
 		JLabel lvlJ15 = new JLabel("");
 		lvlJ15.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 194))));
-		lvlJ15.setBounds(210, 135, 15, 15);
+		lvlJ15.setBounds(210, 150, 15, 15);
 		Content.add(lvlJ15);
 		
 		JLabel lvlJ16 = new JLabel("");
 		lvlJ16.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 195))));
-		lvlJ16.setBounds(225, 135, 15, 15);
+		lvlJ16.setBounds(225, 150, 15, 15);
 		Content.add(lvlJ16);
 		
 		JLabel lvlJ17 = new JLabel("");
 		lvlJ17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 196))));
-		lvlJ17.setBounds(240, 135, 15, 15);
+		lvlJ17.setBounds(240, 150, 15, 15);
 		Content.add(lvlJ17);
 		
 		JLabel lvlJ18 = new JLabel("");
 		lvlJ18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 197))));
-		lvlJ18.setBounds(255, 135, 15, 15);
+		lvlJ18.setBounds(255, 150, 15, 15);
 		Content.add(lvlJ18);
 		
 		JLabel lvlJ19 = new JLabel("");
 		lvlJ19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 198))));
-		lvlJ19.setBounds(270, 135, 15, 15);
+		lvlJ19.setBounds(270, 150, 15, 15);
 		Content.add(lvlJ19);
 		
 		JLabel lvlJ20 = new JLabel("");
 		lvlJ20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 199))));
-		lvlJ20.setBounds(285, 135, 15, 15);
+		lvlJ20.setBounds(285, 150, 15, 15);
 		Content.add(lvlJ20);
 		
 		// K-Reihe (id: 200-219)
 		
 		JLabel lvlK1 = new JLabel("");
 		lvlK1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 200))));
-		lvlK1.setBounds(0, 150, 15, 15);
+		lvlK1.setBounds(0, 165, 15, 15);
 		Content.add(lvlK1);
 		
 		JLabel lvlK2 = new JLabel("");
 		lvlK2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 201))));
-		lvlK2.setBounds(15, 150, 15, 15);
+		lvlK2.setBounds(15, 165, 15, 15);
 		Content.add(lvlK2);
 		
 		JLabel lvlK3 = new JLabel("");
 		lvlK3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 202))));
-		lvlK3.setBounds(30, 150, 15, 15);
+		lvlK3.setBounds(30, 165, 15, 15);
 		Content.add(lvlK3);
 		
 		JLabel lvlK4 = new JLabel("");
 		lvlK4.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 203))));
-		lvlK4.setBounds(45, 150, 15, 15);
+		lvlK4.setBounds(45, 165, 15, 15);
 		Content.add(lvlK4);
 		
 		JLabel lvlK5 = new JLabel("");
 		lvlK5.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 204))));
-		lvlK5.setBounds(60, 150, 15, 15);
+		lvlK5.setBounds(60, 165, 15, 15);
 		Content.add(lvlK5);
 		
 		JLabel lvlK6 = new JLabel("");
 		lvlK6.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 205))));
-		lvlK6.setBounds(75, 150, 15, 15);
+		lvlK6.setBounds(75, 165, 15, 15);
 		Content.add(lvlK6);
 		
 		JLabel lvlK7 = new JLabel("");
 		lvlK7.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 206))));
-		lvlK7.setBounds(90, 150, 15, 15);
+		lvlK7.setBounds(90, 165, 15, 15);
 		Content.add(lvlK7);
 		
 		JLabel lvlK8 = new JLabel("");
 		lvlK8.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 207))));
-		lvlK8.setBounds(105, 150, 15, 15);
+		lvlK8.setBounds(105, 165, 15, 15);
 		Content.add(lvlK8);
 		
 		JLabel lvlK9 = new JLabel("");
 		lvlK9.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 208))));
-		lvlK9.setBounds(120, 150, 15, 15);
+		lvlK9.setBounds(120, 165, 15, 15);
 		Content.add(lvlK9);
 		
 		JLabel lvlK10 = new JLabel("");
 		lvlK10.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 209))));
-		lvlK10.setBounds(135, 150, 15, 15);
+		lvlK10.setBounds(135, 165, 15, 15);
 		Content.add(lvlK10);
 		
 		JLabel lvlK11 = new JLabel("");
 		lvlK11.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 210))));
-		lvlK11.setBounds(150, 150, 15, 15);
+		lvlK11.setBounds(150, 165, 15, 15);
 		Content.add(lvlK11);
 		
 		JLabel lvlK12 = new JLabel("");
 		lvlK12.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 211))));
-		lvlK12.setBounds(165, 150, 15, 15);
+		lvlK12.setBounds(165, 165, 15, 15);
 		Content.add(lvlK12);
 		
 		JLabel lvlK13 = new JLabel("");
 		lvlK13.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 212))));
-		lvlK13.setBounds(180, 150, 15, 15);
+		lvlK13.setBounds(180, 165, 15, 15);
 		Content.add(lvlK13);
 		
 		JLabel lvlK14 = new JLabel("");
 		lvlK14.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 213))));
-		lvlK14.setBounds(195, 150, 15, 15);
+		lvlK14.setBounds(195, 165, 15, 15);
 		Content.add(lvlK14);
 		
 		JLabel lvlK15 = new JLabel("");
 		lvlK15.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 214))));
-		lvlK15.setBounds(210, 150, 15, 15);
+		lvlK15.setBounds(210, 165, 15, 15);
 		Content.add(lvlK15);
 		
 		JLabel lvlK16 = new JLabel("");
 		lvlK16.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 215))));
-		lvlK16.setBounds(225, 150, 15, 15);
+		lvlK16.setBounds(225, 165, 15, 15);
 		Content.add(lvlK16);
 		
 		JLabel lvlK17 = new JLabel("");
 		lvlK17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 216))));
-		lvlK17.setBounds(240, 150, 15, 15);
+		lvlK17.setBounds(240, 165, 15, 15);
 		Content.add(lvlK17);
 		
 		JLabel lvlK18 = new JLabel("");
 		lvlK18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 217))));
-		lvlK18.setBounds(255, 150, 15, 15);
+		lvlK18.setBounds(255, 165, 15, 15);
 		Content.add(lvlK18);
 		
 		JLabel lvlK19 = new JLabel("");
 		lvlK19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 218))));
-		lvlK19.setBounds(270, 150, 15, 15);
+		lvlK19.setBounds(270, 165, 15, 15);
 		Content.add(lvlK19);
 		
 		JLabel lvlK20 = new JLabel("");
 		lvlK20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 219))));
-		lvlK20.setBounds(285, 150, 15, 15);
+		lvlK20.setBounds(285, 165, 15, 15);
 		Content.add(lvlK20);
 		
 		// L-Reihe (id: 220-239)
 		
 		JLabel lvlL1 = new JLabel("");
 		lvlL1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 220))));
-		lvlL1.setBounds(0, 165, 15, 15);
+		lvlL1.setBounds(0, 180, 15, 15);
 		Content.add(lvlL1);
 		
 		JLabel lvlL2 = new JLabel("");
 		lvlL2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 221))));
-		lvlL2.setBounds(15, 165, 15, 15);
+		lvlL2.setBounds(15, 180, 15, 15);
 		Content.add(lvlL2);
 		
 		JLabel lvlL3 = new JLabel("");
 		lvlL3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 222))));
-		lvlL3.setBounds(30, 165, 15, 15);
+		lvlL3.setBounds(30, 180, 15, 15);
 		Content.add(lvlL3);
 		
 		JLabel lvlL4 = new JLabel("");
 		lvlL4.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 223))));
-		lvlL4.setBounds(45, 165, 15, 15);
+		lvlL4.setBounds(45, 180, 15, 15);
 		Content.add(lvlL4);
 		
 		JLabel lvlL5 = new JLabel("");
 		lvlL5.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 224))));
-		lvlL5.setBounds(60, 165, 15, 15);
+		lvlL5.setBounds(60, 180, 15, 15);
 		Content.add(lvlL5);
 		
 		JLabel lvlL6 = new JLabel("");
 		lvlL6.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 225))));
-		lvlL6.setBounds(75, 165, 15, 15);
+		lvlL6.setBounds(75, 180, 15, 15);
 		Content.add(lvlL6);
 		
 		JLabel lvlL7 = new JLabel("");
 		lvlL7.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 226))));
-		lvlL7.setBounds(90, 165, 15, 15);
+		lvlL7.setBounds(90, 180, 15, 15);
 		Content.add(lvlL7);
 		
 		JLabel lvlL8 = new JLabel("");
 		lvlL8.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 227))));
-		lvlL8.setBounds(105, 165, 15, 15);
+		lvlL8.setBounds(105, 180, 15, 15);
 		Content.add(lvlL8);
 		
 		JLabel lvlL9 = new JLabel("");
 		lvlL9.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 228))));
-		lvlL9.setBounds(120, 165, 15, 15);
+		lvlL9.setBounds(120, 180, 15, 15);
 		Content.add(lvlL9);
 		
 		JLabel lvlL10 = new JLabel("");
 		lvlL10.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 229))));
-		lvlL10.setBounds(135, 165, 15, 15);
+		lvlL10.setBounds(135, 180, 15, 15);
 		Content.add(lvlL10);
 		
 		JLabel lvlL11 = new JLabel("");
 		lvlL11.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 230))));
-		lvlL11.setBounds(150, 165, 15, 15);
+		lvlL11.setBounds(150, 180, 15, 15);
 		Content.add(lvlL11);
 		
 		JLabel lvlL12 = new JLabel("");
 		lvlL12.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 231))));
-		lvlL12.setBounds(165, 165, 15, 15);
+		lvlL12.setBounds(165, 180, 15, 15);
 		Content.add(lvlL12);
 		
 		JLabel lvlL13 = new JLabel("");
 		lvlL13.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 232))));
-		lvlL13.setBounds(180, 165, 15, 15);
+		lvlL13.setBounds(180, 180, 15, 15);
 		Content.add(lvlL13);
 		
 		JLabel lvlL14 = new JLabel("");
 		lvlL14.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 233))));
-		lvlL14.setBounds(195, 165, 15, 15);
+		lvlL14.setBounds(195, 180, 15, 15);
 		Content.add(lvlL14);
 		
 		JLabel lvlL15 = new JLabel("");
 		lvlL15.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 234))));
-		lvlL15.setBounds(210, 165, 15, 15);
+		lvlL15.setBounds(210, 180, 15, 15);
 		Content.add(lvlL15);
 		
 		JLabel lvlL16 = new JLabel("");
 		lvlL16.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 235))));
-		lvlL16.setBounds(225, 165, 15, 15);
+		lvlL16.setBounds(225, 180, 15, 15);
 		Content.add(lvlL16);
 		
 		JLabel lvlL17 = new JLabel("");
 		lvlL17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 236))));
-		lvlL17.setBounds(240, 165, 15, 15);
+		lvlL17.setBounds(240, 180, 15, 15);
 		Content.add(lvlL17);
 		
 		JLabel lvlL18 = new JLabel("");
 		lvlL18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 237))));
-		lvlL18.setBounds(255, 165, 15, 15);
+		lvlL18.setBounds(255, 180, 15, 15);
 		Content.add(lvlL18);
 		
 		JLabel lvlL19 = new JLabel("");
 		lvlL19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 238))));
-		lvlL19.setBounds(270, 165, 15, 15);
+		lvlL19.setBounds(270, 180, 15, 15);
 		Content.add(lvlL19);
 		
 		JLabel lvlL20 = new JLabel("");
 		lvlL20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 239))));
-		lvlL20.setBounds(285, 165, 15, 15);
+		lvlL20.setBounds(285, 180, 15, 15);
 		Content.add(lvlL20);
 		
 		// M-Reihe (id: 240-259)
 		
 		JLabel lvlM1 = new JLabel("");
 		lvlM1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 240))));
-		lvlM1.setBounds(0, 180, 15, 15);
+		lvlM1.setBounds(0, 195, 15, 15);
 		Content.add(lvlM1);
 		
 		JLabel lvlM2 = new JLabel("");
 		lvlM2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 241))));
-		lvlM2.setBounds(15, 180, 15, 15);
+		lvlM2.setBounds(15, 195, 15, 15);
 		Content.add(lvlM2);
 		
 		JLabel lvlM3 = new JLabel("");
 		lvlM3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 242))));
-		lvlM3.setBounds(30, 180, 15, 15);
+		lvlM3.setBounds(30, 195, 15, 15);
 		Content.add(lvlM3);
 		
 		JLabel lvlM4 = new JLabel("");
 		lvlM4.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 243))));
-		lvlM4.setBounds(45, 180, 15, 15);
+		lvlM4.setBounds(45, 195, 15, 15);
 		Content.add(lvlM4);
 		
 		JLabel lvlM5 = new JLabel("");
 		lvlM5.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 244))));
-		lvlM5.setBounds(60, 180, 15, 15);
+		lvlM5.setBounds(60, 195, 15, 15);
 		Content.add(lvlM5);
 		
 		JLabel lvlM6 = new JLabel("");
 		lvlM6.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 245))));
-		lvlM6.setBounds(75, 180, 15, 15);
+		lvlM6.setBounds(75, 195, 15, 15);
 		Content.add(lvlM6);
 		
 		JLabel lvlM7 = new JLabel("");
 		lvlM7.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 246))));
-		lvlM7.setBounds(90, 180, 15, 15);
+		lvlM7.setBounds(90, 195, 15, 15);
 		Content.add(lvlM7);
 		
 		JLabel lvlM8 = new JLabel("");
 		lvlM8.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 247))));
-		lvlM8.setBounds(105, 180, 15, 15);
+		lvlM8.setBounds(105, 195, 15, 15);
 		Content.add(lvlM8);
 		
 		JLabel lvlM9 = new JLabel("");
 		lvlM9.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 248))));
-		lvlM9.setBounds(120, 180, 15, 15);
+		lvlM9.setBounds(120, 195, 15, 15);
 		Content.add(lvlM9);
 		
 		JLabel lvlM10 = new JLabel("");
 		lvlM10.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 249))));
-		lvlM10.setBounds(135, 180, 15, 15);
+		lvlM10.setBounds(135, 195, 15, 15);
 		Content.add(lvlM10);
 		
 		JLabel lvlM11 = new JLabel("");
 		lvlM11.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 250))));
-		lvlM11.setBounds(150, 180, 15, 15);
+		lvlM11.setBounds(150, 195, 15, 15);
 		Content.add(lvlM11);
 		
 		JLabel lvlM12 = new JLabel("");
 		lvlM12.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 251))));
-		lvlM12.setBounds(165, 180, 15, 15);
+		lvlM12.setBounds(165, 195, 15, 15);
 		Content.add(lvlM12);
 		
 		JLabel lvlM13 = new JLabel("");
 		lvlM13.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 252))));
-		lvlM13.setBounds(180, 180, 15, 15);
+		lvlM13.setBounds(180, 195, 15, 15);
 		Content.add(lvlM13);
 		
 		JLabel lvlM14 = new JLabel("");
 		lvlM14.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 253))));
-		lvlM14.setBounds(195, 180, 15, 15);
+		lvlM14.setBounds(195, 195, 15, 15);
 		Content.add(lvlM14);
 		
 		JLabel lvlM15 = new JLabel("");
 		lvlM15.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 254))));
-		lvlM15.setBounds(210, 180, 15, 15);
+		lvlM15.setBounds(210, 195, 15, 15);
 		Content.add(lvlM15);
 		
 		JLabel lvlM16 = new JLabel("");
 		lvlM16.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 255))));
-		lvlM16.setBounds(225, 180, 15, 15);
+		lvlM16.setBounds(225, 195, 15, 15);
 		Content.add(lvlM16);
 		
 		JLabel lvlM17 = new JLabel("");
 		lvlM17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 256))));
-		lvlM17.setBounds(240, 180, 15, 15);
+		lvlM17.setBounds(240, 195, 15, 15);
 		Content.add(lvlM17);
 		
 		JLabel lvlM18 = new JLabel("");
 		lvlM18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 257))));
-		lvlM18.setBounds(255, 180, 15, 15);
+		lvlM18.setBounds(255, 195, 15, 15);
 		Content.add(lvlM18);
 		
 		JLabel lvlM19 = new JLabel("");
 		lvlM19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 258))));
-		lvlM19.setBounds(270, 180, 15, 15);
+		lvlM19.setBounds(270, 195, 15, 15);
 		Content.add(lvlM19);
 		
 		JLabel lvlM20 = new JLabel("");
 		lvlM20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 259))));
-		lvlM20.setBounds(285, 180, 15, 15);
+		lvlM20.setBounds(285, 195, 15, 15);
 		Content.add(lvlM20);
 		
 		// N-Reihe (id: 260-279)
 		
 		JLabel lvlN1 = new JLabel("");
 		lvlN1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 260))));
-		lvlN1.setBounds(0, 195, 15, 15);
+		lvlN1.setBounds(0, 210, 15, 15);
 		Content.add(lvlN1);
 		
 		JLabel lvlN2 = new JLabel("");
 		lvlN2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 261))));
-		lvlN2.setBounds(15, 195, 15, 15);
+		lvlN2.setBounds(15, 210, 15, 15);
 		Content.add(lvlN2);
 		
 		JLabel lvlN3 = new JLabel("");
 		lvlN3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 262))));
-		lvlN3.setBounds(30, 195, 15, 15);
+		lvlN3.setBounds(30, 210, 15, 15);
 		Content.add(lvlN3);
 		
 		JLabel lvlN4 = new JLabel("");
 		lvlN4.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 263))));
-		lvlN4.setBounds(45, 195, 15, 15);
+		lvlN4.setBounds(45, 210, 15, 15);
 		Content.add(lvlN4);
 		
 		JLabel lvlN5 = new JLabel("");
 		lvlN5.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 264))));
-		lvlN5.setBounds(60, 195, 15, 15);
+		lvlN5.setBounds(60, 210, 15, 15);
 		Content.add(lvlN5);
 		
 		JLabel lvlN6 = new JLabel("");
 		lvlN6.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 265))));
-		lvlN6.setBounds(75, 195, 15, 15);
+		lvlN6.setBounds(75, 210, 15, 15);
 		Content.add(lvlN6);
 		
 		JLabel lvlN7 = new JLabel("");
 		lvlN7.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 266))));
-		lvlN7.setBounds(90, 195, 15, 15);
+		lvlN7.setBounds(90, 210, 15, 15);
 		Content.add(lvlN7);
 		
 		JLabel lvlN8 = new JLabel("");
 		lvlN8.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 267))));
-		lvlN8.setBounds(105, 195, 15, 15);
+		lvlN8.setBounds(105, 210, 15, 15);
 		Content.add(lvlN8);
 		
 		JLabel lvlN9 = new JLabel("");
 		lvlN9.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 268))));
-		lvlN9.setBounds(120, 195, 15, 15);
+		lvlN9.setBounds(120, 210, 15, 15);
 		Content.add(lvlN9);
 		
 		JLabel lvlN10 = new JLabel("");
 		lvlN10.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 269))));
-		lvlN10.setBounds(135, 195, 15, 15);
+		lvlN10.setBounds(135, 210, 15, 15);
 		Content.add(lvlN10);
 		
 		JLabel lvlN11 = new JLabel("");
 		lvlN11.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 270))));
-		lvlN11.setBounds(150, 195, 15, 15);
+		lvlN11.setBounds(150, 210, 15, 15);
 		Content.add(lvlN11);
 		
 		JLabel lvlN12 = new JLabel("");
 		lvlN12.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 271))));
-		lvlN12.setBounds(165, 195, 15, 15);
+		lvlN12.setBounds(165, 210, 15, 15);
 		Content.add(lvlN12);
 		
 		JLabel lvlN13 = new JLabel("");
 		lvlN13.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 272))));
-		lvlN13.setBounds(180, 195, 15, 15);
+		lvlN13.setBounds(180, 210, 15, 15);
 		Content.add(lvlN13);
 		
 		JLabel lvlN14 = new JLabel("");
 		lvlN14.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 273))));
-		lvlN14.setBounds(195, 195, 15, 15);
+		lvlN14.setBounds(195, 210, 15, 15);
 		Content.add(lvlN14);
 		
 		JLabel lvlN15 = new JLabel("");
 		lvlN15.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 274))));
-		lvlN15.setBounds(210, 195, 15, 15);
+		lvlN15.setBounds(210, 210, 15, 15);
 		Content.add(lvlN15);
 		
 		JLabel lvlN16 = new JLabel("");
 		lvlN16.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 275))));
-		lvlN16.setBounds(225, 195, 15, 15);
+		lvlN16.setBounds(225, 210, 15, 15);
 		Content.add(lvlN16);
 		
 		JLabel lvlN17 = new JLabel("");
 		lvlN17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 276))));
-		lvlN17.setBounds(240, 195, 15, 15);
+		lvlN17.setBounds(240, 210, 15, 15);
 		Content.add(lvlN17);
 		
 		JLabel lvlN18 = new JLabel("");
 		lvlN18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 277))));
-		lvlN18.setBounds(255, 195, 15, 15);
+		lvlN18.setBounds(255, 210, 15, 15);
 		Content.add(lvlN18);
 		
 		JLabel lvlN19 = new JLabel("");
 		lvlN19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 278))));
-		lvlN19.setBounds(270, 195, 15, 15);
+		lvlN19.setBounds(270, 210, 15, 15);
 		Content.add(lvlN19);
 		
 		JLabel lvlN20 = new JLabel("");
 		lvlN20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 279))));
-		lvlN20.setBounds(285, 195, 15, 15);
+		lvlN20.setBounds(285, 210, 15, 15);
 		Content.add(lvlN20);
 		
 		// O-Reihe (id: 280-299)
 		
 		JLabel lvlO1 = new JLabel("");
 		lvlO1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 280))));
-		lvlO1.setBounds(0, 210, 15, 15);
+		lvlO1.setBounds(0, 225, 15, 15);
 		Content.add(lvlO1);
 		
 		JLabel lvlO2 = new JLabel("");
 		lvlO2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 281))));
-		lvlO2.setBounds(15, 210, 15, 15);
+		lvlO2.setBounds(15, 225, 15, 15);
 		Content.add(lvlO2);
 		
 		JLabel lvlO3 = new JLabel("");
 		lvlO3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 282))));
-		lvlO3.setBounds(30, 210, 15, 15);
+		lvlO3.setBounds(30, 225, 15, 15);
 		Content.add(lvlO3);
 		
 		JLabel lvlO4 = new JLabel("");
 		lvlO4.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 283))));
-		lvlO4.setBounds(45, 210, 15, 15);
+		lvlO4.setBounds(45, 225, 15, 15);
 		Content.add(lvlO4);
 		
 		JLabel lvlO5 = new JLabel("");
 		lvlO5.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 284))));
-		lvlO5.setBounds(60, 210, 15, 15);
+		lvlO5.setBounds(60, 225, 15, 15);
 		Content.add(lvlO5);
 		
 		JLabel lvlO6 = new JLabel("");
 		lvlO6.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 285))));
-		lvlO6.setBounds(75, 210, 15, 15);
+		lvlO6.setBounds(75, 225, 15, 15);
 		Content.add(lvlO6);
 		
 		JLabel lvlO7 = new JLabel("");
 		lvlO7.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 286))));
-		lvlO7.setBounds(90, 210, 15, 15);
+		lvlO7.setBounds(90, 225, 15, 15);
 		Content.add(lvlO7);
 		
 		JLabel lvlO8 = new JLabel("");
 		lvlO8.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 287))));
-		lvlO8.setBounds(105, 210, 15, 15);
+		lvlO8.setBounds(105, 225, 15, 15);
 		Content.add(lvlO8);
 		
 		JLabel lvlO9 = new JLabel("");
 		lvlO9.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 288))));
-		lvlO9.setBounds(120, 210, 15, 15);
+		lvlO9.setBounds(120, 225, 15, 15);
 		Content.add(lvlO9);
 		
 		JLabel lvlO10 = new JLabel("");
 		lvlO10.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 289))));
-		lvlO10.setBounds(135, 210, 15, 15);
+		lvlO10.setBounds(135, 225, 15, 15);
 		Content.add(lvlO10);
 		
 		JLabel lvlO11 = new JLabel("");
 		lvlO11.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 290))));
-		lvlO11.setBounds(150, 210, 15, 15);
+		lvlO11.setBounds(150, 225, 15, 15);
 		Content.add(lvlO11);
 		
 		JLabel lvlO12 = new JLabel("");
 		lvlO12.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 291))));
-		lvlO12.setBounds(165, 210, 15, 15);
+		lvlO12.setBounds(165, 225, 15, 15);
 		Content.add(lvlO12);
 		
 		JLabel lvlO13 = new JLabel("");
 		lvlO13.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 292))));
-		lvlO13.setBounds(180, 210, 15, 15);
+		lvlO13.setBounds(180, 225, 15, 15);
 		Content.add(lvlO13);
 		
 		JLabel lvlO14 = new JLabel("");
 		lvlO14.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 293))));
-		lvlO14.setBounds(195, 210, 15, 15);
+		lvlO14.setBounds(195, 225, 15, 15);
 		Content.add(lvlO14);
 		
 		JLabel lvlO15 = new JLabel("");
 		lvlO15.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 294))));
-		lvlO15.setBounds(210, 210, 15, 15);
+		lvlO15.setBounds(210, 225, 15, 15);
 		Content.add(lvlO15);
 		
 		JLabel lvlO16 = new JLabel("");
 		lvlO16.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 295))));
-		lvlO16.setBounds(225, 210, 15, 15);
+		lvlO16.setBounds(225, 225, 15, 15);
 		Content.add(lvlO16);
 		
 		JLabel lvlO17 = new JLabel("");
 		lvlO17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 296))));
-		lvlO17.setBounds(240, 210, 15, 15);
+		lvlO17.setBounds(240, 225, 15, 15);
 		Content.add(lvlO17);
 		
 		JLabel lvlO18 = new JLabel("");
 		lvlO18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 297))));
-		lvlO18.setBounds(255, 210, 15, 15);
+		lvlO18.setBounds(255, 225, 15, 15);
 		Content.add(lvlO18);
 		
 		JLabel lvlO19 = new JLabel("");
 		lvlO19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 298))));
-		lvlO19.setBounds(270, 210, 15, 15);
+		lvlO19.setBounds(270, 225, 15, 15);
 		Content.add(lvlO19);
 		
 		JLabel lvlO20 = new JLabel("");
 		lvlO20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 299))));
-		lvlO20.setBounds(285, 210, 15, 15);
+		lvlO20.setBounds(285, 225, 15, 15);
 		Content.add(lvlO20);
 		}
 	
