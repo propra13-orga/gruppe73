@@ -94,13 +94,20 @@ public class BuildLevel extends JFrame {
                 	}
                 	            	
                 }
+            //    
                 
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());   
+                     //   if ((lblPlayer.getX() == LoadLevel.getDoorX(Current_Level))&(lblPlayer.getY() == LoadLevel.getDoorY(Current_Level))) {
+                     //       Current_Level = (2);
+                     //   }
                     }
                 });
                 Content.repaint();
+   
+                	
+                
                 
 			}
 			
