@@ -11,11 +11,12 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     public static int right = 0;
     public static int up = 0;
     public static int down = 0;
-    public boolean stopFlag = false;
+    public static boolean stopFlag = false;
 
     public void keyTyped(java.awt.event.KeyEvent e) {
         // do nothing
     }
+    
 
     public void keyPressed(java.awt.event.KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) left = -15;
@@ -91,6 +92,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
             } catch (InterruptedException ex) { }
             this.doMovement(left,right,up,down);
             lastRunTime = System.currentTimeMillis();
+            
         }
     }
 
@@ -102,4 +104,6 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     }
 
     public abstract void doMovement(int left, int right, int up, int down);
+    
+    
 }

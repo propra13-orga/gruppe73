@@ -15,16 +15,20 @@ public class LoadLevel {
 	public static String Current_LevelMap = null;
 	public static int PosStartX;
 	public static int PosStartY;
+	public static int DoorX;
+	public static int DoorY;
 	
 	public static String getCurrent_LevelMap() {
 		
 		return Current_LevelMap;
 	}
 	
+	
+	
 	public static int getPlayerPosStartX(int aktuelles_level) {
 		/*
 		 * String StringPosX = null;
-		 * StringPosX = Current_LevelMap.substring(300, 3);
+		 * StringPosX = Current_LevelMap.substring(299, 3);
 		 * PosStartX = Integer.parseInt(StringPosX);
 		 */
 		if (aktuelles_level == 1) {
@@ -36,7 +40,7 @@ public class LoadLevel {
 	public static int getPlayerPosStartY(int aktuelles_level) {
 		/*
 		 * String StringPosY = null;
-		 * StringPosY = Current_LevelMap.substring(303, 3);
+		 * StringPosY = Current_LevelMap.substring(302, 3);
 		 * PosStartY = Integer.parseInt(StringPosY);
 		 */
 		if (aktuelles_level == 1) {
@@ -45,17 +49,7 @@ public class LoadLevel {
 		return PosStartY;	
 	}
 	
-	public static int getDoorX(int aktuelles_level) {
-		String StringdoorX = Current_LevelMap.substring(306, 3);
-		int doorX = Integer.parseInt(StringdoorX);
-		return doorX;
-	}
 	
-	public static int getDoorY(int aktuelles_level) {
-		String StringdoorY = Current_LevelMap.substring(309, 3);
-		int doorY = Integer.parseInt(StringdoorY);
-		return doorY;
-	}
 	
 	public static String main(int current_level, int position) {
 		String output = null;

@@ -24,6 +24,7 @@ public class BuildLevel extends JFrame {
 	public static int Current_Level = 1;
 	public static int Current_Points = 0;
 	public static boolean game_over = false;
+	public static boolean change_level_phase = false;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -32,6 +33,7 @@ public class BuildLevel extends JFrame {
 	private static MovementListener mListener;
 	private static javax.swing.JLabel lblPunkteanzeige;
 	private static javax.swing.JLabel lblGegner1;
+	private static javax.swing.JLabel lblGameOver;
 	private int newY;
     private int newX;
 
@@ -80,7 +82,13 @@ public class BuildLevel extends JFrame {
 		mListener = new MovementListener() {
 			@Override
 			public void doMovement(int left, int right, int up, int down) {
-                
+                if (game_over = true) {
+                	
+                }
+                else {
+                	
+                }
+				
 				java.awt.Rectangle pos = lblPlayer.getBounds();
                 if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
                 	if (CollisionControl.check_wall(lblPlayer.getX(), lblPlayer.getY()) == true) {
@@ -91,10 +99,10 @@ public class BuildLevel extends JFrame {
                 if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
                 	if (CollisionControl.check_wall(lblPlayer.getX(), lblPlayer.getY()) == true) {
                 		newY = pos.y + up + down;   
-                	}
-                	            	
+                	}	            	
                 }
-            //    
+                
+                
                 
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
@@ -104,11 +112,27 @@ public class BuildLevel extends JFrame {
                      //   }
                     }
                 });
-                Content.repaint();
-   
+                
+                
+                // FALLEN-Abfrage
+                
+                if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
+                	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
+                		lblGameOver.setVisible(true);
+                		MovementListener.stopFlag = true;
+                	}
                 	
+                }
+
+
+                if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
+                	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
+                		lblGameOver.setVisible(true);
+                		MovementListener.stopFlag = true;
+                	}	            	
+                }
                 
-                
+                Content.repaint();
 			}
 			
 		};
@@ -141,6 +165,12 @@ public class BuildLevel extends JFrame {
 		JLabel lblCurrentLevel = new JLabel("Level "+Current_Level);
 		lblCurrentLevel.setBounds(3, 0, 46, 14);
 		Content.add(lblCurrentLevel);
+		
+		lblGameOver = new JLabel("GAME OVER");
+		lblGameOver.setBounds(120, 113, 100, 15);
+		lblGameOver.setForeground(Color.RED);
+		lblGameOver.setVisible(false);
+		Content.add(lblGameOver);
 
 		
 		lblPlayer = new JLabel("");
