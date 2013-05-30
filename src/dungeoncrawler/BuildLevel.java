@@ -166,8 +166,9 @@ public class BuildLevel extends JFrame {
 		lblCurrentLevel.setBounds(3, 0, 46, 14);
 		Content.add(lblCurrentLevel);
 		
-		lblGameOver = new JLabel("GAME OVER");
-		lblGameOver.setBounds(120, 113, 100, 15);
+		lblGameOver = new JLabel("");
+		lblGameOver.setBounds(50, 90, 200, 50);
+		lblGameOver.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/gameover.PNG")));
 		lblGameOver.setForeground(Color.RED);
 		lblGameOver.setVisible(false);
 		Content.add(lblGameOver);
