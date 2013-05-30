@@ -1,4 +1,5 @@
 package dungeoncrawler;
+import dungeoncrawler.BuildLevel;
 
 import java.awt.event.KeyEvent;
 
@@ -23,6 +24,11 @@ public abstract class MovementListener extends Thread implements java.awt.event.
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) right = 15;
         if (e.getKeyCode() == KeyEvent.VK_UP) up = -15;
         if (e.getKeyCode() == KeyEvent.VK_DOWN) down = 15;
+        if (e.getKeyCode() == KeyEvent.VK_2) {
+        	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
+        	BuildLevel.change_level_phase = true;
+        	
+        }
     }
 
     public void keyReleased(java.awt.event.KeyEvent e) {
@@ -91,8 +97,17 @@ public abstract class MovementListener extends Thread implements java.awt.event.
                 sleep(timeSlice - timeDif);
             } catch (InterruptedException ex) { }
             this.doMovement(left,right,up,down);
+            if ((BuildLevel.Current_Level%2)==0) {
+            	try {
+	                sleep(2000);
+	            } catch (InterruptedException ex) { }
+            	BuildLevel.PlayerPosition(null);
+            	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
+            }
+	            
+           
             lastRunTime = System.currentTimeMillis();
-            
+              
         }
     }
 
@@ -102,6 +117,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     public void end() {
         stopFlag = true;
     }
+    
 
     public abstract void doMovement(int left, int right, int up, int down);
     
