@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import dungeoncrawler.CollisionControl;
 import dungeoncrawler.LoadLevel;
+import dungeoncrawler.Treasure;
+
 
 // ###################################################
 // Diese Klasse bildet die Mainmethode des Spiels!
@@ -40,9 +42,12 @@ public class BuildLevel extends JFrame {
 	private static JPanel Content;
 	private static javax.swing.JLabel lblPlayer;
 	private static MovementListener mListener;
-	private static javax.swing.JLabel lblPunkteanzeige;
+	
+	static javax.swing.JLabel lblPunkteanzeige;
 	private static javax.swing.JLabel lblGegner1;
 	private static javax.swing.JLabel lblGameOver;
+	private static javax.swing.JLabel lblNeustart;
+	public static javax.swing.JLabel lblTreasure;
 	
 	// Spielfeld Definitionen:
 	
@@ -362,10 +367,14 @@ public class BuildLevel extends JFrame {
 	private static javax.swing.JLabel lvlO19;
 	private static javax.swing.JLabel lvlO20;
 	
-	
+	// Player-Startposition
 	public static int newY = 225;
     public static int newX = 30;
     
+    // Trasury-Starposition
+    
+    public static int treasureX = 300;
+    public static int treasureY = 15;
     
 
 	/**
@@ -399,7 +408,7 @@ public class BuildLevel extends JFrame {
 	public static void PlayerPosition(String args[]) {
 		lblPlayer.setBounds(LoadLevel.getPlayerPosStartX(Current_Level+1), LoadLevel.getPlayerPosStartY(Current_Level+1), lblPlayer.getWidth(), lblPlayer.getHeight());
 	}
-	
+
 	public static int getCurrentPlayerPos(int XY) {
 		int Pos = 0;
 		if (XY == 0) {
@@ -412,6 +421,8 @@ public class BuildLevel extends JFrame {
 	
 	public BuildLevel() {
 		setResizable(false);
+		
+
 		
 		//create Jframe and Grid
 		
@@ -440,6 +451,8 @@ public class BuildLevel extends JFrame {
 						first_load = false;
 						
 					}
+					
+					
 				
 					lvlA1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 0))));
 					lvlA2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 1))));
@@ -801,7 +814,9 @@ public class BuildLevel extends JFrame {
                 
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());   
+                        lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+                        lblTreasure.setBounds(Treasure.buildTreasureX(), Treasure.buildTreasureY(), 15, 15);
+                        
                      //   if ((lblPlayer.getX() == LoadLevel.getDoorX(Current_Level))&(lblPlayer.getY() == LoadLevel.getDoorY(Current_Level))) {
                      //       Current_Level = (2);
                      //   }
@@ -811,23 +826,34 @@ public class BuildLevel extends JFrame {
                 
                 // FALLEN-Abfrage
                 
+                if (Treasure.check_treasure() == true) {
+                	lblTreasure.setVisible(false);
+                	lblTreasure.setBounds(300, 15, 15, 15);
+                }
+                
                 if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
                 	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
                 		lblGameOver.setVisible(true);
                 		MovementListener.stopFlag = true;
                 		
                 	}
+                	if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
+                    	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
+                    		lblGameOver.setVisible(true);
+                    		lblNeustart.setVisible(true);
+                    		lblNeustart.setEnabled(true);
+                    		MovementListener.stopFlag = true;
+                    		game_over = true;
+                    		
+                    	}	            	
+                    }
                 	
                 }
+                
+                
 
 
-                if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
-                	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
-                		lblGameOver.setVisible(true);
-                		MovementListener.stopFlag = true;
-                		
-                	}	            	
-                }
+                
                 
                 Content.repaint();
 			}
@@ -860,10 +886,18 @@ public class BuildLevel extends JFrame {
 		lblPunkteanzeige = new JLabel(Current_Points+" ");
 		lblPunkteanzeige.setForeground(Color.BLACK);
 		lblPunkteanzeige.setBackground(Color.WHITE);
-		lblPunkteanzeige.setBounds(215, 0, 50, 15);
+		lblPunkteanzeige.setBounds(195, 0, 90, 15);
 		lblPunkteanzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/points.PNG")));
-		lblPunkteanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
+		//lblPunkteanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
 		Content.add(lblPunkteanzeige);
+		
+		// Treasure
+		
+		lblTreasure = new JLabel("");
+		lblTreasure.setBounds(treasureX, treasureY, 15, 15);
+		lblTreasure.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/points.PNG")));
+		lblTreasure.setVisible(true);
+		Content.add(lblTreasure);
 		
 		//Current_Level
 		
@@ -877,6 +911,13 @@ public class BuildLevel extends JFrame {
 		lblGameOver.setVisible(false);
 		Content.add(lblGameOver);
 
+		lblNeustart = new JLabel ("");
+		lblNeustart.setBounds(50, 150, 200, 50);
+		lblNeustart.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/restart.PNG")));
+		lblNeustart.setEnabled(false);
+		lblNeustart.setVisible(false);
+		Content.add(lblNeustart);
+		
 		
 		lblPlayer = new JLabel("");
 		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/player.PNG")));
@@ -2126,6 +2167,8 @@ public class BuildLevel extends JFrame {
 		lvlO20.setBounds(285, 225, 15, 15);
 		Content.add(lvlO20);
 		}
+
+
 	
 		
 	

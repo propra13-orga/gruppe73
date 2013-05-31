@@ -49,6 +49,8 @@ public abstract class MovementListener extends Thread implements java.awt.event.
         	down = 0;
         	CollisionControl.check_finish(); 
         }
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) { }
+        
     }
     
     public static boolean checkLeft() {
@@ -109,6 +111,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
             try {
                 sleep(timeSlice - timeDif);
             } catch (InterruptedException ex) { }
+            BuildLevel.lblPunkteanzeige.setText(String.valueOf(BuildLevel.Current_Points));
             this.doMovement(left,right,up,down);
             if ((BuildLevel.Current_Level%2)==0) {
             	try {
