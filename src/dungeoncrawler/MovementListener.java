@@ -1,5 +1,6 @@
 package dungeoncrawler;
 import dungeoncrawler.BuildLevel;
+import dungeoncrawler.CollisionControl;
 
 import java.awt.event.KeyEvent;
 
@@ -32,10 +33,22 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     }
 
     public void keyReleased(java.awt.event.KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) left = 0;
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) right = 0;
-        if (e.getKeyCode() == KeyEvent.VK_UP) up = 0;
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) down = 0;
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        	left = 0;
+        	CollisionControl.check_finish(); 
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        	right = 0;
+        	CollisionControl.check_finish(); 
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        	up = 0;
+        	CollisionControl.check_finish(); 
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        	down = 0;
+        	CollisionControl.check_finish(); 
+        }
     }
     
     public static boolean checkLeft() {
