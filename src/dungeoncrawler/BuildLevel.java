@@ -400,16 +400,6 @@ public class BuildLevel extends JFrame {
 		lblPlayer.setBounds(LoadLevel.getPlayerPosStartX(Current_Level+1), LoadLevel.getPlayerPosStartY(Current_Level+1), lblPlayer.getWidth(), lblPlayer.getHeight());
 	}
 	
-	public static int getCurrentPlayerPos(int XY) {
-		int Pos = 0;
-		if (XY == 0) {
-			Pos = lblPlayer.getX();
-		} else if (XY == 1) {
-			Pos = lblPlayer.getY();
-		}
-		return Pos;
-	}
-	
 	public BuildLevel() {
 		setResizable(false);
 		

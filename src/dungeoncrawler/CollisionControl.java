@@ -251,50 +251,6 @@ public class CollisionControl {
 		return trap;
 	}
 	
-public static boolean check_finish() {
-		
-		/*
-		 *  Hier muss aus Datei der Endpunkt des jeweiligen Levels gelesen werden und in die Variablen ausgegeben werden.
-		 */
-		boolean finish = false;
-		
-		if (BuildLevel.Current_Level == 1) {
-			if ((BuildLevel.getCurrentPlayerPos(0) == 285)&(BuildLevel.getCurrentPlayerPos(1) == 75)) {
-				BuildLevel.Current_Level = BuildLevel.Current_Level+1;
-	        	BuildLevel.change_level_phase = true;
-	        	finish = true;
-			}
-		} else if (BuildLevel.Current_Level == 3) {
-			if ((BuildLevel.getCurrentPlayerPos(0) == 135)&(BuildLevel.getCurrentPlayerPos(1) == 225)) {
-				BuildLevel.Current_Level = BuildLevel.Current_Level+1;
-	        	BuildLevel.change_level_phase = true;
-				finish = true;
-			}
-		} else if (BuildLevel.Current_Level == 5) {
-			if ((BuildLevel.getCurrentPlayerPos(0) == 135)&(BuildLevel.getCurrentPlayerPos(1) == 15)) {
-				BuildLevel.Current_Level = BuildLevel.Current_Level+1;
-	        	BuildLevel.change_level_phase = true;
-				finish = true;
-			}
-		} else if (BuildLevel.Current_Level == 7) {
-			if ((BuildLevel.getCurrentPlayerPos(0) == 90)&(BuildLevel.getCurrentPlayerPos(1) == 225)) {
-				BuildLevel.Current_Level = BuildLevel.Current_Level+1;
-	        	BuildLevel.change_level_phase = true;
-				finish = true;
-			}
-		} else if (BuildLevel.Current_Level == 9) {
-			if ((BuildLevel.getCurrentPlayerPos(0) == 90)&(BuildLevel.getCurrentPlayerPos(1) == 75)) {
-				BuildLevel.Current_Level = BuildLevel.Current_Level+1;
-	        	BuildLevel.change_level_phase = true;
-				finish = true;
-			}
-		} else {
-			finish = false;
-		}
-		
-		return finish;
-	}
-	
 	
 	/*
 	 *  GEGNER-Kollisions-ABFRAGE

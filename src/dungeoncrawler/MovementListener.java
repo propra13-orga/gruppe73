@@ -1,6 +1,5 @@
 package dungeoncrawler;
 import dungeoncrawler.BuildLevel;
-import dungeoncrawler.CollisionControl;
 
 import java.awt.event.KeyEvent;
 
@@ -8,7 +7,7 @@ import java.awt.event.KeyEvent;
 
 
 public abstract class MovementListener extends Thread implements java.awt.event.KeyListener {
-    public long timeSlice = 100; // Zeit in Millisekunden in der die Tastatureingabe überprüft wird.
+    public long timeSlice = 75; // Zeit in Millisekunden in der die Tastatureingabe überprüft wird.
     public static int left = 0;
     public static int right = 0;
     public static int up = 0;
@@ -33,22 +32,10 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     }
 
     public void keyReleased(java.awt.event.KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        	left = 0;
-        	CollisionControl.check_finish();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        	right = 0;
-        	CollisionControl.check_finish();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-        	up = 0;
-        	CollisionControl.check_finish();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-        	down = 0;
-        	CollisionControl.check_finish();
-        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) left = 0;
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) right = 0;
+        if (e.getKeyCode() == KeyEvent.VK_UP) up = 0;
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) down = 0;
     }
     
     public static boolean checkLeft() {
@@ -110,16 +97,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
                 sleep(timeSlice - timeDif);
             } catch (InterruptedException ex) { }
             this.doMovement(left,right,up,down);
-            /*
-             * if (CollisionControl.check_finish() == true) {
-             * 		try {
-	         *       	sleep(1500);
-	         *   	} catch (InterruptedException ex) { }
-             *	}
-             */
-            	
-            
-            if (((BuildLevel.Current_Level%2)==0)) {
+            if ((BuildLevel.Current_Level%2)==0) {
             	try {
 	                sleep(2000);
 	            } catch (InterruptedException ex) { }
