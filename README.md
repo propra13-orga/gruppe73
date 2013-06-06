@@ -1,12 +1,18 @@
 gruppe73
 ========
 
-Wichtig: Zum naechsten Meilenstein bitte ich darum, dass wir 
-eine genauere Aufgabenverteilung machen mit festgelegten Fristen.
-Ansonsten kommt es wie jetzt, wo es alles bisschen ungerecht gelaufen ist.
-Jeder soll seinen Part genau definiert bekommen. Und nicht so all�bergreifend
-und ohne Absprache. Die Kommunikation zwischen uns sollte besser klappen.
-
-- 
-
+- Überarbeiten der Kollisionsabfrage
+- Neustart nach Sieg oder Niederlage
+- 3 Level a 3 Räume
+- Level aus Textdatei 
+- Checkpoints
+- Bewegliche Gegner
+- Waffen (Nah- und Fernkampf)
+- Zauber - Mana das durch Zaubern verbraucht wird
+- Schadenssystem (geht über Leben oder Tod hinaus) - Spielfigur verliert Lebenspunkte bis zum Tod, verliert dann ein Leben
+- Rüstung, welche den Schadenswert mindert
+- Items (Pakete die Lebenspunkte auffüllen, Manatränke, Waffen, Munition etc. (mindestens: Healthpacks, Manatränke, Waffen, Geld)
+- Shopsystem (sind in der Welt verteilt, man kann dort einen Teil der Items kaufen)
+- Non Playing Character (NPC) interagiert mit dem Spieler
+- Informationsleiste erweitern um Manapunkte, Lebenspunkte, aktuelle Waffe 
   
