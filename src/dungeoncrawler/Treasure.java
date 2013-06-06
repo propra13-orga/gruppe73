@@ -18,8 +18,10 @@ public class Treasure {
 	
 	public static int buildTreasureX(){
 		int PosX = 0;
-		if (BuildLevel.Current_Level == 9) {
-			PosX = 75;
+		if (BuildLevel.got_treasure == false) {
+			if (BuildLevel.Current_Level == 9) {
+				PosX = 75;
+			}
 		} else {
 			PosX = 300;
 		}
@@ -28,11 +30,13 @@ public class Treasure {
 		
 	}
 	public static int buildTreasureY(){
-		int PosY = 0;
-		if (BuildLevel.Current_Level == 9) {
-			PosY = 45;
+		int PosY = 300;
+		if (BuildLevel.got_treasure == false) {
+			if (BuildLevel.Current_Level == 9) {
+				PosY = 45;
+			}
 		} else {
-			PosY = 15;
+			PosY = 300;
 		}
 		BuildLevel.treasureY = PosY;
 		return PosY;
@@ -46,11 +50,11 @@ public class Treasure {
 		boolean get_treasure = false;
 		
 		if (BuildLevel.getCurrentPlayerPos(0) == BuildLevel.treasureX) {
-			if (BuildLevel.getCurrentPlayerPos(1) == BuildLevel.treasureY) {
-				BuildLevel.Current_Points = BuildLevel.Current_Points+100;
-				/*
-				
-				*/
+			if (BuildLevel.getCurrentPlayerPos(1) == BuildLevel.treasureX) {
+				if (BuildLevel.got_treasure == false) {
+					BuildLevel.Current_Points = BuildLevel.Current_Points+100;
+					BuildLevel.got_treasure = true;
+				}
 			}
 		}
 		

@@ -255,6 +255,8 @@ public class CollisionControl {
 		  
 				/*
 		 		*  Hier muss aus Datei der Endpunkt des jeweiligen Levels gelesen werden und in die Variablen ausgegeben werden.
+		 		*  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		 		*  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		 		*/
 			boolean finish = false;
  

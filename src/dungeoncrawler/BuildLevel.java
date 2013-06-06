@@ -34,6 +34,10 @@ public class BuildLevel extends JFrame {
 	public static int level_load = 1;
 	public static boolean first_load = true;
 	public static int dismatch = 300;
+	public static boolean got_treasure = false;
+	public static boolean stop_treasure = false;
+	public static boolean change_level_exitX = false;
+	public static boolean change_level_exitY = false;
 	
 	private static int counter = 0;
 	
@@ -406,7 +410,8 @@ public class BuildLevel extends JFrame {
 	}
 	
 	public static void PlayerPosition(String args[]) {
-		lblPlayer.setBounds(LoadLevel.getPlayerPosStartX(Current_Level+1), LoadLevel.getPlayerPosStartY(Current_Level+1), lblPlayer.getWidth(), lblPlayer.getHeight());
+		lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+		
 	}
 
 	public static int getCurrentPlayerPos(int XY) {
@@ -775,13 +780,11 @@ public class BuildLevel extends JFrame {
 					
 			
 				}
-					
-				if (game_over = true) {
-                	
-                }
-                else {
-                	
-                }
+				
+				/*
+				 *  PLAYER BEWEGUNGSKOORDINATEN
+				 *  ===========================
+				 */
 				
 				java.awt.Rectangle pos = lblPlayer.getBounds();
                 if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
@@ -796,6 +799,10 @@ public class BuildLevel extends JFrame {
                 	}	            	
                 }
                 
+                /*
+                 *  
+                 */
+                
                 if (BuildLevel.change_level_phase == true){
 					newX = LoadLevel.getPlayerPosStartX(Current_Level);
 					newY = LoadLevel.getPlayerPosStartY(Current_Level);
@@ -804,12 +811,37 @@ public class BuildLevel extends JFrame {
 				}
                 
                 if ((BuildLevel.change_level_phase == true)&(counter == 2)) {
-                	counter = 0;
+                	counter = 4;
                 	change_level_phase = false;
                 	newX = LoadLevel.getPlayerPosStartX(Current_Level);
 					newY = LoadLevel.getPlayerPosStartY(Current_Level);
+					change_level_exitX = true;
+					
                 }
                 
+                
+                if ((change_level_exitX == true)&(counter == 6)) {
+                	
+                	newY = LoadLevel.getPlayerPosStartY(Current_Level);
+                	
+                	newX = LoadLevel.getPlayerPosStartX(Current_Level);
+                	
+					counter = 0;
+					change_level_exitX = false;
+                }
+               
+                
+                if (change_level_exitX == true) {
+                	
+                	newY = LoadLevel.getPlayerPosStartY(Current_Level);
+                	
+                	newX = LoadLevel.getPlayerPosStartX(Current_Level);
+                	
+					counter = 6;
+					
+                }
+                
+               
                 
                 
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -826,10 +858,20 @@ public class BuildLevel extends JFrame {
                 
                 // FALLEN-Abfrage
                 
+                
                 if (Treasure.check_treasure() == true) {
-                	lblTreasure.setVisible(false);
-                	lblTreasure.setBounds(300, 15, 15, 15);
+                	Current_Points = Current_Points+100;
+                	got_treasure = true;
+                	
+                	stop_treasure = true;
+                	if (stop_treasure = true) {
+                    	lblTreasure.setBounds(300, 15, 15, 15);
+                    	stop_treasure = false;
+                    	Treasure.check_treasure();
+                    }
                 }
+                
+                
                 
                 if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
                 	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
@@ -886,7 +928,7 @@ public class BuildLevel extends JFrame {
 		lblPunkteanzeige = new JLabel(Current_Points+" ");
 		lblPunkteanzeige.setForeground(Color.BLACK);
 		lblPunkteanzeige.setBackground(Color.WHITE);
-		lblPunkteanzeige.setBounds(195, 0, 90, 15);
+		lblPunkteanzeige.setBounds(210, 0, 90, 15);
 		lblPunkteanzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/points.PNG")));
 		//lblPunkteanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
 		Content.add(lblPunkteanzeige);

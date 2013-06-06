@@ -8,12 +8,13 @@ import java.awt.event.KeyEvent;
 
 
 public abstract class MovementListener extends Thread implements java.awt.event.KeyListener {
-    public long timeSlice = 75; // Zeit in Millisekunden in der die Tastatureingabe überprüft wird.
+    public long timeSlice = 50; // Zeit in Millisekunden in der die Tastatureingabe überprüft wird.
     public static int left = 0;
     public static int right = 0;
     public static int up = 0;
     public static int down = 0;
     public static boolean stopFlag = false;
+    
 
     public void keyTyped(java.awt.event.KeyEvent e) {
         // do nothing
@@ -117,8 +118,9 @@ public abstract class MovementListener extends Thread implements java.awt.event.
             	try {
 	                sleep(2000);
 	            } catch (InterruptedException ex) { }
-            	BuildLevel.PlayerPosition(null);
             	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
+            	BuildLevel.PlayerPosition(null);
+           
             }
 	            
            
