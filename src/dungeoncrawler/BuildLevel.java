@@ -25,7 +25,6 @@ public class BuildLevel extends JFrame {
 	 */
 	
 	
-	public static int Current_Points = 0;
 	
 	// ZUSTAENDE:
 	
@@ -865,7 +864,7 @@ public class BuildLevel extends JFrame {
                 
                 
                 if (Treasure.check_treasure() == true) {
-                	Current_Points = Current_Points+100;
+                	Player.CurrentPoints = Player.CurrentPoints+100;
                 	got_treasure = true;
                 	
                 	stop_treasure = true;
@@ -930,7 +929,7 @@ public class BuildLevel extends JFrame {
 		
 		//Punkteanzeige
 		
-		lblPunkteanzeige = new JLabel(Current_Points+" ");
+		lblPunkteanzeige = new JLabel(Player.CurrentPoints+" ");
 		lblPunkteanzeige.setForeground(Color.BLACK);
 		lblPunkteanzeige.setBackground(Color.WHITE);
 		lblPunkteanzeige.setBounds(210, 0, 90, 15);

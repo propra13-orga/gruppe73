@@ -112,7 +112,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
             try {
                 sleep(timeSlice - timeDif);
             } catch (InterruptedException ex) { }
-            BuildLevel.lblPunkteanzeige.setText(String.valueOf(BuildLevel.Current_Points));
+            BuildLevel.lblPunkteanzeige.setText(String.valueOf(Player.CurrentPoints));
             this.doMovement(left,right,up,down);
             if ((BuildLevel.Current_Level%2)==0) {
             	try {

@@ -1,6 +1,7 @@
 package dungeoncrawler;
 
 import dungeoncrawler.BuildLevel;
+import dungeoncrawler.Player;
 
 public class Treasure {
 	
@@ -50,9 +51,9 @@ public class Treasure {
 		boolean get_treasure = false;
 		
 		if (BuildLevel.getCurrentPlayerPos(0) == BuildLevel.treasureX) {
-			if (BuildLevel.getCurrentPlayerPos(1) == BuildLevel.treasureX) {
+			if (BuildLevel.getCurrentPlayerPos(1) == BuildLevel.treasureY) {
 				if (BuildLevel.got_treasure == false) {
-					BuildLevel.Current_Points = BuildLevel.Current_Points+100;
+					Player.CurrentPoints = Player.CurrentPoints+100;
 					BuildLevel.got_treasure = true;
 				}
 			}
