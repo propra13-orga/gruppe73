@@ -1,5 +1,12 @@
 package dungeoncrawler;
 
+/***********
+ * Klasse die die Eigenschaften des Players definiert.
+ * 
+ * 
+ *
+ */
+
 public class Player {
 	public static int PlayerSword = 0;		// Anzahl der Schwerter, die der Player besitzt
 	public static int Medikit = 0;			//  ''    ''  Medikits, ''
