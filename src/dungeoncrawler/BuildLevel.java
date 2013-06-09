@@ -3,6 +3,7 @@ package dungeoncrawler;
 
 
 import java.awt.Color;
+import dungeoncrawler.Player;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -849,6 +850,10 @@ public class BuildLevel extends JFrame {
                         lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
                         lblTreasure.setBounds(Treasure.buildTreasureX(), Treasure.buildTreasureY(), 15, 15);
                         
+                        /*  while (player.lives !=0)
+                        {
+                        	
+                        }*/
                      //   if ((lblPlayer.getX() == LoadLevel.getDoorX(Current_Level))&(lblPlayer.getY() == LoadLevel.getDoorY(Current_Level))) {
                      //       Current_Level = (2);
                      //   }
