@@ -14,15 +14,14 @@ public class Hauptmenu extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	JLabel label_name;
-    private String dc = "dc.PNG";
-	ImageIcon icon_bild = new ImageIcon(this.getClass().getResource(dc));
+	ImageIcon icon_bild = new ImageIcon(this.getClass().getResource("/dungeoncrawler/MenuBackground.PNG"));
 	JButton button_start;
 	JButton button_ende;
 	
 	
 	public Hauptmenu() {
 		// Fenstersetting zum Hauptmenue
-		setSize(500, 600);
+		setSize(600, 400);
 		setLocation(300, 50);
 		setTitle("DoofenCrawler - Hauptmenue");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,16 +31,19 @@ public class Hauptmenu extends JFrame {
 		
 		//Label- und Buttoneigenschaften setzen / positionieren 
 		label_name = new JLabel(icon_bild);
-		label_name.setBounds(100, 100, 300, 150);
+		label_name.setBounds(0, 0, 600, 400);
 		button_start = new JButton("Spiel starten");
-		button_start.setBounds(150, 400, 200, 50);
+		button_start.setBounds(300, 200, 150, 50);
 		button_ende = new JButton("Spiel beenden");
-		button_ende.setBounds(150, 450, 200, 50);
+		button_ende.setBounds(300, 270, 150, 50);
 		
-		//Label und Buttons hinzuf�gen
-		add(label_name);
+		//Label und Buttons hinzufuegen
+		
 		add(button_start);
 		add(button_ende);
+		add(label_name);
+		button_start.setVisible(true);
+		button_ende.setVisible(true);
 
 		button_start.addActionListener(new ActionListener(){
 
