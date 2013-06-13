@@ -13,6 +13,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class shop extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblHealth;
 
 	/**
@@ -374,7 +378,16 @@ public class shop extends JPanel {
 		lblShopBackground.setBounds(0, 0, 400, 320);
 		add(lblShopBackground);
 		
+		/*
+		public static void main(String[] args) {
+			final shop m = new shop();
+			javax.swing.SwingUtilities.invokeLater(new Runnable() {
+	        	public void run() {
+	        		m.setVisible(true);
+				}
+			});
 		
+		*/
 
 	}
 }

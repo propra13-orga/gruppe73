@@ -2,6 +2,7 @@ package dungeoncrawler;
 import java.awt.event.ActionEvent;
 import dungeoncrawler.BuildLevel;
 import java.awt.event.ActionListener;
+import dungeoncrawler.shop;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,6 +18,7 @@ public class Hauptmenu extends JFrame {
 	ImageIcon icon_bild = new ImageIcon(this.getClass().getResource("/dungeoncrawler/MenuBackground.PNG"));
 	JButton button_start;
 	JButton button_ende;
+	JButton button_shop;
 	
 	
 	public Hauptmenu() {
@@ -36,14 +38,18 @@ public class Hauptmenu extends JFrame {
 		button_start.setBounds(300, 200, 150, 50);
 		button_ende = new JButton("Spiel beenden");
 		button_ende.setBounds(300, 270, 150, 50);
+		button_shop = new JButton("Shop");
+		button_shop.setBounds(100, 270, 120, 35);
 
 		//Label und Buttons hinzufuegen
 
 		add(button_start);
 		add(button_ende);
+		add(button_shop);
 		add(label_name);
 		button_start.setVisible(true);
 		button_ende.setVisible(true);
+		button_shop.setVisible(true);
 
 		button_start.addActionListener(new ActionListener(){
 
@@ -52,6 +58,18 @@ public class Hauptmenu extends JFrame {
 
 			BuildLevel.main(null);
 			// new Hauptspiel();
+
+			}
+			
+		});
+		
+		button_shop.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			//Shop.;
+			// Shoptest();
 
 			}
 			
