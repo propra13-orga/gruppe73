@@ -308,6 +308,66 @@ public class shop extends JPanel {
 		lblNewLabel_1.setBounds(343, 138, 46, 14);
 		add(lblNewLabel_1);
 		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(shop.class.getResource("/dungeoncrawler/Medikit.PNG")));
+		label.setBounds(20, 0, 14, 14);
+		add(label);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(shop.class.getResource("/dungeoncrawler/ruestung.PNG")));
+		label_1.setBounds(60, 0, 14, 14);
+		add(label_1);
+		
+		JLabel label_2 = new JLabel("0");
+		label_2.setFont(new Font("Stencil", Font.PLAIN, 11));
+		label_2.setBounds(38, 0, 14, 14);
+		add(label_2);
+		
+		JLabel label_3 = new JLabel("0");
+		label_3.setFont(new Font("Stencil", Font.PLAIN, 11));
+		label_3.setBounds(118, 0, 14, 14);
+		add(label_3);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon(shop.class.getResource("/dungeoncrawler/Mana.PNG")));
+		label_4.setBounds(100, 0, 14, 14);
+		add(label_4);
+		
+		JLabel label_5 = new JLabel("");
+		label_5.setIcon(new ImageIcon(shop.class.getResource("/dungeoncrawler/Sword.PNG")));
+		label_5.setBounds(140, 0, 14, 14);
+		add(label_5);
+		
+		JLabel label_6 = new JLabel("0");
+		label_6.setFont(new Font("Stencil", Font.PLAIN, 11));
+		label_6.setBounds(78, 0, 14, 14);
+		add(label_6);
+		
+		JLabel label_7 = new JLabel("0");
+		label_7.setFont(new Font("Stencil", Font.PLAIN, 11));
+		label_7.setBounds(158, 0, 14, 14);
+		add(label_7);
+		
+		JLabel label_8 = new JLabel("");
+		label_8.setIcon(new ImageIcon(shop.class.getResource("/dungeoncrawler/bogen.png")));
+		label_8.setBounds(180, 0, 14, 14);
+		add(label_8);
+		
+		JLabel label_9 = new JLabel("0");
+		label_9.setFont(new Font("Stencil", Font.PLAIN, 11));
+		label_9.setBounds(198, 0, 14, 14);
+		add(label_9);
+		
+		JLabel label_10 = new JLabel("");
+		label_10.setIcon(new ImageIcon(shop.class.getResource("/dungeoncrawler/pfeil1.png")));
+		label_10.setBounds(220, 0, 14, 14);
+		add(label_10);
+		
+		JLabel label_11 = new JLabel("0");
+		label_11.setFont(new Font("Stencil", Font.PLAIN, 11));
+		label_11.setBounds(238, 0, 14, 14);
+		add(label_11);
+		
 		JLabel lblShopBackground = new JLabel("");
 		lblShopBackground.setBackground(Color.WHITE);
 		lblShopBackground.setIcon(new ImageIcon(shop.class.getResource("/dungeoncrawler/Inventar.PNG")));
