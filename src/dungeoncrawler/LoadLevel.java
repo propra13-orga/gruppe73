@@ -2,12 +2,12 @@ package dungeoncrawler;
 
 import dungeoncrawler.BuildLevel;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
+import java.io.*;
 
 // Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
 // Informationen an die Labels der BuildLevel.java weiter.
+
+
 
 public class LoadLevel {
 	
@@ -29,6 +29,7 @@ public class LoadLevel {
 	public static String StringPosX = null;
 	public static String StringPosY = null;
 	private static LineNumberReader reader;
+	private static BufferedReader auslesen;
 	public static String getCurrent_LevelMap() {
 		return Current_LevelMap;
 	}
@@ -67,6 +68,26 @@ public class LoadLevel {
 		}
 	
 	
+	public static void DateiLesen (String args[]) {
+		try {
+			auslesen = new BufferedReader(new FileReader("dungeoncrawler/leveldata.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if ((BuildLevel.Current_Level % 2) == 0) {
+			Current_LevelMap = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW15012085075";
+		} else {
+			try {
+				Current_LevelMap = auslesen.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public static String main(int current_level, int position) {
 		String output = "/dungeoncrawler/wall.PNG";
 		
@@ -78,19 +99,11 @@ public class LoadLevel {
 		// Levelparameter einzelnd eingelesen
 		// ############################################
 		
-		/*
-		if ((current_level % 2) == 0) {
-			Current_LevelMap = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW15012085075";
-		} else {
-			try {
-				Current_LevelMap = LadeDatei();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		*/
-		
+			
+				
+				
+			
+				
 		
 			if (BuildLevel.Current_Level == 1) {
 				Current_LevelMap = "PPPPPPPPPPWWWWWWWWWWPWWWWWWWWPWWPPPPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPPPPDPWWWWWWWWPPPPWWWWWWWPWWWWWWWWPWWPWWWWWWWPPPWWWWWWPWWPWWWWWWWWWPWWWWWWPWWPWWWWWWWWWPPPPPPPPWWPWWWWWWWWWPWWWWWWPWWPPPPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWDWWWWWWSWWSWWSWWWW030225285075";

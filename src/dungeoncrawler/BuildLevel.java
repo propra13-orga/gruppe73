@@ -3,6 +3,8 @@ package dungeoncrawler;
 
 
 import java.awt.Color;
+import java.io.IOException;
+
 import dungeoncrawler.Player;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -458,7 +460,9 @@ public class BuildLevel extends JFrame {
 					}
 					
 					
-				
+						
+						
+						
 						lvlA1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 0))));
 						lvlA2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 1))));
 						lvlA3.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 2))));
@@ -799,9 +803,13 @@ public class BuildLevel extends JFrame {
                 	}	            	
                 }
                 
+                CollisionControl.permit_movement = false;
+                
                 /*
                  *  
                  */
+                
+                // Bewegt den Player waehrend des Level-Wechsels an die mittlere Position
                 
                 if (BuildLevel.change_level_phase == true){
 					newX = LoadLevel.getPlayerPosStartX(Current_Level);

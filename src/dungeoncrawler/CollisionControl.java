@@ -12,6 +12,8 @@ public class CollisionControl {
 	 * @param args
 	 */
 	
+	public static Boolean permit_movement;
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -70,7 +72,7 @@ public class CollisionControl {
 	public static boolean check_wall(int current_posX, int current_posY) {
 		
 		String Current_LevelMap = LoadLevel.getCurrent_LevelMap();
-		boolean permit_movement = true;
+		permit_movement = true;
 		int newPosX = current_posX/15;
 		int finalPos = 0;
 		char checkposL = 'P';
