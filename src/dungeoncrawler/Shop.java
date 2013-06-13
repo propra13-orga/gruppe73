@@ -40,7 +40,7 @@ public class Shop extends JFrame {
 	 * Create the frame.
 	 */
 	public Shop() {
-		setBounds(300, 300, 400, 320);
+		setBounds(300, 300, 400, 358);
 		setLayout(null);
 		
 		JLabel lblShop = new JLabel("Shop");
