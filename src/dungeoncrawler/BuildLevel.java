@@ -432,7 +432,7 @@ public class BuildLevel extends JFrame {
 		//create Jframe and Grid
 		
 		setTitle("Dungeon Crawler - Level "+Current_Level);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setBounds(300, 300, 306, 272);
 		Content = new JPanel();
 		Content.setBackground(Color.WHITE);

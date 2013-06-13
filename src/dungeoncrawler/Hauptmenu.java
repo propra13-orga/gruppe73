@@ -24,7 +24,7 @@ public class Hauptmenu extends JFrame {
 		setSize(600, 400);
 		setLocation(300, 50);
 		setTitle("DungeonCrawler - Hauptmenue");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setVisible(true);
 		setResizable(false);
 		setLayout(null);
