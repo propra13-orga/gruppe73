@@ -2,7 +2,7 @@ package dungeoncrawler;
 import java.awt.event.ActionEvent;
 import dungeoncrawler.BuildLevel;
 import java.awt.event.ActionListener;
-import dungeoncrawler.shop;
+import dungeoncrawler.Shop;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -68,7 +68,7 @@ public class Hauptmenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-			//Shop.;
+				Shop.main(null);
 			// Shoptest();
 
 			}
