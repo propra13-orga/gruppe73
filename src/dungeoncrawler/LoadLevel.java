@@ -1,12 +1,17 @@
 package dungeoncrawler;
 
 import dungeoncrawler.BuildLevel;
-import java.io.BufferedReader;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
 
 // Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
 // Informationen an die Labels der BuildLevel.java weiter.
 
 public class LoadLevel {
+	
+	
 
 
 	/**
@@ -23,14 +28,13 @@ public class LoadLevel {
 	public static int counter = 0;
 	public static String StringPosX = null;
 	public static String StringPosY = null;
-	
-	
+	private static LineNumberReader reader;
 	public static String getCurrent_LevelMap() {
 		return Current_LevelMap;
 	}
 	
 	
-public static int getPlayerPosStartY(int aktuelles_level) {
+	public static int getPlayerPosStartY(int aktuelles_level) {
 		
 		StringPosY = Current_LevelMap.substring(303, 306);
 		PosStartY = Integer.parseInt(StringPosY);
@@ -48,14 +52,24 @@ public static int getPlayerPosStartY(int aktuelles_level) {
 	}
 	
 	
-	
+	public static String LadeDatei() throws IOException{
+			String map = null;
+			if ((BuildLevel.Current_Level != BuildLevel.level_load)|(BuildLevel.first_load = true)) {
+			reader = new LineNumberReader (new FileReader("/dungeoncrawler/leveldata.txt") );
+			   for(int i = 0; i<BuildLevel.Current_Level-1; i++)
+			      reader.readLine();
+			   map = reader.readLine();
+			   
+			}
+			return map;
+				
+		   
+		}
 	
 	
 	public static String main(int current_level, int position) {
-		String output = null;
-		if ((BuildLevel.Current_Level != BuildLevel.level_load)|(BuildLevel.first_load = true)) {
-			
-		}
+		String output = "/dungeoncrawler/wall.PNG";
+		
 		
 
 		
@@ -63,6 +77,20 @@ public static int getPlayerPosStartY(int aktuelles_level) {
 		// Hier fehlt die Datei-Import funktion! (Nils)
 		// Levelparameter einzelnd eingelesen
 		// ############################################
+		
+		/*
+		if ((current_level % 2) == 0) {
+			Current_LevelMap = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW15012085075";
+		} else {
+			try {
+				Current_LevelMap = LadeDatei();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		*/
+		
 		
 			if (BuildLevel.Current_Level == 1) {
 				Current_LevelMap = "PPPPPPPPPPWWWWWWWWWWPWWWWWWWWPWWPPPPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPPPPDPWWWWWWWWPPPPWWWWWWWPWWWWWWWWPWWPWWWWWWWPPPWWWWWWPWWPWWWWWWWWWPWWWWWWPWWPWWWWWWWWWPPPPPPPPWWPWWWWWWWWWPWWWWWWPWWPPPPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWDWWWWWWSWWSWWSWWWW030225285075";
@@ -77,6 +105,8 @@ public static int getPlayerPosStartY(int aktuelles_level) {
 			} else if (current_level == 9) {
 				Current_LevelMap = "SPPPPPPWSWWWWWWWWWWWSPSSSSPPPWWWWPPPPPPWSPPPPPWWPPPSSSPSSSPSSPSSSSWWWSPPPSPPPSPSWPWWWWDWWWWWPSSSPSPSSPPWWPPPWSSWPSPPPSPSWSPWWPPPWSPPPSPSSSPSWPPWWPSSWSPWWSPPPSPSWPSWSPPPPPPWWSSSPSPPWPPWSSSSSSWWPPPPPSSPWSPSSPPPPPPPPWWWWWSPWPPWWPWWWWWWSSSWWWPPWPWWWPPPPPPPPDSWWWPSWPWWWSWWWWWWSSSWWWPSWPPPPPPPPPPPPPPPPPPP195195285075";	
 			} 	
+			
+		
 			
 			char[] SingleChar = Current_LevelMap.toCharArray();
 			
