@@ -42,6 +42,7 @@ public class Shop extends JFrame {
 	public Shop() {
 		setBounds(300, 300, 400, 358);
 		setLayout(null);
+		setTitle("Dungeoncrawler - SHOP :-P ");
 		
 		JLabel lblShop = new JLabel("Shop");
 		lblShop.setFont(new Font("Stencil", Font.PLAIN, 28));

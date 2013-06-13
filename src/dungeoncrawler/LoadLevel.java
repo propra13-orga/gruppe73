@@ -1,7 +1,7 @@
 package dungeoncrawler;
 
 import dungeoncrawler.BuildLevel;
-
+import dungeoncrawler.DateiLaden;
 import java.io.*;
 
 // Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
@@ -29,7 +29,6 @@ public class LoadLevel {
 	public static String StringPosX = null;
 	public static String StringPosY = null;
 	private static LineNumberReader reader;
-	private static BufferedReader auslesen;
 	public static String getCurrent_LevelMap() {
 		return Current_LevelMap;
 	}
@@ -68,25 +67,7 @@ public class LoadLevel {
 		}
 	
 	
-	public static void DateiLesen (String args[]) {
-		try {
-			auslesen = new BufferedReader(new FileReader("dungeoncrawler/leveldata.txt"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if ((BuildLevel.Current_Level % 2) == 0) {
-			Current_LevelMap = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW15012085075";
-		} else {
-			try {
-				Current_LevelMap = auslesen.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
+	
 	
 	public static String main(int current_level, int position) {
 		String output = "/dungeoncrawler/wall.PNG";
@@ -100,10 +81,12 @@ public class LoadLevel {
 		// ############################################
 		
 			
-				
-				
+		
+			Current_LevelMap = DateiLaden.LeseData(BuildLevel.Current_Level);	
 			
 				
+			
+			/*	
 		
 			if (BuildLevel.Current_Level == 1) {
 				Current_LevelMap = "PPPPPPPPPPWWWWWWWWWWPWWWWWWWWPWWPPPPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPPPPDPWWWWWWWWPPPPWWWWWWWPWWWWWWWWPWWPWWWWWWWPPPWWWWWWPWWPWWWWWWWWWPWWWWWWPWWPWWWWWWWWWPPPPPPPPWWPWWWWWWWWWPWWWWWWPWWPPPPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWDWWWWWWSWWSWWSWWWW030225285075";
@@ -118,8 +101,7 @@ public class LoadLevel {
 			} else if (current_level == 9) {
 				Current_LevelMap = "SPPPPPPWSWWWWWWWWWWWSPSSSSPPPWWWWPPPPPPWSPPPPPWWPPPSSSPSSSPSSPSSSSWWWSPPPSPPPSPSWPWWWWDWWWWWPSSSPSPSSPPWWPPPWSSWPSPPPSPSWSPWWPPPWSPPPSPSSSPSWPPWWPSSWSPWWSPPPSPSWPSWSPPPPPPWWSSSPSPPWPPWSSSSSSWWPPPPPSSPWSPSSPPPPPPPPWWWWWSPWPPWWPWWWWWWSSSWWWPPWPWWWPPPPPPPPDSWWWPSWPWWWSWWWWWWSSSWWWPSWPPPPPPPPPPPPPPPPPPP195195285075";	
 			} 	
-			
-		
+			*/
 			
 			char[] SingleChar = Current_LevelMap.toCharArray();
 			
