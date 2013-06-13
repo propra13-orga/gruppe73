@@ -23,7 +23,7 @@ public class Hauptmenu extends JFrame {
 		// Fenstersetting zum Hauptmenue
 		setSize(600, 400);
 		setLocation(300, 50);
-		setTitle("DoofenCrawler - Hauptmenue");
+		setTitle("DungeonCrawler - Hauptmenue");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setResizable(false);
