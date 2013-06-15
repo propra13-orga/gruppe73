@@ -120,6 +120,30 @@ public class LoadLevel {
 			String StrS = "S";
 			char[] ChaS = StrS.toCharArray();
 			
+			String StrB = "B";
+			char[] ChaB = StrS.toCharArray();
+			
+			String StrT = "T";
+			char[] ChaT = StrT.toCharArray();
+			
+			String StrF = "F";
+			char[] ChaF = StrF.toCharArray();
+			
+			String StrA = "A";
+			char[] ChaA = StrA.toCharArray();
+			
+			String StrC = "C";
+			char[] ChaC = StrC.toCharArray();
+			
+			String StrE = "E";
+			char[] ChaE = StrE.toCharArray();
+			
+			String StrK ="K";
+			char[] ChaK = StrK.toCharArray();
+			
+			String StrQ = "Q";
+			char[] ChaQ = StrQ.toCharArray();
+			
 			if (SingleChar[position] == ChaP[0]) {
 				output = "/dungeoncrawler/path.PNG";			
 			}
@@ -134,8 +158,40 @@ public class LoadLevel {
 			
 			else if (SingleChar[position] == ChaD[0]) {
 				output = "/dungeoncrawler/door.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaB[0]) {
+				output = "/dungeoncrawler/baum.PNG";
+			}	
+			
+			else if (SingleChar[position] == ChaT[0]) {
+				output = "/dungeoncrawler/tuer.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaF[0]) {
+				output = "/dungeoncrawler/fenster.PNG";
 			}	
 			 
+			else if (SingleChar[position] == ChaA[0]) {
+				output = "/dungeoncrawler/dach1.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaC[0]) {
+				output = "/dungeoncrawler/dach2.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaE[0]) {
+				output = "/dungeoncrawler/dach3.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaK[0]) {
+				output = "/dungeoncrawler/dachkomplett.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaQ[0]) {
+				output = "/dungeoncrawler/freiflaeche.PNG";
+			}
+			
 		return output;
 		// TODO Auto-generated method stub
 		
