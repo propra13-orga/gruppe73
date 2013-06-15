@@ -1,7 +1,6 @@
 package dungeoncrawler;
 import dungeoncrawler.BuildLevel;
 import dungeoncrawler.CollisionControl;
-import dungeoncrawler.DateiLaden;
 import java.awt.event.KeyEvent;
 
 
@@ -17,18 +16,26 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     
 
     public void keyTyped(java.awt.event.KeyEvent e) {
-    	left = 0;
+    	/*left = 0;
         right = 0;
         up = 0;
-        down = 0;
+        down = 0;*/
     }
     
 
     public void keyPressed(java.awt.event.KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) left = -15;
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) right = 15;
-        if (e.getKeyCode() == KeyEvent.VK_UP) up = -15;
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) down = 15;
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        	left = -15;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        	right = 15;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        	up = -15;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        	down = 15;
+        }
         if (e.getKeyCode() == KeyEvent.VK_2) {
         	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
         	BuildLevel.change_level_phase = true;

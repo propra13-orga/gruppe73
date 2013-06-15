@@ -458,8 +458,11 @@ public class BuildLevel extends JFrame {
 						first_load = false;
 						
 					}
-					
-					
+					/*
+					if (level_load != Current_Level) {
+						level_load = level_load+1;
+					}
+					*/
 						
 						
 						
@@ -792,32 +795,24 @@ public class BuildLevel extends JFrame {
 				 */
 				
 				java.awt.Rectangle pos = lblPlayer.getBounds();
-                if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
+                 
+				if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
                 	if (CollisionControl.check_wall(lblPlayer.getX(), lblPlayer.getY()) == true) {
-                		newX = pos.x + left + right;
-                	}
-                	
+                		newX = pos.x + left + right;   
+                	}	            	
                 }
-                if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
+				if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
                 	if (CollisionControl.check_wall(lblPlayer.getX(), lblPlayer.getY()) == true) {
                 		newY = pos.y + up + down;   
                 	}	            	
                 }
                 
-                CollisionControl.permit_movement = false;
                 
                 /*
                  *  
                  */
                 
                 // Bewegt den Player waehrend des Level-Wechsels an die mittlere Position
-                
-                if (BuildLevel.change_level_phase == true){
-					newX = LoadLevel.getPlayerPosStartX(Current_Level);
-					newY = LoadLevel.getPlayerPosStartY(Current_Level);
-					level_load = level_load+1;
-					counter = 2;
-				}
                 
                 if ((BuildLevel.change_level_phase == true)&(counter == 2)) {
                 	counter = 4;
@@ -826,15 +821,20 @@ public class BuildLevel extends JFrame {
 					newY = LoadLevel.getPlayerPosStartY(Current_Level);
 					change_level_exitX = true;
 					
-                }
+                } else if (BuildLevel.change_level_phase == true){
+					newX = LoadLevel.getPlayerPosStartX(Current_Level);
+					newY = LoadLevel.getPlayerPosStartY(Current_Level);
+					level_load = level_load+1;
+					counter = 2;
+				}
+                
+                
                 
                 
                 if ((change_level_exitX == true)&(counter == 6)) {
                 	
                 	newY = LoadLevel.getPlayerPosStartY(Current_Level);
-                	
                 	newX = LoadLevel.getPlayerPosStartX(Current_Level);
-                	
 					counter = 0;
 					change_level_exitX = false;
                 }
@@ -843,16 +843,12 @@ public class BuildLevel extends JFrame {
                 if (change_level_exitX == true) {
                 	
                 	newY = LoadLevel.getPlayerPosStartY(Current_Level);
-                	
                 	newX = LoadLevel.getPlayerPosStartX(Current_Level);
-                	
 					counter = 6;
 					
                 }
                 
-               
-                
-                
+            
                 javax.swing.SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
@@ -886,13 +882,13 @@ public class BuildLevel extends JFrame {
                 
                 
                 
-                if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
+                //if (CollisionControl.check_Xborder(lblPlayer.getX()) == true) {
                 	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
                 		lblGameOver.setVisible(true);
                 		MovementListener.stopFlag = true;
                 		
                 	}
-                	if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
+                	//if (CollisionControl.check_Yborder(lblPlayer.getY()) == true) {
                     	if (CollisionControl.check_trap(lblPlayer.getX(), lblPlayer.getY()) == true) {
                     		lblGameOver.setVisible(true);
                     		lblNeustart.setVisible(true);
@@ -901,9 +897,9 @@ public class BuildLevel extends JFrame {
                     		game_over = true;
                     		
                     	}	            	
-                    }
+                    //}
                 	
-                }
+                //}
                 
                 
 
