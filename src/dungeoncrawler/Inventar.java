@@ -9,6 +9,11 @@ import javax.swing.JButton;
 public class Inventar extends JPanel {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the panel.
 	 */
 	public Inventar() {
