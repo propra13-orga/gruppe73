@@ -111,6 +111,9 @@ public class LoadLevel {
 			String StrP = "P";
 			char[] ChaP = StrP.toCharArray();
 			
+			String Strp = "p";
+			char[] Chap = Strp.toCharArray();
+			
 			String StrW = "W";
 			char[] ChaW = StrW.toCharArray();
 			
@@ -122,6 +125,9 @@ public class LoadLevel {
 			
 			String StrB = "B";
 			char[] ChaB = StrS.toCharArray();
+			
+			String Strb = "b";
+			char[] Chab = Strb.toCharArray();
 			
 			String StrT = "T";
 			char[] ChaT = StrT.toCharArray();
@@ -141,10 +147,25 @@ public class LoadLevel {
 			String StrK ="K";
 			char[] ChaK = StrK.toCharArray();
 			
-			String StrQ = "Q";
+			String StrQ = " ";
 			char[] ChaQ = StrQ.toCharArray();
 			
+			String StrZ = "Z";
+			char[] ChaZ = StrZ.toCharArray();
+			
+			String StrJ = "J";
+			char[] ChaJ = StrJ.toCharArray();
+			
+			String StrX = "X";
+			char[] ChaX = StrX.toCharArray();
+			
+			
+			
 			if (SingleChar[position] == ChaP[0]) {
+				output = "/dungeoncrawler/path.PNG";			
+			}
+			
+			if (SingleChar[position] == Chap[0]) {
 				output = "/dungeoncrawler/path.PNG";			
 			}
 			
@@ -161,8 +182,12 @@ public class LoadLevel {
 			}
 			
 			else if (SingleChar[position] == ChaB[0]) {
-				output = "/dungeoncrawler/baum.PNG";
+				output = "/dungeoncrawler/baum1.PNG";
 			}	
+			
+			else if (SingleChar[position] == Chab[0]){
+				output ="/dungeoncrawler/baum2.PNG";
+			}
 			
 			else if (SingleChar[position] == ChaT[0]) {
 				output = "/dungeoncrawler/tuer.PNG";
@@ -190,6 +215,18 @@ public class LoadLevel {
 			
 			else if (SingleChar[position] == ChaQ[0]) {
 				output = "/dungeoncrawler/freiflaeche.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaZ[0]) {
+				output = "/dungeoncrawler/zaun1.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaJ[0]) {
+				output = "/dungeoncrawler/zaun2.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaX[0]) {
+				output = "/dungeoncrawler/wegweiser.PNG";
 			}
 			
 		return output;
