@@ -142,7 +142,7 @@ public class CollisionControl {
 			checkposL = Current_LevelMap.charAt(finalPosL);
 			checkposR = Current_LevelMap.charAt(finalPosR);
 			if (MovementListener.checkLeft() == true) {
-				if (checkposL == 'W') {
+				if (checkposL == ('W'|'B'|'b'|'T'|'F'|'A'|'C'|'E'|'K'|'Z'|'J')) {
 					permit_movement = false;
 				}
 			}
@@ -151,7 +151,7 @@ public class CollisionControl {
 		
 		if (MovementListener.checkRight() == true) {
 			
-			if (checkposR == 'W') {
+			if (checkposR == ('W'|'B'|'b'|'T'|'F'|'A'|'C'|'E'|'K'|'Z'|'J')) {
 				permit_movement = false;
 			}
 		}
@@ -163,7 +163,7 @@ public class CollisionControl {
 			if (current_posY != 225) {
 				if (MovementListener.checkDown() == true) {
 					checkposD = Current_LevelMap.charAt(finalPosD);
-					if (checkposD == 'W') {
+					if (checkposD == ('W'|'B'|'b'|'T'|'F'|'A'|'C'|'E'|'K'|'Z'|'J')) {
 						permit_movement = false;
 					}
 				}
@@ -172,7 +172,7 @@ public class CollisionControl {
 			if (current_posY != 15) {
 				if (MovementListener.checkUp() == true) {
 					checkposU = Current_LevelMap.charAt(finalPosU);
-					if (checkposU == 'W') {
+					if (checkposU == ('W'|'B'|'b'|'T'|'F'|'A'|'C'|'E'|'K'|'Z'|'J')) {
 						permit_movement = false;
 					}
 				}

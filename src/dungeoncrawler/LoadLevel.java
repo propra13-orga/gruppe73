@@ -124,7 +124,7 @@ public class LoadLevel {
 			char[] ChaS = StrS.toCharArray();
 			
 			String StrB = "B";
-			char[] ChaB = StrS.toCharArray();
+			char[] ChaB = StrB.toCharArray();
 			
 			String Strb = "b";
 			char[] Chab = Strb.toCharArray();
