@@ -21,6 +21,7 @@ public class LoadLevel {
 	 * @return 
 	 */
 	public static String Current_LevelMap = null;
+	public static String Current_LevelMapRestart = null;
 	public static int PosStartX;
 	public static int PosStartY;
 	public static int DoorX;
@@ -36,6 +37,7 @@ public class LoadLevel {
 	
 	public static int getPlayerPosStartY(int aktuelles_level) {
 		
+		Current_LevelMapRestart = DateiLaden.LeseData(BuildLevel.Current_Level);
 		StringPosY = Current_LevelMap.substring(303, 306);
 		PosStartY = Integer.parseInt(StringPosY);
 		
@@ -45,7 +47,8 @@ public class LoadLevel {
 	
 	public static int getPlayerPosStartX(int aktuelles_level) {
 		
-		StringPosX = Current_LevelMap.substring(300, 303);
+		Current_LevelMapRestart = DateiLaden.LeseData(BuildLevel.Current_Level);
+		StringPosX = Current_LevelMapRestart.substring(300, 303);
 		PosStartX = Integer.parseInt(StringPosX);
 		return PosStartX;
 		

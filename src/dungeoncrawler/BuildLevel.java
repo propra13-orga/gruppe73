@@ -436,7 +436,7 @@ public class BuildLevel extends JFrame {
 		//create Jframe and Grid
 		
 		setTitle("Dungeon Crawler - Level "+Current_Level);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(BuildLevel.DO_NOTHING_ON_CLOSE);
 		setBounds(300, 300, 306, 272);
 		Content = new JPanel();
 		Content.setBackground(Color.WHITE);
@@ -964,10 +964,30 @@ public class BuildLevel extends JFrame {
 		lblGameOver.setVisible(false);
 		Content.add(lblGameOver);
 
+		
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		
 		lblNeustart = new JLabel ("");
 		lblNeustart.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
+				
+				game_over = false;
+				MovementListener.stopFlag = false;
+				newY = 225;
+            	newX = 30;
+				Current_Level = 1;
+				change_level_phase = false;
+				level_load = 1;
+				first_load = true;
+				
+            	lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+				main(null);
+				dispose();
 			}
 		});
 		lblNeustart.setBounds(50, 150, 200, 50);

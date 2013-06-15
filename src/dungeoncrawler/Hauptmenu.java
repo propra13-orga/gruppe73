@@ -93,5 +93,9 @@ public class Hauptmenu extends JFrame {
 		new Hauptmenu();
 
 	}
+	
+	public static void restart(String[] args) {
+		BuildLevel.main(null);
+	}
 
 }
