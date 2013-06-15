@@ -14,6 +14,8 @@ import javax.swing.SwingConstants;
 import dungeoncrawler.CollisionControl;
 import dungeoncrawler.LoadLevel;
 import dungeoncrawler.Treasure;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 // ###################################################
@@ -963,6 +965,11 @@ public class BuildLevel extends JFrame {
 		Content.add(lblGameOver);
 
 		lblNeustart = new JLabel ("");
+		lblNeustart.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+		});
 		lblNeustart.setBounds(50, 150, 200, 50);
 		lblNeustart.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/restart.PNG")));
 		lblNeustart.setEnabled(false);
