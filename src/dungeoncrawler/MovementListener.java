@@ -25,16 +25,27 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 
     public void keyPressed(java.awt.event.KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        	left = -15;
+        	if (CollisionControl.permit_movement == true) {
+        		left = -15;
+        	}
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        	right = 15;
+        	if (CollisionControl.permit_movement == true) {
+        		right = 15;
+        	}
+        	
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-        	up = -15;
+        	if (CollisionControl.permit_movement == true) {
+        		up = -15;
+        	}
+        	
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-        	down = 15;
+        	if (CollisionControl.permit_movement == true) {
+        		down = 15;
+        	}
+        	
         }
         if (e.getKeyCode() == KeyEvent.VK_2) {
         	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
@@ -46,18 +57,22 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     public void keyReleased(java.awt.event.KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
         	left = 0;
+        	CollisionControl.permit_movement = false;
         	CollisionControl.check_finish(); 
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
         	right = 0;
+        	CollisionControl.permit_movement = false;
         	CollisionControl.check_finish(); 
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
         	up = 0;
+        	CollisionControl.permit_movement = false;
         	CollisionControl.check_finish(); 
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
         	down = 0;
+        	CollisionControl.permit_movement = false;
         	CollisionControl.check_finish(); 
         }
         if (e.getKeyCode() == KeyEvent.VK_ENTER) { }

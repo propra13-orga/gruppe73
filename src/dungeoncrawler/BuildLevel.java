@@ -37,7 +37,7 @@ public class BuildLevel extends JFrame {
 	public static boolean change_level_phase = false;
 	public static int level_load = 1;
 	public static boolean first_load = true;
-	public static int dismatch = 300;
+
 	public static boolean got_treasure = false;
 	public static boolean stop_treasure = false;
 	public static boolean change_level_exitX = false;
@@ -454,12 +454,9 @@ public class BuildLevel extends JFrame {
 				
 				if ((Current_Level != level_load)|(first_load = true)) {
 					
+					first_load = false;
+						
 					
-					if (first_load = true) {
-						
-						first_load = false;
-						
-					}
 					/*
 					if (level_load != Current_Level) {
 						level_load = level_load+1;
@@ -781,13 +778,7 @@ public class BuildLevel extends JFrame {
 					lvlO17.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 296))));
 					lvlO18.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 297))));
 					lvlO19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 298))));
-					lvlO20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 299))));
-				
-						
-						
-					
-					
-					
+					lvlO20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 299))));	
 			
 				}
 				
@@ -809,10 +800,6 @@ public class BuildLevel extends JFrame {
                 	}	            	
                 }
                 
-                
-                /*
-                 *  
-                 */
                 
                 // Bewegt den Player waehrend des Level-Wechsels an die mittlere Position
                 
