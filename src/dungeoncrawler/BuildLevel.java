@@ -56,6 +56,7 @@ public class BuildLevel extends JFrame {
 	private static javax.swing.JLabel lblGameOver;
 	private static javax.swing.JLabel lblNeustart;
 	public static javax.swing.JLabel lblTreasure;
+	public static javax.swing.JLabel lblPergament;
 	
 	// Spielfeld Definitionen:
 	
@@ -437,7 +438,7 @@ public class BuildLevel extends JFrame {
 		
 		setTitle("Dungeon Crawler - Level "+Current_Level);
 		setDefaultCloseOperation(BuildLevel.DO_NOTHING_ON_CLOSE);
-		setBounds(300, 300, 306, 272);
+		setBounds(300, 300, 306, 372);
 		Content = new JPanel();
 		Content.setBackground(Color.WHITE);
 		Content.setBorder(null);
@@ -865,7 +866,9 @@ public class BuildLevel extends JFrame {
                 	if (stop_treasure = true) {
                     	lblTreasure.setBounds(300, 15, 15, 15);
                     	stop_treasure = false;
-                    	Treasure.check_treasure();
+                    	lblPergament.setText(lblPergament.getText()+"/nSchatz aufgesammelt");
+                    	System.out.println("Schatz aufgesammelt");
+                    	//Treasure.check_treasure();
                     }
                 }
                 
@@ -909,6 +912,10 @@ public class BuildLevel extends JFrame {
 		// NEUSTART-Button
 		
 		
+		lblPergament = new JLabel("");
+		lblPergament.setBounds(0, 240, 300, 100);
+		lblPergament.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/pergament.PNG")));
+		Content.add(lblPergament);
 		
 		
 		//LEBENSANZEIGE

@@ -14,6 +14,7 @@ public class DateiLaden {
 		try {
 			if ((current_level % 2) != 0) {
 				String FilePath = "../../../Eigene Dateien/GitHub/gruppe73/src/dungeoncrawler/leveldata.TXT";
+				
 				auslesen = new BufferedReader(new FileReader(FilePath));
 				
 				q = q+1;

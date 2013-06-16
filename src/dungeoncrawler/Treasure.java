@@ -54,6 +54,7 @@ public class Treasure {
 			if (BuildLevel.getCurrentPlayerPos(1) == BuildLevel.treasureY) {
 				if (BuildLevel.got_treasure == false) {
 					Player.CurrentPoints = Player.CurrentPoints+500;
+					
 					BuildLevel.got_treasure = true;
 				}
 			}
