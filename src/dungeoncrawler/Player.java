@@ -10,7 +10,7 @@ package dungeoncrawler;
 public class Player {
 	public static int PlayerSword = 0;		// Anzahl der Schwerter, die der Player besitzt
 	public static int Medikit = 0;			//  ''    ''  Medikits, ''
-	public static int CurrentPoints = 0;	//Anzahl der Punkte - wird beim Gewinn des Schatzes o.ä hoch gesetzt
+	public static int CurrentPoints = 1800;	//Anzahl der Punkte - wird beim Gewinn des Schatzes o.ä hoch gesetzt
 	public static int Lives = 1;			//Anzahl Leben
 	public static int Manadrinks = 0;		// " Manadrinks (ermöglichen das Zaubern)
 	public static int Bow = 0;				// " Bögen
