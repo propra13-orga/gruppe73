@@ -450,6 +450,11 @@ public class BuildLevel extends JFrame {
 		lblItem3.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(3))));
 		lblItem4.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(4))));
 		
+		LevelControl.gotItem1 = false;
+		LevelControl.gotItem2 = false;
+		LevelControl.gotItem3 = false;
+		LevelControl.gotItem4 = false;
+		
 		lblItem1.setBounds(LevelControl.Item1X, LevelControl.Item1Y, LevelControl.Item_Width_Height(1), LevelControl.Item_Width_Height(1));
 		lblItem2.setBounds(LevelControl.Item2X, LevelControl.Item2Y, LevelControl.Item_Width_Height(2), LevelControl.Item_Width_Height(2));
 		lblItem3.setBounds(LevelControl.Item3X, LevelControl.Item3Y, LevelControl.Item_Width_Height(3), LevelControl.Item_Width_Height(3));

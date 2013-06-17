@@ -45,17 +45,21 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 	        
 	        // Kontrolliere:
 	        Gegner.trap_collision();
+	        LevelControl.Item_pickUp(null);
 	        LevelControl.door_collision(null);
+	        
 	        
 	        // Spielfeld aktualisieren:
 	        
 	        	// FEHLT!!!: Inventar aktualisieren (Leisten oben und unten)
+	        /*
 	        javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	        	public void run() {
 	        		//BuildLevel.neuesLevel(null);
 	        		BuildLevel.FeldNeuzeichnen(null);
 				}
 			});
+			*/
 	        
 	        
 	        
@@ -118,6 +122,12 @@ public abstract class MovementListener extends Thread implements java.awt.event.
             		sleep(2000);
             	} catch (InterruptedException ex) { }
             	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
+            	
+            	LevelControl.gotItem1 = false;
+            	LevelControl.gotItem2 = false;
+            	LevelControl.gotItem3 = false;
+            	LevelControl.gotItem4 = false;
+            	
             	BuildLevel.neuesLevel(null);
             	//this.doMovement(left,right,up,down);
             } 
