@@ -1,8 +1,6 @@
 gruppe73
 ========
 
-- Überarbeiten der Kollisionsabfrage
-- Neustart nach Sieg oder Niederlage
 - 3 Level a 3 Räume
 - Level aus Textdatei 
 - Checkpoints
