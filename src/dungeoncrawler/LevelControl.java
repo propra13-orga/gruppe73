@@ -61,7 +61,7 @@ public class LevelControl {
 	} 
 	
 	public static String Item_Pfade_aktualisieren(int ItemNr) {
-		String Pfad = "/dungeoncrawler/gameover.PNG";
+		String Pfad = "/dungeoncrawler/default.PNG";
 		
 		
 		// ITEM 1:
@@ -69,31 +69,86 @@ public class LevelControl {
 			if (ItemNr == 1) {
 				if (Item1Type == 'T') {
 					Pfad = "/dungeoncrawler/points.PNG";
-				} 
+				} else if (Item1Type == 'D') {
+					Pfad = "/dungeoncrawler/Mana.PNG";
+				} else if (Item1Type == 'E') {
+					Pfad = "/dungeoncrawler/shop_door.PNG";
+				} else if (Item1Type == 'L') {
+					Pfad = "/dungeoncrawler/heart.PNG";
+				} else if (Item1Type == 'H') {
+					Pfad = "/dungeoncrawler/Medikit.PNG";
+				} else if (Item1Type == 'A') {
+					Pfad = "/dungeoncrawler/bogen.PNG";
+				} else if (Item1Type == 'B') {
+					Pfad = "/dungeoncrawler/boooo.PNG";
+				}
 				
 		// ITEM 2:
 				
 			} else if (ItemNr == 2) {
 				if (Item2Type == 'T') {
 					Pfad = "/dungeoncrawler/points.PNG";
-				} 
+				} else if (Item2Type == 'D') {
+					Pfad = "/dungeoncrawler/Mana.PNG";
+				} else if (Item2Type == 'E') {
+					Pfad = "/dungeoncrawler/shop_door.PNG";
+				} else if (Item2Type == 'L') {
+					Pfad = "/dungeoncrawler/heart.PNG";
+				} else if (Item2Type == 'H') {
+					Pfad = "/dungeoncrawler/Medikit.PNG";
+				} else if (Item2Type == 'A') {
+					Pfad = "/dungeoncrawler/bogen.PNG";
+				} else if (Item2Type == 'B') {
+					Pfad = "/dungeoncrawler/boooo.PNG";
+				}
 				
 		// ITEM 3:
 				
 			} else if (ItemNr == 3) {
 				if (Item3Type == 'T') {
 					Pfad = "/dungeoncrawler/points.PNG";
-				} 
+				} else if (Item3Type == 'D') {
+					Pfad = "/dungeoncrawler/Mana.PNG";
+				} else if (Item3Type == 'E') {
+					Pfad = "/dungeoncrawler/shop_door.PNG";
+				} else if (Item3Type == 'L') {
+					Pfad = "/dungeoncrawler/heart.PNG";
+				} else if (Item3Type == 'H') {
+					Pfad = "/dungeoncrawler/Medikit.PNG";
+				} else if (Item3Type == 'A') {
+					Pfad = "/dungeoncrawler/bogen.PNG";
+				} else if (Item3Type == 'B') {
+					Pfad = "/dungeoncrawler/boooo.PNG";
+				}
 				
 		// ITEM 4:
 			
 			} else if (ItemNr == 4) {
 				if (Item4Type == 'T') {
 					Pfad = "/dungeoncrawler/points.PNG";
-				} 
+				} else if (Item4Type == 'D') {
+					Pfad = "/dungeoncrawler/Mana.PNG";
+				} else if (Item4Type == 'E') {
+					Pfad = "/dungeoncrawler/shop_door.PNG";
+				} else if (Item4Type == 'L') {
+					Pfad = "/dungeoncrawler/heart.PNG";
+				} else if (Item4Type == 'H') {
+					Pfad = "/dungeoncrawler/Medikit.PNG";
+				} else if (Item4Type == 'A') {
+					Pfad = "/dungeoncrawler/bogen.PNG";
+				} else if (Item4Type == 'B') {
+					Pfad = "/dungeoncrawler/boooo.PNG";
+				}
 			}
 		
 		return Pfad;
+	}
+	
+	public static int Item_Width_Height(int ItemNr) {
+		
+		int Width_Height = 15;
+		return Width_Height;
+		
 	}
 
 }

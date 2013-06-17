@@ -53,7 +53,6 @@ public class BuildLevel extends JFrame {
 	
 	private static javax.swing.JLabel lblPlayer;
 	private static javax.swing.JLabel lblPunkteanzeige;
-	private static javax.swing.JLabel lblGegner1;
 	private static javax.swing.JLabel lblGameOver;
 	private static javax.swing.JLabel lblNeustart;
 	public static javax.swing.JLabel lblItem1;
@@ -450,6 +449,11 @@ public class BuildLevel extends JFrame {
 		lblItem2.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(2))));
 		lblItem3.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(3))));
 		lblItem4.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(4))));
+		
+		lblItem1.setBounds(LevelControl.Item1X, LevelControl.Item1Y, LevelControl.Item_Width_Height(1), LevelControl.Item_Width_Height(1));
+		lblItem2.setBounds(LevelControl.Item2X, LevelControl.Item2Y, LevelControl.Item_Width_Height(2), LevelControl.Item_Width_Height(2));
+		lblItem3.setBounds(LevelControl.Item3X, LevelControl.Item3Y, LevelControl.Item_Width_Height(3), LevelControl.Item_Width_Height(3));
+		lblItem4.setBounds(LevelControl.Item4X, LevelControl.Item4Y, LevelControl.Item_Width_Height(4), LevelControl.Item_Width_Height(4));
 		
 		lvlA1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 0))));
 		lvlA2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 1))));
@@ -951,7 +955,7 @@ public class BuildLevel extends JFrame {
 		// Treasure
 		
 		lblItem1 = new JLabel ("");
-		lblItem1.setBounds(300, 300, 15, 15);
+		lblItem1.setBounds(15, 15, 15, 15);
 		lblItem1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/gameover.PNG")));
 		lblItem1.setVisible(true);
 		Content.add(lblItem1);
@@ -1020,14 +1024,8 @@ public class BuildLevel extends JFrame {
 		
 		lblPlayer = new JLabel("");
 		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/player.PNG")));
-		
 		lblPlayer.setBounds(newX, newY, 15, 15);
 		Content.add(lblPlayer);
-		
-		lblGegner1 = new JLabel("");
-		lblGegner1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/boooo.PNG")));
-		lblGegner1.setBounds(30, 30, 15, 15);
-		Content.add(lblGegner1);
 		
 		// Einzelne Level Items
 		// Hab's leider nicht geschafft das zu automatisieren :-(

@@ -16,6 +16,7 @@ public class DateiLaden {
 				String FilePath = "C:\\leveldata.TXT";
 				
 				auslesen = new BufferedReader(new FileReader(FilePath));
+				//auslesen = new BufferedReader(DateiLaden.class.getResource("/dungeoncrawler/leveldata.TXT"));
 				
 				q = q+1;
 				System.out.println("Ich lade die Datei neu! Zum "+q+"ten Mal");
