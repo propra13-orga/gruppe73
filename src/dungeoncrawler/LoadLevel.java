@@ -1,8 +1,6 @@
 package dungeoncrawler;
 
-import dungeoncrawler.BuildLevel;
-import dungeoncrawler.DateiLaden;
-import java.io.*;
+import dungeoncrawler.LevelControl;
 
 // Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
 // Informationen an die Labels der BuildLevel.java weiter.
@@ -11,100 +9,40 @@ import java.io.*;
 
 public class LoadLevel {
 	
-	
-
-
-	/**
-	 * @param args
-	 * @return 
-	 * @return 
-	 * @return 
-	 */
 	public static String Current_LevelMap = null;
-	public static String Current_LevelMapRestart = null;
-	public static int PosStartX;
-	public static int PosStartY;
-	public static int DoorX;
-	public static int DoorY;
-	public static int counter = 0;
-	public static String StringPosX = null;
-	public static String StringPosY = null;
-	private static LineNumberReader reader;
-	public static String getCurrent_LevelMap() {
-		return Current_LevelMap;
-	}
 	
-	
-	public static int getPlayerPosStartY(int aktuelles_level) {
+	public static void Export_to_LevelControl(String args[]) {
 		
-		Current_LevelMapRestart = DateiLaden.LeseData(BuildLevel.Current_Level);
-		StringPosY = Current_LevelMap.substring(303, 306);
-		PosStartY = Integer.parseInt(StringPosY);
+		LevelControl.StartDoorX = Integer.parseInt(Current_LevelMap.substring(300, 303));
+		LevelControl.StartDoorY = Integer.parseInt(Current_LevelMap.substring(303, 306));
 		
-		return PosStartY;
+		LevelControl.FinishDoorX = Integer.parseInt(Current_LevelMap.substring(306, 309));
+		LevelControl.FinishDoorY = Integer.parseInt(Current_LevelMap.substring(309, 312));
 		
-	}
-	
-	public static int getPlayerPosStartX(int aktuelles_level) {
+		LevelControl.Current_LevelAnzeige = Current_LevelMap.charAt(340);
+		LevelControl.Current_SubLevelAnzeige = Current_LevelMap.charAt(341);
 		
-		Current_LevelMapRestart = DateiLaden.LeseData(BuildLevel.Current_Level);
-		StringPosX = Current_LevelMapRestart.substring(300, 303);
-		PosStartX = Integer.parseInt(StringPosX);
-		return PosStartX;
+		LevelControl.Item1Type = Current_LevelMap.charAt(312);
+		LevelControl.Item2Type = Current_LevelMap.charAt(319);
+		LevelControl.Item3Type = Current_LevelMap.charAt(326);
+		LevelControl.Item4Type = Current_LevelMap.charAt(333);
+		
+		LevelControl.Item1X = Integer.parseInt(Current_LevelMap.substring(313, 316));
+		LevelControl.Item2X = Integer.parseInt(Current_LevelMap.substring(320, 323));
+		LevelControl.Item3X = Integer.parseInt(Current_LevelMap.substring(327, 330));
+		LevelControl.Item4X = Integer.parseInt(Current_LevelMap.substring(334, 337));
+		
+		LevelControl.Item1Y = Integer.parseInt(Current_LevelMap.substring(316, 319));
+		LevelControl.Item2Y = Integer.parseInt(Current_LevelMap.substring(323, 326));
+		LevelControl.Item3Y = Integer.parseInt(Current_LevelMap.substring(330, 333));
+		LevelControl.Item4Y = Integer.parseInt(Current_LevelMap.substring(337, 340));
+		
+		
 		
 	}
-	
-	
-	public static String LadeDatei() throws IOException{
-			String map = null;
-			if ((BuildLevel.Current_Level != BuildLevel.level_load)|(BuildLevel.first_load = true)) {
-			reader = new LineNumberReader (new FileReader("/dungeoncrawler/leveldata.txt") );
-			   for(int i = 0; i<BuildLevel.Current_Level-1; i++)
-			      reader.readLine();
-			   map = reader.readLine();
-			   
-			}
-			return map;
-				
-		   
-		}
-	
-	
-	
-	
+
 	public static String main(int current_level, int position) {
 		String output = "/dungeoncrawler/wall.PNG";
-		
-		
-
-		
-		// ############################################
-		// Hier fehlt die Datei-Import funktion! (Nils)
-		// Levelparameter einzelnd eingelesen
-		// ############################################
-		
-			
-		
-			Current_LevelMap = DateiLaden.LeseData(BuildLevel.Current_Level);	
-			
-				
-			
-			/*	
-		
-			if (BuildLevel.Current_Level == 1) {
-				Current_LevelMap = "PPPPPPPPPPWWWWWWWWWWPWWWWWWWWPWWPPPPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPWWWWPWWWWWWWWPWWPWWPPPPDPWWWWWWWWPPPPWWWWWWWPWWWWWWWWPWWPWWWWWWWPPPWWWWWWPWWPWWWWWWWWWPWWWWWWPWWPWWWWWWWWWPPPPPPPPWWPWWWWWWWWWPWWWWWWPWWPPPPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWPWWWWWWPWWPWWPWWWWWWDWWWWWWSWWSWWSWWWW030225285075";
-			} else if ((current_level % 2) == 0) {
-				Current_LevelMap = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW15012085075";
-			} else if (current_level == 3) {
-				Current_LevelMap = "WWWPPPPPPPWWWWWPPPPWWWWPWWWWWPWWWWWPWWPWWWWPWWWWWPWWWWWPWWPWWWWPWWWWWPWWWWWPWWPWDPPPWWWWWPWWWWWPWWPWWWWPWWWWWPPPPPPPWWPWWWWPPPPPPPWWWWWWWWPWWWWPWWWWWPWWWWWWWWPWSPPPWWWWWPPPPPPPWWPWWWWPPPPPPPWWWWWPWWPWWWWPWWWWWPWWWWWPWWPWWWWPWWWWWPWWWWWPWWPWWWWPWWWWWPWWWWWPWWPWWWWPWWWWWPWWWWWPWWPWSPPPWWWWWDWWWWWWWWWW000075285075";	
-			} else if (current_level == 5) {
-				Current_LevelMap = "WSWWWSWWWDWWWWSWWWWWWPWWWPWWWPWWWWPWWWWWWPPPPPPPPPWWWWPPPPPWWPWWWPWWWWWWWWPWWWPWSPWWWPWWWWWWWWPWWWPWWPWWWPWWWWWWWWPWWWPWWPPPPPPPPPPPPPPWWWPWWWWWWPWWWWWWWWWWWWPWWWWWWSWWWWWWWWWWWWPWWWWWWWWWWWWWWWWWSPPSWWWWWWWWWWWWWWWWWWPWDPPPPWWWPPPPPPPWWWPWWWWWPWWWPWWWWWPWWWPWWWWWPWWWPWWWWWPWWWPWWWWWPPPPPWWWWWPPPPPW000180285075";	
-			} else if (current_level == 7) {
-				Current_LevelMap = "WWWWWWWWWWWWWWWWWWWWWPPPPPPPPPPPPPPPPWWWWPWWWWWWWWWWWWWWPWWWWPPPPPPPPPPPPPPWPWWWWWWWWWWWWWWWWWPWPWWWWPPPPPPPPPPWWWPWPWWWWPWWWWWWWWPWWWPWPWWWWPPPPPPPSWPWWWPWPWWWWPWWWWWWWWPPSWPWPPPSWPWWWWWWWWPWWWPWPWWWSPPPPPPWWWPWWWPWPWWWWPWWWWPWWWPPPPPWPPPDWPPPWWPWWWWWWWPWWWWWWPWPWWPWWWWWWWPPPPPSWSWSWWDWWWWWWWWWWWWW285180285075";	
-			} else if (current_level == 9) {
-				Current_LevelMap = "SPPPPPPWSWWWWWWWWWWWSPSSSSPPPWWWWPPPPPPWSPPPPPWWPPPSSSPSSSPSSPSSSSWWWSPPPSPPPSPSWPWWWWDWWWWWPSSSPSPSSPPWWPPPWSSWPSPPPSPSWSPWWPPPWSPPPSPSSSPSWPPWWPSSWSPWWSPPPSPSWPSWSPPPPPPWWSSSPSPPWPPWSSSSSSWWPPPPPSSPWSPSSPPPPPPPPWWWWWSPWPPWWPWWWWWWSSSWWWPPWPWWWPPPPPPPPDSWWWPSWPWWWSWWWWWWSSSWWWPSWPPPPPPPPPPPPPPPPPPP195195285075";	
-			} 	
-			*/
 			
 			char[] SingleChar = Current_LevelMap.toCharArray();
 			
@@ -230,9 +168,5 @@ public class LoadLevel {
 			}
 			
 		return output;
-		// TODO Auto-generated method stub
-		
-
 	}
-
 }
