@@ -97,6 +97,27 @@ public class LoadLevel {
 			String StrX = "X";
 			char[] ChaX = StrX.toCharArray();
 			
+			String Strr = "r";
+			char[] Char = Strr.toCharArray();
+			
+			String StrR = "R";
+			char[] ChaR = StrR.toCharArray();
+			
+			String StrG = "G";
+			char[] ChaG = StrG.toCharArray();
+			
+			String Strg = "g";
+			char[] Chag = Strg.toCharArray();
+			
+			String StrH = "H";
+			char[] ChaH = StrH.toCharArray();
+			
+			String Strh = "h";
+			char[] Chah = Strh.toCharArray();
+			
+			String StrN = "N";
+			char[] ChaN = StrN.toCharArray();
+			
 			
 			
 			if (SingleChar[position] == ChaP[0]) {
@@ -165,6 +186,34 @@ public class LoadLevel {
 			
 			else if (SingleChar[position] == ChaX[0]) {
 				output = "/dungeoncrawler/wegweiser.PNG";
+			}
+			
+			else if (SingleChar[position] == Char[0]) {
+				output = "/dungeoncrawler/shop1.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaR[0]) {
+				output = "/dungeoncrawler/shop2.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaG[0]) {
+				output = "/dungeoncrawler/Seeganz.PNG";
+			}
+			
+			else if (SingleChar[position] == Chag[0]) {
+				output = "/dungeoncrawler/Seehalb.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaH[0]) {
+				output = "/dungeoncrawler/Seehalb2.PNG";
+			}
+			
+			else if (SingleChar[position] == Chah[0]) {
+				output = "/dungeoncrawler/Seehalb3.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaN[0]) {
+				output = "/dungeoncrawler/Busch.PNG";
 			}
 			
 		return output;
