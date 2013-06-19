@@ -1,8 +1,6 @@
 gruppe73
 ========
 
-- 3 Level a 3 Räume
-- Level aus Textdatei 
 - Checkpoints
 - Bewegliche Gegner
 - Waffen (Nah- und Fernkampf)
@@ -10,7 +8,7 @@ gruppe73
 - Schadenssystem (geht über Leben oder Tod hinaus) - Spielfigur verliert Lebenspunkte bis zum Tod, verliert dann ein Leben
 - Rüstung, welche den Schadenswert mindert
 - Items (Pakete die Lebenspunkte auffüllen, Manatränke, Waffen, Munition etc. (mindestens: Healthpacks, Manatränke, Waffen, Geld)
-- Shopsystem (sind in der Welt verteilt, man kann dort einen Teil der Items kaufen)
+- Shopsystem intern
 - Non Playing Character (NPC) interagiert mit dem Spieler
 - Informationsleiste erweitern um Manapunkte, Lebenspunkte, aktuelle Waffe 
   
