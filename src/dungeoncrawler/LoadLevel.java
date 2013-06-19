@@ -118,6 +118,18 @@ public class LoadLevel {
 			String StrN = "N";
 			char[] ChaN = StrN.toCharArray();
 			
+			String StrM = "M";
+			char[] ChaM = StrM.toCharArray();
+			
+			String StrO = "O";
+			char[] ChaO = StrO.toCharArray();
+			
+			String Stro = "o";
+			char[] Chao = Stro.toCharArray();
+			
+			String StrU = "U";
+			char[] ChaU = StrU.toCharArray();
+			
 			
 			
 			if (SingleChar[position] == ChaP[0]) {
@@ -216,6 +228,21 @@ public class LoadLevel {
 				output = "/dungeoncrawler/Busch.PNG";
 			}
 			
+			else if (SingleChar[position] == ChaM[0]) {
+				output = "/dungeoncrawler/platz.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaO[0]) {
+				output = "/dungeoncrawler/Burgmauer.PNG";
+			}
+			
+			else if (SingleChar[position] == Chao[0]) {
+				output = "/dungeoncrawler/Burgfenster.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaU[0]) {
+				output = "/dungeoncrawler/Zinnen.PNG";
+			}
 		return output;
 	}
 }

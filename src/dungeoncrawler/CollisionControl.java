@@ -99,7 +99,7 @@ public class CollisionControl {
 		System.out.println(PlyPosUmrechnen());
 		if (BuildLevel.getCurrentPlayerPos(0) == 0) {
 			MovementListener.left = 0;
-		} else if ((Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'X')) {
+		} else if ((Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'X')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'N')|(Current_LevelMap.charAt(PlyPosUmrechnen()-1) == 'M')) {
 			MovementListener.left = -15;
 		} else {
 			MovementListener.left = 0;
@@ -114,7 +114,7 @@ public class CollisionControl {
 		System.out.println(PlyPosUmrechnen());
 		if (BuildLevel.getCurrentPlayerPos(0) == 285) {
 			MovementListener.right = 0;
-		} else if ((Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'X')) {
+		} else if ((Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'X')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'N')|(Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'M')) {
 			MovementListener.right = 15;
 		} else {
 			MovementListener.right = 0;
@@ -129,7 +129,7 @@ public class CollisionControl {
 		System.out.println(PlyPosUmrechnen());
 		if (BuildLevel.getCurrentPlayerPos(1) == 15) {
 			MovementListener.up = 0;
-	    } else if ((Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'X')) {
+	    } else if ((Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'X')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'N')|(Current_LevelMap.charAt(PlyPosUmrechnen()-20) == 'M')) {
 			MovementListener.up = -15;
 		} else {
 			MovementListener.up = 0;
@@ -144,7 +144,7 @@ public class CollisionControl {
 		System.out.println(PlyPosUmrechnen());
 		if (BuildLevel.getCurrentPlayerPos(1) == 225) {
 			MovementListener.down = 0;
-		} else if ((Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'X')) {
+		} else if ((Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'P')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == ' ')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'D')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'S')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'T')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'X')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'N')|(Current_LevelMap.charAt(PlyPosUmrechnen()+20) == 'M')) {
 			MovementListener.down = 15;
 		} else {
 			MovementListener.down = 0;
