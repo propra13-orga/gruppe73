@@ -42,6 +42,10 @@ public class LevelControl {
 	public static String Item4Pfad = "";
 	public static boolean gotItem4 = false;
 	
+	public static boolean drache_alive = false;
+	public static boolean hexe_alive = false;
+	public static boolean spinne_alive = false;
+	
 	
 	
 	
@@ -87,6 +91,12 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item1Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item1Type == 'W') {
+					Pfad = ("/dungeoncrawler/hexe.PNG");
+				} else if (Item1Type == 'G') {
+					Pfad = ("/dungeoncrawler/drache.PNG");
+				} else if (Item1Type == 'S') {
+					Pfad = ("/dungeoncrawler/spinne.PNG");
 				}
 				
 		// ITEM 2:
@@ -144,7 +154,7 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item4Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
-				}
+				} 
 			}
 		
 		return Pfad;
