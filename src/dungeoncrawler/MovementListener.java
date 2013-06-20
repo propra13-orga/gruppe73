@@ -21,50 +21,53 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     
 
     public void keyPressed(java.awt.event.KeyEvent e) {
-    	if (stopFlag == false) {
-	        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-	        	CollisionControl.left(null);
-	        }
-	        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-	        	CollisionControl.right(null);
-	        }
-	        if (e.getKeyCode() == KeyEvent.VK_UP) {
-	        	CollisionControl.up(null);
-	        }
-	        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-	        	CollisionControl.down(null);
-	        }
-	        if (e.getKeyCode() == KeyEvent.VK_2) {
-	        	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
-	        	BuildLevel.change_level_phase = true;
-	        	
-	        }
-	        
-	        // Bewegung:
-	        this.doMovement(left, right, up, down);
-	        
-	        // Kontrolliere:
-	        Gegner.trap_collision();
-	        LevelControl.Item_pickUp(null);
-	        LevelControl.door_collision(null);
-	        
-	        
-	        // Spielfeld aktualisieren:
-	        
-	        	// FEHLT!!!: Inventar aktualisieren (Leisten oben und unten)
-	        /*
-	        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-	        	public void run() {
-	        		//BuildLevel.neuesLevel(null);
-	        		BuildLevel.FeldNeuzeichnen(null);
-				}
-			});
-			*/
-	        
-	        
-	        
-	        
-    	}
+	    if (LevelControl.Shop_opened == false) {	
+    		if (stopFlag == false) {
+		        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		        	CollisionControl.left(null);
+		        }
+		        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		        	CollisionControl.right(null);
+		        }
+		        if (e.getKeyCode() == KeyEvent.VK_UP) {
+		        	CollisionControl.up(null);
+		        }
+		        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		        	CollisionControl.down(null);
+		        }
+		        if (e.getKeyCode() == KeyEvent.VK_2) {
+		        	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
+		        	BuildLevel.change_level_phase = true;
+		        	
+		        }
+		        
+		        // Bewegung:
+		        this.doMovement(left, right, up, down);
+		        
+		        // Kontrolliere:
+		        Gegner.trap_collision();
+		        LevelControl.Item_pickUp(null);
+		        LevelControl.Shop_open(null);
+		        LevelControl.door_collision(null);
+		        
+		        
+		        // Spielfeld aktualisieren:
+		        
+		        	// FEHLT!!!: Inventar aktualisieren (Leisten oben und unten)
+		        /*
+		        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+		        	public void run() {
+		        		//BuildLevel.neuesLevel(null);
+		        		BuildLevel.FeldNeuzeichnen(null);
+					}
+				});
+				*/
+		        
+		        
+		        
+		        
+	    	}
+	    }
     }
 
     public void keyReleased(java.awt.event.KeyEvent e) {
@@ -81,6 +84,8 @@ public abstract class MovementListener extends Thread implements java.awt.event.
         	down = 0;
         }
     }
+    
+   
     
     /*
      * Ruft alle timeSlice Millisekunden die abstrakte Methode doMovement auf

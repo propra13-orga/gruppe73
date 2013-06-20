@@ -422,6 +422,16 @@ public class BuildLevel extends JFrame {
         super.setVisible(value);
 	}
 	
+	public static void ShopSchliessen(String args[]) {
+		
+		java.awt.Rectangle pos = lblPlayer.getBounds();
+		newX = pos.x;  
+		newY = pos.y + 15; 
+		lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+		lblPunkteanzeige.setText(Player.CurrentPoints+" ");
+		Content.repaint();
+	}
+	
 	public static void FeldNeuzeichnen(String args[]) {
 		Content.repaint();
 	}

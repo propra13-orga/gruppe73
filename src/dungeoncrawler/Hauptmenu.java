@@ -50,6 +50,7 @@ public class Hauptmenu extends JFrame {
 		button_start.setVisible(true);
 		button_ende.setVisible(true);
 		button_shop.setVisible(true);
+		button_shop.setEnabled(false);
 
 		button_start.addActionListener(new ActionListener(){
 

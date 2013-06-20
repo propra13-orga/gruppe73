@@ -75,9 +75,10 @@ public class Shop extends JFrame {
 	 */
 	public Shop() {
 		ShopContent = new JPanel();
-		setBounds(300, 300, 400, 358);
+		setBounds(300, 300, 406, 370);
 		ShopContent.setBorder(null);
 		setContentPane(ShopContent);
+		setDefaultCloseOperation(BuildLevel.DO_NOTHING_ON_CLOSE);
 		setLayout(null);
 		setTitle("Dungeoncrawler - SHOP");
 		
@@ -505,7 +506,19 @@ public class Shop extends JFrame {
 					Player.suitofarmor= Player.suitofarmor+WKRuestung;
 					Player.Arrow= Player.Arrow+WKPfeil;
 					Player.CurrentPoints = WKBudgetnachKauf;
-					dispose();
+					
+					BuildLevel.ShopSchliessen(null);
+					
+					MovementListener.down = 0;
+					MovementListener.up = 0;
+					MovementListener.left = 0;
+					MovementListener.right = 0;
+					
+			        LevelControl.Shop_opened = false;
+			        
+			        
+			        
+	        		dispose();
 				}
 			
 			});
@@ -517,7 +530,23 @@ public class Shop extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					dispose();
+					BuildLevel.ShopSchliessen(null);
+					
+					MovementListener.down = 0;
+					MovementListener.up = 0;
+					MovementListener.left = 0;
+					MovementListener.right = 0;
+					
+					WKSchwert = 0;
+			        WKMedikit = 0;
+			        WKBogen = 0;
+			        WKMana = 0;
+			        WKRuestung = 0;
+			        WKPfeil = 0;
+			        WKBudgetnachKauf = 0;
+					
+			        LevelControl.Shop_opened = false;
+	        		dispose();
 				}
 			});
 			
@@ -625,8 +654,8 @@ public class Shop extends JFrame {
 		 */
 		JLabel lblShopBackground = new JLabel("");
 		lblShopBackground.setBackground(Color.WHITE);
-		lblShopBackground.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Inventar.PNG")));
-		lblShopBackground.setBounds(0, 0, 400, 320);
+		lblShopBackground.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/ShopBackground.PNG")));
+		lblShopBackground.setBounds(0, 0, 400, 360);
 		add(lblShopBackground);
 	}
 

@@ -42,11 +42,15 @@ public class LevelControl {
 	public static String Item4Pfad = "";
 	public static boolean gotItem4 = false;
 	
+<<<<<<< HEAD
 	public static boolean drache_alive = false;
 	public static boolean hexe_alive = false;
 	public static boolean spinne_alive = false;
 	
 	
+=======
+	public static boolean Shop_opened = false;
+>>>>>>> Shop schoen
 	
 	
 	public static void main(String[] args) {
@@ -158,6 +162,18 @@ public class LevelControl {
 			}
 		
 		return Pfad;
+	}
+	
+	public static void Shop_open (String args[]) {
+		if (Item4Type == 'E') {
+			if (BuildLevel.getCurrentPlayerPos(0) == Item4X) {
+				if (BuildLevel.getCurrentPlayerPos(1) == Item4Y) {
+					Shop_opened = true;
+					Shop.main(null);
+				}
+			}
+			
+		}
 	}
 	
 	public static void Item_pickUp(String args[]) {
