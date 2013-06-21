@@ -93,7 +93,7 @@ public class Shop extends JFrame {
 	 */
 		JLabel BildMedikit = new JLabel("");
 		BildMedikit.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Medikit.PNG")));
-		BildMedikit.setBounds(20, 50, 14, 14);
+		BildMedikit.setBounds(20, 50, 15, 15);
 		add(BildMedikit);
 		
 		JLabel lblHealth = new JLabel("Medikit");
@@ -103,7 +103,7 @@ public class Shop extends JFrame {
 		
 		lblAnzahlMedikit = new JLabel(String.valueOf(WKMedikit));
 		lblAnzahlMedikit.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblAnzahlMedikit.setBounds(102, 50, 14, 14);
+		lblAnzahlMedikit.setBounds(102, 50, 15, 15);
 		add(lblAnzahlMedikit);
 		
 		JLabel PlusMedikit = new JLabel("");
@@ -121,7 +121,7 @@ public class Shop extends JFrame {
 		});
 		
 		PlusMedikit.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/plus.PNG")));
-		PlusMedikit.setBounds(126, 50, 14, 14);
+		PlusMedikit.setBounds(126, 50, 15, 15);
 		add(PlusMedikit);
 		
 		JLabel MinusMedikit = new JLabel("");
@@ -138,17 +138,17 @@ public class Shop extends JFrame {
 			}
 		});
 		MinusMedikit.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/minus.PNG")));
-		MinusMedikit.setBounds(149, 50, 14, 14);
+		MinusMedikit.setBounds(159, 50, 15, 15);
 		add(MinusMedikit);
 		
 		JLabel PreisMedikit = new JLabel("350");
 		PreisMedikit.setFont(new Font("Stencil", Font.PLAIN, 11));
-		PreisMedikit.setBounds(173, 50, 18, 14);
+		PreisMedikit.setBounds(173, 50, 18, 15);
 		add(PreisMedikit);
 		
 		JLabel MuenzeMedikit = new JLabel("");
 		MuenzeMedikit.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/points.PNG")));
-		MuenzeMedikit.setBounds(194, 50, 14, 14);
+		MuenzeMedikit.setBounds(194, 50, 15, 15);
 		add(MuenzeMedikit);
 		
 	/*
@@ -157,12 +157,12 @@ public class Shop extends JFrame {
 	 */
 		JLabel lblRuestung = new JLabel("R\u00FCstung");
 		lblRuestung.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblRuestung.setBounds(43, 78, 54, 14);
+		lblRuestung.setBounds(43, 78, 54, 15);
 		add(lblRuestung);
 		
 		lblAnzahlRuestung = new JLabel(String.valueOf(WKRuestung));
 		lblAnzahlRuestung.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblAnzahlRuestung.setBounds(102, 78, 14, 14);
+		lblAnzahlRuestung.setBounds(102, 78, 15, 15);
 		add(lblAnzahlRuestung);
 		
 		
@@ -180,7 +180,7 @@ public class Shop extends JFrame {
 			}
 		});
 		PlusRuestung.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/plus.PNG")));
-		PlusRuestung.setBounds(126, 77, 14, 14);
+		PlusRuestung.setBounds(126, 77, 15, 15);
 		add(PlusRuestung);
 		
 		JLabel MinusRuestung = new JLabel("");
@@ -197,24 +197,24 @@ public class Shop extends JFrame {
 			}
 		});
 		MinusRuestung.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/minus.PNG")));
-		MinusRuestung.setBounds(149, 77, 14, 14);
+		MinusRuestung.setBounds(159, 77, 15, 15);
 		add(MinusRuestung);
 		
 		JLabel BildRüstung = new JLabel("");
 		BildRüstung.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/ruestung.PNG")));
-		BildRüstung.setBounds(20, 77, 14, 14);
+		BildRüstung.setBounds(20, 77, 15, 15);
 		add(BildRüstung);
 		
 		
 		
 		JLabel PreisRuestung = new JLabel("600");
 		PreisRuestung.setFont(new Font("Stencil", Font.PLAIN, 11));
-		PreisRuestung.setBounds(173, 77, 18, 14);
+		PreisRuestung.setBounds(173, 77, 18, 15);
 		add(PreisRuestung);
 		
 		JLabel MuenzeRuestung = new JLabel("");
 		MuenzeRuestung.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/points.PNG")));
-		MuenzeRuestung.setBounds(194, 77, 14, 14);
+		MuenzeRuestung.setBounds(194, 77, 15, 15);
 		add(MuenzeRuestung);
 	
 		
@@ -254,41 +254,41 @@ public class Shop extends JFrame {
 		
 		JLabel lblMana = new JLabel("Mana");
 		lblMana.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblMana.setBounds(43, 103, 54, 14);
+		lblMana.setBounds(43, 103, 54, 15);
 		add(lblMana);
 		
 		JLabel BildMana = new JLabel("");
 		BildMana.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Mana.PNG")));
-		BildMana.setBounds(20, 102, 14, 14);
+		BildMana.setBounds(20, 102, 15, 15);
 		add(BildMana);
 		
 		MinusMana.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/minus.PNG")));
-		MinusMana.setBounds(150, 102, 14, 14);
+		MinusMana.setBounds(150, 102, 15, 15);
 		add(MinusMana);
 		
 		lblAnzahlMana = new JLabel(String.valueOf(WKMana));
 		lblAnzahlMana.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblAnzahlMana.setBounds(102, 103, 14, 14);
+		lblAnzahlMana.setBounds(102, 103, 15, 15);
 		add(lblAnzahlMana);
 		
 		lblMana = new JLabel();
 		lblMana.setText(String.valueOf(Player.Manadrinks));
 		lblMana.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblMana.setBounds(118, 0, 14, 14);
+		lblMana.setBounds(118, 0, 15, 15);
 		add(lblMana);
 		
 		PlusMana.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/plus.PNG")));
-		PlusMana.setBounds(126, 102, 14, 14);
+		PlusMana.setBounds(126, 102, 15, 15);
 		add(PlusMana);
 		
 	    JLabel PreisMana = new JLabel("100");
 		PreisMana.setFont(new Font("Stencil", Font.PLAIN, 11));
-		PreisMana.setBounds(174, 102, 18, 14);
+		PreisMana.setBounds(174, 102, 18, 15);
 		add(PreisMana);
 		
 		JLabel MuenzeMana = new JLabel("");
 		MuenzeMana.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/points.PNG")));
-		MuenzeMana.setBounds(194, 102, 14, 14);
+		MuenzeMana.setBounds(194, 102, 15, 15);
 		add(MuenzeMana);
 		
 		/*
@@ -298,17 +298,17 @@ public class Shop extends JFrame {
 		
 		JLabel BildSchwert = new JLabel("");
 		BildSchwert.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Sword.PNG")));
-		BildSchwert.setBounds(20, 127, 14, 14);
+		BildSchwert.setBounds(20, 127, 15, 15);
 		add(BildSchwert);
 		
 		JLabel lblSchwert = new JLabel("Schwert");
 		lblSchwert.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblSchwert.setBounds(43, 128, 54, 14);
+		lblSchwert.setBounds(43, 128, 54, 15);
 		add(lblSchwert);
 		
 		lblAnzahlSchwert = new JLabel(String.valueOf(WKSchwert));
 		lblAnzahlSchwert.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblAnzahlSchwert.setBounds(102, 128, 14, 14);
+		lblAnzahlSchwert.setBounds(102, 128, 15, 15);
 		add(lblAnzahlSchwert);
 		
 		JLabel PlusSchwert = new JLabel("");
@@ -325,7 +325,7 @@ public class Shop extends JFrame {
 			}
 		});
 		PlusSchwert.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/plus.PNG")));
-		PlusSchwert.setBounds(126, 127, 14, 14);
+		PlusSchwert.setBounds(126, 127, 15, 15);
 		add(PlusSchwert);
 		
 		JLabel MinusSchwert = new JLabel("");
@@ -343,12 +343,12 @@ public class Shop extends JFrame {
 		});
 		
 		MinusSchwert.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/minus.PNG")));
-		MinusSchwert.setBounds(149, 127, 14, 14);
+		MinusSchwert.setBounds(159, 127, 15, 15);
 		add(MinusSchwert);
 		
 		JLabel PreisSchwert = new JLabel("200");
 		PreisSchwert.setFont(new Font("Stencil", Font.PLAIN, 11));
-		PreisSchwert.setBounds(173, 127, 18, 14);
+		PreisSchwert.setBounds(173, 127, 18, 15);
 		add(PreisSchwert);
 		
 		
@@ -356,7 +356,7 @@ public class Shop extends JFrame {
 		
 		JLabel MunezeSchwert = new JLabel("");
 		MunezeSchwert.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/points.PNG")));
-		MunezeSchwert.setBounds(194, 127, 14, 14);
+		MunezeSchwert.setBounds(194, 127, 15, 15);
 		add(MunezeSchwert);
 		
 		
@@ -366,17 +366,17 @@ public class Shop extends JFrame {
 		 */
 		JLabel BildBogen = new JLabel("");
 		BildBogen.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/bogen.png")));
-		BildBogen.setBounds(20, 152, 14, 14);
+		BildBogen.setBounds(20, 152, 15, 15);
 		add(BildBogen);
 		
 		JLabel lblBogen = new JLabel("Bogen");
 		lblBogen.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblBogen.setBounds(43, 152, 54, 14);
+		lblBogen.setBounds(43, 152, 54, 15);
 		add(lblBogen);
 		
 		lblAnzahlBogen = new JLabel(String.valueOf(WKBogen));
 		lblAnzahlBogen.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblAnzahlBogen.setBounds(102, 153, 14, 14);
+		lblAnzahlBogen.setBounds(102, 153, 15, 15);
 		add(lblAnzahlBogen);
 		
 		JLabel PlusBogen = new JLabel("");
@@ -393,7 +393,7 @@ public class Shop extends JFrame {
 			}
 		});
 		PlusBogen.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/plus.PNG")));
-		PlusBogen.setBounds(126, 152, 14, 14);
+		PlusBogen.setBounds(126, 152, 15, 15);
 		add(PlusBogen);
 		 
 		JLabel MinusBogen = new JLabel("");
@@ -410,17 +410,17 @@ public class Shop extends JFrame {
 			}
 		});
 		MinusBogen.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/minus.PNG")));
-		MinusBogen.setBounds(149, 152, 14, 14);
+		MinusBogen.setBounds(159, 152, 15, 15);
 		add(MinusBogen);
 		
 		JLabel PreisBogen = new JLabel("200");
 		PreisBogen.setFont(new Font("Stencil", Font.PLAIN, 11));
-		PreisBogen.setBounds(173, 152, 18, 14);
+		PreisBogen.setBounds(173, 152, 18, 15);
 		add(PreisBogen);
 		
 		JLabel MuenzeBogen = new JLabel("");
 		MuenzeBogen.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/points.PNG")));
-		MuenzeBogen.setBounds(194, 152, 14, 14);
+		MuenzeBogen.setBounds(194, 152, 15, 15);
 		add(MuenzeBogen);
 		
 		/*
@@ -429,12 +429,12 @@ public class Shop extends JFrame {
 		 */
 		JLabel BildPfeil = new JLabel("");
 		BildPfeil.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/pfeil1.png")));
-		BildPfeil.setBounds(20, 177, 14, 14);
+		BildPfeil.setBounds(20, 177, 15, 15);
 		add(BildPfeil);
 		
 		lblAnzahlPfeil = new JLabel(String.valueOf(WKPfeil));
 		lblAnzahlPfeil.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblAnzahlPfeil.setBounds(102, 177, 14, 14);
+		lblAnzahlPfeil.setBounds(102, 177, 15, 15);
 		add(lblAnzahlPfeil);
 		
 		JLabel PlusPfeil = new JLabel("");
@@ -451,12 +451,12 @@ public class Shop extends JFrame {
 			}
 		});
 		PlusPfeil.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/plus.PNG")));
-		PlusPfeil.setBounds(126, 177, 14, 14);
+		PlusPfeil.setBounds(126, 177, 15, 15);
 		add(PlusPfeil);
 		
 		JLabel lblPfeil = new JLabel("Pfeil");
 		lblPfeil.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblPfeil.setBounds(43, 177, 54, 14);
+		lblPfeil.setBounds(43, 177, 54, 15);
 		add(lblPfeil);
 		
 		JLabel MinusPfeil = new JLabel("");
@@ -473,17 +473,17 @@ public class Shop extends JFrame {
 			}
 		});
 		MinusPfeil.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/minus.PNG")));
-		MinusPfeil.setBounds(149, 177, 14, 14);
+		MinusPfeil.setBounds(159, 177, 15, 15);
 		add(MinusPfeil);
 		
 		JLabel PreisPfeil = new JLabel("100");
 		PreisPfeil.setFont(new Font("Stencil", Font.PLAIN, 11));
-		PreisPfeil.setBounds(173, 177, 18, 14);
+		PreisPfeil.setBounds(173, 177, 18, 15);
 		add(PreisPfeil);
 		
 		JLabel MuenzePfeil = new JLabel("");
 		MuenzePfeil.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/points.PNG")));
-		MuenzePfeil.setBounds(194, 177, 14, 14);
+		MuenzePfeil.setBounds(194, 177, 15, 15);
 		add(MuenzePfeil);
 		
 		/*
@@ -509,6 +509,15 @@ public class Shop extends JFrame {
 					
 					BuildLevel.ShopSchliessen(null);
 					
+					WKSchwert = 0;
+			        WKMedikit = 0;
+			        WKBogen = 0;
+			        WKMana = 0;
+			        WKRuestung = 0;
+			        WKPfeil = 0;
+			        WKBudgetnachKauf = Player.CurrentPoints;
+					
+			        
 					MovementListener.down = 0;
 					MovementListener.up = 0;
 					MovementListener.left = 0;
@@ -543,7 +552,7 @@ public class Shop extends JFrame {
 			        WKMana = 0;
 			        WKRuestung = 0;
 			        WKPfeil = 0;
-			        WKBudgetnachKauf = 0;
+			        WKBudgetnachKauf = Player.CurrentPoints;
 					
 			        LevelControl.Shop_opened = false;
 	        		dispose();
@@ -556,31 +565,31 @@ public class Shop extends JFrame {
 		 */
 		JLabel lblPunktzahl = new JLabel("Punktzahl:");
 		lblPunktzahl.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblPunktzahl.setBounds(266, 78, 67, 14);
+		lblPunktzahl.setBounds(266, 78, 67, 15);
 		add(lblPunktzahl);
 		
 		JLabel lblAktuelle = new JLabel("Aktuelle");
 		lblAktuelle.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblAktuelle.setBounds(266, 63, 67, 14);
+		lblAktuelle.setBounds(266, 63, 67, 15);
 		add(lblAktuelle);
 		
 		JLabel lblPunktzahl_1 = new JLabel("Punktzahl");
 		lblPunktzahl_1.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblPunktzahl_1.setBounds(266, 127, 67, 14);
+		lblPunktzahl_1.setBounds(266, 127, 67, 15);
 		add(lblPunktzahl_1);
 		
 		JLabel lblNachKauf = new JLabel("nach Kauf:");
 		lblNachKauf.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblNachKauf.setBounds(266, 139, 67, 14);
+		lblNachKauf.setBounds(266, 139, 67, 15);
 		add(lblNachKauf);
 		
 		lblKontostand = new JLabel();
 		lblKontostand.setText(String.valueOf(Player.CurrentPoints));
-		lblKontostand.setBounds(343, 77, 46, 14);
+		lblKontostand.setBounds(343, 77, 46, 15);
 		add(lblKontostand);
 		
 		lblBudgetnachKauf = new JLabel(String.valueOf(WKBudgetnachKauf));
-		lblBudgetnachKauf.setBounds(343, 138, 46, 14);
+		lblBudgetnachKauf.setBounds(343, 138, 46, 15);
 		add(lblBudgetnachKauf);
 		
 		/*
@@ -589,64 +598,64 @@ public class Shop extends JFrame {
 		 */
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Medikit.PNG")));
-		label.setBounds(20, 0, 14, 14);
+		label.setBounds(20, 0, 15, 15);
 		add(label);
 		
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/ruestung.PNG")));
-		label_1.setBounds(60, 0, 14, 14);
+		label_1.setBounds(60, 0, 15, 15);
 		add(label_1);
 		
 		lblMedikit = new JLabel();
 		lblMedikit.setText(String.valueOf(Player.Medikit));
 		lblMedikit.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblMedikit.setBounds(38, 0, 14, 14);
+		lblMedikit.setBounds(38, 0, 15, 15);
 		add(lblMedikit);
 		
 		
 		
 		JLabel label_4 = new JLabel("");
 		label_4.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Mana.PNG")));
-		label_4.setBounds(100, 0, 14, 14);
+		label_4.setBounds(100, 0, 15, 15);
 		add(label_4);
 		
 		JLabel label_5 = new JLabel("");
 		label_5.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Sword.PNG")));
-		label_5.setBounds(140, 0, 14, 14);
+		label_5.setBounds(150, 0, 15, 15);
 		add(label_5);
 		
 		lblRuestung= new JLabel();
 		lblRuestung.setText(String.valueOf(Player.suitofarmor));
 		lblRuestung.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblRuestung.setBounds(78, 0, 14, 14);
+		lblRuestung.setBounds(78, 0, 15, 15);
 		add(lblRuestung);
 		
 		lblSchwert = new JLabel();
 		lblSchwert.setText(String.valueOf(Player.PlayerSword));
 		lblSchwert.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblSchwert.setBounds(158, 0, 14, 14);
+		lblSchwert.setBounds(158, 0, 15, 15);
 		add(lblSchwert);
 		
 		JLabel label_8 = new JLabel("");
 		label_8.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/bogen.png")));
-		label_8.setBounds(180, 0, 14, 14);
+		label_8.setBounds(180, 0, 15, 15);
 		add(label_8);
 		
 		lblBogen= new JLabel();
 		lblBogen.setText(String.valueOf(Player.Bow));
 		lblBogen.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblBogen.setBounds(198, 0, 14, 14);
+		lblBogen.setBounds(198, 0, 15, 15);
 		add(lblBogen);
 		
 		JLabel label_10 = new JLabel("");
 		label_10.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/pfeil1.png")));
-		label_10.setBounds(220, 0, 14, 14);
+		label_10.setBounds(220, 0, 15, 15);
 		add(label_10);
 		
 		lblPfeil = new JLabel();
 		lblPfeil.setText(String.valueOf(Player.Arrow));
 		lblPfeil.setFont(new Font("Stencil", Font.PLAIN, 11));
-		lblPfeil.setBounds(238, 0, 14, 14);
+		lblPfeil.setBounds(238, 0, 15, 15);
 		add(lblPfeil);
 		
 		/*
