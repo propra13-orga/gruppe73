@@ -258,6 +258,12 @@ public class LoadLevel {
 		if (LevelControl.Item1Type == 'S') {
 			Pfad = "/dungeoncrawler/spidernet.PNG";
 		}
+		else if (LevelControl.Item1Type == 'W') {
+			Pfad = "/dungeoncrawler/hexenkugeln.PNG";
+		} 
+		else if (LevelControl.Item1Type == 'G') {
+			Pfad = "/dungeoncrawler/feuerballjunge.PNG";
+		}
 		return Pfad;
 	}
 }
