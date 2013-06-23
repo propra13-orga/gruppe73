@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -85,8 +86,6 @@ public class StoryNPC extends JFrame {
 			}
 		});
 		
-		
-		
 		JLabel lblText = new JLabel("");
 		
 		// Abfrage welcher Text gewählt werden soll:
@@ -106,23 +105,16 @@ public class StoryNPC extends JFrame {
 		lblText.setBounds(250, 90, 250, 250);
 		lblText.setVisible(true);
 		lblText.setFont(new Font("Arial",Font.BOLD, 20));
-		add(lblText);		
+		add(lblText);
 		
 		JLabel lblNPCBackground = new JLabel("");
 		lblNPCBackground.setBackground(Color.WHITE);
 		lblNPCBackground.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/BackgroundNPC.PNG")));
 		lblNPCBackground.setBounds(0, 0, 567, 416);
 		add(lblNPCBackground);
-		
-		
 	};
 	
-	
-		
-
-			
-			
-		
+	 
 			
 
 }

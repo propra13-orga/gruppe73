@@ -51,7 +51,6 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        	}
 		        	
 		        }
-		        
 		        if (e.getKeyCode() == KeyEvent.VK_2) {
 		        	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
 		        	BuildLevel.change_level_phase = true;

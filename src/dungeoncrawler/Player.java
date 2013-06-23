@@ -20,6 +20,7 @@ public class Player {
 	public static int Bow = 0;				// " Bögen
 	public static int Arrow = 0;			// " Pfeile
 	public static int suitofarmor = 0;  	// " Rüstungen
+	
 	public static char AktuelleWaffe = 'N'; // 'A': Bogen, 'M': Mana, 'C': Schwert, 'N': None
 	
 	// SHOP PREISE:
@@ -85,9 +86,9 @@ public class Player {
 				AktuelleWaffe = 'N';
 			}
 		}
+		
+		BuildLevel.WaffeLabel(null);
 		BuildLevel.FeldNeuzeichnen(null);
 	}
-	
-
 
 }

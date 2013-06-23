@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import dungeoncrawler.LoadLevel;
+import dungeoncrawler.Treasure;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -427,7 +428,6 @@ public class BuildLevel extends JFrame {
     public static int EnemyStdPosY = 120;
     public static int EnemyFirePos = 195;
     public static int EnemyStdFirePos = 195;
-	
     
 
     // MAIN-METHODE:
@@ -476,6 +476,16 @@ public class BuildLevel extends JFrame {
 			newY = pos.y + 15; 
 			Content.repaint();
 		}
+		
+	public static void WaffeLabel(String args[]) {
+			if (Player.AktuelleWaffe == 'A') {
+				lblPlayerFire1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/pfeilfire.PNG")));
+			} else if (Player.AktuelleWaffe == 'M') {
+				lblPlayerFire1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/manafire.PNG")));
+			} else if (Player.AktuelleWaffe == 'C') {
+				lblPlayerFire1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/swordfire.PNG")));
+			}
+	}
 	
 	public static void moveEnemyUp(String args[]) {
 		
@@ -553,6 +563,8 @@ public class BuildLevel extends JFrame {
 		} else {
 			lblPlayer.setBounds(newX, newY, lblPlayer.getWidth(), lblPlayer.getHeight());
 		}
+		
+	
 		
 		
 		
@@ -934,11 +946,8 @@ public class BuildLevel extends JFrame {
 		lblPunkteanzeige.setText(Player.CurrentPoints+" ");
 		lblLebensanzeige.setText(Player.Lives+" ");
 		
-	
-	
-
-	
 	}
+	
 	public static void checkPower(String args[]) {
 		
 		if (Player.PlayerPower == 4) {
@@ -1043,7 +1052,7 @@ public class BuildLevel extends JFrame {
 		 */
 		
 		if (DamageType == 5) {
-			Player.PlayerPower = Player.PlayerPower-4;
+			Player.PlayerPower = Player.PlayerPower-10;
 		} else if (DamageType == 3) {
 			Player.PlayerPower = Player.PlayerPower-1;
 		} else if (DamageType == 1) {
