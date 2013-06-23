@@ -15,13 +15,15 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     public static int up = 0;
     public static int down = 0;
     public static boolean stopFlag = false;
+    public static boolean moveUp = true;
+    public static boolean moveDown = false;
     
 
     public void keyTyped(java.awt.event.KeyEvent e) {}
     
 
     public void keyPressed(java.awt.event.KeyEvent e) {
-	    if (LevelControl.Shop_opened == false|LevelControl.NPC_in == false) {	
+	    if (LevelControl.Shop_opened == false) {	
     		if (stopFlag == false) {
 		        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 		        	CollisionControl.left(null);
@@ -35,9 +37,18 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 		        	CollisionControl.down(null);
 		        }
+		        if (e.getKeyCode() == KeyEvent.VK_F) {
+		        	Gegner.PlayerFire1Active = true;
+ 		        }
+		        if (e.getKeyCode() == KeyEvent.VK_C) {
+		        	Player.WaffeWechseln(null);
+		        }
 		        if (e.getKeyCode() == KeyEvent.VK_2) {
 		        	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
 		        	BuildLevel.change_level_phase = true;
+		        	LevelControl.spinne_alive = false;
+		        	LevelControl.hexe_alive = false;
+		        	LevelControl.drache_alive = false;
 		        	
 		        }
 		        
@@ -50,6 +61,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        LevelControl.Shop_open(null);
 		        LevelControl.door_collision(null);
 		        CollisionControl.meet_NPC(null);
+		        
 		        
 		        // Spielfeld aktualisieren:
 		        
@@ -121,24 +133,73 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     
     public void run() {
         stopFlag = false;
-        while(!stopFlag) {
-            if ((BuildLevel.Current_Level%2)==0) {
-            	try {
-            		sleep(2000);
-            	} catch (InterruptedException ex) { }
-            	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
-            	
-            	LevelControl.gotItem1 = false;
-            	LevelControl.gotItem2 = false;
-            	LevelControl.gotItem3 = false;
-            	LevelControl.gotItem4 = false;
-            	
-            	BuildLevel.neuesLevel(null);
-            	//this.doMovement(left,right,up,down);
-            } 
-            
-        }
+        	
+		    while(!stopFlag) {
+		            if ((BuildLevel.Current_Level%2)==0) {
+		            	try {
+		            		sleep(2000);
+		            	} catch (InterruptedException ex) { }
+		            	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
+		            	
+		            	LevelControl.gotItem1 = false;
+		            	LevelControl.gotItem2 = false;
+		            	LevelControl.gotItem3 = false;
+		            	LevelControl.gotItem4 = false;
+		            	BuildLevel.lblYouDied.setVisible(false);
+		            	BuildLevel.lblYouDied2.setVisible(false);
+		            	BuildLevel.neuesLevel(null);
+		            	//this.doMovement(left,right,up,down);
+		            } 
+		            
+	            	if (LevelControl.spinne_alive == true) {
+	            		while (moveUp) {
+	            			try {
+	    	            		sleep(50);
+	    	            		
+	    	            	} catch (InterruptedException ex) { }
+	            			BuildLevel.EnemyFire(null);
+	            			BuildLevel.moveEnemyUp(null);
+	            			LevelControl.checkEnemyCollision(null);
+	            			if (Gegner.PlayerFire1Active) {
+	            				Gegner.fire(null);
+	            			}
+
+	            			if ((BuildLevel.EnemyStdPosY-30) == BuildLevel.EnemyPosY) {
+	            				moveUp = false;
+	            				moveDown = true;
+	            			}
+	            		}
+	            		while (moveDown) {
+	            			try {
+	    	            		sleep(50);
+	    	            		
+	    	            	} catch (InterruptedException ex) { }
+	            			BuildLevel.EnemyFire(null);
+	            			BuildLevel.moveEnemyDown(null);
+	            			LevelControl.checkEnemyCollision(null);
+	            			if (Gegner.PlayerFire1Active) {
+	            				Gegner.fire(null);
+	            			}
+	            			
+	            			if ((BuildLevel.EnemyStdPosY+30) == BuildLevel.EnemyPosY) {
+	            				moveUp = true;
+	            				moveDown = false;
+	            			}
+	            		}
+	            	}
+	            	
+	            	if (LevelControl.SavePointAnzeige == true) {
+	            		BuildLevel.lblCheckpoint.setVisible(true);
+	            		BuildLevel.FeldNeuzeichnen(null);
+	            		try {
+	            			sleep(2000);
+	            		} catch (InterruptedException ex) { }
+	            		BuildLevel.lblCheckpoint.setVisible(false);
+	            		LevelControl.SavePointAnzeige = false;
+	            	}
+		    }
     }
+    
 
 
     // BEENDET DEN TIMER:

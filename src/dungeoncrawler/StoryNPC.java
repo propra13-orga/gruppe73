@@ -52,7 +52,7 @@ public class StoryNPC extends JFrame {
 	 */
 	public StoryNPC() {
 		NPC_Interaction = new JPanel();
-		setBounds(300, 300, 575, 415);
+		setBounds(615, 300, 575, 415);
 		NPC_Interaction.setBorder(null);
 		setContentPane(NPC_Interaction);
 		setDefaultCloseOperation(BuildLevel.DO_NOTHING_ON_CLOSE);
@@ -64,18 +64,8 @@ public class StoryNPC extends JFrame {
 		 * =================================================
 		 */
 
-		JLabel lblNPCBackground = new JLabel("");
-		lblNPCBackground.setBackground(Color.WHITE);
-		lblNPCBackground.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/BackgroundNPC.PNG")));
-		lblNPCBackground.setBounds(0, 0, 567, 416);
-		add(lblNPCBackground);
-		
-		JLabel lblText = new JLabel("");
-		lblText.setFont(new Font("Stencil", Font.PLAIN, 13));
-		lblText.setBounds(70, 153, 70, 15);
-		add(lblText);		
-		
 		JButton Schlieﬂen = new JButton("Schlieﬂen");
+		Schlieﬂen.setVisible(true);
 		Schlieﬂen.setBounds(50, 330, 100, 23);
 		add(Schlieﬂen);
 		Schlieﬂen.addActionListener(new ActionListener() {
@@ -89,12 +79,25 @@ public class StoryNPC extends JFrame {
 				MovementListener.left = 0;
 				MovementListener.right = 0;
 				
-				    LevelControl.NPC_in = false;
+				    LevelControl.Shop_opened = false;
 	        		dispose();
 		
 	
 			}
 		});
+		
+		JLabel lblNPCBackground = new JLabel("");
+		lblNPCBackground.setBackground(Color.WHITE);
+		lblNPCBackground.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/BackgroundNPC.PNG")));
+		lblNPCBackground.setBounds(0, 0, 567, 416);
+		add(lblNPCBackground);
+		
+		JLabel lblText = new JLabel("");
+		lblText.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblText.setBounds(70, 153, 70, 15);
+		add(lblText);		
+		
+		
 	};
 	
 	 public void keyTyped(java.awt.event.KeyEvent t) {}
@@ -119,14 +122,7 @@ public class StoryNPC extends JFrame {
 			}
 			
 		}
-		
-	
-	
-	
-	
-		
-
-	
+			
 
 }
 

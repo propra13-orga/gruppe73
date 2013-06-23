@@ -19,7 +19,9 @@ public class CollisionControl {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-				
+		
+		
+		
 	
 		
 		
@@ -76,13 +78,15 @@ public class CollisionControl {
 		if (meet_NPC == false) {	
 			String Current_LevelMap = LoadLevel.Current_LevelMap;
 			if (Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'I'|Current_LevelMap.charAt(PlyPosUmrechnen()-20)=='I') {
-				StoryNPC.main(null);
 				LevelControl.Shop_opened = true;
+				StoryNPC.main(null);
+				
 				
 			}
 			
 		}
 	}
+	
 
 	
 	
@@ -91,15 +95,7 @@ public class CollisionControl {
 	 *  ==============
 	 */
 	
-	public static boolean check_enemies(int plyX, int plyY, int enmX, int enmY) {
-		boolean collision = false;
-		if (plyX == enmX) {
-			if (plyY == enmY) {
-				collision = true;
-			}
-		}
-		return collision;
-	}
+
 	
 	// ################################################################
 	// Kollisionsabfrage (WALL, AUSSENRÄNDER) für left, right, up, down

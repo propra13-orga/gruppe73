@@ -134,7 +134,6 @@ public class LoadLevel {
 			char[] ChaI = StrI.toCharArray();
 			
 			
-			
 			if (SingleChar[position] == ChaP[0]) {
 				output = "/dungeoncrawler/path.PNG";			
 			}
@@ -250,6 +249,15 @@ public class LoadLevel {
 			else if (SingleChar[position] == ChaI[0]) {
 				output = "/dungeoncrawler/NPC.PNG";
 			}
+			
 		return output;
+	}
+	
+	public static String EnemyFire(String args[]) {
+		String Pfad = "/dungeoncrawler/EnemyFire.PNG";
+		if (LevelControl.Item1Type == 'S') {
+			Pfad = "/dungeoncrawler/spidernet.PNG";
+		}
+		return Pfad;
 	}
 }

@@ -1,6 +1,5 @@
 package dungeoncrawler;
 
-import javax.swing.ImageIcon;
 
 public class LevelControl {
 
@@ -9,6 +8,9 @@ public class LevelControl {
 	 */
 	
 	//PARAMETER DES AKTUELLEN LEVELS:
+	
+	private static int[] range;
+	
 	public static char Current_LevelAnzeige = '?';
 	public static char Current_SubLevelAnzeige = '?';
 	
@@ -47,10 +49,13 @@ public class LevelControl {
 	public static boolean hexe_alive = false;
 	public static boolean spinne_alive = false;
 	
-	
+	public static boolean SavePoint = false;
+	public static boolean SavePointAnzeige = false;
+	public static int SavePointX = 0;
+	public static int SavePointY = 0;
+	public static int SaveLevel = 0;
 
-	public static boolean Shop_opened = false;
-	public static boolean NPC_in = false; 
+	public static boolean Shop_opened = false; // von NPC & Shop verwendet
 
 	
 	
@@ -67,8 +72,12 @@ public class LevelControl {
 				BuildLevel.Current_Level = BuildLevel.Current_Level+1;
 				BuildLevel.change_level_phase = true;
 				//MovementListener.stopFlag = true;
+				hexe_alive = false;
+				spinne_alive = false;
+				drache_alive = false;
 				BuildLevel.neuesLevel(null);
 				System.out.println("door_collision ---> Neues Level laden!");
+				
 				
 			}
 		}
@@ -90,21 +99,39 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/shop_door.PNG";
 				} else if (Item1Type == 'L') {
 					Pfad = "/dungeoncrawler/heart.PNG";
-				} else if (Item1Type == 'H') {
+				} else if (Item1Type == 'H'|Item1Type == 'Z') {
 					Pfad = "/dungeoncrawler/Medikit.PNG";
 				} else if (Item1Type == 'A') {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item1Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item1Type == 'P') {
+					Pfad = "/dungeoncrawler/pfeil1.PNG";
+				} else if (Item1Type == 'C') { 
+					Pfad = "/dungeoncrawler/Sword.PNG";
 				} else if (Item1Type == 'R') {
 					Pfad = "/dungeoncrawler/ruestung.PNG";
-				} /*else if (Item1Type == 'W') {
+				} else if (Item1Type == 'W') {
+					MovementListener.moveDown = false;
+					MovementListener.moveUp = true;
+					hexe_alive = true;
 					Pfad = ("/dungeoncrawler/hexe.PNG");
+					Gegner.EnemyEnergy = 20;
 				} else if (Item1Type == 'G') {
 					Pfad = ("/dungeoncrawler/drache.PNG");
+					Gegner.EnemyEnergy = 30;
+					MovementListener.moveDown = false;
+					MovementListener.moveUp = true;
+					drache_alive = true;
 				} else if (Item1Type == 'S') {
 					Pfad = ("/dungeoncrawler/spinne.PNG");
-				} */
+					Gegner.EnemyEnergy = 12;
+					MovementListener.moveDown = false;
+					MovementListener.moveUp = true;
+					spinne_alive = true;
+				} else if (Item1Type == 'J') {
+					Pfad = ("/dungeoncrawler/lagerfeuer.PNG");
+				} 
 				
 		// ITEM 2:
 				
@@ -117,14 +144,20 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/shop_door.PNG";
 				} else if (Item2Type == 'L') {
 					Pfad = "/dungeoncrawler/heart.PNG";
-				} else if (Item2Type == 'H') {
+				} else if (Item2Type == 'H'|Item2Type == 'Z') {
 					Pfad = "/dungeoncrawler/Medikit.PNG";
 				} else if (Item2Type == 'A') {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item2Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item2Type == 'P') {
+					Pfad = "/dungeoncrawler/pfeil1.PNG";
+				} else if (Item2Type == 'C') { 
+					Pfad = "/dungeoncrawler/Sword.PNG";
 				} else if (Item2Type == 'R') {
 					Pfad = "/dungeoncrawler/ruestung.PNG";
+				} else if (Item2Type == 'J') {
+					Pfad = ("/dungeoncrawler/lagerfeuer.PNG");
 				}
 				
 		// ITEM 3:
@@ -138,14 +171,20 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/shop_door.PNG";
 				} else if (Item3Type == 'L') {
 					Pfad = "/dungeoncrawler/heart.PNG";
-				} else if (Item3Type == 'H') {
+				} else if (Item3Type == 'H'|Item3Type == 'Z') {
 					Pfad = "/dungeoncrawler/Medikit.PNG";
 				} else if (Item3Type == 'A') {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item3Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item3Type == 'P') {
+					Pfad = "/dungeoncrawler/pfeil1.PNG";
+				} else if (Item3Type == 'C') { 
+					Pfad = "/dungeoncrawler/Sword.PNG";
 				} else if (Item3Type == 'R') {
 					Pfad = "/dungeoncrawler/ruestung.PNG";
+				} else if (Item3Type == 'J') {
+					Pfad = ("/dungeoncrawler/lagerfeuer.PNG");
 				}
 				
 		// ITEM 4:
@@ -159,15 +198,21 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/shop_door.PNG";
 				} else if (Item4Type == 'L') {
 					Pfad = "/dungeoncrawler/heart.PNG";
-				} else if (Item4Type == 'H') {
+				} else if (Item4Type == 'H'|Item4Type == 'Z') {
 					Pfad = "/dungeoncrawler/Medikit.PNG";
 				} else if (Item4Type == 'A') {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item4Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item4Type == 'P') {
+					Pfad = "/dungeoncrawler/pfeil1.PNG";
+				} else if (Item4Type == 'C') { 
+					Pfad = "/dungeoncrawler/Sword.PNG";
 				} else if (Item4Type == 'R') {
 					Pfad = "/dungeoncrawler/ruestung.PNG";
-				} 
+				} else if (Item4Type == 'J') {
+					Pfad = ("/dungeoncrawler/lagerfeuer.PNG");
+				}
 			}
 		
 		return Pfad;
@@ -184,14 +229,96 @@ public class LevelControl {
 			
 		}
 	}
-
+	
+	public static void checkEnemyCollision(String args[]) {
+		if ((Item1Type == 'S')&(spinne_alive == true)) {
+			if (BuildLevel.lblPlayer.getX() >= 195) {
+					MovementListener.moveDown = false;
+					MovementListener.moveUp = false;
+					hexe_alive = false;
+					spinne_alive = false;
+					drache_alive = false;
+					BuildLevel.GameOver(5);
+			}
+		}
+	}
+	
 	public static void Item_pickUp(String args[]) {
-		if (gotItem1 == false) {	
-			if (BuildLevel.getCurrentPlayerPos(0) == Item1X) {
-				if (BuildLevel.getCurrentPlayerPos(1) == Item1Y) {
-					gotItem1 = true;
-			        BuildLevel.lblItem1.setBounds(400, 300, BuildLevel.lblItem1.getWidth(), BuildLevel.lblItem1.getHeight());
-			        BuildLevel.FeldNeuzeichnen(null);
+		
+		/*
+		 *  ENDGEGNER-KOLLISIONSKONTROLLE:
+		 *  ==============================
+		 */
+		
+		
+			
+		/*
+		 *  ITEM-PICK-UP:
+		 *  =============
+		 */
+			
+		if ((Item1Type == 'G')|(Item1Type == 'S')|(Item1Type == 'W')) {
+			
+			// Do nothing
+			
+		} else {
+			if (gotItem1 == false) {	
+				if (BuildLevel.getCurrentPlayerPos(0) == Item1X) {
+					if (BuildLevel.getCurrentPlayerPos(1) == Item1Y) {
+						gotItem1 = true;
+						
+						if (Item1Type == 'T') {							
+							BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
+				        	SavePointAnzeige = true;
+							Player.CurrentPoints = Player.CurrentPoints+500;
+							
+				        } else if (Item1Type == 'D'|(Item1Type == 'M')) {				
+				        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
+				        	SavePointAnzeige = true;
+				        	Player.Manadrinks = Player.Manadrinks+1;
+				        	
+				        } else if ((Item1Type == 'L')) {			
+				        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
+				        	SavePointAnzeige = true;
+				        	Player.Lives = Player.Lives+1;
+				        	
+				        } else if (Item1Type == 'A') {		
+				        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
+				        	SavePointAnzeige = true;
+				        	Player.Bow = Player.Bow+1;
+				        	
+				        } else if ((Item1Type == 'H')|(Item1Type == 'Z')) {
+				        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
+				        	SavePointAnzeige = true;
+				        	Player.Medikit = Player.Medikit+1;
+				        
+				        } else if (Item1Type == 'C') {	
+				        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
+				        	SavePointAnzeige = true;
+				        	Player.PlayerSword = Player.PlayerSword+1;
+				        	
+				        } else if (Item1Type == 'P') {
+				        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
+				        	SavePointAnzeige = true;
+				        	Player.Arrow = Player.Arrow+1;
+				        } else if (Item1Type == 'J') {
+				        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
+				        	SavePoint = true;
+				        	SavePointAnzeige = true;
+				        	SavePointX = Item1X;
+				        	SavePointY = Item1Y;
+				        	SaveLevel = BuildLevel.Current_Level;
+				        	
+				        }
+						
+						
+				       
+						BuildLevel.lblItem1.setBounds(400, 300, BuildLevel.lblItem1.getWidth(), BuildLevel.lblItem1.getHeight());
+						BuildLevel.refreshInventar(null);
+						BuildLevel.FeldNeuzeichnen(null);
+				        
+				        
+					}
 				}
 			}
 		}
@@ -200,7 +327,54 @@ public class LevelControl {
 			if (BuildLevel.getCurrentPlayerPos(0) == Item2X) {
 				if (BuildLevel.getCurrentPlayerPos(1) == Item2Y) {
 					gotItem2 = true;
+					
+					if (Item2Type == 'T') {							
+						BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
+			        	SavePointAnzeige = true;
+						Player.CurrentPoints = Player.CurrentPoints+500;
+						
+			        } else if (Item2Type == 'D'|(Item2Type == 'M')) {	
+			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Manadrinks = Player.Manadrinks+1;
+			        	
+			        } else if ((Item2Type == 'L')) {	
+			        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.Lives = Player.Lives+1;
+			        	
+			        } else if (Item2Type == 'A') {			
+			        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Bow = Player.Bow+1;
+			        	
+			        } else if ((Item2Type == 'H')|(Item2Type == 'Z')) {
+			        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.Medikit = Player.Medikit+1;
+			        
+			        } else if (Item2Type == 'C') {	
+			        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.PlayerSword = Player.PlayerSword+1;
+			        	
+			        } else if (Item2Type == 'P') {
+			        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Arrow = Player.Arrow+1;
+			        	
+			        } else if (Item2Type == 'J') {
+			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
+			        	SavePoint = true;
+			        	SavePointAnzeige = true;
+			        	SavePointX = Item2X;
+			        	SavePointY = Item2Y;
+			        	SaveLevel = BuildLevel.Current_Level;
+			        	
+			        }
+					
 			        BuildLevel.lblItem2.setBounds(400, 300, BuildLevel.lblItem2.getWidth(), BuildLevel.lblItem2.getHeight());
+			        BuildLevel.refreshInventar(null);
 			        BuildLevel.FeldNeuzeichnen(null);			
 				}
 			}
@@ -210,7 +384,53 @@ public class LevelControl {
 			if (BuildLevel.getCurrentPlayerPos(0) == Item3X) {
 				if (BuildLevel.getCurrentPlayerPos(1) == Item3Y) {
 					gotItem3 = true;
+					
+					if (Item3Type == 'T') {					
+						BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
+			        	SavePointAnzeige = true;
+						Player.CurrentPoints = Player.CurrentPoints+500;
+						
+			        } else if (Item3Type == 'D'|(Item3Type == 'M')) {	
+			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Manadrinks = Player.Manadrinks+1;
+			        	
+			        } else if ((Item3Type == 'L')) {	
+			        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.Lives = Player.Lives+1;
+			        	
+			        } else if (Item3Type == 'A') {		
+			        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Bow = Player.Bow+1;
+			        	
+			        } else if ((Item3Type == 'H')|(Item3Type == 'Z')) {	
+			        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.Medikit = Player.Medikit+1;
+			        
+			        } else if (Item3Type == 'C') {	
+			        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.PlayerSword = Player.PlayerSword+1;
+			        	
+			        } else if (Item3Type == 'P') {
+			        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Arrow = Player.Arrow+1;
+			        	
+			        } else if (Item3Type == 'J') {
+			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
+			        	SavePoint = true;
+			        	SavePointAnzeige = true;
+			        	SavePointX = Item3X;
+			        	SavePointY = Item3Y;
+			        	SaveLevel = BuildLevel.Current_Level;
+			        }
+					
 					BuildLevel.lblItem3.setBounds(400, 300, BuildLevel.lblItem3.getWidth(), BuildLevel.lblItem3.getHeight());
+					BuildLevel.refreshInventar(null);
 					BuildLevel.FeldNeuzeichnen(null);
 				}
 			}
@@ -220,16 +440,80 @@ public class LevelControl {
 			if (BuildLevel.getCurrentPlayerPos(0) == Item4X) {
 				if (BuildLevel.getCurrentPlayerPos(1) == Item4Y) {
 					gotItem4 = true;
+					
+					if (Item4Type == 'T') {						
+						BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
+			        	SavePointAnzeige = true;
+						Player.CurrentPoints = Player.CurrentPoints+500;
+						
+			        } else if (Item4Type == 'D'|(Item4Type == 'M')) {		
+			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Manadrinks = Player.Manadrinks+1;
+			        	
+			        } else if ((Item4Type == 'L')) {			
+			        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.Lives = Player.Lives+1;
+			        	
+			        } else if (Item4Type == 'A') {		
+			        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Bow = Player.Bow+1;
+			        	
+			        } else if ((Item4Type == 'H')|(Item4Type == 'Z')) {	
+			        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.Medikit = Player.Medikit+1;
+			        
+			        } else if (Item4Type == 'C') {
+			        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.PlayerSword = Player.PlayerSword+1;
+			        	
+			        } else if (Item4Type == 'P') {
+			        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
+			        	SavePointAnzeige = true;
+			        	Player.Arrow = Player.Arrow+1;
+			        	
+			        } else if (Item4Type == 'J') {
+			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
+			        	SavePoint = true;
+			        	SavePointAnzeige = true;
+			        	SavePointX = Item4X;
+			        	SavePointY = Item4Y;
+			        	SaveLevel = BuildLevel.Current_Level;
+			        }
+					
 					BuildLevel.lblItem4.setBounds(400, 300, BuildLevel.lblItem4.getWidth(), BuildLevel.lblItem4.getHeight());
+					BuildLevel.refreshInventar(null);
 					BuildLevel.FeldNeuzeichnen(null);
 				}
 			}
 		}
 	}
 	
+	private static int range(int i, int j) {
+		int range = 0;
+		/*
+		range = new int[j - i + 1];
+	    for (int k = i; k <= j; k++) {
+	        range[k - i] = k;
+	    }
+	    return range;
+	    */
+		return range;
+	}
+
 	public static int Item_Width_Height(int ItemNr) {
-		
 		int Width_Height = 15;
+		if (ItemNr == 1) {
+			if ((Item1Type == 'W')|(Item1Type == 'G')|(Item1Type == 'S'));
+			Width_Height = 30;
+		} else {
+			Width_Height = 15;
+		}
+		
 		return Width_Height;
 		
 	}

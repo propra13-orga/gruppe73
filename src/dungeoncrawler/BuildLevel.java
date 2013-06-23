@@ -30,13 +30,13 @@ public class BuildLevel extends JFrame {
 	private static JPanel Content;
 	private static final long serialVersionUID = 1L;
 	private static MovementListener mListener;
-
 	
 	// ZUSTÄNDE (INTEGER):
 	// ###################
 	
 	public static int Current_Level = 1;
 	public static int level_load = 1;
+	public static boolean SavePointLoad = false;
 	
 	// ZUSTÄNDE (BOOLEAN):
 	// ###################
@@ -52,16 +52,42 @@ public class BuildLevel extends JFrame {
 	// LABEL-DECLARATIONS:
 	// ###################
 	
-	private static javax.swing.JLabel lblPlayer;
+	public static javax.swing.JLabel lblPlayer;
 	private static javax.swing.JLabel lblPunkteanzeige;
+	public static javax.swing.JLabel lblAktuelleWaffe;
 	private static javax.swing.JLabel lblGameOver;
 	private static javax.swing.JLabel lblNeustart;
 	public static javax.swing.JLabel lblItem1;
 	public static javax.swing.JLabel lblItem2;
 	public static javax.swing.JLabel lblItem3;
 	public static javax.swing.JLabel lblItem4;
+	public static javax.swing.JLabel lblEnemyFire;
 	public static javax.swing.JLabel lblPergament;
 	public static javax.swing.JLabel lblCurrentLevel;
+	
+	// PLAYER-FIRE:
+	// ############
+	
+	public static javax.swing.JLabel lblPlayerFire1;
+	public static javax.swing.JLabel lblPlayerFire2;
+	public static javax.swing.JLabel lblPlayerFire3;
+	public static javax.swing.JLabel lblPlayerFire4;
+	
+	// Inventar:
+	// =========
+	
+	public static javax.swing.JLabel lblMana;
+	public static javax.swing.JLabel lblSchwert;
+	public static javax.swing.JLabel lblBogen;
+	public static javax.swing.JLabel lblPfeil;
+	public static javax.swing.JLabel lblRuestung;
+	public static javax.swing.JLabel lblMedikit;
+	public static javax.swing.JLabel lblLebensanzeige;
+	public static javax.swing.JLabel lblPowerAnzeige;
+	public static javax.swing.JLabel lblYouDied;
+	public static javax.swing.JLabel lblYouDied2;
+	public static javax.swing.JLabel lblCheckpoint;
+	
 	
 	// Labels für das Spielfeld:
 	// #########################
@@ -394,6 +420,14 @@ public class BuildLevel extends JFrame {
     public static int treasureX = 300;
     public static int treasureY = 15;
     
+    // ENEMY-STANDARDPOSITION:
+    // =======================
+    
+    public static int EnemyPosY = 120;
+    public static int EnemyStdPosY = 120;
+    public static int EnemyFirePos = 195;
+    public static int EnemyStdFirePos = 195;
+    
 
     // MAIN-METHODE:
     // =============
@@ -433,54 +467,112 @@ public class BuildLevel extends JFrame {
 		Content.repaint();
 	}
 	
-
 	//Schließen des NPC Fensters
-	public static void StoryNPCSchliessen(String args[]) {
+		public static void StoryNPCSchliessen(String args[]) {
+			
+			java.awt.Rectangle pos = lblPlayer.getBounds();
+			newX = pos.x;  
+			newY = pos.y + 15; 
+			Content.repaint();
+		}
+	
+	public static void moveEnemyUp(String args[]) {
 		
-		java.awt.Rectangle pos = lblPlayer.getBounds();
-		newX = pos.x;  
-		newY = pos.y + 15; 
+		EnemyPosY = EnemyPosY-3;
+		lblItem1.setBounds(BuildLevel.lblItem1.getX(), EnemyPosY, 30, 30);
+		System.out.println("Move enemy up" + EnemyPosY);
 		Content.repaint();
 	}
 	
+	public static void moveEnemyDown(String args[]) {
+		EnemyPosY = EnemyPosY+3;
+		lblItem1.setBounds(BuildLevel.lblItem1.getX(), EnemyPosY, 30, 30);
+		System.out.println("Move enemy down");
+		Content.repaint();
+	}
+	
+	public static void EnemyFire(String args[]) {
+		/*if (lblItem1.getY() == 120) {
+			lblEnemyFire.setBounds(EnemyFirePos, 120, 15, 10);
+			*/
+		EnemyFirePos = EnemyFirePos-15;
+		lblEnemyFire.setBounds(EnemyFirePos, lblEnemyFire.getY(), 15, 10);
+		if (lblItem1.getY() == 150) {
+			EnemyFirePos = EnemyStdFirePos;
+			lblEnemyFire.setBounds(EnemyFirePos, 165, 15, 10);
+		} else if (lblItem1.getY() == 90) {
+			EnemyFirePos = EnemyStdFirePos;
+			lblEnemyFire.setBounds(EnemyFirePos, 105, 15, 10);
+		} else if (lblItem1.getY() == 120) {
+			EnemyFirePos = EnemyStdFirePos;
+			lblEnemyFire.setBounds(EnemyFirePos, 135, 15, 10);
+		}
+		
+		if (lblPlayer.getX() == lblEnemyFire.getX()) {
+			if (lblPlayer.getY() == lblEnemyFire.getY()) {
+				BuildLevel.GameOver(1);
+			}
+			
+		}
+		
+		
+		Content.repaint();
+	}
 	
 	public static void FeldNeuzeichnen(String args[]) {
+		if (Player.AktuelleWaffe == 'A') {
+			lblAktuelleWaffe.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/bogen.PNG")));
+		} else if (Player.AktuelleWaffe == 'M') {
+			lblAktuelleWaffe.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/Mana.PNG")));
+		} else if (Player.AktuelleWaffe == 'C') {
+			lblAktuelleWaffe.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/Sword.PNG")));
+		}
 		Content.repaint();
+		SavePointLoad = false;
 	}
 	
 	public static void neuesLevel(String args[]) {
+		LevelControl.spinne_alive = false;
+		LevelControl.drache_alive = false;
+		LevelControl.hexe_alive = false;
 		first_load = false;
+		
+		EnemyPosY = 120;
+		EnemyStdPosY = 120;
 		LoadLevel.Current_LevelMap = DateiLaden.LeseData(BuildLevel.Current_Level);
 		LoadLevel.Export_to_LevelControl(null);
 		newX = LevelControl.StartDoorX;
 		newY = LevelControl.StartDoorY;
 		
-		lblPlayer.setBounds(newX, newY, lblPlayer.getWidth(), lblPlayer.getHeight());
+		checkPower(null);
+		
+		if (SavePointLoad == true) {
+			lblPlayer.setBounds(LevelControl.SavePointX, LevelControl.SavePointY, 15, 15);
+			SavePointLoad = false;
+		} else {
+			lblPlayer.setBounds(newX, newY, lblPlayer.getWidth(), lblPlayer.getHeight());
+		}
+		
 		
 		
 		
 		
 		lblCurrentLevel.setText("Level "+LevelControl.Current_LevelAnzeige+" ("+LevelControl.Current_SubLevelAnzeige+")");
 		
+		
 		// Label ImageIcons neu laden:
 		// ===========================
 		
 		System.out.println("Aktualisiere Labels");
 		
-		lblItem1.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(1))));
-		lblItem2.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(2))));
-		lblItem3.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(3))));
-		lblItem4.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(4))));
 		
 		LevelControl.gotItem1 = false;
 		LevelControl.gotItem2 = false;
 		LevelControl.gotItem3 = false;
 		LevelControl.gotItem4 = false;
 		
-		lblItem1.setBounds(LevelControl.Item1X, LevelControl.Item1Y, LevelControl.Item_Width_Height(1), LevelControl.Item_Width_Height(1));
-		lblItem2.setBounds(LevelControl.Item2X, LevelControl.Item2Y, LevelControl.Item_Width_Height(2), LevelControl.Item_Width_Height(2));
-		lblItem3.setBounds(LevelControl.Item3X, LevelControl.Item3Y, LevelControl.Item_Width_Height(3), LevelControl.Item_Width_Height(3));
-		lblItem4.setBounds(LevelControl.Item4X, LevelControl.Item4Y, LevelControl.Item_Width_Height(4), LevelControl.Item_Width_Height(4));
+		lblEnemyFire.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.EnemyFire(null))));
+		lblEnemyFire.setBounds(300, 400, 15, 10);
 		
 		lvlA1.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 0))));
 		lvlA2.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 1))));
@@ -797,6 +889,23 @@ public class BuildLevel extends JFrame {
 		lvlO19.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 298))));
 		lvlO20.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.main(Current_Level, 299))));	
 		
+		lblItem1.setBounds(LevelControl.Item1X, LevelControl.Item1Y, LevelControl.Item_Width_Height(1), LevelControl.Item_Width_Height(1));
+		System.out.println("Y-Pos Enemy: "+LevelControl.Item1Y);
+		lblItem2.setBounds(LevelControl.Item2X, LevelControl.Item2Y, LevelControl.Item_Width_Height(2), LevelControl.Item_Width_Height(2));
+		lblItem3.setBounds(LevelControl.Item3X, LevelControl.Item3Y, LevelControl.Item_Width_Height(3), LevelControl.Item_Width_Height(3));
+		lblItem4.setBounds(LevelControl.Item4X, LevelControl.Item4Y, LevelControl.Item_Width_Height(4), LevelControl.Item_Width_Height(4));
+		
+		LevelControl.spinne_alive = false;
+		LevelControl.drache_alive = false;
+		LevelControl.hexe_alive = false;
+		
+		lblItem1.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(1))));
+		lblItem2.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(2))));
+		lblItem3.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(3))));
+		lblItem4.setIcon(new ImageIcon(BuildLevel.class.getResource(LevelControl.Item_Pfade_aktualisieren(4))));
+		
+		
+		
 		if (level_load != Current_Level) {
 			level_load = level_load+1;
 		}
@@ -813,12 +922,130 @@ public class BuildLevel extends JFrame {
 		return Pos;
 	} 
 	
-	public static void GameOver(String args[]) {
-		lblGameOver.setVisible(true);
-		lblNeustart.setVisible(true);
-		lblNeustart.setEnabled(true);
-		MovementListener.stopFlag = true;
-		game_over = true;
+	public static void refreshInventar(String args[]) {
+		
+		lblMana.setText(Player.Manadrinks+" ");
+		lblSchwert.setText(Player.PlayerSword+" ");
+		lblBogen.setText(Player.Bow+" ");
+		lblPfeil.setText(Player.Arrow+" ");
+		lblRuestung.setText(Player.suitofarmor+" ");
+		lblMedikit.setText(Player.Medikit+" ");
+		lblPunkteanzeige.setText(Player.CurrentPoints+" ");
+		lblLebensanzeige.setText(Player.Lives+" ");
+		
+	}
+	
+	public static void checkPower(String args[]) {
+		
+		if (Player.PlayerPower == 4) {
+			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/green.PNG")));
+			Content.repaint();
+		} else if (Player.PlayerPower == 3) {
+			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/yellow1.PNG")));
+			Content.repaint();
+		} else if (Player.PlayerPower == 2) {
+			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/yellow2.PNG")));
+			Content.repaint();
+		} else if (Player.PlayerPower == 1) {
+			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/red.PNG")));
+			Content.repaint();
+		} else if (Player.PlayerPower <= 0) {
+			if (Player.Lives == 1) {
+				
+				
+				Player.Arrow = 0;
+				Player.Bow = 0;
+				Player.PlayerSword = 0;
+				Player.Manadrinks = 0;
+				Player.Medikit = 0;
+				Player.suitofarmor = 0;
+				
+				lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/white.PNG")));
+				
+				lblGameOver.setVisible(true);
+				lblNeustart.setVisible(true);
+				lblNeustart.setEnabled(true);
+				LevelControl.SavePoint = false;
+				LevelControl.SaveLevel = 1;
+				LevelControl.spinne_alive = false;
+				LevelControl.drache_alive = false;
+				LevelControl.hexe_alive = false;
+				MovementListener.stopFlag = true;
+				MovementListener.moveUp = false;
+				MovementListener.moveDown = false;
+				
+				Content.repaint();
+				
+				
+				
+				
+				game_over = true;
+			}  else if (Player.Lives > 1) {
+				
+				if (LevelControl.SavePoint == true) {
+					SavePointLoad = true;
+					LevelControl.hexe_alive = false;
+					LevelControl.drache_alive = false;
+					LevelControl.spinne_alive = false;
+					Player.PlayerPower = 4;
+					lblYouDied.setVisible(true);
+					lblYouDied2.setVisible(true);
+					Player.Lives = Player.Lives-1;
+					BuildLevel.Current_Level = LevelControl.SaveLevel-1;
+					BuildLevel.change_level_phase = true;
+					//MovementListener.stopFlag = true;
+					LevelControl.hexe_alive = false;
+					LevelControl.spinne_alive = false;
+					LevelControl.drache_alive = false;
+					BuildLevel.neuesLevel(null);
+					System.out.println("Tot!!! ---> Back to CheckPoint.");
+				} else {
+					LevelControl.hexe_alive = false;
+					LevelControl.drache_alive = false;
+					LevelControl.spinne_alive = false;
+					Player.PlayerPower = 4;
+					lblYouDied.setVisible(true);
+					lblYouDied2.setVisible(true);
+					Player.Lives = Player.Lives-1;
+					BuildLevel.Current_Level = 0;
+					BuildLevel.change_level_phase = true;
+					//MovementListener.stopFlag = true;
+					LevelControl.hexe_alive = false;
+					LevelControl.spinne_alive = false;
+					LevelControl.drache_alive = false;
+					BuildLevel.neuesLevel(null);
+					System.out.println("Tot!!! ---> Back to 1st Level");
+				}
+				
+				
+			}
+		}
+		
+	}
+		
+	
+	public static void GameOver(int DamageType) {
+		
+		/*
+		 *  DAMAGE - Types:
+		 *  
+		 *  5: sofort tot
+		 *  3: 1 Schadenspunkt
+		 *  1: 2 Schadenspunkte
+		 */
+		
+		if (DamageType == 5) {
+			Player.PlayerPower = Player.PlayerPower-4;
+		} else if (DamageType == 3) {
+			Player.PlayerPower = Player.PlayerPower-1;
+		} else if (DamageType == 1) {
+			Player.PlayerPower = Player.PlayerPower-2;
+		}
+		
+		checkPower(null);
+				
+		
+		
 	}
 	
 	public BuildLevel() {
@@ -952,6 +1179,89 @@ public class BuildLevel extends JFrame {
 		
 		// NEUSTART-Button
 		
+		lblNeustart = new JLabel ("");
+		lblNeustart.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Player.PlayerPower = 4;
+				Current_Level = 1;
+				game_over = false;
+				MovementListener.stopFlag = false;
+				newY = 225;
+            	newX = 30;
+				
+				change_level_phase = false;
+				level_load = 1;
+				first_load = true;
+				
+            	lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+				main(null);
+				dispose();
+			}
+		});
+		lblNeustart.setBounds(50, 150, 200, 50);
+		lblNeustart.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/restart.PNG")));
+		lblNeustart.setEnabled(false);
+		lblNeustart.setVisible(false);
+		Content.add(lblNeustart);
+		
+		// Inventar:
+		// =========
+		
+		lblMana = new JLabel ("0 ");
+		lblMana.setBounds(20 ,295, 50, 15);
+		lblMana.setForeground(Color.WHITE);
+		lblMana.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/Mana.PNG")));
+		lblMana.setVisible(true);
+		Content.add(lblMana);
+		
+		lblSchwert = new JLabel ("0 ");
+		lblSchwert.setBounds(60 ,295, 50, 15);
+		lblSchwert.setForeground(Color.WHITE);
+		lblSchwert.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/Sword.PNG")));
+		lblSchwert.setVisible(true);
+		Content.add(lblSchwert);
+		
+		lblBogen = new JLabel ("0 ");
+		lblBogen.setBounds(100 ,295, 50, 15);
+		lblBogen.setForeground(Color.WHITE);
+		lblBogen.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/bogen.PNG")));
+		lblBogen.setVisible(true);
+		Content.add(lblBogen);
+		
+		lblPfeil = new JLabel ("0 ");
+		lblPfeil.setBounds(140 ,295, 50, 15);
+		lblPfeil.setForeground(Color.WHITE);
+		lblPfeil.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/pfeil1.PNG")));
+		lblPfeil.setVisible(true);
+		Content.add(lblPfeil);
+		
+		lblRuestung = new JLabel ("0 ");
+		lblRuestung.setBounds(180 ,295, 50, 15);
+		lblRuestung.setForeground(Color.WHITE);
+		lblRuestung.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/ruestung.PNG")));
+		lblRuestung.setVisible(true);
+		Content.add(lblRuestung);
+		
+		lblMedikit = new JLabel ("0 ");
+		lblMedikit.setBounds(220 ,295, 50, 15);
+		lblMedikit.setForeground(Color.WHITE);
+		lblMedikit.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/Medikit.PNG")));
+		lblMedikit.setVisible(true);
+		Content.add(lblMedikit);
+		
+		lblPowerAnzeige = new JLabel ("");
+		lblPowerAnzeige.setBounds(233, 265, 50, 15);
+		lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/green.PNG")));
+		lblPowerAnzeige.setVisible(true);
+		Content.add(lblPowerAnzeige);
+		
+		lblCheckpoint = new JLabel ("Check Point gespeichert...");
+		lblCheckpoint.setBounds(20, 313, 200, 15);
+		lblCheckpoint.setForeground(Color.WHITE);
+		lblCheckpoint.setVisible(false);
+		Content.add(lblCheckpoint);
+		
 		
 		lblPergament = new JLabel("");
 		lblPergament.setBounds(0, 240, 300, 100);
@@ -961,13 +1271,19 @@ public class BuildLevel extends JFrame {
 		
 		//LEBENSANZEIGE
 		
-		JLabel lblLebensanzeige = new JLabel("1 ");
+		lblLebensanzeige = new JLabel("1 ");
 		lblLebensanzeige.setForeground(Color.BLACK);
 		lblLebensanzeige.setBackground(Color.WHITE);
 		lblLebensanzeige.setBounds(250, 0, 50, 15);
 		lblLebensanzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/heart.PNG")));
 		lblLebensanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
 		Content.add(lblLebensanzeige);
+		
+		lblAktuelleWaffe = new JLabel("");
+		lblAktuelleWaffe.setBounds(150, 0, 15, 15);
+		lblAktuelleWaffe.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/keineWaffe.PNG")));
+		lblAktuelleWaffe.setVisible(true);
+		Content.add(lblAktuelleWaffe);
 		
 		//Punkteanzeige
 		
@@ -1006,6 +1322,18 @@ public class BuildLevel extends JFrame {
 		Content.add(lblItem4);
 		//Current_Level
 		
+		lblEnemyFire = new JLabel ("");
+		lblEnemyFire.setBounds(300, 400, 15, 10);
+		lblEnemyFire.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/EnemyFire.PNG")));
+		lblEnemyFire.setVisible(true);
+		Content.add(lblEnemyFire);
+		
+		lblPlayerFire1 = new JLabel ("");
+		lblPlayerFire1.setBounds(300, 400, 15, 10);
+		lblPlayerFire1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/EnemyFire.PNG")));
+		lblPlayerFire1.setVisible(true);
+		Content.add(lblPlayerFire1);
+		
 		lblCurrentLevel = new JLabel("Level "+Current_Level+" ("+Current_Level+")");
 		lblCurrentLevel.setBounds(3, 0, 100, 14);
 		Content.add(lblCurrentLevel);
@@ -1015,6 +1343,20 @@ public class BuildLevel extends JFrame {
 		lblGameOver.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/gameover.PNG")));
 		lblGameOver.setVisible(false);
 		Content.add(lblGameOver);
+		
+		
+		
+		lblYouDied = new JLabel ("<html>Oops! You died!<br>Return to the last check point.</html>");
+		lblYouDied.setBounds(60, 110, 200, 100);
+		lblYouDied.setForeground(Color.WHITE);
+		lblYouDied.setVisible(false);
+		Content.add(lblYouDied);
+		lblYouDied2 = new JLabel ("<html>Oops! You died!<br>Return to the last check point.</html>");
+		lblYouDied2.setBounds(61, 111, 200, 100);
+		lblYouDied2.setForeground(Color.BLACK);
+		lblYouDied2.setVisible(false);
+		Content.add(lblYouDied2);
+		
 
 		
 // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1022,31 +1364,7 @@ public class BuildLevel extends JFrame {
 // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 		
-		lblNeustart = new JLabel ("");
-		lblNeustart.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
-				
-				game_over = false;
-				MovementListener.stopFlag = false;
-				newY = 225;
-            	newX = 30;
-				Current_Level = 1;
-				change_level_phase = false;
-				level_load = 1;
-				first_load = true;
-				
-            	lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-				main(null);
-				dispose();
-			}
-		});
-		lblNeustart.setBounds(50, 150, 200, 50);
-		lblNeustart.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/restart.PNG")));
-		lblNeustart.setEnabled(false);
-		lblNeustart.setVisible(false);
-		Content.add(lblNeustart);
+		
 		
 		
 		lblPlayer = new JLabel("");
