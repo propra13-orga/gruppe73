@@ -48,6 +48,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        		Player.PlayerPower = Player.PlayerPower +4;
 		        		Player.Medikit = Player.Medikit -1;
 		        		BuildLevel.refreshInventar(null);
+		        		BuildLevel.checkPower(null);
 		        	}
 		        	
 		        }

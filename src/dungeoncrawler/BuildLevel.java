@@ -950,7 +950,7 @@ public class BuildLevel extends JFrame {
 	
 	public static void checkPower(String args[]) {
 		
-		if (Player.PlayerPower == 4) {
+		if (Player.PlayerPower >= 4) {
 			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/green.PNG")));
 			lblRuestungAnzeige.setVisible(false);
 			Content.repaint();
