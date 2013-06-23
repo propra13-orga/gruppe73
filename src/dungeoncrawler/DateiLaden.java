@@ -13,10 +13,11 @@ public class DateiLaden {
 		
 		try {
 			if ((current_level % 2) != 0) {
-				String FilePath = "C:\\leveldata.TXT";
 				
-				auslesen = new BufferedReader(new FileReader(FilePath));
-				//auslesen = new BufferedReader(DateiLaden.class.getResource("/dungeoncrawler/leveldata.TXT"));
+				String FileName = "/src/dungeoncrawler/leveldata.TXT";
+				String FilePath = System.getProperty("user.dir");
+				System.out.println(FilePath+FileName);
+				auslesen = new BufferedReader(new FileReader(FilePath+FileName));
 				
 				q = q+1;
 				System.out.println("Ich lade die Datei neu! Zum "+q+"ten Mal");
