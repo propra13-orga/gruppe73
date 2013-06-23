@@ -263,6 +263,30 @@ public class LevelControl {
 					BuildLevel.GameOver(5);
 			}
 		}
+		if ((Item1Type == 'G')&(drache_alive == true)) {
+			if (BuildLevel.lblPlayer.getX() >= 195) {
+				if (BuildLevel.lblPlayer.getY() < 165) {
+					MovementListener.moveDown = false;
+					MovementListener.moveUp = false;
+					hexe_alive = false;
+					spinne_alive = false;
+					drache_alive = false;
+					BuildLevel.GameOver(5);
+				}
+			}
+		}
+		if ((Item1Type == 'W')&(hexe_alive == true)) {
+			if (BuildLevel.lblPlayer.getX() >= 195) {
+				if (BuildLevel.lblPlayer.getY() < 165) {
+						MovementListener.moveDown = false;
+						MovementListener.moveUp = false;
+						hexe_alive = false;
+						spinne_alive = false;
+						drache_alive = false;
+						BuildLevel.GameOver(5);
+				}
+			}
+		}
 	}
 	
 	public static void Item_pickUp(String args[]) {
