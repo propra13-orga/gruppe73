@@ -2,14 +2,12 @@ package dungeoncrawler;
 
 
 public class LevelControl {
-
+	 
 	/**
-	 * @param args
-	 */
+	*PARAMETER DES AKTUELLEN LEVELS:
+	*/
 	
-	//PARAMETER DES AKTUELLEN LEVELS:
-	
-	private static int[] range;
+	//private static int[] range;
 	
 	public static char Current_LevelAnzeige = '?';
 	public static char Current_SubLevelAnzeige = '?';

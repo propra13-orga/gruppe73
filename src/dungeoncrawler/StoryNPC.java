@@ -16,7 +16,8 @@ import javax.swing.JPanel;
 public class StoryNPC extends JFrame {
 	
 	/**
-	 * 
+	 * Klasse des NPC der mit dem Charakter interagiert. 
+	 * Klasse generiert das Fenster, in dem die Strings, in Abhängigkeit des Levels, ausgegeben werden.
 	 */
 	private static final long serialVersionUID = 1L;
     public static boolean stopFlag = false;
@@ -87,7 +88,10 @@ public class StoryNPC extends JFrame {
 		
 		JLabel lblText = new JLabel("");
 		
-		// Abfrage welcher Text gewählt werden soll:
+		/**  
+		 *   Abfrage welcher Text gewählt werden soll:
+		 */
+		
 		if (BuildLevel.Current_Level == 1) {
 			lblText.setText(TextL11);
 		} else if (BuildLevel.Current_Level == 5 ) 	{
