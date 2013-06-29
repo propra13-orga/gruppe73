@@ -15,7 +15,7 @@ public class Client {
 		Socket socket = null;
 
 		try{
-			socket = new Socket();
+			socket = new Socket(GetComputerName.ausfuehren(), 4666);
 			/**
 			 * Errichten eines Sockets.
 			 * getInputStram und getOutputStream liefert die Streams zum lesen und schreiben.

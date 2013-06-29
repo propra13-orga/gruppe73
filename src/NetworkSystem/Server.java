@@ -20,7 +20,7 @@ public class Server {
 		return 0;
 	}
 	public Server(int port) throws IOException {
-		server = new ServerSocket(port);
+		server = new ServerSocket(4666);
 	}
 	
 	private void verbinde() {

@@ -8,14 +8,16 @@ public class GetComputerName {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static String ausfuehren() {
+	String ComputerName = "";
 		// TODO Auto-generated method stub
 	try{
-		String ComputerName = InetAddress.getLocalHost().getHostName();
+		ComputerName = InetAddress.getLocalHost().getHostName();
 		System.out.println(ComputerName);
 	}catch (IOException e){
 		System.out.println("Exception caught = " + e.getMessage());
 	}
+	return ComputerName;
 
 	}
 
