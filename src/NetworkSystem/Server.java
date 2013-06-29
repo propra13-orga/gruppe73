@@ -2,18 +2,24 @@ package NetworkSystem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
+ /**
+  * 
+  * Diese Klasse repräsentiert einen Server. 
+  * Der Konstruktor bekommt die Nummer des Ports übergeben an dem "gehorcht"werden soll.
+  *
+  */
 
 public class Server {
 	
 	public static ServerSocket server;
-	public StringServer(int port) throws IOException {
+	public int getLocalPort() {
+		return 0;
+	}
+	public Server(int port) throws IOException {
 		server = new ServerSocket(port);
 	}
 	
@@ -23,7 +29,14 @@ public class Server {
 			Socket socket = null;
 			try{
 				socket = server.accept();
+				/**
+				 * Stellt die Verbindung mit einem Server innerhalb einer Endlosschleife her.
+				 */
 				reinRaus(socket);
+				/**
+				 * Methode liest und beschreibt Input und Output Streams. 
+				 * Werden vom Socket geliefert.
+				 */
 			}
 			catch (IOException e){
 				e.printStackTrace();				
@@ -31,6 +44,10 @@ public class Server {
 				if (socket != null)
 					try{
 						socket.close();
+						/**
+						 * Socket wird nach Beenden des Servers geschlossen.
+						 * 
+						 */
 					}catch (IOException e){
 						e.printStackTrace();
 					}
@@ -39,6 +56,7 @@ public class Server {
 		}
 	private void reinRaus(Socket socket) throws IOException{
 		BufferedReader rein = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		PrintStream raus = new PrintStream(socket.getOutputStream());
 		String s;
 		
 		while(rein.ready()){
@@ -54,7 +72,7 @@ public class Server {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		StringServer server = new StringServer();
+		Server server = new Server(0);
 		server.verbinde();
 	}
 

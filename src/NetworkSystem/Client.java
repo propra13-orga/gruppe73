@@ -1,5 +1,58 @@
 package NetworkSystem;
 
-public class Client {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io. OutputStream;
+import java.io.PrintStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
-}
+
+public class Client {
+	public static void main (String[]Args){
+		Socket socket = null;
+
+		try{
+			socket = new Socket();
+			/**
+			 * Errichten eines Sockets.
+			 * getInputStram und getOutputStream liefert die Streams zum lesen und schreiben.
+			 * printStream schreibt den String
+			 * Gelesen wird im Buffered Reader (Performance Optimierung)
+			 */
+			
+			OutputStream raus = socket.getOutputStream();
+			PrintStream ps = new PrintStream(raus, true);
+			ps.println("Hallo Welt");
+			ps.println("Hallo Nils");
+			
+			InputStream rein = socket.getInputStream();
+			System.out.println("verfügbare Bytes: " + rein.available());
+			BufferedReader buff = new BufferedReader (new InputStreamReader(rein));
+			
+			while (buff.ready()){
+				System.out.println(buff.readLine());
+			}
+		}catch (UnknownHostException e){
+			System.out.println("unknown Host...");
+			e.printStackTrace();
+		}catch (IOException e){
+			System.out.println("IOProbleme..");
+			e.printStackTrace();
+		}finally{
+			if (socket != null)
+				try{
+					socket.close();
+					System.out.println("Socket geschlossen...");
+				}catch (IOException e){
+					System.out.println("Socket nicht zu schließen");
+					e.printStackTrace();
+				}
+					
+				}
+		}
+	}
+
+
