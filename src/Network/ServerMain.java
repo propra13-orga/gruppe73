@@ -1,16 +1,34 @@
 package Network;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.DropMode;
+import javax.swing.JTextArea;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class ServerMain extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
+	private static javax.swing.JTextArea chatPane;
+	private static javax.swing.JTextField chatInput;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -31,12 +49,65 @@ public class ServerMain extends JFrame {
 	 * Create the frame.
 	 */
 	public ServerMain() {
+		setType(Type.UTILITY);
+		setResizable(false);
+		setTitle("Neues Multiplayer-Spiel starten");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 798, 620);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		chatInput = new JTextField();
+		chatInput.setBounds(18, 555, 354, 31);
+		contentPane.add(chatInput);
+		chatInput.setColumns(10);
+		
+		JButton chatInputSend = new JButton("Senden");
+		chatInputSend.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String Input = chatInput.getText();
+				if (Input.length() == 0) {
+					
+				} else {
+					chatPane.setText(chatPane.getText()+"\nPlayer 1: "+chatInput.getText());
+					chatInput.setText(null);
+				}
+				
+			}
+		});
+		chatInputSend.setForeground(new Color(255, 140, 0));
+		chatInputSend.setFont(new Font("Arial", Font.PLAIN, 14));
+		chatInputSend.setBounds(372, 555, 100, 31);
+		contentPane.add(chatInputSend);
+		
+		chatPane = new JTextArea();
+		chatPane.setWrapStyleWord(true);
+		chatPane.setLineWrap(true);
+		chatPane.setText("Host wurde erfolgreich eingerichtet...");
+		chatPane.setColumns(5);
+		chatPane.setEditable(false);
+		chatPane.setFont(new Font("Arial", Font.PLAIN, 14));
+		chatPane.setBounds(18, 324, 438, 225);
+		//contentPane.add(chatPane);
+		
+		JScrollPane ScrollPane = new JScrollPane(chatPane);
+		ScrollPane.setBounds(18, 324, 454, 225);
+		contentPane.add(ScrollPane);
+		
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setIcon(new ImageIcon(ServerMain.class.getResource("/Resources/NetworkMainBackground.PNG")));
+		lblBackground.setBounds(0, 0, 800, 600);
+		contentPane.add(lblBackground);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
-
 }
