@@ -1,7 +1,6 @@
 package Network;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,12 +10,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.DropMode;
+import java.io.*;
+import java.net.*;
+
 import javax.swing.JTextArea;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 public class ServerMain extends JFrame {
@@ -43,6 +42,32 @@ public class ServerMain extends JFrame {
 				}
 			}
 		});
+		
+		try {
+			
+			String outdata;
+			String Vergleich;
+			Vergleich = "exit";
+			ServerSocket ss = new ServerSocket(5556);
+			Socket s = ss.accept();
+			
+			do {
+				
+				BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+				outdata = br.readLine();
+				
+				if (outdata == null) {
+					
+				} else {
+					System.out.println("Incoming message: " + outdata);
+				}
+			} while (!Vergleich.equals( outdata));
+			
+			s.close();
+			
+		} catch(IOException e) {
+			System.err.println(e.toString());
+		}
 	}
 
 	/**
@@ -85,7 +110,7 @@ public class ServerMain extends JFrame {
 		chatPane = new JTextArea();
 		chatPane.setWrapStyleWord(true);
 		chatPane.setLineWrap(true);
-		chatPane.setText("Host wurde erfolgreich eingerichtet...");
+		
 		chatPane.setColumns(5);
 		chatPane.setEditable(false);
 		chatPane.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -101,13 +126,9 @@ public class ServerMain extends JFrame {
 		lblBackground.setBounds(0, 0, 800, 600);
 		contentPane.add(lblBackground);
 		
-		
-		
-		
-		
-		
-		
-		
+		chatPane.setText("Host wurde eingerichtet...");
 		
 	}
+
+
 }
