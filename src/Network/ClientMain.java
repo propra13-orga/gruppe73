@@ -1,10 +1,9 @@
 package Network;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -56,7 +55,7 @@ public class ClientMain extends JFrame {
 				System.out.println("Geben Sie Datein ein:");
 				inData = stdin.readLine();
 				
-				Socket s = new Socket("localhost", 5556);
+				Socket s = new Socket(InetAddress.getLocalHost().getHostName(), 5558);
 				
 				PrintWriter pw = new PrintWriter(s.getOutputStream());
 				pw.print( inData );
