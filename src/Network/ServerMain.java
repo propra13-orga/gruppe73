@@ -36,7 +36,10 @@ public class ServerMain extends JFrame {
 	ArrayList<String> userList = new ArrayList();
 	Boolean isConnected = false;
 	
+
 	
+
+    
 	/**
 	 * Create the frame.
 	 */
@@ -106,6 +109,7 @@ public class ServerMain extends JFrame {
 	 * String zeigt welche Arten von Data vom Server empfangen werden können. 
 	 *Berarbeitet das User Array in Abhängigkeit der vom Server ausgegebenen Strings
 	 */
+	
 	public class IncomingReader implements Runnable{
 		
 		public void run(){
@@ -255,6 +259,8 @@ public class ServerMain extends JFrame {
 	               Disconnect();
 	               } 
 	        
+
+	        
 	/*        private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
 	            // TODO add your handling code here:
 	            String nothing = "";
@@ -280,21 +286,22 @@ public class ServerMain extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ServerMain frame = new ServerMain();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		
-		
-			
-		}
+	        public static void main(String[] args) {
+	    		EventQueue.invokeLater(new Runnable() {
+	    			public void run() {
+	    				try {
+	    					ServerMain frame = new ServerMain();
+	    					frame.setVisible(true);
+	    				} catch (Exception e) {
+	    					e.printStackTrace();
+	    				}
+	    			}
+	    		});
+	    		
+	    		
+	    			
+	    		}
+
 	
 
 	
