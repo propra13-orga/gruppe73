@@ -152,10 +152,10 @@ public class Shop extends JFrame {
 	 *  ================================================
 	 */
 		
-		JLabel BildRüstung = new JLabel("");
-		BildRüstung.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/ruestung.PNG")));
-		BildRüstung.setBounds(40, 150, 15, 15);
-		add(BildRüstung);
+		JLabel BildRuestung = new JLabel("");
+		BildRuestung.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/ruestung.PNG")));
+		BildRuestung.setBounds(40, 150, 15, 15);
+		add(BildRuestung);
 		
 		JLabel lblRuestung = new JLabel("R\u00FCstung");
 		lblRuestung.setFont(new Font("Arial",Font.BOLD, 13));
