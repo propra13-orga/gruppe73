@@ -104,17 +104,23 @@ public class ServerWindow extends javax.swing.JFrame {
         stopButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //wenn fertig aendern in:
+        //setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        
+        
         setTitle("House Server");
+        setResizable(false);
 
         outputPane.setColumns(20);
         outputPane.setEditable(false);
         outputPane.setLineWrap(true);
         outputPane.setRows(5);
         outputPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        
         jScrollPane1.setViewportView(outputPane);
 
         startButton.setText("Start");
-        startButton.setEnabled(false);
+        //startButton.setEnabled(true);
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startButtonActionPerformed(evt);
@@ -164,7 +170,15 @@ public class ServerWindow extends javax.swing.JFrame {
         starter.start();
 
         outputPane.append("Server started. \n");
-    }                                           
+    }
+    
+    public void startServer() {
+    	Thread starter = new Thread(new ServerStart());
+        starter.start();
+        outputPane.append("Server started. \n");
+    }
+    
+   
 
     private void stopButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
@@ -172,7 +186,12 @@ public class ServerWindow extends javax.swing.JFrame {
         tellEveryone("Server:is stopping and all users will be disconnected.\n:Chat");
         outputPane.append("Server stopping... \n");
 
-    }                                          
+    }
+    
+    public void closeServer() {
+    	tellEveryone("Server:is stopping and all users will be disconnected.\n:Chat");
+        outputPane.append("Server stopping... \n");
+    }
 
     /**
     * @param args the command line arguments
@@ -183,10 +202,10 @@ public class ServerWindow extends javax.swing.JFrame {
                 new ServerWindow().setVisible(true);
             }
         });
-        Thread starter = new Thread(new ServerStart());
-        starter.start();
-
-        outputPane.append("Server started. \n");
+        ServerWindow sw = new ServerWindow();
+        sw.startServer();
+        
+        
     }
 
 

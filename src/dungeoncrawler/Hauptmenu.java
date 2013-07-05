@@ -107,7 +107,6 @@ public class Hauptmenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ServerMain.main(null);
-				ServerWindow.main(null);
 				//Programm beenden
 			}
 			
