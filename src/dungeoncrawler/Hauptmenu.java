@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import dungeoncrawler.Shop;
 import Network.ClientMain;
 import Network.ServerMain;
+import Network.ServerWindow;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -105,7 +106,9 @@ public class Hauptmenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ServerMain.main(null);          //Programm beenden
+				ServerMain.main(null);
+				ServerWindow.main(null);
+				//Programm beenden
 			}
 			
 		});

@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -26,6 +27,7 @@ public class ClientMain extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static javax.swing.JTextArea chatPane;
 	private static javax.swing.JTextField chatInput;
+	private static String InputDialog;
 	
 	/**
 	 * Launch the application.
@@ -42,37 +44,17 @@ public class ClientMain extends JFrame {
 		}
 		});
 		
-		String Vergleich;
-		Vergleich = "exit";
-		String inData;
-		inData = "blubb";
+		InputDialog = JOptionPane.showInputDialog( "Bitte gib deinen Usernamen ein:" );
 		
-		do {
-			try {
-				InputStreamReader inStream = new InputStreamReader( System.in );
-				BufferedReader stdin = new BufferedReader ( inStream );
-				
-				System.out.println("Geben Sie Datein ein:");
-				inData = stdin.readLine();
-				
-				Socket s = new Socket(InetAddress.getLocalHost().getHostName(), 5558);
-				
-				PrintWriter pw = new PrintWriter(s.getOutputStream());
-				pw.print( inData );
-				pw.flush();
-				s.close();
-			} catch(IOException e) {
-				System.err.println(e.toString());
-			} 
-			
-		} while (!inData.equals(Vergleich));
+		chatPane.setText(InputDialog);
+
+		
 	}
 
 	/**
 	 * Create the frame.
 	 */
 	public ClientMain() {
-		setType(Type.UTILITY);
 		setResizable(false);
 		setTitle("Neues Multiplayer-Spiel starten");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,7 +76,7 @@ public class ClientMain extends JFrame {
 				if (Input.length() == 0) {
 					
 				} else {
-					chatPane.setText(chatPane.getText()+"\nPlayer 1: "+chatInput.getText());
+					chatPane.setText(chatPane.getText()+"\n"+InputDialog+": "+chatInput.getText());
 					chatInput.setText(null);
 				}
 				
@@ -119,12 +101,19 @@ public class ClientMain extends JFrame {
 		ScrollPane.setBounds(18, 324, 454, 225);
 		contentPane.add(ScrollPane);
 		
+		JTextArea usersList = new JTextArea();
+		usersList.setWrapStyleWord(true);
+		usersList.setLineWrap(true);
+		JScrollPane ScrollUserList = new JScrollPane(usersList);
+		ScrollUserList.setBounds(18, 75, 767, 214);
+		contentPane.add(ScrollUserList);
+		
+		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setIcon(new ImageIcon(ServerMain.class.getResource("/Resources/NetworkMainBackground.PNG")));
 		lblBackground.setBounds(0, 0, 800, 600);
 		contentPane.add(lblBackground);
 		
-		chatPane.setText("Host wurde eingerichtet...");
 	}
 
 }

@@ -4,6 +4,7 @@ package Network;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import javax.swing.JTextArea;
 /**
  *
  * 
@@ -12,11 +13,14 @@ public class ServerWindow extends javax.swing.JFrame {
 	/**
 	 * 
 	 */
+	
+	
 	private static final long serialVersionUID = 1L;
 	ArrayList clientOutputStreams;
         ArrayList<String> onlineUsers;
 
 	public class ClientHandler implements Runnable	{
+		
 		BufferedReader reader;
 		Socket sock;
                 PrintWriter client;
@@ -95,7 +99,7 @@ public class ServerWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        outputPane = new javax.swing.JTextArea();
+        outputPane = new JTextArea();
         startButton = new javax.swing.JButton();
         stopButton = new javax.swing.JButton();
 
@@ -110,6 +114,7 @@ public class ServerWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(outputPane);
 
         startButton.setText("Start");
+        startButton.setEnabled(false);
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startButtonActionPerformed(evt);
@@ -117,6 +122,7 @@ public class ServerWindow extends javax.swing.JFrame {
         });
 
         stopButton.setText("Stop");
+        stopButton.setEnabled(false);
         stopButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stopButtonActionPerformed(evt);
@@ -177,6 +183,10 @@ public class ServerWindow extends javax.swing.JFrame {
                 new ServerWindow().setVisible(true);
             }
         });
+        Thread starter = new Thread(new ServerStart());
+        starter.start();
+
+        outputPane.append("Server started. \n");
     }
 
 
@@ -262,7 +272,7 @@ public class ServerWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea outputPane;
+    public static JTextArea outputPane;
     private javax.swing.JButton startButton;
     private javax.swing.JButton stopButton;
     // End of variables declaration                   
