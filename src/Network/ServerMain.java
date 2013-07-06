@@ -35,6 +35,9 @@ public class ServerMain extends JFrame {
 	private static JTextField chatInput;
 	private static JTextArea usersList;
 	private static String InputDialog;
+	private static JButton ConnectStart;
+	
+	
 	
 	/**
 	 * Variablen für das Netzwerk:
@@ -66,10 +69,12 @@ public class ServerMain extends JFrame {
 		InputDialog = JOptionPane.showInputDialog( "Bitte gib deinen Usernamen ein:" );
 		chatPane.setText(InputDialog+" ist dem Spiel beigetreten.");
 		
-		ServerMain sm = new ServerMain();
-		sm.Connect();
-		
 		ServerWindow.main(null);
+		
+		//ServerMain sm = new ServerMain();
+		//sm.Connect();
+		
+		
 		
 		
 		//sm.Connect();
@@ -99,6 +104,8 @@ public class ServerMain extends JFrame {
 		chatInput.setBounds(18, 555, 354, 31);
 		contentPane.add(chatInput);
 		chatInput.setColumns(10);
+		
+		
 		
 		JButton chatInputSend = new JButton("Senden");
 		chatInputSend.addActionListener(new ActionListener() {
@@ -137,6 +144,19 @@ public class ServerMain extends JFrame {
 		close.setFont(new Font("Arial", Font.PLAIN, 14));
 		close.setBounds(480, 555, 120, 31);
 		contentPane.add(close);
+		
+		JButton ConnectStart = new JButton("Verbinden");
+		ConnectStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Connect();
+				
+			}
+		});
+		ConnectStart.setForeground(new Color(255, 140, 0));
+		ConnectStart.setFont(new Font("Arial", Font.PLAIN, 14));
+		ConnectStart.setBounds(595, 555, 190, 31);
+		contentPane.add(ConnectStart);
 		
 		chatPane = new JTextArea();
 		chatPane.setWrapStyleWord(true);

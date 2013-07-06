@@ -203,7 +203,8 @@ public class ServerWindow extends javax.swing.JFrame {
             }
         });
         ServerWindow sw = new ServerWindow();
-        sw.startServer();
+        //sw.startServer();
+        //System.out.println("sw.startServer() wurde ausgeführt.");
         
         
     }
