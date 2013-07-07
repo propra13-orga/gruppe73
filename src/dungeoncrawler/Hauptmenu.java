@@ -3,8 +3,8 @@ import java.awt.event.ActionEvent;
 import dungeoncrawler.BuildLevel;
 import java.awt.event.ActionListener;
 import dungeoncrawler.Shop;
-import Network.ClientMain;
-import Network.ServerMain;
+import Network.Chat;
+import Network.ServerChat;
 import Network.ServerWindow;
 
 import javax.swing.ImageIcon;
@@ -98,7 +98,7 @@ public class Hauptmenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ClientMain.main(null);          //Programm beenden
+				Chat.main(null);          //Programm beenden
 			}
 			
 		});
@@ -106,7 +106,7 @@ public class Hauptmenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ServerMain.main(null);
+				ServerChat.main(null);
 				//Programm beenden
 			}
 			

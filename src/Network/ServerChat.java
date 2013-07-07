@@ -1,21 +1,15 @@
 package Network;
 
 import java.net.*;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.io.*;
 import java.util.*;
-import javax.swing.*;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 /**
  *
  * 
  */
-public class Chat extends JFrame {
+public class ServerChat extends javax.swing.JFrame {
     /**
 	 * 
 	 */
@@ -28,11 +22,10 @@ public class Chat extends JFrame {
     ArrayList<String> userList = new ArrayList();
     Boolean isConnected = false;
     
-    
 
 
     /** Creates new form Chat */
-    public Chat() {
+    public ServerChat() {
         initComponents();
     }
 
@@ -137,29 +130,24 @@ public class Chat extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-    	jScrollPane1 = new JScrollPane();
-        inputTextArea = new JTextArea();
-        ScrollChatTextArea = new JScrollPane();
-        chatTextArea = new JTextArea();
-        inputUsername = new JLabel();
-        usernameField = new JTextField();
-        connectButton = new JButton();
-        disconnectButton = new JButton();
-        sendButton = new JButton();
-        ScrollUserList = new JScrollPane();
-        usersList = new JTextArea();
-        lblOnlineArea = new JLabel();
-        JLabel label_name;
-        ImageIcon icon_bild = new ImageIcon(this.getClass().getResource("/Resources/NetworkMainbackground.PNG"));
-        
-       
-        label_name = new JLabel(icon_bild);
-		label_name.setBounds(0, 0, 798, 620);
-        
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inputTextArea = new javax.swing.JTextArea();
+        ScrollChatTextArea = new javax.swing.JScrollPane();
+        chatTextArea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        usernameField = new javax.swing.JTextField();
+        connectButton = new javax.swing.JButton();
+        disconnectButton = new javax.swing.JButton();
+        sendButton = new javax.swing.JButton();
+        ScrollUserList = new javax.swing.JScrollPane();
+        usersList = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chat Client");
-     
-               
 
         inputTextArea.setColumns(20);
         inputTextArea.setLineWrap(true);
@@ -173,7 +161,7 @@ public class Chat extends JFrame {
         chatTextArea.setRows(5);
         ScrollChatTextArea.setViewportView(chatTextArea);
 
-        inputUsername.setText("Username:");
+        jLabel1.setText("Username:");
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,18 +189,29 @@ public class Chat extends JFrame {
                 sendButtonActionPerformed(evt);
             }
         });
-        
 
         usersList.setEditable(false);
         usersList.setColumns(20);
         usersList.setRows(5);
         ScrollUserList.setViewportView(usersList);
 
-        lblOnlineArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblOnlineArea.setText("Online Users");
-                  
-        
-        
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Online Users");
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Settings");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,12 +221,12 @@ public class Chat extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(ScrollChatTextArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -236,7 +235,7 @@ public class Chat extends JFrame {
                         .addComponent(disconnectButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblOnlineArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ScrollUserList))
                 .addContainerGap())
         );
@@ -248,8 +247,8 @@ public class Chat extends JFrame {
                     .addComponent(disconnectButton)
                     .addComponent(connectButton)
                     .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(lblOnlineArea))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -263,12 +262,7 @@ public class Chat extends JFrame {
         );
 
         pack();
-    }// </editor-fold>   
-    
-    
- 
-    
-    
+    }// </editor-fold>                        
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
@@ -323,7 +317,10 @@ public class Chat extends JFrame {
         inputTextArea.requestFocus();
     }                                          
 
-                                     
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+  //      new SettingsWindow().setVisible(true);
+    }                                          
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
@@ -338,6 +335,7 @@ public class Chat extends JFrame {
                 new Chat().setVisible(true);
             }
         });
+        ServerWindow.main(null);
     }
 
     // Variables declaration - do not modify                     
@@ -345,8 +343,8 @@ public class Chat extends JFrame {
     private javax.swing.JButton connectButton;
     private javax.swing.JButton disconnectButton;
     private javax.swing.JTextArea inputTextArea;
-    private javax.swing.JLabel inputUsername;
-    private javax.swing.JLabel lblOnlineArea;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

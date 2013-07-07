@@ -7,11 +7,11 @@ import java.util.*;
 import javax.swing.JTextArea;
 /**
  *
- * 
+ *
  */
 public class ServerWindow extends javax.swing.JFrame {
 	/**
-	 * 
+	 *
 	 */
 	
 	
@@ -26,7 +26,7 @@ public class ServerWindow extends javax.swing.JFrame {
                 PrintWriter client;
 
 
-		public ClientHandler(Socket clientSocket, PrintWriter user) {
+        public ClientHandler(Socket clientSocket, PrintWriter user) {
 		// new inputStreamReader and then add it to a BufferedReader
                         client = user;
 			try {
@@ -92,7 +92,7 @@ public class ServerWindow extends javax.swing.JFrame {
 
     /** This method is called from within the constructor to
      * initialize the form.
-     * 
+     *
      */
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
@@ -108,7 +108,7 @@ public class ServerWindow extends javax.swing.JFrame {
         //setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         
         
-        setTitle("House Server");
+        setTitle("Server");
         setResizable(false);
 
         outputPane.setColumns(20);
@@ -128,7 +128,7 @@ public class ServerWindow extends javax.swing.JFrame {
         });
 
         stopButton.setText("Stop");
-        stopButton.setEnabled(false);
+        stopButton.setEnabled(true);
         stopButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stopButtonActionPerformed(evt);
@@ -202,9 +202,9 @@ public class ServerWindow extends javax.swing.JFrame {
                 new ServerWindow().setVisible(true);
             }
         });
-        ServerWindow sw = new ServerWindow();
+        //ServerWindow sw = new ServerWindow();
         //sw.startServer();
-        //System.out.println("sw.startServer() wurde ausgefŸhrt.");
+        //System.out.println("sw.startServer() wurde ausgeführt.");
         
         
     }
