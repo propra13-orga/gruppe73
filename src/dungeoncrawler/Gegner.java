@@ -44,8 +44,17 @@ public class Gegner {
 				
 				if ((BuildLevel.lblPlayerFire1.getX() >= BuildLevel.lblItem1.getX())&(BuildLevel.lblPlayerFire1.getX() <= (BuildLevel.lblItem1.getX()+30))) {
 					if ((BuildLevel.lblPlayerFire1.getY() >= BuildLevel.lblItem1.getY())&(BuildLevel.lblPlayerFire1.getY() <= (BuildLevel.lblItem1.getY()+30))) {
+						if (LevelControl.hexe_alive == true){
+							EnemyEnergy = EnemyEnergy-1;
+						} else if (LevelControl.drache_alive == true){
+							EnemyEnergy = EnemyEnergy;
+							/*
+							 * nix ändern an der EE
+							 */
+						} else if (LevelControl.spinne_alive == true) {
+							EnemyEnergy = EnemyEnergy-1;
+						}
 						
-						EnemyEnergy = EnemyEnergy-1;
 					
 					}
 				}
@@ -86,8 +95,15 @@ public class Gegner {
 				
 				if ((BuildLevel.lblPlayerFire1.getX() >= BuildLevel.lblItem1.getX())&(BuildLevel.lblPlayerFire1.getX() <= (BuildLevel.lblItem1.getX()+30))) {
 					if ((BuildLevel.lblPlayerFire1.getY() >= BuildLevel.lblItem1.getY())&(BuildLevel.lblPlayerFire1.getY() <= (BuildLevel.lblItem1.getY()+30))) {
-						
-						EnemyEnergy = EnemyEnergy-2;
+						if (LevelControl.hexe_alive == true) {
+							EnemyEnergy = EnemyEnergy;
+							/*
+							 * Tut nix mit EE
+							 */
+						} else if (LevelControl.drache_alive == true) {
+							EnemyEnergy = EnemyEnergy-2;
+						} else if (LevelControl.spinne_alive == true) {
+							EnemyEnergy = EnemyEnergy-2;
 					
 					}
 				}
@@ -124,8 +140,16 @@ public class Gegner {
 			
 			if ((BuildLevel.lblPlayerFire1.getX() >= BuildLevel.lblItem1.getX())&(BuildLevel.lblPlayerFire1.getX() <= (BuildLevel.lblItem1.getX()+30))) {
 				if ((BuildLevel.lblPlayerFire1.getY() >= BuildLevel.lblItem1.getY())&(BuildLevel.lblPlayerFire1.getY() <= (BuildLevel.lblItem1.getY()+30))) {
-					
-					EnemyEnergy = EnemyEnergy-3;
+					if (LevelControl.hexe_alive == true){
+						EnemyEnergy = EnemyEnergy-3;
+					} else if (LevelControl.drache_alive == true){
+						EnemyEnergy = EnemyEnergy-3;
+					} else if (LevelControl.spinne_alive == true){
+						EnemyEnergy = EnemyEnergy;
+						/*
+						 * nix tut bei spinne
+						 */
+					}
 				
 				}
 			}
