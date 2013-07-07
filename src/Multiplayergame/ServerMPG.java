@@ -97,7 +97,7 @@ public class ServerMPG extends JFrame {
 			
 			socket = serverSocket.accept();
 			
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 2; i++) {
 				
 				serverInfo.append(">>> \tConnection from:" + socket.getInetAddress()+" (Client "+i+")\n");
 				/**
@@ -106,14 +106,11 @@ public class ServerMPG extends JFrame {
 				out = new DataOutputStream(socket.getOutputStream());
 				in = new DataInputStream(socket.getInputStream());
 				
-				if (user[i] == null) {
+				Thread Users = new Thread(new Users());
+				Users.start();
+				break;
 					
-					user[i] = new Users(out, in, user);
-					Thread thread = new Thread(user[i]);
-					thread.start();
-					break;
-					
-				}
+				
 				
 			}
 			
@@ -125,45 +122,38 @@ public class ServerMPG extends JFrame {
 
 class Users implements Runnable {
 	
-	DataOutputStream out;
-	DataInputStream in;
-	Users[] user = new Users[10];
 	
-	public Users(DataOutputStream out, DataInputStream in, Users[] user) {
+	DataInputStream in;
+	DataOutputStream out;
+	
+	public void users(DataInputStream in, DataOutputStream out) {
 		
-		this.out = out;
 		this.in = in;
-		this.user = user;
+		this.out = out;
 		
 	}
 	
 	public void run() {
 		
-		while(true) {
+		try {
 			
-			try {
+			while(true){
+				
 				
 				String message = in.readUTF();
-				for (int i = 0; i < 10; i++) {
-					
-					if (user[i] != null) {
-						
-						user[i].out.writeUTF(message);
-						ServerMPG.serverInfo.append(">>>\tNachricht von Client "+i+" ('"+message+")' erhalten und an die anderen Clients weitergeleitet.\n");
-						
-					}
-					
-				}
+				out.writeUTF(message);
+				ServerMPG.serverInfo.append(">>>\tNachricht von Client ('"+message+")' erhalten und an die anderen Clients weitergeleitet.\n");
 				
-			} catch (IOException e) {
-				ServerMPG.serverInfo.append("Kein run() moeglich.");
 			}
+			
+		} catch (IOException e){
+			
+			ServerMPG.serverInfo.append("Kein run() moeglich.");
 			
 		}
 		
+		
 	}
-	
-	
 	
 }
 

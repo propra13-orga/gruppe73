@@ -153,24 +153,25 @@ class Input implements Runnable{
 		
 		ClientMPG1.ClientInfoRefresher("run() wird vorbereitet...");
 		
-		while (true) {
-			
-			String message;
-			ClientMPG1.ClientInfoRefresher("run() wird gestartet...");
-			try {
+		try {
+			while (in.readUTF() != null) {
 				
+				String message;
+				ClientMPG1.ClientInfoRefresher("run() wird gestartet...");
 				message = in.readUTF();
 				ClientMPG1.clientInfo.append(message);
-				System.out.println(message);
+				System.out.println(message);	
+					
 				
-			} catch (IOException e) {
-				
-				ClientMPG1.clientInfo.append("run() nicht moeglich");
 				
 			}
+		} catch (IOException e) {
 			
+			ClientMPG1.clientInfo.append("run() nicht moeglich");
 			
 		}
+		
+		ClientMPG1.ClientInfoRefresher("run() wurde beendet");
 		
 		
 	}
