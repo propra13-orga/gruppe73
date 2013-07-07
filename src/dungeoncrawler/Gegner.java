@@ -190,6 +190,6 @@ public class Gegner {
 		BuildLevel.FeldNeuzeichnen(null);
 	}
 	*/
-	
+	}
 
 }
