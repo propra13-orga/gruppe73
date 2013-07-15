@@ -1,6 +1,8 @@
 package dungeoncrawler;
 
 
+
+
 public class LevelControl {
 	 
 	/**
@@ -55,6 +57,11 @@ public class LevelControl {
 
 	public static boolean Shop_opened = false; // von NPC & Shop verwendet
 
+	/**
+	 * AudioFiles
+	 * @param args
+	 */
+	
 	
 	
 	public static void main(String[] args) {
@@ -315,6 +322,7 @@ public class LevelControl {
 							BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
 				        	SavePointAnzeige = true;
 							Player.CurrentPoints = Player.CurrentPoints+500;
+							Treasure.PlayMusic("treasure");
 							
 				        } else if (Item1Type == 'D'|(Item1Type == 'M')) {				
 				        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
@@ -376,6 +384,7 @@ public class LevelControl {
 						BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
 			        	SavePointAnzeige = true;
 						Player.CurrentPoints = Player.CurrentPoints+500;
+						Treasure.PlayMusic("treasure");
 						
 			        } else if (Item2Type == 'D'|(Item2Type == 'M')) {	
 			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
@@ -433,6 +442,7 @@ public class LevelControl {
 						BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
 			        	SavePointAnzeige = true;
 						Player.CurrentPoints = Player.CurrentPoints+500;
+						Treasure.PlayMusic("treasure");
 						
 			        } else if (Item3Type == 'D'|(Item3Type == 'M')) {	
 			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
@@ -489,6 +499,7 @@ public class LevelControl {
 						BuildLevel.lblCheckpoint.setText("Du hast einen Schatz gefunden...");
 			        	SavePointAnzeige = true;
 						Player.CurrentPoints = Player.CurrentPoints+500;
+						Treasure.PlayMusic("treasure");
 						
 			        } else if (Item4Type == 'D'|(Item4Type == 'M')) {		
 			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");

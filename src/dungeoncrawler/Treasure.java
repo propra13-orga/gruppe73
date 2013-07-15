@@ -1,9 +1,14 @@
 package dungeoncrawler;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+
 import dungeoncrawler.BuildLevel;
 import dungeoncrawler.Player;
 
 public class Treasure {
+	
+	
 	
 	
 	/*
@@ -125,5 +130,42 @@ public class Treasure {
 		
 		return get_treasure;
 	}
+	
+	public static void PlayMusic(String type) {
+		
+		
+		if (type == "treasure"){
+			
+			PlaySound playGotTreasure = new PlaySound();
+			playGotTreasure.playGotTreasure();
+			
+		} else if (type == "arrow"){
+			
+			PlaySound playGotArrow = new PlaySound();
+			//playGotArrow.playGotArrow();
+			
+		}
+		
+	}
 
+}
+
+class PlaySound {
+	
+	public AudioClip getcoin = Applet.newAudioClip(getClass().getResource("/Resources/getcoin.wav"));
+	//public AudioClip arrow = Applet.newAudioClip(getClass().getResource("/Resources/--.wav"));
+	
+	public void playGotTreasure(){
+		
+		getcoin.play();
+		
+	}
+	/*
+	public void playGotArrow(){
+	
+		
+		arrow.play();
+		
+	}
+	*/
 }

@@ -14,7 +14,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class ClientMPG1 extends JFrame {
+
+
+public class ClientMPG1 extends JFrame{
 	
 	/**
 	 * 
@@ -23,13 +25,51 @@ public class ClientMPG1 extends JFrame {
 	static Socket socket;
 	static DataInputStream in;
 	static DataOutputStream out;
-	
+	static BufferedReader reader;
 
 	public JPanel contentPanel;
 	public static JTextArea clientInfo;
 	public static JTextField chatInput;
 	
+	static void durchlaufen() {
+		
+	
+		String message;
+		ClientMPG1.ClientInfoRefresher("run() wird vorbereitet...");
+		
+		try {
+	
+				
+				
+				ClientMPG1.ClientInfoRefresher("run() wird gestartet...");
+				message = in.readUTF();
+				ClientMPG1.clientInfo.append(message);
+				System.out.println(message);	
+					
+				
+				
+			
+		} catch (IOException e) {
+			
+			ClientMPG1.clientInfo.append("run() nicht moeglich");
+			
+		}
+		
+		ClientMPG1.ClientInfoRefresher("run() wurde beendet");
+		
+		
+	}
+	
 
+		
+		
+		
+	public static void ListenThread() {
+		clientInfo.append("Neuer Thread wird gestartet");
+		
+		ClientMPG1.durchlaufen();
+		clientInfo.append("Thread wurde gestartet | Will ich nie sehen!");
+    }
 	
 	public ClientMPG1() {
 		setResizable(false);
@@ -127,53 +167,19 @@ public class ClientMPG1 extends JFrame {
 		socket = new Socket("localhost", 7777);
 		clientInfo.append("\tConnection successful\n");
 		in = new DataInputStream(socket.getInputStream());
+		/*InputStreamReader streamreader = new InputStreamReader(socket.getInputStream());
+        reader = new BufferedReader(streamreader);*/
+		ListenThread();
 		out = new DataOutputStream(socket.getOutputStream());
 		
-		Thread input = new Thread(new Input());
-		input.start();
+		
 		
 		ClientInfoRefresher("ClientInfoRefresher getestet.");
 		
 			
 	}
+	
+	
 
 }
 
-class Input implements Runnable{
-	
-	DataInputStream in;
-
-	public void input(DataInputStream in) {
-		
-		this.in = in;
-		
-	}
-	
-	public void run() {
-		
-		ClientMPG1.ClientInfoRefresher("run() wird vorbereitet...");
-		
-		try {
-			while (in.readUTF() != null) {
-				
-				String message;
-				ClientMPG1.ClientInfoRefresher("run() wird gestartet...");
-				message = in.readUTF();
-				ClientMPG1.clientInfo.append(message);
-				System.out.println(message);	
-					
-				
-				
-			}
-		} catch (IOException e) {
-			
-			ClientMPG1.clientInfo.append("run() nicht moeglich");
-			
-		}
-		
-		ClientMPG1.ClientInfoRefresher("run() wurde beendet");
-		
-		
-	}
-	
-}
