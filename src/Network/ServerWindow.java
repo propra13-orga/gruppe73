@@ -95,7 +95,7 @@ public class ServerWindow extends javax.swing.JFrame {
      *
      */
     
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+                        
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -104,8 +104,7 @@ public class ServerWindow extends javax.swing.JFrame {
         stopButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        //wenn fertig aendern in:
-        //setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
         
         
         setTitle("Server");
@@ -162,7 +161,7 @@ public class ServerWindow extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }                      
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
@@ -201,12 +200,7 @@ public class ServerWindow extends javax.swing.JFrame {
             public void run() {
                 new ServerWindow().setVisible(true);
             }
-        });
-        //ServerWindow sw = new ServerWindow();
-        //sw.startServer();
-        //System.out.println("sw.startServer() wurde ausgeführt.");
-        
-        
+        });        
     }
 
 
