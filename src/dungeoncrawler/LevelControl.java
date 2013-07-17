@@ -1,5 +1,7 @@
 package dungeoncrawler;
 
+import java.applet.Applet;
+import java.applet.*;
 
 
 
@@ -7,6 +9,11 @@ public class LevelControl {
 	 
 	/**
 	*PARAMETER DES AKTUELLEN LEVELS:
+	*In LevelControl wird wie der Name schon sagt, dass Level immer neu berechnet.
+	* Dabei werden alle möglichen Daten ermittelt.
+	* Es wird zum Beispiel festgestellt, ob etwas aufgehoben worden ist, 
+	* es im Inventar gelandet ist und ob angegeben ob es noch angezeigt oder entfernt
+	* werden muss.Genauso ist es auch mit den Gegnern. etc.
 	*/
 	
 	//private static int[] range;
@@ -57,6 +64,8 @@ public class LevelControl {
 
 	public static boolean Shop_opened = false; // von NPC & Shop verwendet
 
+	
+	
 	/**
 	 * AudioFiles
 	 * @param args
@@ -293,8 +302,8 @@ public class LevelControl {
 			}
 		}
 	}
-	
 	public static void Item_pickUp(String args[]) {
+	
 		
 		/*
 		 *  ENDGEGNER-KOLLISIONSKONTROLLE:
@@ -328,31 +337,38 @@ public class LevelControl {
 				        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
 				        	SavePointAnzeige = true;
 				        	Player.Manadrinks = Player.Manadrinks+1;
+				        	Treasure.PlayMusic("item");
 				        	
 				        } else if ((Item1Type == 'L')) {			
 				        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
 				        	SavePointAnzeige = true;
 				        	Player.Lives = Player.Lives+1;
+				        	Treasure.PlayMusic("item");
 				        	
 				        } else if (Item1Type == 'A') {		
 				        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
 				        	SavePointAnzeige = true;
 				        	Player.Bow = Player.Bow+1;
+				        	Treasure.PlayMusic("item");
 				        	
 				        } else if ((Item1Type == 'H')|(Item1Type == 'Z')) {
 				        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
 				        	SavePointAnzeige = true;
 				        	Player.Medikit = Player.Medikit+1;
+				        	Treasure.PlayMusic("item");
 				        
 				        } else if (Item1Type == 'C') {	
 				        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
 				        	SavePointAnzeige = true;
 				        	Player.PlayerSword = Player.PlayerSword+1;
+				        	Treasure.PlayMusic("item");
 				        	
 				        } else if (Item1Type == 'P') {
 				        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
 				        	SavePointAnzeige = true;
 				        	Player.Arrow = Player.Arrow+1;
+				        	Treasure.PlayMusic("item");
+				        	
 				        } else if (Item1Type == 'J') {
 				        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
 				        	SavePoint = true;
@@ -361,6 +377,13 @@ public class LevelControl {
 				        	SavePointY = Item1Y;
 				        	SaveLevel = BuildLevel.Current_Level;
 				        	
+				        } else if (Item1Type == 'R'){
+				        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+				        	SavePointAnzeige = true;
+				        	Player.suitofarmor = Player.suitofarmor+1;	
+				        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+				        	Player.PlayerPower = Player.PlayerPower +5;
+				        	Treasure.PlayMusic("item");
 				        }
 						
 						
@@ -390,31 +413,37 @@ public class LevelControl {
 			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Manadrinks = Player.Manadrinks+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if ((Item2Type == 'L')) {	
 			        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
 			        	SavePointAnzeige = true;
 			        	Player.Lives = Player.Lives+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item2Type == 'A') {			
 			        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Bow = Player.Bow+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if ((Item2Type == 'H')|(Item2Type == 'Z')) {
 			        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
 			        	SavePointAnzeige = true;
 			        	Player.Medikit = Player.Medikit+1;
-			        
+			        	Treasure.PlayMusic("item");
+			        	
 			        } else if (Item2Type == 'C') {	
 			        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.PlayerSword = Player.PlayerSword+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item2Type == 'P') {
 			        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Arrow = Player.Arrow+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item2Type == 'J') {
 			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
@@ -424,6 +453,13 @@ public class LevelControl {
 			        	SavePointY = Item2Y;
 			        	SaveLevel = BuildLevel.Current_Level;
 			        	
+			        } else if (Item1Type == 'R'){
+			        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.suitofarmor = Player.suitofarmor+1;
+			        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+			        	Player.PlayerPower = Player.PlayerPower +5;
+			        	Treasure.PlayMusic("item");
 			        }
 					
 			        BuildLevel.lblItem2.setBounds(400, 300, BuildLevel.lblItem2.getWidth(), BuildLevel.lblItem2.getHeight());
@@ -448,31 +484,37 @@ public class LevelControl {
 			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Manadrinks = Player.Manadrinks+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if ((Item3Type == 'L')) {	
 			        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
 			        	SavePointAnzeige = true;
 			        	Player.Lives = Player.Lives+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item3Type == 'A') {		
 			        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Bow = Player.Bow+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if ((Item3Type == 'H')|(Item3Type == 'Z')) {	
 			        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
 			        	SavePointAnzeige = true;
 			        	Player.Medikit = Player.Medikit+1;
+			        	Treasure.PlayMusic("item");
 			        
 			        } else if (Item3Type == 'C') {	
 			        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.PlayerSword = Player.PlayerSword+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item3Type == 'P') {
 			        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Arrow = Player.Arrow+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item3Type == 'J') {
 			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
@@ -481,6 +523,14 @@ public class LevelControl {
 			        	SavePointX = Item3X;
 			        	SavePointY = Item3Y;
 			        	SaveLevel = BuildLevel.Current_Level;
+			        	
+			        } else if (Item1Type == 'R'){
+			        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.suitofarmor = Player.suitofarmor+1;
+			        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+			        	Player.PlayerPower = Player.PlayerPower +5;
+			        	Treasure.PlayMusic("item");
 			        }
 					
 					BuildLevel.lblItem3.setBounds(400, 300, BuildLevel.lblItem3.getWidth(), BuildLevel.lblItem3.getHeight());
@@ -505,31 +555,37 @@ public class LevelControl {
 			        	BuildLevel.lblCheckpoint.setText("Manatrank aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Manadrinks = Player.Manadrinks+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if ((Item4Type == 'L')) {			
 			        	BuildLevel.lblCheckpoint.setText("Du hast ein Leben gefunden...");
 			        	SavePointAnzeige = true;
 			        	Player.Lives = Player.Lives+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item4Type == 'A') {		
 			        	BuildLevel.lblCheckpoint.setText("Bogen aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Bow = Player.Bow+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if ((Item4Type == 'H')|(Item4Type == 'Z')) {	
 			        	BuildLevel.lblCheckpoint.setText("Du hast ein Medikit gefunden...");
 			        	SavePointAnzeige = true;
 			        	Player.Medikit = Player.Medikit+1;
+			        	Treasure.PlayMusic("item");
 			        
 			        } else if (Item4Type == 'C') {
 			        	BuildLevel.lblCheckpoint.setText("Schwert aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.PlayerSword = Player.PlayerSword+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item4Type == 'P') {
 			        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Arrow = Player.Arrow+1;
+			        	Treasure.PlayMusic("item");
 			        	
 			        } else if (Item4Type == 'J') {
 			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
@@ -538,6 +594,14 @@ public class LevelControl {
 			        	SavePointX = Item4X;
 			        	SavePointY = Item4Y;
 			        	SaveLevel = BuildLevel.Current_Level;
+			        	
+			        } else if (Item1Type == 'R'){
+			        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.suitofarmor = Player.suitofarmor+1;
+			        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+			        	Player.PlayerPower = Player.PlayerPower +5;
+			        	Treasure.PlayMusic("item");
 			        }
 					
 					BuildLevel.lblItem4.setBounds(400, 300, BuildLevel.lblItem4.getWidth(), BuildLevel.lblItem4.getHeight());

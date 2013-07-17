@@ -9,6 +9,11 @@ import java.awt.event.KeyEvent;
 
 
 public abstract class MovementListener extends Thread implements java.awt.event.KeyListener {
+	
+	/**
+	 * Die MovementListener.java ordnet den Aktionen im Spiel auch eine
+	 * Taste zu. Quasi die Spiel-Bewegungs-einstellungen
+	 */
     public long timeSlice = 50; // Zeit in Millisekunden in der die Tastatureingabe überprüft wird.
     public static int left = 0;
     public static int right = 0;
@@ -39,6 +44,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        }
 		        if (e.getKeyCode() == KeyEvent.VK_F) {
 		        	Gegner.PlayerFire1Active = true;
+		        	// hier die if abfrage welche waffe zum dazugehörigen sound (in treasure ganz unten)
  		        }
 		        if (e.getKeyCode() == KeyEvent.VK_C) {
 		        	Player.WaffeWechseln(null);

@@ -22,6 +22,12 @@ import java.awt.event.MouseEvent;
 // ###################################################
 
 public class BuildLevel extends JFrame {
+	/**
+	 * 
+	 * Diese Klasse bildet die Mainmethode des Spiels!
+	 * Dabei werden alle Labels der Waffen und einzelnen Level definiert.
+	 * 
+	 */
 	
 	// ##############
 	// DEKLARATIONEN:
@@ -473,7 +479,9 @@ public class BuildLevel extends JFrame {
 			
 			java.awt.Rectangle pos = lblPlayer.getBounds();
 			newX = pos.x;  
-			newY = pos.y + 15; 
+			newY = pos.y - 15; 
+			lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+			lblPunkteanzeige.setText(Player.CurrentPoints+" ");
 			Content.repaint();
 		}
 		

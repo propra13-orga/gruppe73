@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DateiLaden {
+	/**
+	 * Dateiladen kann aus einer TextDatei die in einen String "umgewandelt" wird
+	 * ein Level laden.
+	 */
 	private static BufferedReader auslesen;
 	public static int q = 0;
 

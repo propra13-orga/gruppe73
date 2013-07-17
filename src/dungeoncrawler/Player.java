@@ -1,13 +1,14 @@
 package dungeoncrawler;
 
-/***********
- * Klasse die die Eigenschaften des Players definiert.
- * 
- * 
- *
- */
+
 
 public class Player {
+	/***********
+	 * Klasse die die Eigenschaften des Players definiert.
+	 * 
+	 * 
+	 *
+	 */
 	
 	// PLAYER-INVENTAR:
 	// ================
@@ -91,4 +92,13 @@ public class Player {
 		BuildLevel.FeldNeuzeichnen(null);
 	}
 
+	public static void Waffengeraeusch(){
+		if (AktuelleWaffe == 'A'){
+			// keylistener pressed f than playsound pfeil.wav
+		} else if (AktuelleWaffe == 'C'){
+			// keylistener pressed f than playsound schwert.wav
+		} else if (AktuelleWaffe == 'A'){
+			// keylistener pressd f than playsound manaschuss.wav
+		}
+	}
 }

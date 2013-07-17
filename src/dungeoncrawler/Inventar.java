@@ -9,7 +9,9 @@ import javax.swing.JButton;
 public class Inventar extends JPanel {
 
 	/**
-	 * 
+	 * Das Inventar gibt während des Spiels unseren aktuellen
+	 * Bestand an Items wieder. (Nur visuell,die Berrechnung 
+	 * stammt von der player.java)
 	 */
 	private static final long serialVersionUID = 1L;
 

@@ -4,6 +4,10 @@ import dungeoncrawler.BuildLevel;
 
 
 public class Gegner {
+	/**
+	 * Gegner defniert alle Eigenschaften der Gegner.
+	 * Dabei gehts um die Waffen, den Effekt, deren Lebensenenergie etc.
+	 */
 	
 	public static boolean moveUp = true;
 	public static boolean PlayerFired = false;

@@ -13,9 +13,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Hauptmenu extends JFrame {
-	/*
-	*
-	*/
+	/**
+	 * Das Hauptmenue bietet die Möglichkeit das Spiel auf verschiedene Weisen
+	 * zu starten (Multiplayer-Einzelplayer).
+	 *
+	 */
 	private static final long serialVersionUID = 1L;
 	JLabel label_name;
 	ImageIcon icon_bild = new ImageIcon(this.getClass().getResource("/dungeoncrawler/MenuBackground.PNG"));

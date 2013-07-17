@@ -11,7 +11,7 @@ public class Treasure {
 	
 	
 	
-	/*
+	/**
 	 *  KLASSENBESCHREIBUNG:
 	 *  Diese Klasse berechnet für das jeweilige Level, sofern
 	 *  vorhanden die Position des Schatzes und führt eine Kollisionsabfrage 
@@ -139,12 +139,12 @@ public class Treasure {
 			PlaySound playGotTreasure = new PlaySound();
 			playGotTreasure.playGotTreasure();
 			
-		} else if (type == "arrow"){
+		} else if (type == "item"){
 			
-			PlaySound playGotArrow = new PlaySound();
-			//playGotArrow.playGotArrow();
+			PlaySound playGotItem = new PlaySound();
+			playGotItem.playGotItem();
 			
-		}
+		} 
 		
 	}
 
@@ -160,12 +160,32 @@ class PlaySound {
 		getcoin.play();
 		
 	}
-	/*
-	public void playGotArrow(){
 	
+	public AudioClip getitem = Applet.newAudioClip(getClass().getResource("/Resources/getaitem.wav"));
+	public void playGotItem(){
+	
+		getitem.play();
 		
-		arrow.play();
 		
+/*public AudioClip getitem = Applet.newAudioClip(getClass().getResource("/Resources/getitem.wav"));
+ * 
+ * Treasure.PlayMusic("item");
+ * item= pfeil, bogen, rüstung, leben, schwert, mana
+ * 
+ * Bei allen anderen Items soll dieses Geräusch abgespielt werden
+ * ich hab alles so gemacht wie vorgezeigt nur hat es nicht funktioniert bei mir.
+ * ich denke mal ist ein kleiner fehler den du sofort erkennst aber ich tus nich
+ * 
+ * 
+ * Bei den Waffen muss geguckt werden welche waffe grad AktuelleWaffe ist 
+ * manaschuss 
+ * schwert
+ * pfeil
+ */
+		
+		
+	
 	}
-	*/
+	
+	
 }

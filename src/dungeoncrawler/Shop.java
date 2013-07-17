@@ -17,10 +17,14 @@ import javax.swing.JFrame;
 
 
 public class Shop extends JFrame {
+	
 
 
 	/**
-	 * 
+	 * Der Shop ermöglicht dem Spieler die einzelnen Items zu kaufen.
+	 * Dabei wird die Anzahl der gekauften Items an das Inventar weitergegeben.
+	 * Bezahlt wird mit Münzen, wobei da eine Kontrolle stattfindet, ob man
+	 * auch genug davon hat, um die gewünschten Items zu kaufen.
 	 */
 	private static final long serialVersionUID = 1L;
 	

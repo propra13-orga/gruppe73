@@ -9,6 +9,12 @@ import dungeoncrawler.LevelControl;
 
 public class LoadLevel {
 	
+	/**
+	 * Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
+	 * Informationen an die Labels der BuildLevel.java weiter.
+	 * 
+	 */
+	
 	public static String Current_LevelMap = null;
 	
 	public static void Export_to_LevelControl(String args[]) {
