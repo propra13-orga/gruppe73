@@ -1,10 +1,13 @@
 package dungeoncrawler;
 import java.awt.event.ActionEvent;
+
 import dungeoncrawler.BuildLevel;
+
 import java.awt.event.ActionListener;
+
 import dungeoncrawler.Shop;
+import Leveleditor.editor;
 import Network.Chat;
-import Network.ServerChat;
 import Network.ServerWindow;
 
 import javax.swing.ImageIcon;
@@ -26,6 +29,7 @@ public class Hauptmenu extends JFrame {
 	JButton button_shop;
 	JButton button_networkServer;
 	JButton button_networkClient;
+	JButton button_Editor;
 	
 	
 	public Hauptmenu() {
@@ -51,20 +55,29 @@ public class Hauptmenu extends JFrame {
 		button_networkServer.setBounds(280, 240, 185, 30);
 		button_networkClient = new JButton("Multiplayer beitreten");
 		button_networkClient.setBounds(280, 280, 185, 30);
+		button_Editor = new JButton("Leveleditor");
+		button_Editor.setBounds(100,50, 185, 30);
 
 		//Label und Buttons hinzufuegen
 
 		add(button_start);
+		add(button_Editor);
 		add(button_ende);
 		//add(button_shop);
 		add(button_networkClient);
 		add(button_networkServer);
 		add(label_name);
+		button_Editor.setVisible(true);
 		button_start.setVisible(true);
 		button_ende.setVisible(true);
 		button_shop.setVisible(true);
 		button_shop.setEnabled(false);
-
+		button_Editor.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				editor.main(null);
+			}
+		});
 		button_start.addActionListener(new ActionListener(){
 
 			@Override
@@ -108,7 +121,7 @@ public class Hauptmenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ServerChat.main(null);
+				//ServerChat.main(null);
 				//Programm beenden
 			}
 			

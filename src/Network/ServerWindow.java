@@ -41,7 +41,7 @@ public class ServerWindow extends javax.swing.JFrame {
 		} // end ClientHandler()
 
 		public void run() {
-                        String message, connect = "Connect", disconnect = "Disconnect", chat = "Chat" ;
+                        String message, connect = "Connect", disconnect = "Disconnect", chat = "Chat", ready = "is ready to play!", card = "card", choosen = "choosen";
 			String[] data;
 
 			try {
@@ -69,7 +69,11 @@ public class ServerWindow extends javax.swing.JFrame {
 
                                             tellEveryone(message);
 
-					} else {
+					}else if (data[2].equals(ready)){
+						
+											outputPane.append(ready + "\n");
+						
+					}else {
                                             outputPane.append("No Conditions were met. \n");
                                         }
 

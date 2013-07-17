@@ -139,11 +139,6 @@ public class Treasure {
 			PlaySound playGotTreasure = new PlaySound();
 			playGotTreasure.playGotTreasure();
 			
-		} else if (type == "item"){
-			
-			PlaySound playGotItem = new PlaySound();
-			playGotItem.playGotItem();
-			
 		} 
 		
 	}
@@ -153,7 +148,7 @@ public class Treasure {
 class PlaySound {
 	
 	public AudioClip getcoin = Applet.newAudioClip(getClass().getResource("/Resources/getcoin.wav"));
-	//public AudioClip arrow = Applet.newAudioClip(getClass().getResource("/Resources/--.wav"));
+
 	
 	public void playGotTreasure(){
 		
@@ -161,11 +156,8 @@ class PlaySound {
 		
 	}
 	
-	public AudioClip getitem = Applet.newAudioClip(getClass().getResource("/Resources/getaitem.wav"));
-	public void playGotItem(){
 	
-		getitem.play();
-		
+
 		
 /*public AudioClip getitem = Applet.newAudioClip(getClass().getResource("/Resources/getitem.wav"));
  * 
@@ -185,7 +177,7 @@ class PlaySound {
 		
 		
 	
-	}
+	
 	
 	
 }

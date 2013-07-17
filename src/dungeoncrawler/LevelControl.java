@@ -154,7 +154,7 @@ public class LevelControl {
 		// ITEM 2:
 				
 			} else if (ItemNr == 2) {
-				if (Item2Type == 'T'&(gotItem2 == false)) {
+				if ((Item2Type == 'T')&(gotItem2 == false)) {
 					Pfad = "/dungeoncrawler/points.PNG";
 				} else if (Item2Type == 'D') {
 					Pfad = "/dungeoncrawler/Mana.PNG";
@@ -187,7 +187,7 @@ public class LevelControl {
 		// ITEM 3:
 				
 			} else if (ItemNr == 3) {
-				if (Item3Type == 'T'&(gotItem3 == false)) {
+				if ((Item3Type == 'T')&(gotItem3 == false)) {
 					Pfad = "/dungeoncrawler/points.PNG";
 				} else if (Item3Type == 'D') {
 					Pfad = "/dungeoncrawler/Mana.PNG";
@@ -220,8 +220,9 @@ public class LevelControl {
 		// ITEM 4:
 			
 			} else if (ItemNr == 4) {
-				if (Item4Type == 'T'&(gotItem4 == false)) {
+				if ((Item4Type == 'T')&(gotItem4 == false)) {
 					Pfad = "/dungeoncrawler/points.PNG";
+					Treasure.PlayMusic("treasure");
 				} else if (Item4Type == 'D') {
 					Pfad = "/dungeoncrawler/Mana.PNG";
 				} else if (Item4Type == 'E') {
@@ -243,7 +244,7 @@ public class LevelControl {
 				} else if (Item4Type == 'J') {
 					Pfad = ("/dungeoncrawler/lagerfeuer.PNG");
 				} else if (Item4Type == 'R') {
-		        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+		        	BuildLevel.lblCheckpoint.setText("Du hast eine Ruestung gefunden...");
 		        	SavePointAnzeige = true;
 		        	Player.suitofarmor = Player.suitofarmor+1;			        	
 		        	BuildLevel.lblRuestungAnzeige.setVisible(true);
@@ -378,7 +379,7 @@ public class LevelControl {
 				        	SaveLevel = BuildLevel.Current_Level;
 				        	
 				        } else if (Item1Type == 'R'){
-				        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+				        	BuildLevel.lblCheckpoint.setText("Du hast eine Ruestung gefunden...");
 				        	SavePointAnzeige = true;
 				        	Player.suitofarmor = Player.suitofarmor+1;	
 				        	BuildLevel.lblRuestungAnzeige.setVisible(true);

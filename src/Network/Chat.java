@@ -40,7 +40,7 @@ public class Chat extends JFrame {
 
         public void run() {
             String[] data;
-            String stream, done = "Done", connect = "Connect", disconnect = "Disconnect", chat = "Chat";
+            String stream, done = "Done", connect = "Connect", disconnect = "Disconnect", chat = "Chat", card ="card", choosen = "choosen";
 
             try {
                 while ((stream = reader.readLine()) != null) {
@@ -62,6 +62,10 @@ public class Chat extends JFrame {
 
                         userRemove(data[0]);
 
+                    } else if(data[2].equals(choosen)){
+                    
+                    	chatTextArea.append("Admin hat Karte" + data[1]+"gewählt");
+                    	
                     } else if (data[2].equals(done)) {
 
 
@@ -284,6 +288,7 @@ public class Chat extends JFrame {
                 writer.println(username + ":has connected.:Connect"); // Displays to everyone that user connected.
                 writer.flush(); // flushes the buffer
                 isConnected = true; // Used to see if the client is connected.
+                LobbyUser.main(null);
             } catch (Exception ex) {
                 chatTextArea.append("Cannot Connect! Try Again. \n");
                 usernameField.setEditable(true);
