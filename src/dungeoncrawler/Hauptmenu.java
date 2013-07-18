@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import dungeoncrawler.Shop;
 import Leveleditor.editor;
 import Network.Chat;
+import Network.ServerChat;
 import Network.ServerWindow;
 
 import javax.swing.ImageIcon;
@@ -121,7 +122,7 @@ public class Hauptmenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//ServerChat.main(null);
+				ServerChat.main(null);
 				//Programm beenden
 			}
 			
