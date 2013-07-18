@@ -23,7 +23,7 @@ public class StoryNPC extends JFrame {
     public static boolean stopFlag = false;
 	private static JPanel NPC_Interaction;
 	public static javax.swing.JLabel lblNPC;
-	public String TextL11 = "<html>Kyle, dein Dorf ist angegriffen worden.<br> Du musst schnell nach Hause und helfen!</html>";
+	public String TextL11 = "<html>Kyle, dein Dorf ist angegriffen worden.<br> Du musst schnell nach Hause und helfen!<br> Ein Wanderer war hier und hat etwas verloren. Ich glaube du findest es bei der Hütte.</html>";
 	public String TextL13 = "<html>Es schien, als würde das Grauen,<br> das dein Dorf angegriffen hat, <br> aus dem dunklen Wald kommen.</html>";
 	public String TextL23 = "<html>Der Großteil der Menschen ist <br>nach dem Angriff der bösen Hexe geflohen.<br> Bitte Hilf uns und befrei das Dorf von ihr!</html>";
 	public String TextL31 = "<html>Das Grauen zog wie ein Schatten über dein Dorf,<br> der Himmel verdunkelte sich, die Luft begann zu flimmern <br> und Dinge gingen plötzlich in Flammen auf.</html>";
