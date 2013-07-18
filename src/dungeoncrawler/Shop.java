@@ -87,9 +87,9 @@ public class Shop extends JFrame {
 		setTitle("Dungeoncrawler - SHOP");
 		
 		
-	/*
+	/**
 	 *  MEDIKIT
-	 *  =======================================
+	 * 
 	 */
 		JLabel BildMedikit = new JLabel("");
 		BildMedikit.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Medikit.PNG")));
@@ -151,9 +151,9 @@ public class Shop extends JFrame {
 		MuenzeMedikit.setBounds(275, 120, 15, 15);
 		add(MuenzeMedikit);
 		
-	/*
+	/**
 	 *  Ruestung
-	 *  ================================================
+	 *  
 	 */
 		
 		JLabel BildRuestung = new JLabel("");
@@ -222,9 +222,9 @@ public class Shop extends JFrame {
 	
 		
 		
-/*
+/**
  *  MANA
- *  ===============================		
+ * 	
  */
 		
 		JLabel BildMana = new JLabel("");
@@ -287,9 +287,9 @@ public class Shop extends JFrame {
 		MuenzeMana.setBounds(275, 180, 15, 15);
 		add(MuenzeMana);
 		
-		/*
+		/**
 		 * SCHWERT
-		 * =======================================
+		 * 
 		 */
 		
 		JLabel BildSchwert = new JLabel("");
@@ -353,9 +353,9 @@ public class Shop extends JFrame {
 		add(MunezeSchwert);
 		
 		
-		/*
+		/**
 		 * BOGEN
-		 * ========================================
+		 * 
 		 */
 		JLabel BildBogen = new JLabel("");
 		BildBogen.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/bogen.png")));
@@ -416,9 +416,9 @@ public class Shop extends JFrame {
 		MuenzeBogen.setBounds(275, 245, 15, 15);
 		add(MuenzeBogen);
 		
-		/*
+		/**
 		 * PFEIL
-		 * =================================================
+		 * 
 		 */
 		JLabel BildPfeil = new JLabel("");
 		BildPfeil.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/pfeil1.png")));
@@ -479,9 +479,9 @@ public class Shop extends JFrame {
 		MuenzePfeil.setBounds(275, 280, 15, 15);
 		add(MuenzePfeil);
 		
-		/*
+		/**
 		 * Buttons zum Abbrechen und Kauf bestaettigen
-		 * ==============================================	
+		 * 
 		 */
 			
 			JButton btnKaufen = new JButton("Kaufen");
@@ -551,9 +551,9 @@ public class Shop extends JFrame {
 				}
 			});
 			
-		/*
+		/**
 		 * Kontostand vor und nach Kauf
-		 * =====================================
+		 * 
 		 */
 		
 		
@@ -586,9 +586,9 @@ public class Shop extends JFrame {
 		lblBudgetnachKauf.setBounds(335, 195, 46, 15);
 		add(lblBudgetnachKauf);
 		
-		/*
+		/**
 		 * Obere Leiste /Aktuelles Inventar
-		 * ========================
+		 * 
 		 */
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Medikit.PNG")));
@@ -657,7 +657,7 @@ public class Shop extends JFrame {
 		lblPfeil.setBounds(285, 40, 25, 15);
 		add(lblPfeil);
 		
-		/*
+		/** Background Shop
 		 * =====================================
 		 */
 		JLabel lblShopBackground = new JLabel("");

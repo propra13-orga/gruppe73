@@ -418,16 +418,16 @@ public class BuildLevel extends JFrame {
 	public static int newY = 225;
     public static int newX = 30;
     
-    /*
+    /**
      * Treasure Standardposition
-     * */
+     */
     
     public static int treasureX = 300;
     public static int treasureY = 15;
     
-   /*
+   /**
     * Enemy Standardposition
-    *  */
+    */
     
     public static int EnemyPosY = 120;
     public static int EnemyStdPosY = 120;
@@ -451,7 +451,7 @@ public class BuildLevel extends JFrame {
 	/**
 	 * Hier wird das JFrame auf Visible gesetzt und ein KeyListener hinzu gefügt
 	 * 
-	 * */
+	 */
 	
 	@Override
     public void setVisible(boolean value) {
@@ -485,7 +485,7 @@ public class BuildLevel extends JFrame {
 			lblPunkteanzeige.setText(Player.CurrentPoints+" ");
 			Content.repaint();
 		}
-	/*
+	/**
 	 * Abfrage der aktuellen Waffe
 	 * 	
 	 */
@@ -953,7 +953,7 @@ public class BuildLevel extends JFrame {
 		return Pos;
 	} 
 	
-	/*
+	/**
 	 * aktualisiert das Inventar
 	 */
 	
@@ -972,7 +972,7 @@ public class BuildLevel extends JFrame {
 		
 	}
 	
-	/*
+	/**
 	 * Abfrage der Spieler Power
 	 * 
 	 */
@@ -1069,16 +1069,15 @@ public class BuildLevel extends JFrame {
 		
 	}
 		
+	/**
+	 *  DAMAGE - Types:
+	 *  
+	 *  5: sofort tot
+	 *  3: 1 Schadenspunkt
+	 *  1: 2 Schadenspunkte
+	 */
 	
 	public static void GameOver(int DamageType) {
-		
-		/*
-		 *  DAMAGE - Types:
-		 *  
-		 *  5: sofort tot
-		 *  3: 1 Schadenspunkt
-		 *  1: 2 Schadenspunkte
-		 */
 		
 		if (DamageType == 5) {
 			Player.PlayerPower = Player.PlayerPower-10;

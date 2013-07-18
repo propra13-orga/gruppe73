@@ -32,7 +32,7 @@ import java.awt.event.MouseEvent;
 public class LobbyUser extends JFrame {
 
 	/**
-	 * 
+	 * GUI des Users. Darauf beschränkt zu signalisieren das er bereit ist zu spielen
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -82,6 +82,11 @@ public class LobbyUser extends JFrame {
 		lblNetzwerkLobby.setBounds(10, 11, 414, 24);
 		contentPane.add(lblNetzwerkLobby);
 		
+		
+		/**
+		 * Methode zur Abfrage des Status der Checkbox. Ist sie ausgewählt, wird sie auf nicht editierbar gesetzt und die Information
+		 * das der User bereit zum Spiel ist an den Server übergeben
+		 */
 		final JCheckBox chckbxReadyToPlay = new JCheckBox("Ready to Play!");
 		
 		chckbxReadyToPlay.addMouseListener(new MouseAdapter() {

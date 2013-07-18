@@ -15,7 +15,7 @@ public class Gegner {
 	public static boolean PlayerFire1Active = false;
 	
 	public static int EnemyEnergy = 2;
-/*
+/**
  * Fallen Abfrage
  */
 	public static void trap_collision() {
@@ -25,7 +25,7 @@ public class Gegner {
 		}
 	}
 	
-	/*
+	/**
 	 * Methode die die aktuelle Waffe abfragt und dann der Menge an Items eins abzieht
 	 * 
 	 */

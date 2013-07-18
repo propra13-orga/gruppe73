@@ -27,7 +27,8 @@ import javax.swing.JCheckBox;
 public class LobbyClient extends JFrame {
 
 	/**
-	 * 
+	 * Variablen Deklaration
+	 * das gesamte Netzwerk Paket nutz die auf sich selbst referenzierende IP Adresse
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -110,6 +111,10 @@ public class LobbyClient extends JFrame {
 			
 		});
 		
+		/**
+		 * ermöglicht dem Admin das Starten des MultiPlayerGames
+		 */
+		
 		JButton btnStartGame = new JButton("Start Game");
 		btnStartGame.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		btnStartGame.setBounds(289, 196, 117, 22);
@@ -120,10 +125,15 @@ public class LobbyClient extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent Event) {
 				// TODO Auto-generated method stub
-				BuildLevelMulti.main(null);
+				
 			}
 			
 		});
+		
+		/**
+		 * 
+		 * Methode zum Auswählen des Schwierigkeitsgrades und die Übergabe an den Server
+		 */
 		
 		final JCheckBox chckbxLevel1 = new JCheckBox("1");
 		chckbxLevel1.setBounds(133, 77, 39, 23);
@@ -241,6 +251,10 @@ public class LobbyClient extends JFrame {
 			
 		});
 		
+		
+		/**
+		 * Methode zum Wählen der Karte und Über der Information an den Server
+		 */
 
 		final JComboBox cBoxCard = new JComboBox();
 		cBoxCard.setModel(new DefaultComboBoxModel(new String[] {"Haunted Desert", "Mystic Forest", "Stormy Sea"}));

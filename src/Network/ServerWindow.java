@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
  */
 public class ServerWindow extends javax.swing.JFrame {
 	/**
-	 *
+	 *Der Server
 	 */
 	
 	
@@ -27,18 +27,18 @@ public class ServerWindow extends javax.swing.JFrame {
 
 
         public ClientHandler(Socket clientSocket, PrintWriter user) {
-		// new inputStreamReader and then add it to a BufferedReader
+
                         client = user;
 			try {
 				sock = clientSocket;
 				InputStreamReader isReader = new InputStreamReader(sock.getInputStream());
 				reader = new BufferedReader(isReader);
-			} // end try
+			} 
 			catch (Exception ex) {
 				outputPane.append("Error beginning StreamReader. \n");
-			} // end catch
+			} 
 
-		} // end ClientHandler()
+		} 
 
 		public void run() {
                         String message, connect = "Connect", disconnect = "Disconnect", chat = "Chat", ready = "is ready to play!", card = "card", choosen = "choosen";
@@ -78,25 +78,27 @@ public class ServerWindow extends javax.swing.JFrame {
                                         }
 
 
-			     } // end while
-			} // end try
+			     } 
+			}
 			catch (Exception ex) {
 				outputPane.append("Lost a connection. \n");
                                 ex.printStackTrace();
                                 clientOutputStreams.remove(client);
-			} // end catch
-		} // end run()
-	} // end class ClientHandler
-    /** Creates new form ServerWindow */
+			}
+		} 
+	}
+    
+	/**
+	 * Intiiert das neue Server Fenster
+	 */
     public ServerWindow() {
         initComponents();
     }
 
 
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     *
+    /** 
+     *Initiiert die Komponenten
      */
     
                         
@@ -206,7 +208,11 @@ public class ServerWindow extends javax.swing.JFrame {
             }
         });        
     }
-
+	/**
+	 * diese Ethode startet die Server Funktion
+	 * @author Sarah
+	 *
+	 */
 
     public class ServerStart implements Runnable {
         public void run() {
@@ -217,25 +223,22 @@ public class ServerWindow extends javax.swing.JFrame {
                     	ServerSocket serverSock = new ServerSocket(5000);
 
                     	while (true) {
-				// set up the server writer function and then begin at the same
-			  	// the listener using the Runnable and Thread
+				
 				Socket clientSock = serverSock.accept();
 				PrintWriter writer = new PrintWriter(clientSock.getOutputStream());
 				clientOutputStreams.add(writer);
 
-				// use a Runnable to start a 'second main method that will run
-				// the listener
 				Thread listener = new Thread(new ClientHandler(clientSock, writer));
 				listener.start();
 				outputPane.append("Got a connection. \n");
-			} // end while
-		} // end try
+			} 
+		} 
 		catch (Exception ex)
 		{
 			outputPane.append("Error making a connection. \n");
-		} // end catch
+		} 
 
-	} // end go()
+	} 
     }
 
     	public void userAdd (String data) {
@@ -268,8 +271,12 @@ public class ServerWindow extends javax.swing.JFrame {
                 tellEveryone(done);
 	}
 
+	/**
+	 * Die Methode tellEveryone sendet die NAchrichten an alle die mit dem Server verbunden.
+	 * @param message
+	 */
         public void tellEveryone(String message) {
-	// sends message to everyone connected to server
+	
 		Iterator it = clientOutputStreams.iterator();
 
 		while (it.hasNext()) {
@@ -280,19 +287,19 @@ public class ServerWindow extends javax.swing.JFrame {
                                 writer.flush();
                                 outputPane.setCaretPosition(outputPane.getDocument().getLength());
 
-			} // end try
+			} 
 			catch (Exception ex) {
 				outputPane.append("Error telling everyone. \n");
-			} // end catch
-		} // end while
-	} // end tellEveryone()
+			}
+		} 
+	} 
 
 
-    // Variables declaration - do not modify                     
+                  
     private javax.swing.JScrollPane jScrollPane1;
     public static JTextArea outputPane;
     private javax.swing.JButton startButton;
     private javax.swing.JButton stopButton;
-    // End of variables declaration                   
+                  
 
 }

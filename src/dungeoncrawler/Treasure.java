@@ -49,7 +49,10 @@ public class Treasure {
 		
 	}
 	
-	// KOLLISIONSABFRAGE SCHATZ:
+	/**
+	 *  KOLLISIONSABFRAGE SCHATZ:
+	 *
+	 */
 	
 	public static boolean check_treasure() {
 			
@@ -131,6 +134,11 @@ public class Treasure {
 		return get_treasure;
 	}
 	
+	/**
+	 * Methode zum Abspielen der Sounds
+	 * @param type
+	 */
+	
 	public static void PlayMusic(String type) {
 		
 		
@@ -203,28 +211,5 @@ class PlaySound {
 		
 	}
 	
-	
-
 		
-/*public AudioClip getitem = Applet.newAudioClip(getClass().getResource("/Resources/getitem.wav"));
- * 
- * Treasure.PlayMusic("item");
- * item= pfeil, bogen, rüstung, leben, schwert, mana
- * 
- * Bei allen anderen Items soll dieses Geräusch abgespielt werden
- * ich hab alles so gemacht wie vorgezeigt nur hat es nicht funktioniert bei mir.
- * ich denke mal ist ein kleiner fehler den du sofort erkennst aber ich tus nich
- * 
- * 
- * Bei den Waffen muss geguckt werden welche waffe grad AktuelleWaffe ist 
- * manaschuss 
- * schwert
- * pfeil
- */
-		
-		
-	
-	
-	
-	
 }

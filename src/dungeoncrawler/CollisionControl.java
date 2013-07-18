@@ -27,13 +27,13 @@ public class CollisionControl {
 		
 	}
 	
-	/*
+	/**
 	 * Diese Methode überprüft, dass der Player innerhalb der Grenzen bleibt!
 	 */
 	
 	public static boolean check_Xborder(int current_posX) {
 		
-		/*
+		/**
 		 *  Abfrage X-Bewegung
 		 */
 		
@@ -53,7 +53,7 @@ public class CollisionControl {
 	
 	public static boolean check_Yborder(int current_posY) {
 		
-		/*
+		/**
 		 *  Abfrage Y-Bewegung
 		 */
 		
@@ -72,7 +72,7 @@ public class CollisionControl {
 	}
 
 	
-	/*
+	/**
 	 * NPC-Kollisionsabfrage
 	 * =====================
 	 * 
@@ -90,21 +90,12 @@ public class CollisionControl {
 			
 		}
 	}
-	
 
 	
-	
-	/*
-	 *  GEGNER-Kollisions-ABFRAGE
-	 *  ==============
-	 */
-	
-
-	
-	/*
-	 * ################################################################
+	/**
+	 *
 	 *Kollisionsabfrage (WALL, AUSSENRÄNDER) für left, right, up, down
-	 * ################################################################
+	 * 
 	 */
 	
 	public static void left(String args[]) {
@@ -167,9 +158,9 @@ public class CollisionControl {
 		}
 	}
 	
-	/* ######################################################
+	/** 
 	* Rechnet X-Y-Koordinaten des Players in Labelnummer um:
-	* ######################################################
+	* 
 	*/
 	
 	public static int PlyPosUmrechnen() {

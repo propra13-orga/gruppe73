@@ -322,9 +322,11 @@ public class LevelControl {
 		
 		
 			
-		/*
-		 *  ITEM-PICK-UP:
+		/**
+		 *  ITEM-PICK-UP
 		 *  =============
+		 *  Hier wird abgefragt welche Art von Item gefunden wurde und in Abhängigkeit davon wird dann der 
+		 *  betreffende Sound abgespielt.
 		 */
 			
 		if ((Item1Type == 'G')|(Item1Type == 'S')|(Item1Type == 'W')) {

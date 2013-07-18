@@ -3,7 +3,7 @@ package dungeoncrawler;
 
 
 public class Player {
-	/***********
+	/**
 	 * Klasse die die Eigenschaften des Players definiert.
 	 * 
 	 */
@@ -34,7 +34,7 @@ public class Player {
 	
 	// PLAYER-POWER:
 	
-	/*
+	/**
 	 *  Zustände:
 	 *  0:	tot
 	 *  1:	red
