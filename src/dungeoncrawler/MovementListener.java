@@ -11,8 +11,7 @@ import java.awt.event.KeyEvent;
 public abstract class MovementListener extends Thread implements java.awt.event.KeyListener {
 	
 	/**
-	 * Die MovementListener.java ordnet den Aktionen im Spiel auch eine
-	 * Taste zu. Quasi die Spiel-Bewegungs-einstellungen
+	 * Hinzufügen der KeyEvents zu den Pfeiltasten.
 	 */
     public long timeSlice = 50; // Zeit in Millisekunden in der die Tastatureingabe überprüft wird.
     public static int left = 0;

@@ -33,7 +33,9 @@ public class CollisionControl {
 	
 	public static boolean check_Xborder(int current_posX) {
 		
-		// Abfrage X-Bewegung
+		/*
+		 *  Abfrage X-Bewegung
+		 */
 		
 		boolean permit_Xmovement = true;
 		
@@ -51,7 +53,9 @@ public class CollisionControl {
 	
 	public static boolean check_Yborder(int current_posY) {
 		
-		// Abfrage Y-Bewegung
+		/*
+		 *  Abfrage Y-Bewegung
+		 */
 		
 		boolean permit_Ymovement = true;
 		
@@ -97,10 +101,11 @@ public class CollisionControl {
 	
 
 	
-	// ################################################################
-	// Kollisionsabfrage (WALL, AUSSENRÄNDER) für left, right, up, down
-	// ################################################################
-	
+	/*
+	 * ################################################################
+	 *Kollisionsabfrage (WALL, AUSSENRÄNDER) für left, right, up, down
+	 * ################################################################
+	 */
 	
 	public static void left(String args[]) {
 		System.out.println("Überprüfe Links:");
@@ -162,9 +167,10 @@ public class CollisionControl {
 		}
 	}
 	
-	// ######################################################
-	// Rechnet X-Y-Koordinaten des Players in Labelnummer um:
-	// ######################################################
+	/* ######################################################
+	* Rechnet X-Y-Koordinaten des Players in Labelnummer um:
+	* ######################################################
+	*/
 	
 	public static int PlyPosUmrechnen() {
 		

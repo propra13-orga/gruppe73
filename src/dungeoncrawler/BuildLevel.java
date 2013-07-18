@@ -17,17 +17,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-// ###################################################
-// Diese Klasse bildet die Mainmethode des Spiels!
-// ###################################################
-
 public class BuildLevel extends JFrame {
 	/**
 	 * 
 	 * Diese Klasse bildet die Mainmethode des Spiels!
-	 * Dabei werden alle Labels der Waffen und einzelnen Level definiert.
-	 * 
-	 */
+	 * Sie definiert die Labels für ds Spielfeld, die Standardposition des Players, die Position des Schatzes etc. Des weiteren werden
+	 * KeyListener und Positionsabfragen definiert.
+	 * */
 	
 	// ##############
 	// DEKLARATIONEN:
@@ -415,20 +411,23 @@ public class BuildLevel extends JFrame {
 	private static javax.swing.JLabel lvlO19;
 	private static javax.swing.JLabel lvlO20;
 	
-	// PLAYER-STANDARDPOSITION:
-	// ########################
+	/**
+	 * Player Standardposition
+	 */
 	
 	public static int newY = 225;
     public static int newX = 30;
     
-    // TRASURY-STANDARDPOSITION:
-    // #########################
+    /*
+     * Treasure Standardposition
+     * */
     
     public static int treasureX = 300;
     public static int treasureY = 15;
     
-    // ENEMY-STANDARDPOSITION:
-    // =======================
+   /*
+    * Enemy Standardposition
+    *  */
     
     public static int EnemyPosY = 120;
     public static int EnemyStdPosY = 120;
@@ -449,8 +448,10 @@ public class BuildLevel extends JFrame {
 		
 	}
 
-	// JFrame sichtbar & KeyListener adden:
-	// ====================================
+	/**
+	 * Hier wird das JFrame auf Visible gesetzt und ein KeyListener hinzu gefügt
+	 * 
+	 * */
 	
 	@Override
     public void setVisible(boolean value) {
@@ -484,7 +485,10 @@ public class BuildLevel extends JFrame {
 			lblPunkteanzeige.setText(Player.CurrentPoints+" ");
 			Content.repaint();
 		}
-		
+	/*
+	 * Abfrage der aktuellen Waffe
+	 * 	
+	 */
 	public static void WaffeLabel(String args[]) {
 			if (Player.AktuelleWaffe == 'A') {
 				lblPlayerFire1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/pfeilfire.PNG")));
@@ -494,7 +498,10 @@ public class BuildLevel extends JFrame {
 				lblPlayerFire1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/swordfire.PNG")));
 			}
 	}
-	
+	/**
+	 * Methode zur Bewegung des Gegners
+	 * 
+	 */
 	public static void moveEnemyUp(String args[]) {
 		
 		EnemyPosY = EnemyPosY-3;
@@ -932,7 +939,10 @@ public class BuildLevel extends JFrame {
 		}
 		
 	}
-
+/**
+ * Abfrage der aktuellen Playerposition
+ * 
+ */
 	public static int getCurrentPlayerPos(int XY) {
 		int Pos = 0;
 		if (XY == 0) {
@@ -942,6 +952,12 @@ public class BuildLevel extends JFrame {
 		}
 		return Pos;
 	} 
+	
+	/*
+	 * aktualisiert das Inventar
+	 */
+	
+	
 	
 	public static void refreshInventar(String args[]) {
 		
@@ -955,6 +971,11 @@ public class BuildLevel extends JFrame {
 		lblLebensanzeige.setText(Player.Lives+" ");
 		
 	}
+	
+	/*
+	 * Abfrage der Spieler Power
+	 * 
+	 */
 	
 	public static void checkPower(String args[]) {
 		
@@ -1090,7 +1111,9 @@ public class BuildLevel extends JFrame {
 		
 		
 		
-		
+		/*
+		 * MovementListener
+		 */
 		
 		
 		mListener = new MovementListener() {

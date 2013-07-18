@@ -2,11 +2,6 @@ package dungeoncrawler;
 
 import dungeoncrawler.LevelControl;
 
-// Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
-// Informationen an die Labels der BuildLevel.java weiter.
-
-
-
 public class LoadLevel {
 	
 	/**

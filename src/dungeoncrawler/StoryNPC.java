@@ -17,7 +17,7 @@ public class StoryNPC extends JFrame {
 	
 	/**
 	 * Klasse des NPC der mit dem Charakter interagiert. 
-	 * Klasse generiert das Fenster, in dem die Strings, in Abhängigkeit des Levels, ausgegeben werden.
+	 * Klasse generiert das Fenster, in dem die Strings, in Abhängigkeit vom aktuellen Level, ausgegeben werden.
 	 */
 	private static final long serialVersionUID = 1L;
     public static boolean stopFlag = false;

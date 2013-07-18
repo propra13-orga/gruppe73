@@ -6,8 +6,6 @@ public class Player {
 	/***********
 	 * Klasse die die Eigenschaften des Players definiert.
 	 * 
-	 * 
-	 *
 	 */
 	
 	// PLAYER-INVENTAR:
@@ -46,6 +44,11 @@ public class Player {
 	 */
 	
 	public static int PlayerPower = 4;
+	
+	/*
+	 * Methode die das Wechseln der Waffe ermöglicht
+	 * 
+	 */
 	
 	public static void WaffeWechseln(String args[]) {
 		if (AktuelleWaffe == 'M') {
@@ -92,13 +95,5 @@ public class Player {
 		BuildLevel.FeldNeuzeichnen(null);
 	}
 
-	public static void Waffengeraeusch(){
-		if (AktuelleWaffe == 'A'){
-			// keylistener pressed f than playsound pfeil.wav
-		} else if (AktuelleWaffe == 'C'){
-			// keylistener pressed f than playsound schwert.wav
-		} else if (AktuelleWaffe == 'A'){
-			// keylistener pressd f than playsound manaschuss.wav
-		}
-	}
+	
 }

@@ -6,7 +6,7 @@ import dungeoncrawler.BuildLevel;
 public class Gegner {
 	/**
 	 * Gegner defniert alle Eigenschaften der Gegner.
-	 * Dabei gehts um die Waffen, den Effekt, deren Lebensenenergie etc.
+	 * Dabei geht es um die Waffen, den Effekt, deren Lebensenenergie etc.
 	 */
 	
 	public static boolean moveUp = true;
@@ -15,13 +15,20 @@ public class Gegner {
 	public static boolean PlayerFire1Active = false;
 	
 	public static int EnemyEnergy = 2;
-
+/*
+ * Fallen Abfrage
+ */
 	public static void trap_collision() {
 		String Current_LevelMap = LoadLevel.Current_LevelMap;
 		if (Current_LevelMap.charAt(CollisionControl.PlyPosUmrechnen()) == 'S' | Current_LevelMap.charAt(CollisionControl.PlyPosUmrechnen()) == 'N'){
 			BuildLevel.GameOver(5);
 		}
 	}
+	
+	/*
+	 * Methode die die aktuelle Waffe abfragt und dann der Menge an Items eins abzieht
+	 * 
+	 */
 	
 	public static void fire(String args[]) {
 		

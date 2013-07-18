@@ -64,19 +64,19 @@ public class LevelControl {
 
 	public static boolean Shop_opened = false; // von NPC & Shop verwendet
 
-	
-	
-	/**
-	 * AudioFiles
-	 * @param args
-	 */
-	
-	
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+	/*
+	 * Abfrage der Collision mit der Türe. Stimmen Position des Spielers und des Ausgangs überein, wird das neue Level 
+	 * geladen
+	 * 
+	 */
 	
 	public static void door_collision(String args[]) {
 		
@@ -97,6 +97,11 @@ public class LevelControl {
 		}
 		
 	} 
+	
+	/**
+	 * Festlegen der Items und ihrer Bilder.
+	 * 
+	 */
 	
 	public static String Item_Pfade_aktualisieren(int ItemNr) {
 		String Pfad = "/dungeoncrawler/default.PNG";
@@ -251,6 +256,10 @@ public class LevelControl {
 		return Pfad;
 	}
 	
+	/*
+	 * Shop Abfrage
+	 */
+	
 	public static void Shop_open (String args[]) {
 		if (Item4Type == 'E') {
 			if (BuildLevel.getCurrentPlayerPos(0) == Item4X) {
@@ -262,6 +271,10 @@ public class LevelControl {
 			
 		}
 	}
+	
+	/*
+	 * Abfrage ob der Player mit dem Gegner kollidiert ist
+	 */
 	
 	public static void checkEnemyCollision(String args[]) {
 		if ((Item1Type == 'S')&(spinne_alive == true)) {
