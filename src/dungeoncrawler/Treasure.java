@@ -139,7 +139,27 @@ public class Treasure {
 			PlaySound playGotTreasure = new PlaySound();
 			playGotTreasure.playGotTreasure();
 			
-		} 
+		}else if(type =="arrow"){
+			
+			PlaySound playGotArrow = new PlaySound();
+			playGotArrow.playGotArrow();
+			
+		}else if(type == "mana"){
+			
+			PlaySound playManaschuss = new PlaySound();
+			playManaschuss.playManaschuss();
+			
+		}else if(type =="schwert"){
+			
+			PlaySound playGotSchwert = new PlaySound();
+			playGotSchwert.playGotSchwert();
+			
+		}else if(type =="item"){
+			
+			PlaySound playGotItem = new PlaySound();
+			playGotItem.playGotItem();
+			
+		}
 		
 	}
 
@@ -149,10 +169,37 @@ class PlaySound {
 	
 	public AudioClip getcoin = Applet.newAudioClip(getClass().getResource("/Resources/getcoin.wav"));
 
+	public AudioClip arrow = Applet.newAudioClip(getClass().getResource("/Resources/pfeil.wav"));
+	
+	public AudioClip mana = Applet.newAudioClip(getClass().getResource("/Resources/manaschuss.wav"));
+	
+	public AudioClip schwert = Applet.newAudioClip(getClass().getResource("/Resources/schwert.wav"));
+	
+	public AudioClip item = Applet.newAudioClip(getClass().getResource("/Resources/getitem.wav"));
 	
 	public void playGotTreasure(){
 		
 		getcoin.play();
+		
+	}
+	public void playGotArrow(){
+		
+		arrow.play();
+		
+	}
+	public void playManaschuss(){
+		
+		mana.play();
+		
+	}
+	public void playGotSchwert(){
+		
+		schwert.play();
+		
+	}
+	public void playGotItem(){
+		
+		item.play();
 		
 	}
 	

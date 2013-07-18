@@ -280,6 +280,7 @@ public class ServerChat extends javax.swing.JFrame {
                 writer.println(username + ":has connected.:Connect"); // Displays to everyone that user connected.
                 writer.flush(); // flushes the buffer
                 isConnected = true; // Used to see if the client is connected.
+                LobbyClient.main(null);
             } catch (Exception ex) {
                 chatTextArea.append("Cannot Connect! Try Again. \n");
                 usernameField.setEditable(true);
