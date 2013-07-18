@@ -15,10 +15,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class Hauptmenu extends JFrame {
 	/**
-	 * Das Hauptmenue bietet die Möglichkeit das Spiel auf verschiedene Weisen
+	 * Das Hauptmenue bietet die Möglichkeit das Spiel auf verschiedene Arten
 	 * zu starten (Multiplayer-Einzelplayer).
 	 *
 	 */
@@ -31,6 +32,8 @@ public class Hauptmenu extends JFrame {
 	JButton button_networkServer;
 	JButton button_networkClient;
 	JButton button_Editor;
+	JTextField Dateipfad;
+	public static String DateiLadenPfad = "leveldata.txt";
 	
 	
 	public Hauptmenu() {
@@ -58,6 +61,11 @@ public class Hauptmenu extends JFrame {
 		button_networkClient.setBounds(280, 280, 185, 30);
 		button_Editor = new JButton("Leveleditor");
 		button_Editor.setBounds(100,50, 185, 30);
+		Dateipfad = new JTextField("leveldata.TXT");
+		Dateipfad.setBounds(360, 20, 150, 30);
+		add(Dateipfad);
+		Dateipfad.setVisible(true);
+		
 
 		//Label und Buttons hinzufuegen
 
@@ -83,7 +91,7 @@ public class Hauptmenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+			DateiLadenPfad = Dateipfad.getText();
 			BuildLevel.main(null);
 			// new Hauptspiel();
 

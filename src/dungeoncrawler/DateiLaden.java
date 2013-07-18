@@ -18,7 +18,7 @@ public class DateiLaden {
 		try {
 			if ((current_level % 2) != 0) {
 				
-				String FileName = "/src/dungeoncrawler/leveldata.TXT";
+				String FileName = ("/src/dungeoncrawler/"+Hauptmenu.DateiLadenPfad);
 				String FilePath = System.getProperty("user.dir");
 				System.out.println(FilePath+FileName);
 				auslesen = new BufferedReader(new FileReader(FilePath+FileName));
