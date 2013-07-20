@@ -174,7 +174,7 @@ public class Treasure {
 	public static void PlayBackground() {
 		
 
-		PlaySound playBackgroundMusic = new PlaySound();
+		PlayBackground playBackgroundMusic = new PlayBackground();
 		playBackgroundMusic.playBackgroundMusic();
 		
 	}
@@ -193,7 +193,7 @@ class PlaySound {
 	
 	public AudioClip item = Applet.newAudioClip(getClass().getResource("/Resources/getitem.wav"));
 	
-	public AudioClip BackgroundMusic = Applet.newAudioClip(getClass().getResource("/Resources/backgroundmusic.wav"));
+	
 	
 	public void playGotTreasure(){
 		
@@ -220,11 +220,19 @@ class PlaySound {
 		item.play();
 		
 	}
+	
+	
+		
+}
+
+class PlayBackground {
+	
+	public AudioClip BackgroundMusic = Applet.newAudioClip(getClass().getResource("/Resources/backgroundmusic.wav"));
+	
 	public void playBackgroundMusic(){
 		
-		BackgroundMusic.play();
+		BackgroundMusic.loop();
 		
 	}
 	
-		
 }
