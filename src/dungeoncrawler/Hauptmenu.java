@@ -126,7 +126,7 @@ public class Hauptmenu extends JFrame {
 			
 		});
 		
-		//Treasure.PlayBackground();
+		Treasure.PlayBackground();
 	}
 
 	public static void restart(String[] args) {
