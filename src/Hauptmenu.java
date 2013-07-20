@@ -1,4 +1,3 @@
-package dungeoncrawler;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -125,8 +124,6 @@ public class Hauptmenu extends JFrame {
 			}
 			
 		});
-		
-		//Treasure.PlayBackground();
 	}
 
 	public static void restart(String[] args) {
