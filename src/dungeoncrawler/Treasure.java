@@ -170,6 +170,14 @@ public class Treasure {
 		}
 		
 	}
+	
+	public static void PlayBackground() {
+		
+
+		PlaySound playBackgroundMusic = new PlaySound();
+		playBackgroundMusic.playBackgroundMusic();
+		
+	}
 
 }
 
@@ -184,6 +192,8 @@ class PlaySound {
 	public AudioClip schwert = Applet.newAudioClip(getClass().getResource("/Resources/schwert.wav"));
 	
 	public AudioClip item = Applet.newAudioClip(getClass().getResource("/Resources/getitem.wav"));
+	
+	public AudioClip BackgroundMusic = Applet.newAudioClip(getClass().getResource("/Resources/backgroundmusic.wav"));
 	
 	public void playGotTreasure(){
 		
@@ -208,6 +218,11 @@ class PlaySound {
 	public void playGotItem(){
 		
 		item.play();
+		
+	}
+	public void playBackgroundMusic(){
+		
+		BackgroundMusic.play();
 		
 	}
 	

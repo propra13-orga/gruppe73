@@ -35,7 +35,7 @@ public class Player {
 	// PLAYER-POWER:
 	
 	/**
-	 *  Zustände:
+	 *  Zustaende:
 	 *  0:	tot
 	 *  1:	red
 	 *  2: 	yellow2

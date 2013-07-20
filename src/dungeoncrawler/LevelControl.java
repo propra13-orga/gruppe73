@@ -626,6 +626,9 @@ public class LevelControl {
 	
 	private static int range(int i, int j) {
 		int range = 0;
+		/**
+		 * Diese Methode ist ueberfluessig und kann geloescht werden.
+		 */
 		/*
 		range = new int[j - i + 1];
 	    for (int k = i; k <= j; k++) {
@@ -637,6 +640,9 @@ public class LevelControl {
 	}
 
 	public static int Item_Width_Height(int ItemNr) {
+		/**
+		 * Veraendert die groesse des Item-Labels, wenn es mit dem grossen Endgegner belegt wird.
+		 */
 		int Width_Height = 15;
 		if (ItemNr == 1) {
 			if ((Item1Type == 'W')|(Item1Type == 'G')|(Item1Type == 'S'));

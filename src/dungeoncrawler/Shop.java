@@ -47,14 +47,14 @@ public class Shop extends JFrame {
 	
 	// WARENKORB
 	
-	private static int WKBudgetnachKauf = Player.CurrentPoints;
+	private static int WKBudgetnachKauf;
 	
-	private static int WKMana = 0;
-	private static int WKMedikit =0;
-	private static int WKPfeil=0;
-	private static int WKBogen=0;
-	private static int WKRuestung=0;
-	private static int WKSchwert=0;
+	private static int WKMana;
+	private static int WKMedikit;
+	private static int WKPfeil;
+	private static int WKBogen;
+	private static int WKRuestung;
+	private static int WKSchwert;
 	
 	
 	
@@ -85,6 +85,15 @@ public class Shop extends JFrame {
 		setDefaultCloseOperation(BuildLevel.DO_NOTHING_ON_CLOSE);
 		setLayout(null);
 		setTitle("Dungeoncrawler - SHOP");
+		
+		WKBudgetnachKauf = Player.CurrentPoints;
+		
+		WKMana 		= 0;
+		WKMedikit	= 0;
+		WKPfeil		= 0;
+		WKBogen		= 0;
+		WKRuestung	= 0;
+		WKSchwert	= 0;
 		
 		
 	/**

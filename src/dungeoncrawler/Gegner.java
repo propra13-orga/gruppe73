@@ -32,11 +32,58 @@ public class Gegner {
 	
 	public static void fire(String args[]) {
 		
+		/**
+		 * SCHWERT:
+		 */
+		if (Player.AktuelleWaffe == 'C') {
+			System.out.println("Schwert feuer");
+			if (!PlayerFired) {
+				PlayerFired = true;
+				Treasure.PlayMusic("schwert");
+				BuildLevel.refreshInventar(null);
+				PlayerFire1StartX = 30+BuildLevel.lblPlayer.getX();
+				BuildLevel.lblPlayerFire1.setBounds(BuildLevel.lblPlayer.getX(), BuildLevel.lblPlayer.getY(), 15, 10);
+			}
+			if (PlayerFired) {
+				BuildLevel.lblPlayerFire1.setBounds((BuildLevel.lblPlayerFire1.getX()+15), (BuildLevel.lblPlayerFire1.getY()), 15, 10);
+			}
+			if (BuildLevel.lblPlayerFire1.getX() > (PlayerFire1StartX)) {
+				PlayerFired = false;
+				PlayerFire1Active = false;
+				BuildLevel.lblPlayerFire1.setBounds(400, 400, 15, 10);
+			}
+			
+			if ((BuildLevel.lblPlayerFire1.getX() >= BuildLevel.lblItem1.getX())&(BuildLevel.lblPlayerFire1.getX() <= (BuildLevel.lblItem1.getX()+30))) {
+				if ((BuildLevel.lblPlayerFire1.getY() >= BuildLevel.lblItem1.getY())&(BuildLevel.lblPlayerFire1.getY() <= (BuildLevel.lblItem1.getY()+30))) {
+					if (LevelControl.hexe_alive == true){
+						EnemyEnergy = EnemyEnergy-3;
+					} else if (LevelControl.drache_alive == true){
+						EnemyEnergy = EnemyEnergy-3;
+					} else if (LevelControl.spinne_alive == true){
+						EnemyEnergy = EnemyEnergy-1;
+					}
+				
+				}
+			}
+			
+			if (EnemyEnergy == 0) {
+				MovementListener.moveDown = false;
+				MovementListener.moveUp = false;
+				LevelControl.hexe_alive = false;
+				LevelControl.drache_alive = false;
+				LevelControl.spinne_alive = false;
+				BuildLevel.lblEnemyFire.setBounds(300, 400, 15, 10);
+				BuildLevel.lblPlayerFire1.setBounds(300, 400, 15, 10);
+				BuildLevel.lblCheckpoint.setText("Gegner getoetet...");
+	        	LevelControl.SavePointAnzeige = true;
+			}
+		}
 		// BOGEN:
 		
-		if (Player.AktuelleWaffe == 'A') {
+		else if (Player.AktuelleWaffe == 'A') {
 			if (Player.Arrow > 0) {
 				if (!PlayerFired) {
+					Treasure.PlayMusic("arrow");
 					PlayerFired = true;
 					Player.Arrow = Player.Arrow-1;
 					BuildLevel.refreshInventar(null);
@@ -78,7 +125,7 @@ public class Gegner {
 					LevelControl.spinne_alive = false;
 					BuildLevel.lblEnemyFire.setBounds(300, 400, 15, 10);
 					BuildLevel.lblPlayerFire1.setBounds(300, 400, 15, 10);
-					BuildLevel.lblCheckpoint.setText("Gegner getötet...");
+					BuildLevel.lblCheckpoint.setText("Gegner getoetet...");
 		        	LevelControl.SavePointAnzeige = true;
 				}
 			
@@ -88,6 +135,7 @@ public class Gegner {
 		} else if (Player.AktuelleWaffe == 'M') {
 			if (Player.Manadrinks > 0) {
 				if (!PlayerFired) {
+					Treasure.PlayMusic("mana");
 					Player.Manadrinks = Player.Manadrinks-1;
 					BuildLevel.refreshInventar(null);
 					PlayerFired = true;
@@ -107,9 +155,9 @@ public class Gegner {
 				if ((BuildLevel.lblPlayerFire1.getX() >= BuildLevel.lblItem1.getX())&(BuildLevel.lblPlayerFire1.getX() <= (BuildLevel.lblItem1.getX()+30))) {
 					if ((BuildLevel.lblPlayerFire1.getY() >= BuildLevel.lblItem1.getY())&(BuildLevel.lblPlayerFire1.getY() <= (BuildLevel.lblItem1.getY()+30))) {
 						if (LevelControl.hexe_alive == true) {
-							EnemyEnergy = EnemyEnergy;
-							/*
-							 * Tut nix mit EE
+							
+							/**
+							 * EnemyEnergy bleibt hier unveraendert
 							 */
 						} else if (LevelControl.drache_alive == true) {
 							EnemyEnergy = EnemyEnergy-2;
@@ -127,56 +175,15 @@ public class Gegner {
 					LevelControl.spinne_alive = false;
 					BuildLevel.lblEnemyFire.setBounds(300, 400, 15, 10);
 					BuildLevel.lblPlayerFire1.setBounds(300, 400, 15, 10);
-					BuildLevel.lblCheckpoint.setText("Gegner getötet...");
+					BuildLevel.lblCheckpoint.setText("Gegner getoetet...");
 		        	LevelControl.SavePointAnzeige = true;
 				}
 			
 			
 		// SCHWERT:
 			
-		} else if (Player.AktuelleWaffe == 'C') {
-			if (!PlayerFired) {
-				PlayerFired = true;
-				PlayerFire1StartX = 30+BuildLevel.lblPlayer.getX();
-				BuildLevel.lblPlayerFire1.setBounds(BuildLevel.lblPlayer.getX(), BuildLevel.lblPlayer.getY(), 15, 10);
-			}
-			if (PlayerFired) {
-				BuildLevel.lblPlayerFire1.setBounds((BuildLevel.lblPlayerFire1.getX()+15), (BuildLevel.lblPlayerFire1.getY()), 15, 10);
-			}
-			if (BuildLevel.lblPlayerFire1.getX() >= (PlayerFire1StartX)) {
-				PlayerFired = false;
-				PlayerFire1Active = false;
-				BuildLevel.lblPlayerFire1.setBounds(400, 400, 15, 10);
-			}
-			
-			if ((BuildLevel.lblPlayerFire1.getX() >= BuildLevel.lblItem1.getX())&(BuildLevel.lblPlayerFire1.getX() <= (BuildLevel.lblItem1.getX()+30))) {
-				if ((BuildLevel.lblPlayerFire1.getY() >= BuildLevel.lblItem1.getY())&(BuildLevel.lblPlayerFire1.getY() <= (BuildLevel.lblItem1.getY()+30))) {
-					if (LevelControl.hexe_alive == true){
-						EnemyEnergy = EnemyEnergy-3;
-					} else if (LevelControl.drache_alive == true){
-						EnemyEnergy = EnemyEnergy-3;
-					} else if (LevelControl.spinne_alive == true){
-						EnemyEnergy = EnemyEnergy;
-						/*
-						 * nix tut bei spinne
-						 */
-					}
-				
-				}
-			}
-			
-			if (EnemyEnergy == 0) {
-				MovementListener.moveDown = false;
-				MovementListener.moveUp = false;
-				LevelControl.hexe_alive = false;
-				LevelControl.drache_alive = false;
-				LevelControl.spinne_alive = false;
-				BuildLevel.lblEnemyFire.setBounds(300, 400, 15, 10);
-				BuildLevel.lblPlayerFire1.setBounds(300, 400, 15, 10);
-				BuildLevel.lblCheckpoint.setText("Gegner getötet...");
-	        	LevelControl.SavePointAnzeige = true;
-			}
-		}
+		} 
+		
 		
 		
 		

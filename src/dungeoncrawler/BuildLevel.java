@@ -478,12 +478,36 @@ public class BuildLevel extends JFrame {
 	//Schlieﬂen des NPC Fensters
 		public static void StoryNPCSchliessen(String args[]) {
 			
-			java.awt.Rectangle pos = lblPlayer.getBounds();
-			newX = pos.x;  
-			newY = pos.y - 15; 
-			lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-			lblPunkteanzeige.setText(Player.CurrentPoints+" ");
-			Content.repaint();
+			if (Current_Level == 1) {
+				java.awt.Rectangle pos = lblPlayer.getBounds();
+				newX = pos.x;  
+				newY = pos.y -15; 
+				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
+				Content.repaint();
+			} else if (Current_Level == 5) {
+				java.awt.Rectangle pos = lblPlayer.getBounds();
+				newX = pos.x + 15;  
+				newY = pos.y; 
+				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
+				Content.repaint();
+			} else if (Current_Level == 11) {
+				java.awt.Rectangle pos = lblPlayer.getBounds();
+				newX = pos.x -15;  
+				newY = pos.y; 
+				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
+				Content.repaint();
+			} else if (Current_Level == 13) {
+				java.awt.Rectangle pos = lblPlayer.getBounds();
+				newX = pos.x;  
+				newY = pos.y +15; 
+				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
+				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
+				Content.repaint();
+			}
+			
 		}
 	/**
 	 * Abfrage der aktuellen Waffe
@@ -1219,7 +1243,7 @@ public class BuildLevel extends JFrame {
 		};
 		mListener.setPriority(Thread.NORM_PRIORITY);
 		
-
+		
 		
 		
 		
@@ -2664,6 +2688,7 @@ public class BuildLevel extends JFrame {
 		Content.add(lvlO20);
 		
 		neuesLevel(null);
+		
 		}
 
 
