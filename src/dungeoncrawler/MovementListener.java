@@ -41,6 +41,9 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 		        	CollisionControl.down(null);
 		        }
+		        if (e.getKeyCode() == KeyEvent.VK_F) {
+		        	Gegner.PlayerFire1Active = true;
+		        }
 		        if (e.getKeyCode() == KeyEvent.VK_C) {
 		        	Player.WaffeWechseln(null);
 		        }

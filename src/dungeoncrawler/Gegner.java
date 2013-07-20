@@ -105,7 +105,7 @@ public class Gegner {
 						if (LevelControl.hexe_alive == true){
 							EnemyEnergy = EnemyEnergy-1;
 						} else if (LevelControl.drache_alive == true){
-							EnemyEnergy = EnemyEnergy;
+							//EnemyEnergy = EnemyEnergy;
 							/*
 							 * nix ändern an der EE
 							 */
