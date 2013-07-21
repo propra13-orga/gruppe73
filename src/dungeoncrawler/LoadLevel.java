@@ -5,8 +5,7 @@ import dungeoncrawler.LevelControl;
 public class LoadLevel {
 	
 	/**
-	 * Diese Klasse laedt die Level aus einer Datei und gibt die ausgelesenen
-	 * Informationen an die Labels der BuildLevel.java weiter.
+	 *In dieser Klasse werden die Chars für die einzelnen Elemente der Level festgelegt. Desweiteren werden den jeweiligen Chars Bilder hinzugefügt.
 	 * 
 	 */
 	

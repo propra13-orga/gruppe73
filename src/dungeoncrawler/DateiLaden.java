@@ -8,6 +8,7 @@ public class DateiLaden {
 	/**
 	 * Dateiladen kann aus einer TextDatei die in einen String "umgewandelt" wird
 	 * ein Level laden.
+	 * Die leveldata.txt besteht pro Raum aus einem String. Der Reader ließt die Räume zeilenweise aus.
 	 */
 	private static BufferedReader auslesen;
 	public static int q = 0;

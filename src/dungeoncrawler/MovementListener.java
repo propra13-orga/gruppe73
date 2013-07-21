@@ -47,22 +47,40 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 		        	CollisionControl.down(null);
 		        }
+		        
+		        /**
+		         * Key Event zum feuern
+		         */
 		        if (e.getKeyCode() == KeyEvent.VK_F) {
 		        	Gegner.PlayerFire1Active = true;
 		        }
+		        
+		        /**
+		         * Key Event zum wechseln der Waffe
+		         */
 		        if (e.getKeyCode() == KeyEvent.VK_C) {
 		        	Player.WaffeWechseln(null);
 		        }
+		        
+		       /**
+		        * Key Event zum speichern
+		        */
 		        if (e.getKeyCode() == KeyEvent.VK_S) {
 		        	Speichern.main(null);
 		        	gespeichert = true;
 		        }
+		        /**
+		         * Key Event zum laden
+		         */
 		        if(e.getKeyCode() == KeyEvent.VK_L){
 					Laden.main(null);
 					laden = true;
 					BuildLevel.gespeichertesSpiel(null);
 					System.out.println("Ich lade das gespeicherte Spiel");
 		        }
+		        /**
+		         * Key Event zum Einsetzen des Medikits
+		         */
 		        if (e.getKeyCode() == KeyEvent.VK_M){ 
 		        	if (Player.Medikit > 0){
 		        		Player.PlayerPower = Player.PlayerPower +4;

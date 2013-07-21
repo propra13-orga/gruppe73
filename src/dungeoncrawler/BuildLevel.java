@@ -434,8 +434,10 @@ public class BuildLevel extends JFrame {
     public static int EnemyStdFirePos = 195;
     
 
-    // MAIN-METHODE:
-    // =============
+	/**
+	 * Main Methode
+	 * @param args
+	 */
     
 	public static void main(String[] args) {
 		final BuildLevel m = new BuildLevel();
@@ -474,7 +476,10 @@ public class BuildLevel extends JFrame {
 		Content.repaint();
 	}
 	
-	//Schlieﬂen des NPC Fensters
+	/**
+	 * Methode zum schlieﬂen des NPC Fensters
+	 * 
+	 */
 		public static void StoryNPCSchliessen(String args[]) {
 			
 			if (Current_Level == 1) {
@@ -540,6 +545,10 @@ public class BuildLevel extends JFrame {
 		Content.repaint();
 	}
 	
+	/**
+	 * Methode zum Feuern des Gegners
+	 */
+	
 	public static void EnemyFire(String args[]) {
 		/*if (lblItem1.getY() == 120) {
 			lblEnemyFire.setBounds(EnemyFirePos, 120, 15, 10);
@@ -579,6 +588,11 @@ public class BuildLevel extends JFrame {
 		Content.repaint();
 		SavePointLoad = false;
 	}
+	
+	/**
+	 * Methoden zum laden des neuen Levels.
+	 * 
+	 */
 	
 	public static void neuesLevel(String args[]) {
 		LevelControl.spinne_alive = false;
@@ -1002,7 +1016,7 @@ public class BuildLevel extends JFrame {
 	}
 	
 	/**
-	 * Abfrage der Spieler Power
+	 * Abfrage der Energie des Players und eventueller Neustart
 	 * 
 	 */
 	
@@ -1099,9 +1113,8 @@ public class BuildLevel extends JFrame {
 	}                                             
 	
 	/**
-	 * Methode die das in einem String gespeicherte Spiel wieder aufruft.
+	 * Methode die das in einem String gespeicherte Spiel wieder aufruft - Speichern und Laden
 	 * 
-	 * @param args
 	 */
 	
 	public static void gespeichertesSpiel(String args[]){

@@ -8,8 +8,9 @@ public class Player {
 	 * 
 	 */
 	
-	// PLAYER-INVENTAR:
-	// ================
+	/**
+	 * Player Inventar
+	 */
 	
 	public static int PlayerSword = 0;		// Anzahl der Schwerter, die der Player besitzt
 	public static int Medikit = 0;			//  ''    ''  Medikits, ''
@@ -22,8 +23,9 @@ public class Player {
 	
 	public static char AktuelleWaffe = 'N'; // 'A': Bogen, 'M': Mana, 'C': Schwert, 'N': None
 	
-	// SHOP PREISE:
-	// ============
+	/**
+	 * Shop Preise
+	 */
 	
 	public static int priceManadrinks = 100;
 	public static int priceMedikit = 350; 
@@ -45,7 +47,7 @@ public class Player {
 	
 	public static int PlayerPower = 4;
 	
-	/*
+	/**
 	 * Methode die das Wechseln der Waffe ermöglicht
 	 * 
 	 */

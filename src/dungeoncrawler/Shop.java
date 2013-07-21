@@ -45,7 +45,9 @@ public class Shop extends JFrame {
 	public static JLabel lblKontostand;
 	public static JLabel lblBudgetnachKauf;
 	
-	// WARENKORB
+	/**
+	 * Warenkorb
+	 */
 	
 	private static int WKBudgetnachKauf;
 	
@@ -231,10 +233,10 @@ public class Shop extends JFrame {
 	
 		
 		
-/**
- *  MANA
- * 	
- */
+	/**
+	 *  MANA
+	 * 	
+	 */
 		
 		JLabel BildMana = new JLabel("");
 		BildMana.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/Mana.PNG")));

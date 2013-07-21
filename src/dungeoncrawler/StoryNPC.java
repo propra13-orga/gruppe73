@@ -59,7 +59,7 @@ public class StoryNPC extends JFrame {
 		setLayout(null);
 		setTitle("Dungeoncrawler - Interaction");
 			
-		/*
+		/**
 		 * Background NPC Interaction
 		 * =================================================
 		 */

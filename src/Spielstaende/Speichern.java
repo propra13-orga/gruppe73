@@ -21,11 +21,18 @@ public class Speichern {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		
+		/**
+		 * Öffnen eines Dialog Fensters wo der eigene Name oder ein Name für die Datei eingegeben werden kann. Dieser wird dann gespeichert.
+		 */
 		String Dateiname = JOptionPane.showInputDialog(null, "Bitte gib deinen Namen ein");
 		Dateiname = Dateiname + ".TXT";
 		System.out.println(Dateiname);
 	
+		/**
+		 * der Print Writer schreibt die benötigten Daten in eine TXT Datei
+		 * 
+		 */
+		
 		try{
 			String FilePath = System.getProperty("user.dir");
 			@SuppressWarnings("resource")

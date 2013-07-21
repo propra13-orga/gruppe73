@@ -69,8 +69,8 @@ public class LevelControl {
 	}
 	
 	
-	/*
-	 * Abfrage der Collision mit der Türe. Stimmen Position des Spielers und des Ausgangs überein, wird das neue Level 
+	/**
+	 * Abfrage der Kollision mit der Türe. Stimmen Position des Spielers und des Ausgangs über ein, wird das neue Level 
 	 * geladen
 	 * 
 	 */
@@ -104,7 +104,9 @@ public class LevelControl {
 		String Pfad = "/dungeoncrawler/default.PNG";
 		
 		
-		// ITEM 1:
+		/**
+		 * Item 1
+		 */
 		
 			if (ItemNr == 1) {
 				if ((Item1Type == 'T')&(gotItem1 == false)) {
@@ -149,7 +151,9 @@ public class LevelControl {
 					Pfad = ("/dungeoncrawler/lagerfeuer.PNG");
 				} 
 				
-		// ITEM 2:
+		/**
+		 * Item 2
+		 */
 				
 			} else if (ItemNr == 2) {
 				if ((Item2Type == 'T')&(gotItem2 == false)) {
@@ -182,7 +186,9 @@ public class LevelControl {
 		        	Player.PlayerPower = Player.PlayerPower +5;
 				}
 				
-		// ITEM 3:
+		/**
+		 * Item 3
+		 */
 				
 			} else if (ItemNr == 3) {
 				if ((Item3Type == 'T')&(gotItem3 == false)) {
@@ -215,7 +221,9 @@ public class LevelControl {
 		        	Player.PlayerPower = Player.PlayerPower +5;
 				}
 				
-		// ITEM 4:
+		/**
+		 * Item 4
+		 */
 			
 			} else if (ItemNr == 4) {
 				if ((Item4Type == 'T')&(gotItem4 == false)) {
@@ -253,7 +261,7 @@ public class LevelControl {
 		return Pfad;
 	}
 	
-	/*
+	/**
 	 * Shop Abfrage
 	 */
 	
@@ -269,7 +277,7 @@ public class LevelControl {
 		}
 	}
 	
-	/*
+	/**
 	 * Abfrage ob der Player mit dem Gegner kollidiert ist
 	 */
 	
@@ -312,9 +320,8 @@ public class LevelControl {
 	public static void Item_pickUp(String args[]) {
 	
 		
-		/*
+		/**
 		 *  ENDGEGNER-KOLLISIONSKONTROLLE:
-		 *  ==============================
 		 */
 		
 		

@@ -20,11 +20,6 @@ public class CollisionControl {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		
-		
-	
-		
-		
 	}
 	
 	/**
@@ -95,8 +90,10 @@ public class CollisionControl {
 	/**
 	 *
 	 *Kollisionsabfrage (WALL, AUSSENRÄNDER) für left, right, up, down
-	 * 
+	 * Beginn mit links
 	 */
+	
+	
 	
 	public static void left(String args[]) {
 		System.out.println("Überprüfe Links:");
@@ -113,6 +110,10 @@ public class CollisionControl {
 		}
 	}
 	
+	/**
+	 * Überprüfung rechts
+	 */
+	
 	public static void right(String args[]) {
 		System.out.println("Überprüfe Rechts");
 		String Current_LevelMap = LoadLevel.Current_LevelMap;
@@ -128,6 +129,10 @@ public class CollisionControl {
 		}
 	}
 	
+	/**
+	 * Überprüfung oben
+	 */
+	
 	public static void up(String args[]) {
 		System.out.println("Überprüfe Oben:");
 		String Current_LevelMap = LoadLevel.Current_LevelMap;
@@ -142,6 +147,10 @@ public class CollisionControl {
 			System.out.println("Geht nicht");
 		}
 	}
+	
+	/**
+	 * Überprüfung unten
+	 */
 	
 	public static void down(String args[]) {
 		System.out.println("Überprüfe Unten:");

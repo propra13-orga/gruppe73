@@ -20,7 +20,9 @@ public class Treasure {
 	 * 
 	 */
 	
-	// POSITIONSBERECHNUNG DES SCHATZES:
+	/**
+	 * Positionsberechnung des Schatzes
+	 */
 	
 	public static int buildTreasureX(){
 		int PosX = 0;

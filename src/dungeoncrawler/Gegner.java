@@ -78,7 +78,9 @@ public class Gegner {
 	        	LevelControl.SavePointAnzeige = true;
 			}
 		}
-		// BOGEN:
+		/**
+		 * Bogen
+		 */
 		
 		else if (Player.AktuelleWaffe == 'A') {
 			if (Player.Arrow > 0) {
@@ -130,7 +132,9 @@ public class Gegner {
 				}
 			
 			
-		// MANA:
+		/**
+		 * Mana
+		 */
 			
 		} else if (Player.AktuelleWaffe == 'M') {
 			if (Player.Manadrinks > 0) {

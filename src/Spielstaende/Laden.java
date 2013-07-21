@@ -12,6 +12,12 @@ import dungeoncrawler.BuildLevel;
 import dungeoncrawler.LevelControl;
 import dungeoncrawler.MovementListener;
 
+/**
+ * Klasse die den gespeicherten Spielstand aus einer TXT Datei l‰dt.
+ * Erzeugt einen Buffered Reader der den String Zeilenweise auslieﬂt und in Variablen speichert welche dann bei Bedarf
+ * in Integer oder Chars umgewandelt werden.
+ */
+
 public class Laden {
 	
 	private static BufferedReader auslesen;

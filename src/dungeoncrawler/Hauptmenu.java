@@ -113,6 +113,10 @@ public class Hauptmenu extends JFrame {
 		
 	}
 	
+	/**
+	 * Main Methode des Hauptmenüs, erstellt das Fenster und startet die Methode zum Abspielen der Musik
+	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
