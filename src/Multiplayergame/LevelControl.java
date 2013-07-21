@@ -1,4 +1,7 @@
-package dungeoncrawler;
+package Multiplayergame;
+
+import java.applet.Applet;
+import java.applet.*;
 
 
 
@@ -621,6 +624,20 @@ public class LevelControl {
 		}
 	}
 	
+	private static int range(int i, int j) {
+		int range = 0;
+		/**
+		 * Diese Methode ist ueberfluessig und kann geloescht werden.
+		 */
+		/*
+		range = new int[j - i + 1];
+	    for (int k = i; k <= j; k++) {
+	        range[k - i] = k;
+	    }
+	    return range;
+	    */
+		return range;
+	}
 
 	public static int Item_Width_Height(int ItemNr) {
 		/**

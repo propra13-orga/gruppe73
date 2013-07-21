@@ -3,8 +3,6 @@ package dungeoncrawler;
 
 
 import java.awt.Color;
-
-
 import dungeoncrawler.Player;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import dungeoncrawler.LoadLevel;
-import dungeoncrawler.Treasure;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
