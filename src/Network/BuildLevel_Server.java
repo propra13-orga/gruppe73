@@ -109,25 +109,15 @@ public class BuildLevel_Server extends JFrame{
 		
 		contentPane.repaint();
 		
-		/*
-		 if ((BuildLevel.lblPlayerFire1.getX() >= BuildLevel.lblItem1.getX())&(BuildLevel.lblPlayerFire1.getX() <= (BuildLevel.lblItem1.getX()+30))) {
+		
+		if ((lblPlayerFire1.getX() >= lblGegner.getX())&(lblPlayerFire1.getX() <= (lblGegner.getX()+30))) {
 		 
-			if ((BuildLevel.lblPlayerFire1.getY() >= BuildLevel.lblItem1.getY())&(BuildLevel.lblPlayerFire1.getY() <= (BuildLevel.lblItem1.getY()+30))) {
-				if (LevelControl.hexe_alive == true){
-					EnemyEnergy = EnemyEnergy-1;
-				} else if (LevelControl.drache_alive == true){
-					//EnemyEnergy = EnemyEnergy;
+			if ((lblPlayerFire1.getY() >= lblGegner.getY())&(lblPlayerFire1.getY() <= (lblGegner.getY()+30))) {
 
-				} else if (LevelControl.spinne_alive == true) {
-					EnemyEnergy = EnemyEnergy-1;
-				}
-				
+				System.out.println("You won.");
 			
 			}
 		}
-		
-		
-		*/
 		/*
 		if (EnemyEnergy == 0) {
 			MovementListener.moveDown = false;
