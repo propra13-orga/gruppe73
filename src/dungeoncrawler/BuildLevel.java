@@ -448,7 +448,7 @@ public class BuildLevel extends JFrame {
 	}
 
 	/**
-	 * Hier wird das JFrame auf Visible gesetzt und ein KeyListener hinzu gefügt
+	 * Hier wird das JFrame auf Visible gesetzt und ein KeyListener hinzugefügt
 	 * 
 	 */
 	
@@ -1099,7 +1099,7 @@ public class BuildLevel extends JFrame {
 	}                                             
 	
 	/**
-	 * Methode die das im String gespeicherte Spiel wieder aufruft.
+	 * Methode die das in einem String gespeicherte Spiel wieder aufruft.
 	 * 
 	 * @param args
 	 */
@@ -1144,6 +1144,11 @@ public class BuildLevel extends JFrame {
 		
 		
 	}
+	
+	/**
+	 * Initialisiert das LevelWindow
+	 * 
+	 */
 	
 	public BuildLevel() {
 		setResizable(false);
@@ -1276,7 +1281,10 @@ public class BuildLevel extends JFrame {
 		
 		
 		
-		// NEUSTART-Button
+		/**
+		 * Neustart Button
+		 * 
+		 */
 		
 		lblNeustart = new JLabel ("");
 		lblNeustart.addMouseListener(new MouseAdapter() {
@@ -1304,8 +1312,9 @@ public class BuildLevel extends JFrame {
 		lblNeustart.setVisible(false);
 		Content.add(lblNeustart);
 		
-		// Inventar:
-		// =========
+		/**
+		 * Inventar Leiste
+		 */
 		
 		lblMana = new JLabel ("0 ");
 		lblMana.setBounds(20 ,295, 50, 15);
@@ -1362,6 +1371,10 @@ public class BuildLevel extends JFrame {
 		lblPowerAnzeige.setVisible(true);
 		Content.add(lblPowerAnzeige);
 		
+		/**
+		 * Label das den gespeicherten CheckPoint anzeigt
+		 */
+		
 		lblCheckpoint = new JLabel ("Check Point gespeichert...");
 		lblCheckpoint.setBounds(20, 313, 200, 15);
 		lblCheckpoint.setForeground(Color.WHITE);
@@ -1375,7 +1388,9 @@ public class BuildLevel extends JFrame {
 		Content.add(lblPergament);
 		
 		
-		//LEBENSANZEIGE
+		/**
+		 * Lebensanzeige
+		 */
 		
 		lblLebensanzeige = new JLabel("1 ");
 		lblLebensanzeige.setForeground(Color.BLACK);
@@ -1391,7 +1406,9 @@ public class BuildLevel extends JFrame {
 		lblAktuelleWaffe.setVisible(true);
 		Content.add(lblAktuelleWaffe);
 		
-		//Punkteanzeige
+		/**
+		 * Punkteanzeige
+		 */
 		
 		lblPunkteanzeige = new JLabel(Player.CurrentPoints+" ");
 		lblPunkteanzeige.setForeground(Color.BLACK);
@@ -1401,7 +1418,9 @@ public class BuildLevel extends JFrame {
 		//lblPunkteanzeige.setHorizontalAlignment(SwingConstants.RIGHT);
 		Content.add(lblPunkteanzeige);
 		
-		// Treasure
+		/**
+		 * Schatzanzeige
+		 */
 		
 		lblItem1 = new JLabel ("");
 		lblItem1.setBounds(15, 15, 15, 15);

@@ -32,7 +32,7 @@ public class ServerChat extends javax.swing.JFrame {
     /** 
      * Initiert den neuen Chat und die Komponenten
      */
-    public ServerChat() {
+    public ServerChat(){
         initComponents();
     }
 
@@ -149,7 +149,7 @@ public class ServerChat extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         inputTextArea = new javax.swing.JTextArea();
         ScrollChatTextArea2 = new javax.swing.JScrollPane();
-        //chatTextArea = new javax.swing.JTextArea();
+        chatTextArea = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         connectButton = new javax.swing.JButton();
@@ -296,7 +296,7 @@ public class ServerChat extends javax.swing.JFrame {
                 writer.println(username + ":has connected.:Connect"); // Displays to everyone that user connected.
                 writer.flush(); // flushes the buffer
                 isConnected = true; // Used to see if the client is connected.
-                //LobbyClient.main(null);
+                LobbyClient.main(null);
             } catch (Exception ex) {
                 chatTextArea.append("Cannot Connect! Try Again. \n");
                 usernameField.setEditable(true);
@@ -354,7 +354,7 @@ public class ServerChat extends javax.swing.JFrame {
                 new ServerChat().setVisible(true);
             }
         });
-        //ServerWindow.main(null);
+        ServerWindow.main(null);
     }
 
     // Variables declaration - do not modify                     
