@@ -1101,8 +1101,8 @@ public class BuildLevel extends JFrame {
 	public static void gespeichertesSpiel(String args[]){
 		BuildLevel.Current_Level = Laden.intgespeichertesLevel-1;
 		BuildLevel.change_level_phase = true;
-		//BuildLevel.neuesLevel(null);
-		lblPlayer.setBounds(Laden.intPlayerPosX, Laden.intPlayerPosY, lblPlayer.getWidth(), lblPlayer.getHeight());
+		BuildLevel.neuesLevel(null);
+		lblPlayer.setBounds(Laden.intPlayerPosY, Laden.intPlayerPosX, lblPlayer.getWidth(), lblPlayer.getHeight());
 		Player.AktuelleWaffe = Laden.waffe;
 		Player.Arrow = Laden.pfeil;
 		Player.Bow = Laden.bogen;

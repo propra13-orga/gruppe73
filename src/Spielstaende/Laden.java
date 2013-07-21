@@ -29,28 +29,28 @@ public class Laden {
 	public static char waffe;
 	
 	public static String Pfeil;
-	public static char pfeil;
+	public static int pfeil;
 	
 	public static String Bogen;
-	public static char bogen;
+	public static int bogen;
 	
 	public static String Punkte;
-	public static char punkte;
+	public static int punkte;
 	
 	public static String Leben;
-	public static char leben;
+	public static int leben;
 	
 	public static String Mana;
-	public static char mana;
+	public static int mana;
 	
 	public static String Medi;
-	public static char medi;
+	public static int medi;
 	
 	public static String Power;
 	public static int intpower;
 	
 	public static String Schwert;
-	public static char schwert;
+	public static int schwert;
 
 	/**
 	 * @param args
@@ -83,30 +83,38 @@ public class Laden {
 				System.out.println(waffe);
 				
 				Pfeil = auslesen.readLine();
-				pfeil = Pfeil.charAt(0);
+				pfeil = Integer.parseInt(Pfeil);
+				System.out.println(Pfeil);
 				
 				Bogen = auslesen.readLine();
-				bogen = Bogen.charAt(0);
+				bogen = Integer.parseInt(Bogen);
+				System.out.println(Bogen);
 				
 				Punkte = auslesen.readLine();
-				punkte = Punkte.charAt(0);
+				punkte = Integer.parseInt(Punkte);
+				System.out.println(Punkte);
 				
 				Leben = auslesen.readLine();
-				leben = Leben.charAt(0);
+				leben = Integer.parseInt(Leben);
+				System.out.println(Leben);
 				
 				Mana = auslesen.readLine();
-				mana = Mana.charAt(0);
+				mana = Integer.parseInt(Mana);
+				System.out.println(Mana);
 				
 				Medi = auslesen.readLine();
-				medi = Medi.charAt(0);
+				medi = Integer.parseInt(Medi);
+				System.out.println(Medi);
 				
 				Power = auslesen.readLine();
 				intpower = Integer.parseInt(Leben);
+				System.out.println(Leben);
 				
 				Schwert = auslesen.readLine();
-				schwert = Schwert.charAt(0);
+				schwert = Integer.parseInt(Schwert);
+				System.out.println(Schwert);
 				
-				System.out.println("Datei wurde geladen");
+				
 				} 
 			}catch (IOException e) {
 				// TODO Auto-generated catch block
