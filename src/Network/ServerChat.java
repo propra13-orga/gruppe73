@@ -18,11 +18,11 @@ public class ServerChat extends javax.swing.JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	String username, serverIP = "127.0.0.1 ";
+	static String username, serverIP = "127.0.0.1 ";
     int Port = 5000;
     Socket sock;
     BufferedReader reader;
-    PrintWriter writer;
+    static PrintWriter writer;
     ArrayList<String> userList = new ArrayList();
     Boolean isConnected = false;
     
@@ -128,7 +128,7 @@ public class ServerChat extends javax.swing.JFrame {
 
       }
     
-    public void player1movement(String MovementData) {
+    public static void player1movement(String MovementData) {
     	
     	try {
             writer.println(username + ":" + MovementData + ":" + "chat");

@@ -59,6 +59,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        }
 		        if(e.getKeyCode() == KeyEvent.VK_L){
 					Laden.main(null);
+					laden = true;
 					BuildLevel.gespeichertesSpiel(null);
 					System.out.println("Ich lade das gespeicherte Spiel");
 		        }

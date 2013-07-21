@@ -143,6 +143,12 @@ public class BuildLevel_Server extends JFrame{
 		*/
 	}
 	
+	public static void CommitMovementToServer () {
+		
+		ServerChat
+		
+	}
+	
 
 	/**
 	 * Frame erzeugen und Objekte implementieren
@@ -170,6 +176,9 @@ public class BuildLevel_Server extends JFrame{
 		        if (e.getKeyCode() == KeyEvent.VK_F) {
 		        	PlayerFireActive = true;
  		        }
+		        
+		        CommitMovementToServer();
+		        
 			}
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -180,6 +189,8 @@ public class BuildLevel_Server extends JFrame{
 				
 			}
 		});
+		
+		
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

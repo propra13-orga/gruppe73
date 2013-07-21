@@ -590,8 +590,14 @@ public class BuildLevel extends JFrame {
 		EnemyStdPosY = 120;
 		LoadLevel.Current_LevelMap = DateiLaden.LeseData(BuildLevel.Current_Level);
 		LoadLevel.Export_to_LevelControl(null);
-		newX = LevelControl.StartDoorX;
-		newY = LevelControl.StartDoorY;
+		if (MovementListener.laden) {
+			newX = Laden.intPlayerPosX;
+			newY = Laden.intPlayerPosY;
+		} else {
+			newX = LevelControl.StartDoorX;
+			newY = LevelControl.StartDoorY;
+		}
+		
 		
 		checkPower(null);
 		
