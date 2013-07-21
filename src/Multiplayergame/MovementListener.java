@@ -51,7 +51,6 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        	if (Player.Medikit > 0){
 		        		Player.PlayerPower = Player.PlayerPower +4;
 		        		Player.Medikit = Player.Medikit -1;
-		        		BuildLevel.refreshInventar(null);
 		        		BuildLevel.checkPower(null);
 		        	}
 		        	
@@ -73,7 +72,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        LevelControl.Item_pickUp(null);
 		        LevelControl.Shop_open(null);
 		        LevelControl.door_collision(null);
-		        CollisionControl.meet_NPC(null);
+
 		        
 		        
 		        // Spielfeld aktualisieren:
@@ -188,7 +187,6 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 	    	            		
 	    	            	} catch (InterruptedException ex) { }
 	            			BuildLevel.EnemyFire(null);
-	            			BuildLevel.moveEnemyDown(null);
 	            			LevelControl.checkEnemyCollision(null);
 	            			if (Gegner.PlayerFire1Active) {
 	            				Gegner.fire(null);
@@ -225,7 +223,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 	    	            		
 	    	            	} catch (InterruptedException ex) { }
 	            			BuildLevel.EnemyFire(null);
-	            			BuildLevel.moveEnemyDown(null);
+
 	            			LevelControl.checkEnemyCollision(null);
 	            			if (Gegner.PlayerFire1Active) {
 	            				Gegner.fire(null);
@@ -262,7 +260,6 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 	    	            		
 	    	            	} catch (InterruptedException ex) { }
 	            			BuildLevel.EnemyFire(null);
-	            			BuildLevel.moveEnemyDown(null);
 	            			LevelControl.checkEnemyCollision(null);
 	            			if (Gegner.PlayerFire1Active) {
 	            				Gegner.fire(null);

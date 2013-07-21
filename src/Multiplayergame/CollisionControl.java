@@ -1,6 +1,5 @@
 package Multiplayergame;
 
-import Multiplayergame.LoadLevel;
 import Multiplayergame.MovementListener;
 /**
  * Diese Klasse ist für die Kollisionsabfrage mit dem Rahmen des Fensters zuständig.
@@ -69,26 +68,6 @@ public class CollisionControl {
 			permit_Ymovement = true;
 		}
 		return permit_Ymovement;
-	}
-
-	
-	/**
-	 * NPC-Kollisionsabfrage
-	 * =====================
-	 * 
-	 */
-	public static void meet_NPC(String args[]) {
-		
-		if (meet_NPC == false) {	
-			String Current_LevelMap = LoadLevel.Current_LevelMap;
-			if (Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'I'|Current_LevelMap.charAt(PlyPosUmrechnen()-20)=='I') {
-				LevelControl.Shop_opened = true;
-				StoryNPC.main(null);
-				
-				
-			}
-			
-		}
 	}
 
 	

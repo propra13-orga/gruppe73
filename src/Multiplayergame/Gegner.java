@@ -18,17 +18,6 @@ public class Gegner {
 /**
  * Fallen Abfrage
  */
-	public static void trap_collision() {
-		String Current_LevelMap = LoadLevel.Current_LevelMap;
-		if (Current_LevelMap.charAt(CollisionControl.PlyPosUmrechnen()) == 'S' | Current_LevelMap.charAt(CollisionControl.PlyPosUmrechnen()) == 'N'){
-			BuildLevel.GameOver(5);
-		}
-	}
-	
-	/**
-	 * Methode die die aktuelle Waffe abfragt und dann der Menge an Items eins abzieht
-	 * 
-	 */
 	
 	public static void fire(String args[]) {
 		

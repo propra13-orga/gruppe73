@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import Multiplayergame.LoadLevel;
 import Multiplayergame.Treasure;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -152,50 +151,7 @@ public class BuildLevel extends JFrame {
         super.setVisible(value);
 	}
 	
-	public static void ShopSchliessen(String args[]) {
-		
-		java.awt.Rectangle pos = lblPlayer.getBounds();
-		newX = pos.x;  
-		newY = pos.y + 15; 
-		lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-		lblPunkteanzeige.setText(Player.CurrentPoints+" ");
-		Content.repaint();
-	}
 	
-	//Schließen des NPC Fensters
-		public static void StoryNPCSchliessen(String args[]) {
-			
-			if (Current_Level == 1) {
-				java.awt.Rectangle pos = lblPlayer.getBounds();
-				newX = pos.x;  
-				newY = pos.y -15; 
-				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
-				Content.repaint();
-			} else if (Current_Level == 5) {
-				java.awt.Rectangle pos = lblPlayer.getBounds();
-				newX = pos.x + 15;  
-				newY = pos.y; 
-				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
-				Content.repaint();
-			} else if (Current_Level == 11) {
-				java.awt.Rectangle pos = lblPlayer.getBounds();
-				newX = pos.x -15;  
-				newY = pos.y; 
-				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
-				Content.repaint();
-			} else if (Current_Level == 13) {
-				java.awt.Rectangle pos = lblPlayer.getBounds();
-				newX = pos.x;  
-				newY = pos.y +15; 
-				lblPlayer.setBounds(newX,newY,lblPlayer.getWidth(), lblPlayer.getHeight());
-				lblPunkteanzeige.setText(Player.CurrentPoints+" ");
-				Content.repaint();
-			}
-			
-		}
 	/**
 	 * Abfrage der aktuellen Waffe
 	 * 	
@@ -210,7 +166,7 @@ public class BuildLevel extends JFrame {
 			}
 	}
 	/**
-	 * Methode zur Bewegung des Gegners
+	 * Methode zur Bewegung des Gegners +++ Kšnnte zur Bewegung des gegners im Multiplayer-Modus genutzt werden
 	 * 
 	 */
 	public static void moveEnemyUp(String args[]) {
@@ -221,12 +177,10 @@ public class BuildLevel extends JFrame {
 		Content.repaint();
 	}
 	
-	public static void moveEnemyDown(String args[]) {
-		EnemyPosY = EnemyPosY+3;
-		lblItem1.setBounds(BuildLevel.lblItem1.getX(), EnemyPosY, 30, 30);
-		System.out.println("Move enemy down");
-		Content.repaint();
-	}
+	/**
+	 * Kšnte fŸr das Anzeigen des Feuerns benutzt werden
+	 * @param args
+	 */
 	
 	public static void EnemyFire(String args[]) {
 		/*if (lblItem1.getY() == 120) {
@@ -276,8 +230,6 @@ public class BuildLevel extends JFrame {
 		
 		EnemyPosY = 120;
 		EnemyStdPosY = 120;
-		LoadLevel.Current_LevelMap = DateiLaden.LeseData(BuildLevel.Current_Level);
-		LoadLevel.Export_to_LevelControl(null);
 		newX = 15;
 		newY = 15;
 		
@@ -310,7 +262,6 @@ public class BuildLevel extends JFrame {
 		LevelControl.gotItem3 = false;
 		LevelControl.gotItem4 = false;
 		
-		lblEnemyFire.setIcon(new ImageIcon(BuildLevel.class.getResource(LoadLevel.EnemyFire(null))));
 		lblEnemyFire.setBounds(300, 400, 15, 10);	
 		
 		lblItem1.setBounds(LevelControl.Item1X, LevelControl.Item1Y, LevelControl.Item_Width_Height(1), LevelControl.Item_Width_Height(1));
@@ -355,18 +306,7 @@ public class BuildLevel extends JFrame {
 	
 	
 	
-	public static void refreshInventar(String args[]) {
-		
-		lblMana.setText(Player.Manadrinks+" ");
-		lblSchwert.setText(Player.PlayerSword+" ");
-		lblBogen.setText(Player.Bow+" ");
-		lblPfeil.setText(Player.Arrow+" ");
-		lblRuestung.setText(Player.suitofarmor+" ");
-		lblMedikit.setText(Player.Medikit+" ");
-		lblPunkteanzeige.setText(Player.CurrentPoints+" ");
-		lblLebensanzeige.setText(Player.Lives+" ");
-		
-	}
+	
 	
 	/**
 	 * Abfrage der Spieler Power
@@ -685,13 +625,6 @@ public class BuildLevel extends JFrame {
 		lblRuestung.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/ruestung.PNG")));
 		lblRuestung.setVisible(true);
 		Content.add(lblRuestung);
-		
-		// Label für die Anzeige der Rüstung im Inventar
-		lblRuestungAnzeige  = new JLabel("");
-		lblRuestungAnzeige.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/ruestung.PNG")));
-		lblRuestungAnzeige.setBounds(265, 265, 50, 15);	
-		lblRuestungAnzeige.setVisible(false);
-		Content.add(lblRuestungAnzeige);
 		
 		lblMedikit = new JLabel ("0 ");
 		lblMedikit.setBounds(220 ,295, 50, 15);

@@ -11,10 +11,10 @@ import java.awt.event.KeyEvent;
 
 
 
-public class BuildLevel extends JFrame{
+public class BuildLevel_Server extends JFrame{
 
 	/**
-	 * 
+	 *  Aequivalent zu BuildLevel
 	 */
 	private static final long serialVersionUID = 1L;
 	public static JPanel contentPane;
@@ -148,7 +148,7 @@ public class BuildLevel extends JFrame{
 	 * Frame erzeugen und Objekte implementieren
 	 */
 	
-	public BuildLevel() {
+	public BuildLevel_Server() {
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -184,6 +184,7 @@ public class BuildLevel extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 400);
+		setTitle("BuildLevel - Server Version 1.0");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

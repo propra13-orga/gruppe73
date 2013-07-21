@@ -1,18 +1,24 @@
 package Network;
 
+import Network.BuildLevel;
+
 public class Timer {
 	
 	public static boolean stopFlag = false;
+	private int counter = 0;
 	
 	public void counter() {
-		long timeout = 50;
+		long timeout = 250;
 		while(!stopFlag) {
 			try{
 				Thread.sleep(timeout);
-				//BuildLevel.PlayerFire();
-				//BuildLevel.repainter();
-				System.out.println("Bla");
-				stopFlag = false;
+				System.out.println("Package Network;\nTimer.counter(): "+ counter + "; " + timeout + " Millisekunden gewartet.");
+				counter = counter + 1;
+				if (Network.BuildLevel.PlayerFireActive) {
+					Network.BuildLevel.fire(null);
+				}
+				
+				
 			} catch (InterruptedException ie) {
 				ie.printStackTrace();
 			}
