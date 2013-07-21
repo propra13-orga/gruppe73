@@ -105,7 +105,7 @@ public class LobbyClient extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent Event) {
 				// TODO Auto-generated method stub
-				ServerChat.main(null);
+				//ServerChat.main(null);
 				
 			}
 			
@@ -117,14 +117,17 @@ public class LobbyClient extends JFrame {
 		
 		JButton btnStartGame = new JButton("Start Game");
 		btnStartGame.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-		btnStartGame.setBounds(289, 196, 117, 22);
+		btnStartGame.setBounds(289, 196, 117, 23);
 		contentPane.add(btnStartGame);
 		
 		btnStartGame.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent Event) {
-				// TODO Auto-generated method stub
+				
+				Network.BuildLevel_Server.main(null);
+				
+				
 				
 			}
 			

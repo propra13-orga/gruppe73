@@ -130,12 +130,12 @@ public class ServerChat extends javax.swing.JFrame {
       }
     
     public static void player1movement(String MovementData) {
-    	
+
     	try {
             writer.println(username + ":" + MovementData + ":" + "chat");
             writer.flush(); // flushes the buffer
          } catch (Exception ex) {
-             chatTextArea.append("Game out of sync!\n");
+             chatTextArea.append("Game out of sync! \n");
          }
     	
     }
