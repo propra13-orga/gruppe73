@@ -4,6 +4,10 @@ import dungeoncrawler.CollisionControl;
 import dungeoncrawler.Gegner;
 import dungeoncrawler.LevelControl;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+
+import Spielstaende.Laden;
+import Spielstaende.Speichern;
 
 
 
@@ -21,6 +25,8 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     public static boolean stopFlag = false;
     public static boolean moveUp = true;
     public static boolean moveDown = false;
+    public static boolean gespeichert = false;
+    public static boolean laden = false;
     
 
     public void keyTyped(java.awt.event.KeyEvent e) {}
@@ -46,6 +52,15 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        }
 		        if (e.getKeyCode() == KeyEvent.VK_C) {
 		        	Player.WaffeWechseln(null);
+		        }
+		        if (e.getKeyCode() == KeyEvent.VK_S) {
+		        	Speichern.main(null);
+		        	gespeichert = true;
+		        }
+		        if(e.getKeyCode() == KeyEvent.VK_L){
+					Laden.main(null);
+					BuildLevel.gespeichertesSpiel(null);
+					System.out.println("Ich lade das gespeicherte Spiel");
 		        }
 		        if (e.getKeyCode() == KeyEvent.VK_M){ 
 		        	if (Player.Medikit > 0){

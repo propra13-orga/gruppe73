@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import Spielstaende.Laden;
 import dungeoncrawler.LoadLevel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -1087,6 +1089,29 @@ public class BuildLevel extends JFrame {
 				
 			}
 		}
+		
+	}                                             
+	
+	/**
+	 * Methode die das im String gespeicherte Spiel wieder aufruft.
+	 * 
+	 * @param args
+	 */
+	
+	public static void gespeichertesSpiel(String args[]){
+		BuildLevel.Current_Level = Laden.intgespeichertesLevel-1;
+		BuildLevel.change_level_phase = true;
+		//BuildLevel.neuesLevel(null);
+		lblPlayer.setBounds(Laden.intPlayerPosX, Laden.intPlayerPosY, lblPlayer.getWidth(), lblPlayer.getHeight());
+		Player.AktuelleWaffe = Laden.waffe;
+		Player.Arrow = Laden.pfeil;
+		Player.Bow = Laden.bogen;
+		Player.CurrentPoints = Laden.punkte;
+		Player.Lives = Laden.leben;
+		Player.Manadrinks = Laden.mana;
+		Player.Medikit = Laden.medi;
+		Player.PlayerPower = Laden.intpower;
+		Player.PlayerSword = Laden.schwert;
 		
 	}
 		
