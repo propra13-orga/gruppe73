@@ -65,7 +65,7 @@ public class Laden {
 			
 			try {
 				if(MovementListener.gespeichert == true){
-				auslesen = new BufferedReader(new FileReader(FilePath+FileName));
+				auslesen = new BufferedReader(new FileReader(FilePath+"src/dungeoncrawler/"+FileName));
 				gespeichertesLevel = auslesen.readLine();
 				intgespeichertesLevel = Integer.parseInt(gespeichertesLevel);
 				

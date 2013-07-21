@@ -30,7 +30,7 @@ public class Speichern {
 		
 		if(MovementListener.gespeichert == true){
 			try{
-				String FilePath = System.getProperty(Dateiname);
+				String FilePath = System.getProperty("user.dir");
 				@SuppressWarnings("resource")
 				PrintWriter pWriter = new PrintWriter(new FileWriter(FilePath+"/src/dungeoncrawler/"+Dateiname));
 				pWriter.println(BuildLevel.Current_Level+"\n" + BuildLevel.getCurrentPlayerPos(0)+"\n" + BuildLevel.getCurrentPlayerPos(1) +"\n" + Player.AktuelleWaffe + "\n" + Player.Arrow + "\n" + Player.Bow + "\n" + Player.CurrentPoints + "\n" + Player.Lives + "\n" + Player.Manadrinks + "\n" + Player.Medikit + "\n" + Player.PlayerPower + "\n" + Player.PlayerSword + "\n");
