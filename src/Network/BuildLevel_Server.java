@@ -41,14 +41,14 @@ public class BuildLevel_Server extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BuildLevel frame = new BuildLevel();
+					BuildLevel_Server frame = new BuildLevel_Server();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		Timer counter = new Timer();
+		Timer_Server counter = new Timer_Server();
 		counter.counter();
 	}
 	
@@ -191,13 +191,13 @@ public class BuildLevel_Server extends JFrame{
 		contentPane.setLayout(null);
 		
 		lblPlayer = new JLabel("");
-		lblPlayer.setIcon(new ImageIcon(BuildLevel.class.getResource("/Resources/player2.PNG")));
-		lblPlayer.setBounds(0, 0, 30, 30);
+		lblPlayer.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/Resources/player2.PNG")));
+		lblPlayer.setBounds(60, 135, 30, 30);
 		contentPane.add(lblPlayer);
 		
 		lblGegner = new JLabel("");
-		lblGegner.setIcon(new ImageIcon(BuildLevel.class.getResource("/Resources/player2.PNG")));
-		lblGegner.setBounds(0, 0, 30, 30);
+		lblGegner.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/Resources/player2.PNG")));
+		lblGegner.setBounds(465, 135, 30, 30);
 		contentPane.add(lblGegner);
 		
 		JLabel lblSpieler1 = new JLabel("Spieler 1:");
@@ -209,29 +209,29 @@ public class BuildLevel_Server extends JFrame{
 		contentPane.add(lblSpieler2);
 		
 		JLabel lblBarPly1 = new JLabel("");
-		lblBarPly1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/green.PNG")));
+		lblBarPly1.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/green.PNG")));
 		lblBarPly1.setBounds(81, 307, 50, 15);
 		contentPane.add(lblBarPly1);
 		
 		JLabel lblBarPly2 = new JLabel("");
-		lblBarPly2.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/green.PNG")));
+		lblBarPly2.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/green.PNG")));
 		lblBarPly2.setBounds(81, 335, 50, 15);
 		contentPane.add(lblBarPly2);
 		
 		lblEnemyFire = new JLabel ("");
 		lblEnemyFire.setBounds(300, 300, 15, 10);
-		lblEnemyFire.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/EnemyFire.PNG")));
+		lblEnemyFire.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/EnemyFire.PNG")));
 		lblEnemyFire.setVisible(true);
 		contentPane.add(lblEnemyFire);
 		
 		lblPlayerFire1 = new JLabel ("");
 		lblPlayerFire1.setBounds(300, 300, 15, 10);
-		lblPlayerFire1.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/EnemyFire.PNG")));
+		lblPlayerFire1.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/EnemyFire.PNG")));
 		lblPlayerFire1.setVisible(true);
 		contentPane.add(lblPlayerFire1);
 		
 		JLabel lblfussballfeld = new JLabel("");
-		lblfussballfeld.setIcon(new ImageIcon(BuildLevel.class.getResource("/Resources/fussballfeld.jpg")));
+		lblfussballfeld.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/Resources/fussballfeld.jpg")));
 		lblfussballfeld.setBounds(0, 0, 550, 295);
 		contentPane.add(lblfussballfeld);
 		

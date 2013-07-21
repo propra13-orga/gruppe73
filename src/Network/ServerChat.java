@@ -127,6 +127,17 @@ public class ServerChat extends javax.swing.JFrame {
         usersList.setText("");
 
       }
+    
+    public void player1movement(String MovementData) {
+    	
+    	try {
+            writer.println(username + ":" + MovementData + ":" + "chat");
+            writer.flush(); // flushes the buffer
+         } catch (Exception ex) {
+             chatTextArea.append("Game out of sync!\n");
+         }
+    	
+    }
     /** 
      * Initiation der Komponenten
      */
@@ -299,7 +310,9 @@ public class ServerChat extends javax.swing.JFrame {
         // TODO add your handling code here:
         sendDisconnect();
         Disconnect();
-    }                                                
+    } 
+    
+    
 
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:

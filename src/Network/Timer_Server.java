@@ -1,8 +1,8 @@
 package Network;
 
-import Network.BuildLevel;
+import Network.BuildLevel_Server;
 
-public class Timer {
+public class Timer_Server {
 	
 	public static boolean stopFlag = false;
 	private int counter = 0;
@@ -14,8 +14,8 @@ public class Timer {
 				Thread.sleep(timeout);
 				System.out.println("Package Network;\nTimer.counter(): "+ counter + "; " + timeout + " Millisekunden gewartet.");
 				counter = counter + 1;
-				if (Network.BuildLevel.PlayerFireActive) {
-					Network.BuildLevel.fire(null);
+				if (Network.BuildLevel_Server.PlayerFireActive) {
+					Network.BuildLevel_Server.fire(null);
 				}
 				
 				
