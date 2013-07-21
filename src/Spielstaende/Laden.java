@@ -65,18 +65,22 @@ public class Laden {
 			
 			try {
 				if(MovementListener.gespeichert == true){
-				auslesen = new BufferedReader(new FileReader(FilePath+"src/dungeoncrawler/"+FileName));
+				auslesen = new BufferedReader(new FileReader(FilePath+"/src/dungeoncrawler/"+FileName));
 				gespeichertesLevel = auslesen.readLine();
 				intgespeichertesLevel = Integer.parseInt(gespeichertesLevel);
+				System.out.println(gespeichertesLevel);
 				
 				PlayerPosX = auslesen.readLine();
 				intPlayerPosX = Integer.parseInt(PlayerPosX);
+				System.out.println(PlayerPosX);
 				
 				PlayerPosY = auslesen.readLine();
 				intPlayerPosY = Integer.parseInt(PlayerPosY);
+				System.out.println(PlayerPosY);
 				
 				Waffe = auslesen.readLine();
 				waffe = Waffe.charAt(0);
+				System.out.println(waffe);
 				
 				Pfeil = auslesen.readLine();
 				pfeil = Pfeil.charAt(0);
@@ -101,6 +105,8 @@ public class Laden {
 				
 				Schwert = auslesen.readLine();
 				schwert = Schwert.charAt(0);
+				
+				System.out.println("Datei wurde geladen");
 				} 
 			}catch (IOException e) {
 				// TODO Auto-generated catch block
