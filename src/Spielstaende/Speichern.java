@@ -29,7 +29,7 @@ public class Speichern {
 		try{
 			String FilePath = System.getProperty("user.dir");
 			@SuppressWarnings("resource")
-			PrintWriter pWriter = new PrintWriter(new FileWriter(FilePath+"/src/dungeoncrawler/"+Dateiname));
+			PrintWriter pWriter = new PrintWriter(new FileWriter(FilePath+"/src/Spielstaende/Spielstand/"+Dateiname));
 			pWriter.println(BuildLevel.Current_Level+"\n" + BuildLevel.getCurrentPlayerPos(0)+"\n" + BuildLevel.getCurrentPlayerPos(1) +"\n" + Player.AktuelleWaffe + "\n" + Player.Arrow + "\n" + Player.Bow + "\n" + Player.CurrentPoints + "\n" + Player.Lives + "\n" + Player.Manadrinks + "\n" + Player.Medikit + "\n" + Player.PlayerPower + "\n" + Player.PlayerSword + "\n");
 			pWriter.flush();
 			JOptionPane.showMessageDialog(null , "Datei wurde gespeichert.", "Datei wurde gespeichert!", JOptionPane.INFORMATION_MESSAGE);
