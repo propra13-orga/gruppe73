@@ -25,6 +25,7 @@ public class ServerChat extends javax.swing.JFrame {
     static PrintWriter writer;
     ArrayList<String> userList = new ArrayList();
     Boolean isConnected = false;
+    public static javax.swing.JTextArea chatTextArea;
     
 
 
@@ -145,10 +146,10 @@ public class ServerChat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         inputTextArea = new javax.swing.JTextArea();
-        ScrollChatTextArea = new javax.swing.JScrollPane();
-        chatTextArea = new javax.swing.JTextArea();
+        ScrollChatTextArea2 = new javax.swing.JScrollPane();
+        //chatTextArea = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         connectButton = new javax.swing.JButton();
@@ -162,19 +163,19 @@ public class ServerChat extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Chat Client");
+        setTitle("Chat Server");
 
         inputTextArea.setColumns(20);
         inputTextArea.setLineWrap(true);
         inputTextArea.setRows(5);
-        jScrollPane1.setViewportView(inputTextArea);
+        jScrollPane2.setViewportView(inputTextArea);
 
         chatTextArea.setColumns(20);
         chatTextArea.setEditable(false);
         chatTextArea.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         chatTextArea.setLineWrap(true);
         chatTextArea.setRows(5);
-        ScrollChatTextArea.setViewportView(chatTextArea);
+        ScrollChatTextArea2.setViewportView(chatTextArea);
 
         jLabel1.setText("Username:");
 
@@ -236,10 +237,10 @@ public class ServerChat extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(ScrollChatTextArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ScrollChatTextArea2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -267,11 +268,11 @@ public class ServerChat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ScrollChatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ScrollChatTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)))
                     .addComponent(ScrollUserList))
                 .addContainerGap())
         );
@@ -295,7 +296,7 @@ public class ServerChat extends javax.swing.JFrame {
                 writer.println(username + ":has connected.:Connect"); // Displays to everyone that user connected.
                 writer.flush(); // flushes the buffer
                 isConnected = true; // Used to see if the client is connected.
-                LobbyClient.main(null);
+                //LobbyClient.main(null);
             } catch (Exception ex) {
                 chatTextArea.append("Cannot Connect! Try Again. \n");
                 usernameField.setEditable(true);
@@ -350,14 +351,13 @@ public class ServerChat extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Chat().setVisible(true);
+                new ServerChat().setVisible(true);
             }
         });
-        ServerWindow.main(null);
+        //ServerWindow.main(null);
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JTextArea chatTextArea;
     private javax.swing.JButton connectButton;
     private javax.swing.JButton disconnectButton;
     private javax.swing.JTextArea inputTextArea;
@@ -366,8 +366,8 @@ public class ServerChat extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane ScrollChatTextArea;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane ScrollChatTextArea2;
     private javax.swing.JScrollPane ScrollUserList;
     private javax.swing.JButton sendButton;
     private javax.swing.JTextField usernameField;

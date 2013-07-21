@@ -145,7 +145,7 @@ public class BuildLevel_Server extends JFrame{
 	
 	public static void CommitMovementToServer () {
 		
-		ServerChat
+		ServerChat.player1movement("Blupp");
 		
 	}
 	
