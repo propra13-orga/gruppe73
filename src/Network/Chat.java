@@ -5,12 +5,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.io.*;
 import java.util.*;
-import javax.swing.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 /**
  *Klasse für den "normalen" Chat User. 
  * 
@@ -22,13 +18,14 @@ public class Chat extends JFrame {
 	 * ArrayList bildet die Online User List
 	 */
 	private static final long serialVersionUID = 1L;
-	String username, serverIP = "127.0.0.1 ";
+	static String username, serverIP = "127.0.0.1 ";
     int Port = 5000;
     Socket sock;
     BufferedReader reader;
-    PrintWriter writer;
+    static PrintWriter writer;
     ArrayList<String> userList = new ArrayList();
     Boolean isConnected = false;
+    public static javax.swing.JTextArea chatTextArea;
     
     
 
@@ -50,7 +47,7 @@ public class Chat extends JFrame {
 
         public void run() {
             String[] data;
-            String stream, done = "Done", connect = "Connect", disconnect = "Disconnect", chat = "Chat";
+            String stream, done = "Done", connect = "Connect", disconnect = "Disconnect", chat = "Chat", commitPLY1 = "commitPLY1", commitPLY2 = "commitPLY2";
 
             try {
                 while ((stream = reader.readLine()) != null) {
@@ -62,6 +59,17 @@ public class Chat extends JFrame {
                         chatTextArea.append(data[0] + ": " + data[1] + "\n");
                         chatTextArea.setCaretPosition(chatTextArea.getDocument().getLength());
 
+                    } else if (data[2].equals(commitPLY1)) {
+                    	String Movement = data[1];
+                    	int Xcoord = Integer.parseInt(Movement.substring(0, 3));
+                    	int Ycoord = Integer.parseInt(Movement.substring(3, 6));
+                    	BuildLevel_Client.movePlayerEXT(Xcoord, Ycoord);
+                    	
+                    } else if (data[2].equals(commitPLY2)) {
+                    	
+                    	// do nothing | You moved yourself.
+                    	
+                    	
                     } else if (data[2].equals(connect)){
 
                         chatTextArea.removeAll();
@@ -138,6 +146,17 @@ public class Chat extends JFrame {
         usersList.setText("");
 
       }
+    
+    public static void player2movement(String MovementData) {
+
+    	try {
+            writer.println(username + ":" + MovementData + ":" + "commitPLY1");
+            writer.flush(); // flushes the buffer
+         } catch (Exception ex) {
+            chatTextArea.append("Game out of sync! \n");
+         }
+    	
+    }
     /**
      * initiert die Komponenten  
      */
@@ -352,7 +371,6 @@ public class Chat extends JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JTextArea chatTextArea;
     private javax.swing.JButton connectButton;
     private javax.swing.JButton disconnectButton;
     private javax.swing.JTextArea inputTextArea;

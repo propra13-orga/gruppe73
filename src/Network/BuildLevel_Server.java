@@ -1,15 +1,10 @@
 package Network;
 
-import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import dungeoncrawler.BuildLevel;
-
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -25,13 +20,20 @@ public class BuildLevel_Server extends JFrame{
 	public static JPanel contentPane;
 	public static int newX;
 	public static int newY;
+	public static int newXgegner;
+	public static int newYgegner;
 	public static javax.swing.JLabel lblPlayer;
 	public static javax.swing.JLabel lblGegner;
 	public static javax.swing.JLabel lblEnemyFire;
 	public static javax.swing.JLabel lblPlayerFire1;
+	public static javax.swing.JLabel lblBarPly1;
+	public static javax.swing.JLabel lblBarPly2;
 	public static boolean PlayerFired = false;
 	public static boolean PlayerFireActive = false;
 	public static int PlayerFire1StartX;
+	
+	public static int PlayerEnergy = 4;
+	public static int GegnerEnergy = 4;
 	
 
 	/**
@@ -93,6 +95,44 @@ public class BuildLevel_Server extends JFrame{
 	}
 	
 	
+	public static void PlayerSchaden() {
+		PlayerEnergy = PlayerEnergy-1;
+		if (PlayerEnergy >= 4) {
+			lblBarPly1.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/green.PNG")));
+			contentPane.repaint();
+		} else if (PlayerEnergy == 3) {
+			lblBarPly1.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/yellow1.PNG")));
+			contentPane.repaint();
+		} else if (PlayerEnergy == 2) {
+			lblBarPly1.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/yellow2.PNG")));
+			contentPane.repaint();
+		} else if (PlayerEnergy == 1) {
+			lblBarPly1.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/red.PNG")));
+			contentPane.repaint();
+		} else if (PlayerEnergy == 0) {
+			//GameOver();
+		}
+	}
+	
+	public static void GegnerSchaden() {
+		GegnerEnergy = GegnerEnergy-1;
+		if (GegnerEnergy >= 4) {
+			lblBarPly2.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/green.PNG")));
+			contentPane.repaint();
+		} else if (GegnerEnergy == 3) {
+			lblBarPly2.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/yellow1.PNG")));
+			contentPane.repaint();
+		} else if (GegnerEnergy == 2) {
+			lblBarPly2.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/yellow2.PNG")));
+			contentPane.repaint();
+		} else if (GegnerEnergy == 1) {
+			lblBarPly2.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/red.PNG")));
+			contentPane.repaint();
+		} else if (GegnerEnergy == 0) {
+			//GameOver();
+		}
+	}
+	
 	public static void fire(String args[]) {
 
 		System.out.print("Network.BuildLevel.fire(): Schuss abgegeben");
@@ -119,7 +159,11 @@ public class BuildLevel_Server extends JFrame{
 		if ((lblPlayerFire1.getX() >= lblGegner.getX())&(lblPlayerFire1.getX() <= (lblGegner.getX()+30))) {
 		 
 			if ((lblPlayerFire1.getY() >= lblGegner.getY())&(lblPlayerFire1.getY() <= (lblGegner.getY()+30))) {
-
+				
+				GegnerSchaden();
+				lblPlayerFire1.setBounds(400, 400, 15, 10);
+				PlayerFired = false;
+				PlayerFireActive = false;
 				System.out.println("You won.");
 			
 			}
@@ -141,8 +185,34 @@ public class BuildLevel_Server extends JFrame{
 	
 	public static void CommitMovementToServer () {
 		
-		ServerChat.player1movement("Blupp");
+		ServerChat.player1movement(ZU(lblPlayer.getX())+ZU(lblPlayer.getY()));
 		
+	}
+	
+	public static void moveGegnerEXT (int Xcoord, int Ycoord) {
+		
+		newXgegner = Xcoord;
+		newYgegner = Ycoord;
+	
+		lblGegner.setBounds(newXgegner, newYgegner, lblGegner.getX(), lblGegner.getY());
+		
+		contentPane.repaint();
+		
+	}
+	
+	public static String ZU(int Eingabe) {
+		String Verarbeitung = ""+Eingabe;
+		String Ausgabe;
+		
+		if (Verarbeitung.length() == 1) {
+			Ausgabe = "00" + Verarbeitung;
+		} else if (Verarbeitung.length() == 2) {
+			Ausgabe = "0"+ Verarbeitung;
+		} else {
+			Ausgabe = Verarbeitung;
+		}
+		
+		return Ausgabe;
 	}
 	
 
@@ -215,12 +285,12 @@ public class BuildLevel_Server extends JFrame{
 		lblSpieler2.setBounds(10, 335, 61, 16);
 		contentPane.add(lblSpieler2);
 		
-		JLabel lblBarPly1 = new JLabel("");
+		lblBarPly1 = new JLabel("");
 		lblBarPly1.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/green.PNG")));
 		lblBarPly1.setBounds(81, 307, 50, 15);
 		contentPane.add(lblBarPly1);
 		
-		JLabel lblBarPly2 = new JLabel("");
+		lblBarPly2 = new JLabel("");
 		lblBarPly2.setIcon(new ImageIcon(BuildLevel_Server.class.getResource("/dungeoncrawler/green.PNG")));
 		lblBarPly2.setBounds(81, 335, 50, 15);
 		contentPane.add(lblBarPly2);

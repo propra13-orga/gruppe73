@@ -40,7 +40,7 @@ public class ServerChat extends javax.swing.JFrame {
 
         public void run() {
             String[] data;
-            String stream, done = "Done", connect = "Connect", disconnect = "Disconnect", chat = "Chat";
+            String stream, done = "Done", connect = "Connect", disconnect = "Disconnect", chat = "Chat", commitPLY1 = "commitPLY1", commitPLY2 = "commitPLY2";
 
             try {
                 while ((stream = reader.readLine()) != null) {
@@ -52,6 +52,18 @@ public class ServerChat extends javax.swing.JFrame {
                         chatTextArea.append(data[0] + ": " + data[1] + "\n");
                         chatTextArea.setCaretPosition(chatTextArea.getDocument().getLength());
 
+                    } else if (data[2].equals(commitPLY1)) {
+                    	
+                    	// do nothing | You moved yourself.
+                    	
+                    } else if (data[2].equals(commitPLY2)) {
+                    	
+                    	String Movement = data[1];
+                    	int Xcoord = Integer.parseInt(Movement.substring(0, 3));
+                    	int Ycoord = Integer.parseInt(Movement.substring(3, 6));
+                    	BuildLevel_Server.moveGegnerEXT(Xcoord, Ycoord);
+                    	
+                    	
                     } else if (data[2].equals(connect)){
 
                         chatTextArea.removeAll();
@@ -132,10 +144,10 @@ public class ServerChat extends javax.swing.JFrame {
     public static void player1movement(String MovementData) {
 
     	try {
-            writer.println(username + ":" + MovementData + ":" + "chat");
+            writer.println(username + ":" + MovementData + ":" + "commitPLY1");
             writer.flush(); // flushes the buffer
          } catch (Exception ex) {
-             chatTextArea.append("Game out of sync! \n");
+            chatTextArea.append("Game out of sync! \n");
          }
     	
     }

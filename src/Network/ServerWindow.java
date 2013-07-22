@@ -41,7 +41,7 @@ public class ServerWindow extends javax.swing.JFrame {
 		} 
 
 		public void run() {
-                        String message, connect = "Connect", disconnect = "Disconnect", chat = "Chat", ready = "is ready to play!", card = "card", choosen = "choosen";
+                        String message, connect = "Connect", disconnect = "Disconnect", chat = "Chat", ready = "is ready to play!", card = "card", choosen = "choosen", commitPLY1 = "commitPLY1", commitPLY2 = "commitPLY2";
 			String[] data;
 
 			try {
@@ -69,11 +69,19 @@ public class ServerWindow extends javax.swing.JFrame {
 
                                             tellEveryone(message);
 
-					}else if (data[2].equals(ready)){
+					} else if (data[2].equals(commitPLY1)) {
+						
+											tellPLYmoved(message);
+						
+					} else if (data[2].equals(commitPLY2)) {
+						
+											tellPLYmoved(message);
+	
+					} else if (data[2].equals(ready)){
 						
 											outputPane.append(ready + "\n");
 						
-					}else {
+					} else {
                                             outputPane.append("No Conditions were met. \n");
                                         }
 
@@ -275,7 +283,7 @@ public class ServerWindow extends javax.swing.JFrame {
 	 * Die Methode tellEveryone sendet die NAchrichten an alle die mit dem Server verbunden.
 	 * @param message
 	 */
-        public void tellEveryone(String message) {
+    public void tellEveryone(String message) {
 	
 		Iterator it = clientOutputStreams.iterator();
 
@@ -292,6 +300,27 @@ public class ServerWindow extends javax.swing.JFrame {
 				outputPane.append("Error telling everyone. \n");
 			}
 		} 
+    }
+		
+	
+	public void tellPLYmoved(String message) {
+		
+		Iterator it = clientOutputStreams.iterator();
+
+		while (it.hasNext()) {
+			try {
+				PrintWriter writer = (PrintWriter) it.next();
+				writer.println(message);
+				outputPane.append("Sending: " + message + "\n");
+                                writer.flush();
+                                outputPane.setCaretPosition(outputPane.getDocument().getLength());
+
+			} 
+			catch (Exception ex) {
+				outputPane.append("Error telling everyone. \n");
+			}
+		} 
+	
 	} 
 
 
