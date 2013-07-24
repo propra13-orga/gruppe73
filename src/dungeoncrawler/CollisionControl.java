@@ -14,13 +14,12 @@ public class CollisionControl {
 	 */
 	
 	public static Boolean permit_movement;
+	public static boolean meet_NPC = false;
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		
-		
+				
 	
 		
 		
@@ -67,8 +66,23 @@ public class CollisionControl {
 	}
 
 	
-
-	
+	/*
+	 * NPC-Kollisionsabfrage
+	 * =====================
+	 * 
+	 */
+	public static void meet_NPC(String args[]) {
+		
+		if (meet_NPC == false) {	
+			String Current_LevelMap = LoadLevel.Current_LevelMap;
+			if (Current_LevelMap.charAt(PlyPosUmrechnen()+1) == 'I'|Current_LevelMap.charAt(PlyPosUmrechnen()-20)=='I') {
+				StoryNPC.main(null);
+				LevelControl.Shop_opened = true;
+				
+			}
+			
+		}
+	}
 
 	
 	

@@ -130,6 +130,9 @@ public class LoadLevel {
 			String StrU = "U";
 			char[] ChaU = StrU.toCharArray();
 			
+			String StrI = "I";
+			char[] ChaI = StrI.toCharArray();
+			
 			
 			
 			if (SingleChar[position] == ChaP[0]) {
@@ -242,6 +245,10 @@ public class LoadLevel {
 			
 			else if (SingleChar[position] == ChaU[0]) {
 				output = "/dungeoncrawler/Zinnen.PNG";
+			}
+			
+			else if (SingleChar[position] == ChaI[0]) {
+				output = "/dungeoncrawler/NPC.PNG";
 			}
 		return output;
 	}

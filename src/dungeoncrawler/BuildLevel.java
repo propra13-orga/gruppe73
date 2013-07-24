@@ -30,6 +30,7 @@ public class BuildLevel extends JFrame {
 	private static JPanel Content;
 	private static final long serialVersionUID = 1L;
 	private static MovementListener mListener;
+
 	
 	// ZUSTÄNDE (INTEGER):
 	// ###################
@@ -431,6 +432,17 @@ public class BuildLevel extends JFrame {
 		lblPunkteanzeige.setText(Player.CurrentPoints+" ");
 		Content.repaint();
 	}
+	
+
+	//Schließen des NPC Fensters
+	public static void StoryNPCSchliessen(String args[]) {
+		
+		java.awt.Rectangle pos = lblPlayer.getBounds();
+		newX = pos.x;  
+		newY = pos.y + 15; 
+		Content.repaint();
+	}
+	
 	
 	public static void FeldNeuzeichnen(String args[]) {
 		Content.repaint();

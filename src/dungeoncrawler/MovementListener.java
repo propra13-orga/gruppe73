@@ -21,7 +21,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
     
 
     public void keyPressed(java.awt.event.KeyEvent e) {
-	    if (LevelControl.Shop_opened == false) {	
+	    if (LevelControl.Shop_opened == false|LevelControl.NPC_in == false) {	
     		if (stopFlag == false) {
 		        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 		        	CollisionControl.left(null);
@@ -49,7 +49,7 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        LevelControl.Item_pickUp(null);
 		        LevelControl.Shop_open(null);
 		        LevelControl.door_collision(null);
-		        
+		        CollisionControl.meet_NPC(null);
 		        
 		        // Spielfeld aktualisieren:
 		        

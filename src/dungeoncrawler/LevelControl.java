@@ -50,6 +50,7 @@ public class LevelControl {
 	
 
 	public static boolean Shop_opened = false;
+	public static boolean NPC_in = false; 
 
 	
 	
@@ -95,6 +96,8 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item1Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item1Type == 'R') {
+					Pfad = "/dungeoncrawler/ruestung.PNG";
 				} /*else if (Item1Type == 'W') {
 					Pfad = ("/dungeoncrawler/hexe.PNG");
 				} else if (Item1Type == 'G') {
@@ -120,6 +123,8 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item2Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item2Type == 'R') {
+					Pfad = "/dungeoncrawler/ruestung.PNG";
 				}
 				
 		// ITEM 3:
@@ -139,6 +144,8 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item3Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item3Type == 'R') {
+					Pfad = "/dungeoncrawler/ruestung.PNG";
 				}
 				
 		// ITEM 4:
@@ -158,6 +165,8 @@ public class LevelControl {
 					Pfad = "/dungeoncrawler/bogen.PNG";
 				} else if (Item4Type == 'B') {
 					Pfad = "/dungeoncrawler/boooo.PNG";
+				} else if (Item4Type == 'R') {
+					Pfad = "/dungeoncrawler/ruestung.PNG";
 				} 
 			}
 		
@@ -175,7 +184,7 @@ public class LevelControl {
 			
 		}
 	}
-	
+
 	public static void Item_pickUp(String args[]) {
 		if (gotItem1 == false) {	
 			if (BuildLevel.getCurrentPlayerPos(0) == Item1X) {
