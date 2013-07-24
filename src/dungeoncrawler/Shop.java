@@ -75,7 +75,7 @@ public class Shop extends JFrame {
 	 */
 	public Shop() {
 		ShopContent = new JPanel();
-		setBounds(300, 300, 415, 398);
+		setBounds(615, 300, 415, 398);
 		ShopContent.setBorder(null);
 		setContentPane(ShopContent);
 		setDefaultCloseOperation(BuildLevel.DO_NOTHING_ON_CLOSE);
