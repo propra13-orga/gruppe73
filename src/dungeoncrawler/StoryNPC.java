@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,11 +22,11 @@ public class StoryNPC extends JFrame {
     public static boolean stopFlag = false;
 	private static JPanel NPC_Interaction;
 	public static javax.swing.JLabel lblNPC;
-	public String TextL11 = "Kyle, dein Dorf ist angegriffen worden. Du musst schnell nach Hause und helfen!";
-	public String TextL13 = "Es schien, als würde das Grauen dass dein Dorf angegriffen hat aus dem dunklen Wald kommen.";
-	public String TextL23 = "Der Großteil der Menschen ist nach dem Angriff der bösen Hexe geflohen. Bitte Hilf uns und befrei das Dorf von ihr!";
-	public String TextL31 = "Das Grauen zog wie ein Schatten über dein Dorf, der Himmel verdunkelte sich, die Luft begann zu flimmern und Dinge gingen plötzlich in Flammen auf.";
-	public String TextL33 = "Er schien wie eins der längst ausgestorbenen Wesen zu sein. Die Lösung der Probleme in der Gegenwart scheint ihren Ursprung in der Vergangenheit zu haben.";
+	public String TextL11 = "<html>Kyle, dein Dorf ist angegriffen worden.<br> Du musst schnell nach Hause und helfen!</html>";
+	public String TextL13 = "<html>Es schien, als würde das Grauen,<br> das dein Dorf angegriffen hat, <br> aus dem dunklen Wald kommen.</html>";
+	public String TextL23 = "<html>Der Großteil der Menschen ist <br>nach dem Angriff der bösen Hexe geflohen.<br> Bitte Hilf uns und befrei das Dorf von ihr!</html>";
+	public String TextL31 = "<html>Das Grauen zog wie ein Schatten über dein Dorf,<br> der Himmel verdunkelte sich, die Luft begann zu flimmern <br> und Dinge gingen plötzlich in Flammen auf.</html>";
+	public String TextL33 = "<html>Er schien wie eins der längst ausgestorbenen Wesen zu sein.<br> Die Lösung der Probleme in der Gegenwart scheint <br> ihren Ursprung in der Vergangenheit zu haben.</html>";
 	
 	
 	/**
@@ -86,42 +85,44 @@ public class StoryNPC extends JFrame {
 			}
 		});
 		
+		
+		
+		JLabel lblText = new JLabel("");
+		
+		// Abfrage welcher Text gewählt werden soll:
+		if (BuildLevel.Current_Level == 1) {
+			lblText.setText(TextL11);
+		} else if (BuildLevel.Current_Level == 5 ) 	{
+			lblText.setText(TextL13);
+		} else if (BuildLevel.Current_Level == 11 ) {
+			lblText.setText(TextL23);	
+		} else if (BuildLevel.Current_Level == 13) 	{
+			lblText.setText(TextL31);
+		} else if (BuildLevel.Current_Level == 17)	{
+			lblText.setText(TextL33);
+		}
+		
+		
+		lblText.setBounds(250, 90, 250, 250);
+		lblText.setVisible(true);
+		lblText.setFont(new Font("Arial",Font.BOLD, 20));
+		add(lblText);		
+		
 		JLabel lblNPCBackground = new JLabel("");
 		lblNPCBackground.setBackground(Color.WHITE);
 		lblNPCBackground.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/BackgroundNPC.PNG")));
 		lblNPCBackground.setBounds(0, 0, 567, 416);
 		add(lblNPCBackground);
 		
-		JLabel lblText = new JLabel("");
-		lblText.setFont(new Font("Stencil", Font.PLAIN, 13));
-		lblText.setBounds(70, 153, 70, 15);
-		add(lblText);		
-		
 		
 	};
 	
-	 public void keyTyped(java.awt.event.KeyEvent t) {}
-	    
-
-	  /**  public void keyPressed(java.awt.event.KeyEvent t) {
-		    if (LevelControl.NPC_in == false) {	
-	    		if (stopFlag == false) {
-			        if (t.getKeyCode() == KeyEvent.VK_T) {
-			        	Shop.main(null);
-			        }
-			       
-			        	
-			        }
-		    }
-	    }**/
 	
 		
-		public static void getText(String args[]){
-			if (BuildLevel.Current_Level == 1){
-				
-			}
+
 			
-		}
+			
+		
 			
 
 }
