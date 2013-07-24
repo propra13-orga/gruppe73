@@ -511,6 +511,14 @@ public class Shop extends JFrame {
 			        
 			        BuildLevel.refreshInventar(null);
 			        
+			        WKSchwert = 0;
+			        WKMedikit = 0;
+			        WKBogen = 0;
+			        WKMana = 0;
+			        WKRuestung = 0;
+			        WKPfeil = 0;
+			        WKBudgetnachKauf = 0;
+			        
 	        		dispose();
 				}
 			
