@@ -82,10 +82,6 @@ public class Shop extends JFrame {
 		setLayout(null);
 		setTitle("Dungeoncrawler - SHOP");
 		
-		JLabel lblShop = new JLabel("Shop");
-		lblShop.setFont(new Font("Arial",Font.BOLD, 28));
-		lblShop.setBounds(173, 11, 98, 34);
-		add(lblShop);
 		
 	/*
 	 *  MEDIKIT
