@@ -1,5 +1,7 @@
 package dungeoncrawler;
 
+import java.io.IOException;
+
 
 public class LevelControl {
 
@@ -301,6 +303,13 @@ public class LevelControl {
 				        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
 				        	SavePointAnzeige = true;
 				        	Player.Arrow = Player.Arrow+1;
+				        } else if (Item1Type == 'R') {
+				        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+				        	SavePointAnzeige = true;
+				        	Player.suitofarmor = Player.suitofarmor+1;
+				        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+				        	Player.PlayerPower = Player.PlayerPower +5;
+				        	
 				        } else if (Item1Type == 'J') {
 				        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
 				        	SavePoint = true;
@@ -363,6 +372,17 @@ public class LevelControl {
 			        	SavePointAnzeige = true;
 			        	Player.Arrow = Player.Arrow+1;
 			        	
+			        } else if (Item2Type == 'R') {
+			        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.suitofarmor = Player.suitofarmor+1;			        	
+			        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+			        	Player.PlayerPower = Player.PlayerPower +5;
+			        	
+			        	
+			        	
+			        	
+			        	
 			        } else if (Item2Type == 'J') {
 			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
 			        	SavePoint = true;
@@ -420,6 +440,14 @@ public class LevelControl {
 			        	SavePointAnzeige = true;
 			        	Player.Arrow = Player.Arrow+1;
 			        	
+			        } else if (Item3Type == 'R') {
+			        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.suitofarmor = Player.suitofarmor+1;
+			        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+			        	Player.PlayerPower = Player.PlayerPower +5;
+			        	
+			        	
 			        } else if (Item3Type == 'J') {
 			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");
 			        	SavePoint = true;
@@ -475,6 +503,13 @@ public class LevelControl {
 			        	BuildLevel.lblCheckpoint.setText("Pfeil aufgesammelt...");
 			        	SavePointAnzeige = true;
 			        	Player.Arrow = Player.Arrow+1;
+			        	
+			        } else if (Item4Type == 'R') {
+			        	BuildLevel.lblCheckpoint.setText("Du hast eine Rüstung gefunden...");
+			        	SavePointAnzeige = true;
+			        	Player.suitofarmor = Player.suitofarmor+1;
+			        	BuildLevel.lblRuestungAnzeige.setVisible(true);
+			        	Player.PlayerPower = Player.PlayerPower +5;
 			        	
 			        } else if (Item4Type == 'J') {
 			        	BuildLevel.lblCheckpoint.setText("Check Point gespeichert...");

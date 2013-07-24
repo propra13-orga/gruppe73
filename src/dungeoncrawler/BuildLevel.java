@@ -64,6 +64,7 @@ public class BuildLevel extends JFrame {
 	public static javax.swing.JLabel lblEnemyFire;
 	public static javax.swing.JLabel lblPergament;
 	public static javax.swing.JLabel lblCurrentLevel;
+	public static javax.swing.JLabel lblRuestungAnzeige;
 	
 	// PLAYER-FIRE:
 	// ############
@@ -427,6 +428,7 @@ public class BuildLevel extends JFrame {
     public static int EnemyStdPosY = 120;
     public static int EnemyFirePos = 195;
     public static int EnemyStdFirePos = 195;
+	
     
 
     // MAIN-METHODE:
@@ -933,21 +935,28 @@ public class BuildLevel extends JFrame {
 		lblPunkteanzeige.setText(Player.CurrentPoints+" ");
 		lblLebensanzeige.setText(Player.Lives+" ");
 		
-	}
 	
+	
+
+	
+	}
 	public static void checkPower(String args[]) {
 		
 		if (Player.PlayerPower == 4) {
 			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/green.PNG")));
+			lblRuestungAnzeige.setVisible(false);
 			Content.repaint();
 		} else if (Player.PlayerPower == 3) {
 			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/yellow1.PNG")));
+			lblRuestungAnzeige.setVisible(false);
 			Content.repaint();
 		} else if (Player.PlayerPower == 2) {
 			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/yellow2.PNG")));
+			lblRuestungAnzeige.setVisible(false);
 			Content.repaint();
 		} else if (Player.PlayerPower == 1) {
 			lblPowerAnzeige.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/red.PNG")));
+			lblRuestungAnzeige.setVisible(false);
 			Content.repaint();
 		} else if (Player.PlayerPower <= 0) {
 			if (Player.Lives == 1) {
@@ -1242,6 +1251,13 @@ public class BuildLevel extends JFrame {
 		lblRuestung.setIcon(new ImageIcon(BuildLevel.class.getResource("/dungeoncrawler/ruestung.PNG")));
 		lblRuestung.setVisible(true);
 		Content.add(lblRuestung);
+		
+		// Label für die Anzeige der Rüstung im Inventar
+		lblRuestungAnzeige  = new JLabel("");
+		lblRuestungAnzeige.setIcon(new ImageIcon(Shop.class.getResource("/dungeoncrawler/ruestung.PNG")));
+		lblRuestungAnzeige.setBounds(265, 265, 50, 15);	
+		lblRuestungAnzeige.setVisible(false);
+		Content.add(lblRuestungAnzeige);
 		
 		lblMedikit = new JLabel ("0 ");
 		lblMedikit.setBounds(220 ,295, 50, 15);

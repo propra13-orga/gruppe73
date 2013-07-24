@@ -83,7 +83,7 @@ public class Shop extends JFrame {
 		setTitle("Dungeoncrawler - SHOP");
 		
 		JLabel lblShop = new JLabel("Shop");
-		lblShop.setFont(new Font("Stencil", Font.PLAIN, 28));
+		lblShop.setFont(new Font("Arial",Font.BOLD, 28));
 		lblShop.setBounds(173, 11, 98, 34);
 		add(lblShop);
 		
@@ -97,12 +97,12 @@ public class Shop extends JFrame {
 		add(BildMedikit);
 		
 		JLabel lblHealth = new JLabel("Medikit");
-		lblHealth.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblHealth.setFont(new Font("Arial",Font.BOLD, 13));
 		lblHealth.setBounds(70, 115, 70, 30);		//Platz Bild - Schrift - 30
 		add(lblHealth);
 		
 		lblAnzahlMedikit = new JLabel(String.valueOf(WKMedikit));
-		lblAnzahlMedikit.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblAnzahlMedikit.setFont(new Font("Arial",Font.BOLD, 13));
 		lblAnzahlMedikit.setBounds(150, 122, 15, 15);
 		add(lblAnzahlMedikit);
 		
@@ -142,7 +142,7 @@ public class Shop extends JFrame {
 		add(MinusMedikit);
 		
 		JLabel PreisMedikit = new JLabel("350");
-		PreisMedikit.setFont(new Font("Stencil", Font.PLAIN, 13));
+		PreisMedikit.setFont(new Font("Arial",Font.BOLD, 13));
 		PreisMedikit.setBounds(250, 122, 25, 15);
 		add(PreisMedikit);
 		
@@ -162,12 +162,12 @@ public class Shop extends JFrame {
 		add(BildRüstung);
 		
 		JLabel lblRuestung = new JLabel("R\u00FCstung");
-		lblRuestung.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblRuestung.setFont(new Font("Arial",Font.BOLD, 13));
 		lblRuestung.setBounds(70, 153, 70, 15);
 		add(lblRuestung);
 		
 		lblAnzahlRuestung = new JLabel(String.valueOf(WKRuestung));
-		lblAnzahlRuestung.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblAnzahlRuestung.setFont(new Font("Arial",Font.BOLD, 13));
 		lblAnzahlRuestung.setBounds(150, 153, 15, 15);
 		add(lblAnzahlRuestung);
 		
@@ -211,7 +211,7 @@ public class Shop extends JFrame {
 		
 		
 		JLabel PreisRuestung = new JLabel("600");
-		PreisRuestung.setFont(new Font("Stencil", Font.PLAIN, 13));
+		PreisRuestung.setFont(new Font("Arial",Font.BOLD, 13));
 		PreisRuestung.setBounds(250, 150, 25, 15);
 		add(PreisRuestung);
 		
@@ -233,12 +233,12 @@ public class Shop extends JFrame {
 		add(BildMana);
 		
 		JLabel lblMana = new JLabel("Mana");
-		lblMana.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblMana.setFont(new Font("Arial",Font.BOLD, 13));
 		lblMana.setBounds(70, 185, 54, 15);
 		add(lblMana);
 		
 		lblAnzahlMana = new JLabel(String.valueOf(WKMana));
-		lblAnzahlMana.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblAnzahlMana.setFont(new Font("Arial",Font.BOLD, 13));
 		lblAnzahlMana.setBounds(150, 185, 15, 15);
 		add(lblAnzahlMana);
 		
@@ -278,7 +278,7 @@ public class Shop extends JFrame {
 		add(MinusMana);
 					
 	    JLabel PreisMana = new JLabel("100");
-		PreisMana.setFont(new Font("Stencil", Font.PLAIN, 13));
+		PreisMana.setFont(new Font("Arial",Font.BOLD, 13));
 		PreisMana.setBounds(250, 183, 25, 15);
 		add(PreisMana);
 		
@@ -298,12 +298,12 @@ public class Shop extends JFrame {
 		add(BildSchwert);
 		
 		JLabel lblSchwert = new JLabel("Schwert");
-		lblSchwert.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblSchwert.setFont(new Font("Arial",Font.BOLD, 13));
 		lblSchwert.setBounds(70, 215, 65, 15);
 		add(lblSchwert);
 		
 		lblAnzahlSchwert = new JLabel(String.valueOf(WKSchwert));
-		lblAnzahlSchwert.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblAnzahlSchwert.setFont(new Font("Arial",Font.BOLD, 13));
 		lblAnzahlSchwert.setBounds(150, 215, 15, 15);
 		add(lblAnzahlSchwert);
 		
@@ -343,7 +343,7 @@ public class Shop extends JFrame {
 		add(MinusSchwert);
 		
 		JLabel PreisSchwert = new JLabel("200");
-		PreisSchwert.setFont(new Font("Stencil", Font.PLAIN, 13));
+		PreisSchwert.setFont(new Font("Arial",Font.BOLD, 13));
 		PreisSchwert.setBounds(250, 215, 25, 15);
 		add(PreisSchwert);
 						
@@ -363,12 +363,12 @@ public class Shop extends JFrame {
 		add(BildBogen);
 		
 		JLabel lblBogen = new JLabel("Bogen");
-		lblBogen.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblBogen.setFont(new Font("Arial",Font.BOLD, 13));
 		lblBogen.setBounds(70, 245, 54, 15);
 		add(lblBogen);
 		
 		lblAnzahlBogen = new JLabel(String.valueOf(WKBogen));
-		lblAnzahlBogen.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblAnzahlBogen.setFont(new Font("Arial",Font.BOLD, 13));
 		lblAnzahlBogen.setBounds(150, 245, 15, 15);
 		add(lblAnzahlBogen);
 		
@@ -407,7 +407,7 @@ public class Shop extends JFrame {
 		add(MinusBogen);
 		
 		JLabel PreisBogen = new JLabel("200");
-		PreisBogen.setFont(new Font("Stencil", Font.PLAIN, 13));
+		PreisBogen.setFont(new Font("Arial",Font.BOLD, 13));
 		PreisBogen.setBounds(250, 245, 25, 15);
 		add(PreisBogen);
 		
@@ -426,12 +426,12 @@ public class Shop extends JFrame {
 		add(BildPfeil);
 		
 		JLabel lblPfeil = new JLabel("Pfeil");
-		lblPfeil.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblPfeil.setFont(new Font("Arial",Font.BOLD, 13));
 		lblPfeil.setBounds(70, 280, 54, 15);
 		add(lblPfeil);
 		
 		lblAnzahlPfeil = new JLabel(String.valueOf(WKPfeil));
-		lblAnzahlPfeil.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblAnzahlPfeil.setFont(new Font("Arial",Font.BOLD, 13));
 		lblAnzahlPfeil.setBounds(150, 280, 15, 15);
 		add(lblAnzahlPfeil);
 		
@@ -470,7 +470,7 @@ public class Shop extends JFrame {
 		add(MinusPfeil);
 		
 		JLabel PreisPfeil = new JLabel("100");
-		PreisPfeil.setFont(new Font("Stencil", Font.PLAIN, 13));
+		PreisPfeil.setFont(new Font("Arial",Font.BOLD, 13));
 		PreisPfeil.setBounds(250, 282, 25, 15);
 		add(PreisPfeil);
 		
@@ -509,7 +509,7 @@ public class Shop extends JFrame {
 					
 			        LevelControl.Shop_opened = false;
 			        
-			        
+			        BuildLevel.refreshInventar(null);
 			        
 	        		dispose();
 				}
@@ -550,12 +550,12 @@ public class Shop extends JFrame {
 		
 		
 		JLabel lblAktuelle = new JLabel("Aktuelle");
-		lblAktuelle.setFont(new Font("Stencil", Font.PLAIN, 11));
+		lblAktuelle.setFont(new Font("Arial",Font.BOLD, 11));
 		lblAktuelle.setBounds(310, 110, 67, 15);
 		add(lblAktuelle);
 		
 		JLabel lblPunktzahl = new JLabel("Punktzahl:");
-		lblPunktzahl.setFont(new Font("Stencil", Font.PLAIN, 11));
+		lblPunktzahl.setFont(new Font("Arial",Font.BOLD, 11));
 		lblPunktzahl.setBounds(310, 120, 67, 15);
 		add(lblPunktzahl);
 		
@@ -565,12 +565,12 @@ public class Shop extends JFrame {
 		add(lblKontostand);
 		
 		JLabel lblPunktzahl_1 = new JLabel("Punktzahl");
-		lblPunktzahl_1.setFont(new Font("Stencil", Font.PLAIN, 11));
+		lblPunktzahl_1.setFont(new Font("Arial",Font.BOLD, 11));
 		lblPunktzahl_1.setBounds(310, 170, 67, 15);
 		add(lblPunktzahl_1);
 		
 		JLabel lblNachKauf = new JLabel("nach Kauf:");
-		lblNachKauf.setFont(new Font("Stencil", Font.PLAIN, 11));
+		lblNachKauf.setFont(new Font("Arial",Font.BOLD, 11));
 		lblNachKauf.setBounds(310, 180, 67, 15);
 		add(lblNachKauf);
 		
@@ -589,7 +589,7 @@ public class Shop extends JFrame {
 		
 		lblMedikit = new JLabel();
 		lblMedikit.setText(String.valueOf(Player.Medikit));
-		lblMedikit.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblMedikit.setFont(new Font("Arial",Font.BOLD, 13));
 		lblMedikit.setBounds(85, 40, 25, 15);					//Anzahl immer um +25 auf der x-Achse verschoben
 		add(lblMedikit);
 		
@@ -600,7 +600,7 @@ public class Shop extends JFrame {
 		
 		lblRuestung= new JLabel();
 		lblRuestung.setText(String.valueOf(Player.suitofarmor));
-		lblRuestung.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblRuestung.setFont(new Font("Arial",Font.BOLD, 13));
 		lblRuestung.setBounds(125, 40,215, 15);
 		add(lblRuestung);	
 		
@@ -611,7 +611,7 @@ public class Shop extends JFrame {
 		
 		lblMana = new JLabel();
 		lblMana.setText(String.valueOf(Player.Manadrinks));
-		lblMana.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblMana.setFont(new Font("Arial",Font.BOLD, 13));
 		lblMana.setBounds(165, 40, 25, 15);
 		add(lblMana);
 		
@@ -623,7 +623,7 @@ public class Shop extends JFrame {
 		
 		lblSchwert = new JLabel();
 		lblSchwert.setText(String.valueOf(Player.PlayerSword));
-		lblSchwert.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblSchwert.setFont(new Font("Arial",Font.BOLD, 13));
 		lblSchwert.setBounds(205, 40, 25, 15);
 		add(lblSchwert);
 		
@@ -634,7 +634,7 @@ public class Shop extends JFrame {
 		
 		lblBogen= new JLabel();
 		lblBogen.setText(String.valueOf(Player.Bow));
-		lblBogen.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblBogen.setFont(new Font("Arial",Font.BOLD, 13));
 		lblBogen.setBounds(245, 40, 25, 15);
 		add(lblBogen);
 		
@@ -645,7 +645,7 @@ public class Shop extends JFrame {
 		
 		lblPfeil = new JLabel();
 		lblPfeil.setText(String.valueOf(Player.Arrow));
-		lblPfeil.setFont(new Font("Stencil", Font.PLAIN, 13));
+		lblPfeil.setFont(new Font("Arial",Font.BOLD, 13));
 		lblPfeil.setBounds(285, 40, 25, 15);
 		add(lblPfeil);
 		
