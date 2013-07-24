@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import dungeoncrawler.LoadLevel;
-import dungeoncrawler.Treasure;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

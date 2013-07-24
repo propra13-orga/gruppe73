@@ -43,6 +43,15 @@ public abstract class MovementListener extends Thread implements java.awt.event.
 		        if (e.getKeyCode() == KeyEvent.VK_C) {
 		        	Player.WaffeWechseln(null);
 		        }
+		        if (e.getKeyCode() == KeyEvent.VK_M){ 
+		        	if (Player.Medikit > 0){
+		        		Player.PlayerPower = Player.PlayerPower +4;
+		        		Player.Medikit = Player.Medikit -1;
+		        		BuildLevel.refreshInventar(null);
+		        	}
+		        	
+		        }
+		        
 		        if (e.getKeyCode() == KeyEvent.VK_2) {
 		        	BuildLevel.Current_Level = BuildLevel.Current_Level+1;
 		        	BuildLevel.change_level_phase = true;
